@@ -4,8 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Zero-Key Auth](https://img.shields.io/badge/Auth-Zero--Key%20%2F%20Zero--Password-success.svg)](#)
-[![Multi-Agent Skill](https://img.shields.io/badge/Skill-Multi--Agent%20Ready-purple.svg)](#)
-[![Deployment](https://img.shields.io/badge/Deploy-Vercel%20%7C%20Render-black.svg)](#)
+[![Multi-Agent Skill](https://img.shields.io/badge/Skill-Multi--Agent%20Ready-purple.svg)](SKILL.md)
+[![Agents Guide](https://img.shields.io/badge/AI%20Agents-AGENTS.md-green.svg)](AGENTS.md)
+[![Deployment](https://img.shields.io/badge/Deploy-Vercel%20Production-black.svg)](https://arkaios-knowledge-library.vercel.app)
 
 ---
 
@@ -79,8 +80,9 @@ Este repositorio está pre-configurado para desplegarse instantáneamente en **V
 ---
 
 ## 🤖 Integración Multi-Agente (Claude, Antigravity, AURA)
-Consulta [`SKILL.md`](SKILL.md) para la especificación formal del protocolo de habilidades para agentes de IA.
-Cualquier LLM u orquestador puede consumir directamente `library.json` como base de conocimiento vectorial o tabular.
+* **Manual Operativo para Agentes:** Consulta [`AGENTS.md`](AGENTS.md) para el protocolo de exploración cognitiva, herramientas CLI y directivas de asimilación.
+* **Manifiesto de Habilidad:** Consulta [`SKILL.md`](SKILL.md) para la especificación formal del protocolo de habilidades para orquestadores multi-agente.
+* **Base de Datos Semántica:** Cualquier LLM u orquestador puede consumir directamente `library.json` como base de conocimiento vectorial o tabular.
 
 ---
 
