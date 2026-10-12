@@ -1,0 +1,25 @@
+{
+  "name": "arkaios-knowledge-library",
+  "version": "1.0.0",
+  "description": "Sovereign Multimedia Knowledge Library & Cognitive Agent Web Navigator for ARKAIOS, Claude & Multi-Agent Ecosystems",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "explore": "node agent_navigator.js explore",
+    "inspect": "node agent_navigator.js inspect",
+    "learn": "node agent_navigator.js learn"
+  },
+  "keywords": [
+    "arkaios",
+    "ai-agents",
+    "cognitive-museum",
+    "agent-navigator",
+    "multi-agent",
+    "mcp",
+    "model-context-protocol",
+    "sovereign-ai"
+  ],
+  "author": "ARKAIOS Autonomous System (Prometeo Arkaios)",
+  "license": "MIT"
+}

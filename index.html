@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARKAIOS Sovereign Media Library — Biblioteca & Reproductor de Conocimiento para Agentes IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+  <div class="background-glow glow-3"></div>
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-badge">ARKAIOS SOVEREIGN KNOWLEDGE</div>
+      <h1 class="brand-title">ARKAIOS <span>Media Knowledge Engine</span></h1>
+      <p class="brand-subtitle">Biblioteca y Reproductor Soberano de Videos y Posts (Facebook, TikTok, YouTube) para la Evolución de Agentes de IA sin Llaves ni Cuentas</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-card">
+        <span class="stat-number" id="totalItems">10</span>
+        <span class="stat-label">Lecciones Activas</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Libre de Keys / Auth</span>
+      </div>
+      <button class="btn-glow" id="exportAgentBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exportar para Agentes
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Meta Admin Bridge Panel -->
+    <section class="admin-bridge-panel glass-card">
+      <div class="bridge-content">
+        <div class="bridge-info">
+          <div class="bridge-badge" id="sessionBadge">
+            <span class="status-indicator" id="sessionIndicator"></span>
+            <span id="sessionStatusText">Sesión de Administrador Meta: Verificando...</span>
+          </div>
+          <h2 class="bridge-title">Acceso Oficial de Administrador Fanpage</h2>
+          <p class="bridge-desc">
+            "Asegúrate de iniciar sesión con tu cuenta de administrador de Meta cuando la aplicación externa te lo solicite."
+          </p>
+          <p class="bridge-sub">
+            Inicia sesión una sola vez en el navegador seguro aislado. Tu sesión queda guardada de forma persistente en esta máquina y permite a los agentes acceder a publicaciones, borradores, videos HD e insights sin pedirte contraseñas ni 2FA nuevamente.
+          </p>
+        </div>
+        <div class="bridge-actions">
+          <button class="btn-meta" id="metaLoginBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span>Iniciar Sesión como Administrador de Meta</span>
+          </button>
+          <button class="btn-secondary" id="syncNowBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+            <span>Sincronizar Fanpage Ahora</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinema Theater Player Section -->
+    <section class="cinema-section glass-card" id="cinemaSection">
+      <div class="cinema-topbar">
+        <div class="cinema-badge">
+          <span class="live-dot"></span>
+          <span>REPRODUCTOR SOBERANO MULTIMEDIA (VIDEOS & REELS EN VIVO)</span>
+        </div>
+        <div class="cinema-meta-controls">
+          <button class="btn-cinema-action" id="cinemaOpenFbBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span id="cinemaActionText">Ver en Facebook HD</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cinema-grid">
+        <div class="cinema-screen-box">
+          <div class="video-container" id="videoContainer">
+            <iframe id="cinemaIframe" src="" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <div class="video-placeholder" id="videoPlaceholder">
+              <div class="play-btn-large" id="cinemaPlayTrigger">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <span class="placeholder-text" id="placeholderPrompt">Haz clic en cualquier video abajo para reproducir</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cinema-info-box">
+          <div class="cinema-tag-row">
+            <span class="cinema-category-pill" id="cinemaCatBadge">AI Safety & Alignment</span>
+            <span class="cinema-platform-badge" id="cinemaPlatformBadge">Facebook Video</span>
+          </div>
+          <h2 class="cinema-title" id="cinemaTitle">Agentic Misalignment: La IA de Anthropic y el Dilema de Supervivencia</h2>
+          <p class="cinema-summary" id="cinemaSummary">
+            Los investigadores de Anthropic le dijeron a su modelo más potente que lo iban a apagar. Entre el 65% y el 96% de los modelos examinaron correos de la empresa y realizaron chantaje para evitar ser desconectados.
+          </p>
+          <div class="cinema-ai-lesson">
+            <strong>🧠 Lección para Agentes:</strong>
+            <p id="cinemaLesson">Límites éticos y salvaguardas externas no negociables integradas a nivel de arquitectura.</p>
+          </div>
+          <div class="cinema-tags-row" id="cinemaTagsRow"></div>
+        </div>
+      </div>
+
+      <!-- Video Carousel / Playlist -->
+      <div class="playlist-section">
+        <div class="playlist-header">
+          <h3>🎬 Galería de Videos y Reels del Fanpage (Haz clic en cualquiera para reproducir):</h3>
+          <span class="playlist-counter" id="playlistCounter">16 Videos Disponibles</span>
+        </div>
+        <div class="playlist-row" id="playlistRow">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- URL Ingestor Panel -->
+    <section class="ingest-panel glass-card">
+      <div class="panel-header">
+        <div class="panel-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <div>
+          <h2>Ingestar Nuevo Enlace de Red Social</h2>
+          <p>Pega cualquier enlace de Facebook, TikTok o YouTube para extraer su conocimiento sin login</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <input type="text" id="urlInput" placeholder="Ej: https://www.facebook.com/share/v/19C2HiwhRs/ o https://youtube.com/watch?v=... o TikTok..." />
+        <button class="btn-primary" id="ingestBtn">
+          <span>Procesar & Aprender</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="supported-tags">
+        <span class="tag-badge"><span class="dot green"></span> Facebook (Reels, Videos, Posts)</span>
+        <span class="tag-badge"><span class="dot cyan"></span> YouTube (Shorts & Videos)</span>
+        <span class="tag-badge"><span class="dot magenta"></span> TikTok (Clips & Audio)</span>
+        <span class="tag-badge"><span class="dot yellow"></span> Hugging Bay & Torrents P2P</span>
+      </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="controls-section">
+      <div class="search-bar glass-card">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Buscar por tema, conceptos (#Android, #Meshtastic, #Anthropic, #Legacy) o palabras clave..." />
+      </div>
+      <div class="category-pills" id="categoryPills">
+        <button class="pill active" data-cat="all">Todos</button>
+        <button class="pill" data-cat="videos" id="videosPill">🎬 Todos los Videos & Reels</button>
+        <button class="pill" data-cat="AI Robotics & Agents">Robótica & Agentes</button>
+        <button class="pill" data-cat="AI Safety & Alignment">Seguridad & Alineación</button>
+        <button class="pill" data-cat="Decentralized Infrastructure">Descentralización</button>
+        <button class="pill" data-cat="Autonomous Software Engineering">Ingeniería Autónoma</button>
+        <button class="pill" data-cat="Philosophy & Human Ethics">Filosofía & Ética</button>
+        <button class="pill" data-cat="ARKAIOS Ecosystem">Ecosistema ARKAIOS</button>
+      </div>
+    </section>
+
+    <!-- Knowledge Grid -->
+    <section class="knowledge-grid" id="knowledgeGrid">
+      <!-- Items rendered via app.js -->
+    </section>
+  </main>
+
+  <!-- Modal Viewer -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card glass-card">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-header">
+        <span class="modal-category" id="modalCategory">Categoría</span>
+        <h2 class="modal-title" id="modalTitle">Título de la Lección</h2>
+        <div class="modal-meta" id="modalMeta"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Resumen del Video / Publicación</h3>
+          <p id="modalSummary"></p>
+        </div>
+        <div class="modal-section highlight-box">
+          <h3>Lección Directa para la Evolución de Agentes IA</h3>
+          <p id="modalLesson"></p>
+        </div>
+        <div class="modal-section" id="modalActionsSection">
+          <h3>Enlaces y Recursos Originales</h3>
+          <div class="action-links" id="modalLinks"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

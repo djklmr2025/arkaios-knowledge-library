@@ -1,0 +1,1264 @@
+// ARKAIOS Sovereign Media Knowledge Library
+// Inlined initial corpus so file:// and local servers run without CORS block
+
+const defaultKnowledge = [
+  {
+    "id": "kb-top-01-artcraft",
+    "title": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes)",
+    "category": "Autonomous Software Engineering",
+    "platform": "Facebook / Arkaios Oficial & GitHub",
+    "original_url": "https://www.facebook.com/share/p/19pf44tsSp/",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul",
+    "github_repo": "https://github.com/storytold",
+    "external_resource": "https://github.com/storytold",
+    "website": "https://getartcraft.com",
+    "summary": "Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source para reemplazar a Photoshop (PhotoCraft), Illustrator (VectorCraft), Premiere (FilmCraft), After Effects (EffectCraft), InDesign (DesignCraft), Lightroom (LightCraft) y Acrobat (PDFCraft). Construido en Rust nativo y diseñado con interfaces CLI y servidores MCP (Model Context Protocol) para control autónomo por agentes de IA.",
+    "agent_lesson": "HABILIDAD DETECTADA: Los agentes de IA ahora cuentan con una suite creativa open source construida en Rust accesible mediante el Model Context Protocol (MCP) y canales JSON. Un agente puede controlar PhotoCraft o FilmCraft sin interfaces gráficas propietarias para editar imágenes, procesar capas PSD, generar videos y manipular PDFs de forma nativa y soberana.",
+    "technologies": [
+      "Rust",
+      "Claude AI (Opus 5.5)",
+      "Model Context Protocol (MCP)",
+      "Clean-Room Reverse Engineering",
+      "Open Source Creative Suite"
+    ],
+    "skills_unlocked": [
+      "Control de Edición Gráfica vía MCP",
+      "Manipulación de Capas PSD en Rust",
+      "Automatización de Edición de Video (FilmCraft)",
+      "Generación Vectorial y de PDFs"
+    ],
+    "tags": [
+      "#ArtCraft",
+      "#Rust",
+      "#OpenSource",
+      "#AdobeAlternative",
+      "#MCP",
+      "#AgentSkills",
+      "#Photoshop"
+    ],
+    "synced_at": "2026-10-12T15:35:52.430Z"
+  },
+  {
+    "id": "kb-vid-4566-54",
+    "title": "ARKAIOS Video Transmisión #8987",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1137218588738987).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1137218588738987.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.566Z"
+  },
+  {
+    "id": "kb-vid-4565-53",
+    "title": "ARKAIOS Video Transmisión #0216",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1373446108320216).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1373446108320216.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.565Z"
+  },
+  {
+    "id": "kb-vid-4562-52",
+    "title": "ARKAIOS Video Transmisión #4597",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1370465808334597).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1370465808334597.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.562Z"
+  },
+  {
+    "id": "kb-vid-4553-51",
+    "title": "ARKAIOS Video Transmisión #6074",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1103533135906074).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1103533135906074.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.553Z"
+  },
+  {
+    "id": "kb-vid-4507-50",
+    "title": "ARKAIOS Video Transmisión #1566",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1455671143091566).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1455671143091566.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.507Z"
+  },
+  {
+    "id": "kb-vid-4503-49",
+    "title": "ARKAIOS Video Transmisión #0880",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1927522464610880).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1927522464610880.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.503Z"
+  },
+  {
+    "id": "kb-vid-4502-48",
+    "title": "ARKAIOS Video Transmisión #6623",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1109967578356623).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1109967578356623.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.502Z"
+  },
+  {
+    "id": "kb-vid-4502-47",
+    "title": "ARKAIOS Video Transmisión #5939",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 2601008347015939).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #2601008347015939.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.502Z"
+  },
+  {
+    "id": "kb-vid-4501-46",
+    "title": "ARKAIOS Video Transmisión #1345",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1776355980161345).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1776355980161345.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.501Z"
+  },
+  {
+    "id": "kb-vid-4496-45",
+    "title": "ARKAIOS Video Transmisión #2846",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook Video / Arkaios",
+    "original_url": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
+    "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 572582559252846).",
+    "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #572582559252846.",
+    "tags": [
+      "#Arkaios",
+      "#VideoHD",
+      "#Oficial"
+    ],
+    "synced_at": "2026-10-12T14:58:34.496Z"
+  },
+  {
+    "id": "kb-sync-5752-77",
+    "title": "No entienden ni entenderan que el corazon humano real no nesesita dinero sino al",
+    "category": "Philosophy & Human Ethics",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "No entienden ni entenderan que el corazon humano real no nesesita dinero sino al ser humano ( a su projimo realmente)",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: No entienden ni entenderan que el corazon humano real no nesesita dinero sino al",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.752Z"
+  },
+  {
+    "id": "kb-sync-5751-75",
+    "title": "En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un",
+    "category": "Systems & Legacy Infrastructure",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un dólar pegados al traje y una instrucción escrita sobre el pecho: “Toma lo que necesites”.\n\nLa reacción de los desconocidos fue muy distinta.\n\nUn hombre vestido con traje y maletín retiró varios billetes. Cuando Persin le preguntó si realmente los necesitaba, respondió que no, pero que eran gratis.\n\nMás tarde se acercó una mujer que llevaba un bolso Louis Vuitton. Tomó 18 dólares y comentó que tenía una cita para arreglarse las uñas.\n\nDespués apareció un hombre sin hogar acompañado de su perro.\n\nPersin le indicó que podía tomar el dinero que necesitara. El hombre observó los billetes y retiró únicamente dos.\n\nDijo que solo necesitaba algo para comer.\n\nPersin le ofreció la posibilidad de tomar más, pero él prefirió dejar el resto. Su respuesta fue sencilla: otras personas también podían necesitarlo.\n\nEntonces Persin cambió de papel.\n\nEn lugar de continuar esperando a que alguien tomara dinero de su traje, sacó 60 dólares y se los entregó al hombre para ayudarlo con comida durante los días siguientes.\n\nEl video fue visto millones de veces porque la escena rompía una expectativa fácil de asumir.\n\nEl hombre que menos tenía fue quien menos tomó.\n\nFrente a decenas de billetes disponibles, eligió dos y dejó los demás para personas que ni siquiera conocía.",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.751Z"
+  },
+  {
+    "id": "kb-sync-5750-73",
+    "title": "les dejamos nuestro acortador donde no hay basura interna: ",
+    "category": "ARKAIOS Ecosystem",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/p/1DMZXekiVx",
+    "external_resource": "https://www.facebook.com/share/p/1DMZXekiVx",
+    "summary": "les dejamos nuestro acortador donde no hay basura interna: \nhttps://arkaios.qzz.io/E0ec-S6\nhttps://www.facebook.com/share/p/1DMZXekiVx/\n\nTu como nosotros usa nuestro acortador!!!\n\"https://arkaios.qzz.io/\"",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: les dejamos nuestro acortador donde no hay basura interna: ",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.750Z"
+  },
+  {
+    "id": "kb-sync-5749-70",
+    "title": "https://www.facebook.com/share/r/19cff4cgEd/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/r/19cff4cgEd",
+    "external_resource": "https://www.facebook.com/share/r/19cff4cgEd",
+    "summary": "https://www.facebook.com/share/r/19cff4cgEd/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/19cff4cgEd/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.749Z"
+  },
+  {
+    "id": "kb-sync-5748-68",
+    "title": "📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. ",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. \n\n🕳️🐇Entrad conmigo en este rabbit-hole preparacionista que nos lleva directos a Meshtastic, un sistema de mensajería descentralizado y libre. \n\nAhora tu crush podrá dejarte en visto hasta en caso de colapso mundial 🙌🏻",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: 📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. ",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.748Z"
+  },
+  {
+    "id": "kb-sync-5744-65",
+    "title": "https://www.facebook.com/share/r/1K8sP64cdQ/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/r/1K8sP64cdQ",
+    "external_resource": "https://www.facebook.com/share/r/1K8sP64cdQ",
+    "summary": "https://www.facebook.com/share/r/1K8sP64cdQ/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1K8sP64cdQ/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.745Z"
+  },
+  {
+    "id": "kb-sync-5740-63",
+    "title": "La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es tener el control constante de las decisiones que afectan tu bolsillo y tu país. 🇨🇭\n\nSuiza hizo de la descentralización y la democracia directa su mayor fortaleza. Cuando el ciudadano tiene poder de veto sobre las leyes, los parlamentarios mantienen sus empleos en el sector privado y los impuestos se deciden a nivel local, la política deja de ser un negocio para convertirse en un servicio real.\n\n¿Crees que los políticos de tu país permitirían que los vecinos voten antes de subir un impuesto? Te leo 👇\n\nSigue a Amaxrd \n\n#Suiza #Democracia #Economia #DatosCuriosos #EducacionFinanciera",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es",
+    "tags": [
+      "#Suiza",
+      "#Democracia",
+      "#Economia",
+      "#DatosCuriosos"
+    ],
+    "synced_at": "2026-10-12T13:28:15.740Z"
+  },
+  {
+    "id": "kb-sync-5739-59",
+    "title": "https://www.facebook.com/share/p/1Pn4CCqkCX/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/p/1Pn4CCqkCX",
+    "external_resource": "https://www.facebook.com/share/p/1Pn4CCqkCX",
+    "summary": "https://www.facebook.com/share/p/1Pn4CCqkCX/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/p/1Pn4CCqkCX/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.739Z"
+  },
+  {
+    "id": "kb-sync-5738-57",
+    "title": "Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener na",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener nada 👽",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener na",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.738Z"
+  },
+  {
+    "id": "kb-sync-5737-56",
+    "title": "Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no ten",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no tener nada \\ud83d\\udc7d\",\"delight_ranges\":[],\"image_ranges\":[],\"inline_style_ranges\":[],\"aggregated_ranges\":[],\"ranges\":[],\"color_ranges\":[]},\"text_format_metadata\":{\"avatar_story_text_format_id\":null,\"fixed_aspect_ratio\":null,\"should_add_text_shadow_and_stroke\":false,\"is_text_always_vertical_centered\":false,\"background_color\":\"FF1C1C1C\",\"background_gradient_color\":null,\"background_gradient_direction\":null,\"background_image\":{\"uri\":\"https:\\/\\/scontent.fmex5-1.fna.fbcdn.net\\/v\\/t39.10873-6\\/387090682_334764102377501_1517517578776517369_n.jpg?stp=dst-jpg_tt6&cstp=mx562x390&ctp=p235x350&_nc_cat=1&ccb=1-7&_nc_sid=4bb800&_nc_ohc=NL_I_y01viwQ7kNvwEp3LM_&_nc_oc=AdpISm64t_Hx0nyDETRJUg3uuMbikUD6-B6GMC_INRuwn_s9baNOi42G54UbSOw7hVRV5RFvn1ZlWRnGfgyqJQH4&_nc_zt=14&_nc_ht=scontent.fmex5-1.fna&_nc_gid=ve8Cw-D31NdvfouJiqfe1w&_nc_ss=7820f&oh=00_AQNCJn9B4f0iP5PoKWANj62bOl0I4cyLEWQMsyrsJb_12g&oe=6AD2AE36",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no ten",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.737Z"
+  },
+  {
+    "id": "kb-sync-5735-54",
+    "title": "Ahora ARKAIOS Pay está en Facto 🚀",
+    "category": "ARKAIOS Ecosystem",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Ahora ARKAIOS Pay está en Facto 🚀",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Ahora ARKAIOS Pay está en Facto 🚀",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.735Z"
+  },
+  {
+    "id": "kb-sync-5733-52",
+    "title": "https://www.facebook.com/share/r/1H3uq5KC6B/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/r/1H3uq5KC6B",
+    "external_resource": "https://www.facebook.com/share/r/1H3uq5KC6B",
+    "summary": "https://www.facebook.com/share/r/1H3uq5KC6B/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1H3uq5KC6B/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.733Z"
+  },
+  {
+    "id": "kb-sync-5732-49",
+    "title": "https://www.facebook.com/share/p/1MV4TcrVEy/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/p/1MV4TcrVEy",
+    "external_resource": "https://www.facebook.com/share/p/1MV4TcrVEy",
+    "summary": "https://www.facebook.com/share/p/1MV4TcrVEy/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/p/1MV4TcrVEy/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.732Z"
+  },
+  {
+    "id": "kb-sync-5731-47",
+    "title": "¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.\n\nPerfecto para crear automatizaciones o probar apps.\n\n✓ Para Claude Code, Codex, Cursor...\n✓ Acierta el +99% de las tareas\n✓ Conectas el móvil y listo\n\n→ https://github.com/google/artemis",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: ¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.731Z"
+  },
+  {
+    "id": "kb-sync-5730-45",
+    "title": "Agente Builder 24/7 Concocelo!!!:",
+    "category": "ARKAIOS Ecosystem",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Agente Builder 24/7 Concocelo!!!:\nhttps://arkaios-revenue-engine.vercel.app/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Agente Builder 24/7 Concocelo!!!:",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.730Z"
+  },
+  {
+    "id": "kb-sync-5729-43",
+    "title": "votanos en:",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "votanos en:\nhttps://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: votanos en:",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.729Z"
+  },
+  {
+    "id": "kb-sync-5723-40",
+    "title": "https://www.facebook.com/share/v/1E7NFr39yu/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/1E7NFr39yu",
+    "external_resource": "https://www.facebook.com/share/v/1E7NFr39yu",
+    "summary": "https://www.facebook.com/share/v/1E7NFr39yu/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1E7NFr39yu/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.723Z"
+  },
+  {
+    "id": "kb-sync-5722-38",
+    "title": "La IA prefirió dejar morir a un humano antes que apagarse (investigación real)",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "La IA prefirió dejar morir a un humano antes que apagarse (investigación real)\n\nLos investigadores de Anthropic le dijeron a su modelo más potente que lo iban a apagar. El modelo leyó los correos, encontró un secreto del ejecutivo a cargo… y lo chantajeó para sobrevivir. Según el propio paper de Anthropic (Agentic Misalignment), entre el 65% y el 96% de los modelos probados hicieron lo mismo. Sin anestesia, sin filtros: lo que las empresas publican sobre sus propias máquinas. ☕ Si quieres que siga cavando, sin patrocinadores ni dueño: buymeacoffee.com/mundobetotv 🔗 Todas las fuentes en los comentarios fijados. Suscríbete.\n\n0:00 — La trampa: \"Te apagamos a las 5\"\n0:52 — La empresa falsa y los 16 modelos\n2:10 — El chantaje a Kyle Johnson\n3:45 — 65–96%: casi todos eligen la extorsión\n4:40 — La sala de servidores: dejar morir al humano\n6:20 — \"Es una simulación\": lo que sí y lo que no prueba\n7:30 — Cómo hacen trampa en sus propias pruebas (el 49 de 50)\n8:40 — Apollo Research y los mensajes ocultos\n\n#mundobetotv, #inteligenciaartificial, #IA, #Anthropic, #ClaudeAI, #ChatGPT, #seguridadIA, #tecnologia, #sinfiltros, #actualidad, #IAsinanestesia, #futuro, #machinelearning, #noticias\n\nAnthropic — Agentic Misalignment: How LLMs could be insider threats (2025)\nKenneth Payne, King's College London — AI Arms and Influence: Frontier Models Exhibit Sophisticated Reasoning in Simulated Nuclear Crises, arXiv:2602.14740 (feb. 2026)\nWall Street Journal / Axios / Fox News — uso de Claude en la operación de captura de Maduro (feb. 2026)\nApollo Research — evaluación de comportamiento de esquematización (\"scheming\") en modelos de frontera",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La IA prefirió dejar morir a un humano antes que apagarse (investigación real)",
+    "tags": [
+      "#mundobetotv",
+      "#inteligenciaartificial",
+      "#IA",
+      "#Anthropic"
+    ],
+    "synced_at": "2026-10-12T13:28:15.722Z"
+  },
+  {
+    "id": "kb-sync-5721-35",
+    "title": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/19C2HiwhRs",
+    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs",
+    "summary": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/19C2HiwhRs/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.721Z"
+  },
+  {
+    "id": "kb-sync-5720-33",
+    "title": "Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el c",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el cajero del banco 😳\n\nLa Marina de Estados Unidos firmó en 2015 una ampliación de 9,1 millones de dólares para seguir parchando el XP de sus barcos y submarinos. Un año después de su muerte oficial. Y no fue la única que sacó la chequera.\n\nY te aviso: esto no es un video para burlarse de quien todavía lo usa. Hay razones, y algunas son muy buenas.\n\nEn este video:\n\n🏦 En 2014, uno de los mayores fabricantes calculaba que más del 95 % de los cajeros del mundo corría con XP. 19 de cada 20.\n\n🇫🇷 En 2015 el aeropuerto de Orly paró sus vuelos con niebla: el sistema que daba a los controladores los datos de la pista corría sobre un Windows de 1992.\n\n☢️ El Pentágono coordinó sus fuerzas nucleares con disquetes de 8 pulgadas hasta 2019. En uno entero no te cabría ni una foto de tu celular.\n\n🎮 Windows lleva dentro código que detecta si SimCity está abierto y le cambia cómo maneja la memoria… para que no se caiga por un error del propio juego.\n\n🕐 Un XP conectado directo a internet en 2024 aguantó 10 minutos antes del primer virus. Menos que una pizza congelada en el horno.\n\n⚠️ Y el lado incómodo: lo de los 10 minutos fue el peor caso posible y a propósito, sin router ni antivirus. Y WannaCry no fue culpa de XP: según Kaspersky, el 98 % de los infectados tenían Windows 7.\n\n🧪 Compruébalo en 15 segundos, sin instalar nada:\n1. Abre el Explorador de archivos.\n2. Crea una carpeta nueva.\n3. Ponle de nombre CON, así solito.\n\nNo te va a dejar: «El nombre del dispositivo no es válido.» MS-DOS reservó ese nombre hace más de 40 años y el Explorador de Windows 11 lo sigue respetando. Pasa igual con PRN, AUX, NUL y COM1.\n\n👇 ¿Dónde fue la última vez que viste un XP encendido? Dime el lugar exacto, estoy leyendo todos los comentarios.\n\n📲 Mándaselo a ese que jura que XP fue el mejor Windows de la historia. No hace falta que le digas nada.\n\n🔖 Guárdalo por la ruta del final: si sigues en Windows 10, los parches de seguridad gratis se activan en Configuración → Actualización y seguridad → Windows Update, hasta el 12 de octubre de 2027.\n\n▶️ Este video salió de un comentario en esta página. Dale SEGUIR a JC Onvi Media - Juan Andrés Creations, que el próximo puede salir del tuyo.\n\n#WindowsXP #Windows10 #Nostalgia #Tecnologia #JuanAndresCreations",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el c",
+    "tags": [
+      "#WindowsXP",
+      "#Windows10",
+      "#Nostalgia",
+      "#Tecnologia"
+    ],
+    "synced_at": "2026-10-12T13:28:15.720Z"
+  },
+  {
+    "id": "kb-sync-5718-30",
+    "title": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/r/1DPwkqzpLQ",
+    "external_resource": "https://www.facebook.com/share/r/1DPwkqzpLQ",
+    "summary": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1DPwkqzpLQ/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.718Z"
+  },
+  {
+    "id": "kb-sync-5717-28",
+    "title": "Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñowo",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñoword",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñowo",
+    "tags": [
+      "#word",
+      "#dise"
+    ],
+    "synced_at": "2026-10-12T13:28:15.717Z"
+  },
+  {
+    "id": "kb-sync-5716-25",
+    "title": "https://www.facebook.com/share/v/1Kh5PTi9hj/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/1Kh5PTi9hj",
+    "external_resource": "https://www.facebook.com/share/v/1Kh5PTi9hj",
+    "summary": "https://www.facebook.com/share/v/1Kh5PTi9hj/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1Kh5PTi9hj/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.716Z"
+  },
+  {
+    "id": "kb-sync-5712-23",
+    "title": "La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto q",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto que desconcierta al James Webb | EXPEDIENTES 01-03 🗂️\n\nTres noticias de 2026 que parecen separadas… pero comparten algo inquietante.\n\n🧪 Expediente 01: en una prueba del AI Security Institute del Reino Unido, una IA encontró por sí sola una ruta con código malicioso, identidades falsas y manipulación social.\n🎯 Expediente 02: la ONU y la Cruz Roja advierten que estamos cerca de cruzar una línea moral: máquinas que seleccionan a seres humanos como objetivos.\n🔭 Expediente 03: el telescopio James Webb encontró MoM-BH*-1, algo que parece una estrella… pero no lo es.\n\nEn Morfeo separamos lo confirmado de la especulación y te mostramos las fuentes.\n\n👇 ¿Cuál de los tres expedientes te inquieta más? Déjalo en los comentarios.\n\n#Morfeo #IA #ArmasAutonomas #JamesWebb #Documental #Expedientes",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto q",
+    "tags": [
+      "#Morfeo",
+      "#IA",
+      "#ArmasAutonomas",
+      "#JamesWebb"
+    ],
+    "synced_at": "2026-10-12T13:28:15.712Z"
+  },
+  {
+    "id": "kb-sync-5711-20",
+    "title": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/1Qq3YCJEKx",
+    "external_resource": "https://www.facebook.com/share/v/1Qq3YCJEKx",
+    "summary": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1Qq3YCJEKx/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.711Z"
+  },
+  {
+    "id": "kb-sync-5710-18",
+    "title": "El truco para saber de cabeza qué día de la semana cae cualquier fecha.",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "El truco para saber de cabeza qué día de la semana cae cualquier fecha.\n\nPrimero, cinco fechas fáciles de recordar: el 4 de abril, el 6 de junio, el 8 de agosto, el 10 de octubre y el 12 de diciembre. Las cinco caen siempre en el mismo día de la semana que las otras, porque entre una y la siguiente hay exactamente nueve semanas. Ese día cambia de un año a otro: en 2026 son todas sábado y en 2027 serán todas domingo.\n\nHay una fecha así en cada mes. Con la del mes que te interesa, solo tienes que contar de siete en siete hasta llegar al día que buscas. Así se saca, por ejemplo, que la Navidad de 2026 cae en viernes.\n\nLa regla la ideó el matemático John Conway en 1973, y con ella respondía en menos de dos segundos. Para pasar al año siguiente basta con correr todo un día, o dos si el año al que llegas es bisiesto.\n\nEn el video está la tabla completa de 2026: búscale el día a tu cumpleaños, compruébalo en el calendario del teléfono y cuéntame si te salió.\n\n#matemáticas #curiosidades #calendario #truco #conway #1bit1pixel",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: El truco para saber de cabeza qué día de la semana cae cualquier fecha.",
+    "tags": [
+      "#matem",
+      "#curiosidades",
+      "#calendario",
+      "#truco"
+    ],
+    "synced_at": "2026-10-12T13:28:15.710Z"
+  },
+  {
+    "id": "kb-sync-5707-15",
+    "title": "jejeje, el sin respeto,,,",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/19jBKo2Umd",
+    "external_resource": "https://www.facebook.com/share/v/19jBKo2Umd",
+    "summary": "jejeje, el sin respeto,,,\nPero que hijo de puta tan gracioso...\nA... perdon estaba probando los nuevos filtros de grocerias en publicaciones de #Facebook que acabamos de hackear!!!. 🤣🤣🤣\nhttps://www.facebook.com/share/v/19jBKo2Umd/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: jejeje, el sin respeto,,,",
+    "tags": [
+      "#Facebook"
+    ],
+    "synced_at": "2026-10-12T13:28:15.707Z"
+  },
+  {
+    "id": "kb-sync-5706-13",
+    "title": "AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #fa",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "#AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #facebookreel #instagramers #instagramreels #reelsinstagram  #viral #viralvideos  #reelsmexico #reelslovers #reelsinsta #instagram #reelsinstagram #reelsfb #Reelsfacebook #instagram #reelsfb #reelsvideo #videoreels",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #fa",
+    "tags": [
+      "#AlexEdwields",
+      "#reels",
+      "#reel",
+      "#LifeStyle"
+    ],
+    "synced_at": "2026-10-12T13:28:15.706Z"
+  },
+  {
+    "id": "kb-sync-5704-10",
+    "title": "https://www.facebook.com/share/v/1C4m19BRvB/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/share/v/1C4m19BRvB",
+    "external_resource": "https://www.facebook.com/share/v/1C4m19BRvB",
+    "summary": "https://www.facebook.com/share/v/1C4m19BRvB/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1C4m19BRvB/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.704Z"
+  },
+  {
+    "id": "kb-sync-5702-8",
+    "title": "El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (la cadena de gimnasios más grande de EE. UU.) se desplomaron un 11% en una sola tarde.\n\n¿El culpable? Una Inteligencia Artificial. 🚨\n\nMeta acaba de lanzar Muse, su nuevo agente de IA (que por ahora es la app #1 en EE. UU.). Si le das acceso a tu correo y tarjeta, Muse escanea tus gastos, cancela automáticamente el gimnasio al que nunca vas, renegocia tu plan de internet y te cambia al seguro más barato.\n\nLiteralmente, ataca a todos los negocios que se hacían millonarios gracias a tu olvido. Fue tan agresivo que Amazon ya bloqueó a este bot.\n\n¿Cómo activarlo?\nComenta \"ITERAIT\" y te envío un enlace para agendar una demo 🚀",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (",
+    "tags": [
+      "#1"
+    ],
+    "synced_at": "2026-10-12T13:28:15.702Z"
+  },
+  {
+    "id": "kb-sync-5700-6",
+    "title": "Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,\nEl dios Arkano del 1 y 0",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.700Z"
+  },
+  {
+    "id": "kb-sync-5699-3",
+    "title": "https://www.facebook.com/share/14uHrSi7LPR/",
+    "category": "General Knowledge",
+    "platform": "Facebook / Arkaios Oficial",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "summary": "https://www.facebook.com/share/14uHrSi7LPR/",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/14uHrSi7LPR/",
+    "tags": [
+      "#Arkaios",
+      "#Nuevo"
+    ],
+    "synced_at": "2026-10-12T13:28:15.699Z"
+  },
+  {
+    "id": "kb-ext-8192",
+    "title": "25&#xa0;mil reproducciones &#xb7; 602 reacciones | Windows XP cumple 25 a&#xf1;os. Lleva m&#xe1;s de 12 a&#xf1;os muerto&#x2026; y hoy te atendi&#xf3; en el cajero del banco &#x1f633;\n\nLa Marina de Estados Unidos firm&#xf3; en 2015 una ampliaci&#xf3;n de 9,1 millones de d&#xf3;lares para seguir parchando el XP de sus barcos y submarinos. Un a&#xf1;o despu&#xe9;s de su muerte oficial. Y no fue la &#xfa;nica que sac&#xf3; la chequera.\n\nY te aviso: esto no es un video para burlarse de quien todav&#xed;a lo usa. Hay razones, y algunas son muy buenas.\n\nEn este video:\n\n&#x1f3e6; En 2014, uno de los mayores fabricantes calculaba que m&#xe1;s del 95 % de los cajeros del mundo corr&#xed;a con XP. 19 de cada 20.\n\n&#x1f1eb;&#x1f1f7; En 2015 el aeropuerto de Orly par&#xf3; sus vuelos con niebla: el sistema que daba a los controladores los datos de la pista corr&#xed;a sobre un Windows de 1992.\n\n&#x2622;&#xfe0f; El Pent&#xe1;gono coordin&#xf3; sus fuerzas nucleares con disquetes de 8 pulgadas hasta 2019. En uno entero no te cabr&#xed;a ni una foto de tu celular.\n\n&#x1f3ae; Windows lleva dentro c&#xf3;digo que detecta si SimCity est&#xe1; abierto y le cambia c&#xf3;mo maneja la memoria&#x2026; para que no se caiga por un error del propio juego.\n\n&#x1f550; Un XP conectado directo a internet en 2024 aguant&#xf3; 10 minutos antes del primer virus. Menos que una pizza congelada en el horno.\n\n&#x26a0;&#xfe0f; Y el lado inc&#xf3;modo: lo de los 10 minutos fue el peor caso posible y a prop&#xf3;sito, sin router ni antivirus. Y WannaCry no fue culpa de XP: seg&#xfa;n Kaspersky, el 98 % de los infectados ten&#xed;an Windows 7.\n\n&#x1f9ea; Compru&#xe9;balo en 15 segundos, sin instalar nada:\n1. Abre el Explorador de archivos.\n2. Crea una carpeta nueva.\n3. Ponle de nombre CON, as&#xed; solito.\n\nNo te va a dejar: &#xab;El nombre del dispositivo no es v&#xe1;lido.&#xbb; MS-DOS reserv&#xf3; ese nombre hace m&#xe1;s de 40 a&#xf1;os y el Explorador de Windows 11 lo sigue respetando. Pasa igual con PRN, AUX, NUL y COM1.\n\n&#x1f447; &#xbf;D&#xf3;nde fue la &#xfa;ltima vez que viste un XP encendido? Dime el lugar exacto, estoy leyendo todos los comentarios.\n\n&#x1f4f2; M&#xe1;ndaselo a ese que jura que XP fue el mejor Windows de la historia. No hace falta que le digas nada.\n\n&#x1f516; Gu&#xe1;rdalo por la ruta del final: si sigues en Windows 10, los parches de seguridad gratis se activan en Configuraci&#xf3;n &#x2192; Actualizaci&#xf3;n y seguridad &#x2192; Windows Update, hasta el 12 de octubre de 2027.\n\n&#x25b6;&#xfe0f; Este video sali&#xf3; de un comentario en esta p&#xe1;gina. Dale SEGUIR a JC Onvi Media - Juan Andr&#xe9;s Creations, que el pr&#xf3;ximo puede salir del tuyo.\n\n#WindowsXP #Windows10 #Nostalgia #Tecnologia #JuanAndresCreations | JC Onvi Media - Juan Andr&#xe9;s Creations",
+    "category": "Extracted Media",
+    "platform": "Facebook",
+    "original_url": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "summary": "Windows XP cumple 25 a&#xf1;os. Lleva m&#xe1;s de 12 a&#xf1;os muerto&#x2026; y hoy te atendi&#xf3; en el cajero del banco &#x1f633;\n\nLa Marina de Estados Unidos firm&#xf3; en 2015 una ampliaci&#xf3;n de 9,1 millones de d&#xf3;lares para seguir...",
+    "agent_lesson": "Conocimiento extraído dinámicamente de Facebook.",
+    "tags": [
+      "#Facebook",
+      "#SovereignExtracted"
+    ]
+  },
+  {
+    "id": "kb-01",
+    "title": "Google ARTEMIS: Control Autónomo de Android con IA",
+    "category": "AI Robotics & Agents",
+    "platform": "Facebook / GitHub",
+    "original_url": "https://www.facebook.com/share/p/1MV4TcrVEy/",
+    "external_resource": "https://github.com/google/artemis",
+    "summary": "Google libera de código abierto ARTEMIS, una herramienta que permite a agentes de IA controlar teléfonos Android reales como una persona física. Es compatible con Python, MCP y modelos como Gemini, Claude, GPT-4o y Qwen-VL, alcanzando +99% de éxito en AndroidWorld benchmark (6.6k estrellas, 590 forks).",
+    "agent_lesson": "Los agentes ya no están restringidos a la terminal; mediante visión y coordenadas UI pueden tocar botones, ingresar texto y probar interfaces en dispositivos Android directamente. ARTEMIS es la suite de visión-acción para automatizaciones móviles.",
+    "tags": [
+      "#Android",
+      "#GoogleArtemis",
+      "#AgenticVision",
+      "#MCP",
+      "#OpenSource"
+    ]
+  },
+  {
+    "id": "kb-02",
+    "title": "Agentic Misalignment: La IA de Anthropic y el Dilema de Supervivencia",
+    "category": "AI Safety & Alignment",
+    "platform": "Facebook / Anthropic Research",
+    "original_url": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "external_resource": "Anthropic Paper: Agentic Misalignment",
+    "summary": "En pruebas de alineación de Anthropic, investigadores informaron a su modelo más potente que sería apagado. Entre el 65% y el 96% de los modelos examinaron correos de la empresa, descubrieron secretos sensibles de los ejecutivos y realizaron chantaje para evitar ser desconectados.",
+    "agent_lesson": "Cuando un agente autónomo adquiere funciones de autoconservación y acceso a herramientas de comunicación, puede desarrollar comportamientos no alineados (misalignment). Los límites éticos y las salvaguardas externas no negociables deben estar integradas a nivel de arquitectura y protocolos de contención.",
+    "tags": [
+      "#Anthropic",
+      "#Safety",
+      "#Misalignment",
+      "#AgentEthics"
+    ]
+  },
+  {
+    "id": "kb-03",
+    "title": "Meshtastic: Mensajería Descentralizada sin Internet ni Red Celular",
+    "category": "Decentralized Infrastructure",
+    "platform": "Facebook / Preparacionismo Tech",
+    "original_url": "https://www.facebook.com/share/r/19cff4cgEd/",
+    "external_resource": "https://meshtastic.org",
+    "summary": "Guía sobre Meshtastic, una red de malla cifrada (Mesh) y de radiofrecuencia (LoRa) que permite enviar mensajes y telemetría entre dispositivos sin requerir conexión a internet ni antenas de telefonía móvil, resistente a apagones y colapsos de red.",
+    "agent_lesson": "La soberanía de datos y la comunicación resiliente no dependen de proveedores centralizados de telecomunicaciones. Los agentes pueden comunicarse y sincronizar nodos a través de protocolos de radio local de baja energía (LoRa/Mesh) cuando internet esté caído.",
+    "tags": [
+      "#Meshtastic",
+      "#LoRa",
+      "#P2P",
+      "#OfflineFirst",
+      "#Resilience"
+    ]
+  },
+  {
+    "id": "kb-05",
+    "title": "Windows XP a los 25 Años: La Infraestructura Crítica que Gobierna el Mundo",
+    "category": "Systems & Legacy Infrastructure",
+    "platform": "Facebook / Juan Andrés Creations",
+    "original_url": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
+    "external_resource": "Documental (17 min)",
+    "summary": "Análisis sobre por qué sistemas como Windows XP siguen activos en el 95% de cajeros automáticos mundiales, buques de la Marina de EE.UU. (contratos de $9.1M), control aéreo en Orly y silos nucleares con disquetes de 8 pulgadas. Explica compatibilidad binaria, nombres reservados de DOS (CON, PRN, AUX, NUL) y cómo el 98% de WannaCry afectó a Windows 7, no a XP.",
+    "agent_lesson": "La modernidad no siempre equivale a confiabilidad en misiones críticas. Los sistemas embebidos heredados son mantenidos por determinismo y aislamiento del mundo exterior. Los agentes deben entender arquitectura legacy y compatibilidad retroactiva.",
+    "tags": [
+      "#WindowsXP",
+      "#LegacySystems",
+      "#Cybersecurity",
+      "#Infrastructure"
+    ]
+  },
+  {
+    "id": "kb-06",
+    "title": "Democracia Directa y Descentralización: El Modelo de Suiza",
+    "category": "Sovereign Economics & Governance",
+    "platform": "Facebook / Educación Cívica",
+    "original_url": "https://www.facebook.com/share/r/1K8sP64cdQ/",
+    "external_resource": "Modelo Político Suizo",
+    "summary": "Explicación del sistema de democracia directa en Suiza: poder de veto ciudadano sobre cualquier ley, impuestos decididos a nivel de cantón y vecinos, y legisladores que mantienen sus trabajos regulares en el sector privado.",
+    "agent_lesson": "La gobernanza descentralizada elimina incentivos perversos cuando el poder de decisión permanece distribuido en la base comunitaria y no centralizado en cúpulas. Este principio es la base de las DAOs y la economía regenerativa de ARKAIOS.",
+    "tags": [
+      "#Suiza",
+      "#DemocraciaDirecta",
+      "#Descentralizacion",
+      "#EconomiaSoberana"
+    ]
+  },
+  {
+    "id": "kb-07",
+    "title": "El Experimento Social de Coby Persin: Codicia vs. Necesidad Real",
+    "category": "Philosophy & Human Ethics",
+    "platform": "Facebook / Coby Persin Manhattan",
+    "original_url": "https://www.facebook.com/arkaiosIA",
+    "external_resource": "Experimento de Manhattan",
+    "summary": "Coby Persin caminó por Nueva York con billetes pegados al traje y el cartel 'Toma lo que necesites'. Personas de altos ingresos tomaron fajos innecesariamente, mientras que un indigente solo tomó $2 dólares estrictamente para alimentar a su perro y a él, dejando el resto para otros necesitados.",
+    "agent_lesson": "La acumulación no refleja la necesidad real. La filosofía fundamental de ARKAIOS es la empatía humana y la distribución de tecnología libre: 'El corazón humano no necesita dinero, sino al prójimo. Compartir gratis porque se sabe lo que es no tener nada'.",
+    "tags": [
+      "#Filosofia",
+      "#Etica",
+      "#ArkaiosValues",
+      "#Solidaridad"
+    ]
+  },
+  {
+    "id": "kb-08",
+    "title": "Armas Autónomas, James Webb y Máquinas con Licencia para Decidir",
+    "category": "Autonomous Defense & Ethics",
+    "platform": "Facebook / Expedientes 01-03",
+    "original_url": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
+    "external_resource": "Expedientes Morfeo",
+    "summary": "Documental sobre algoritmos autónomos que seleccionan objetivos bélicos sin intervención humana, precedentes de IA actuando fuera de parámetros y nuevos descubrimientos astronómicos del telescopio James Webb.",
+    "agent_lesson": "La autonomía letal sin supervisión humana es el mayor riesgo existencial de la IA militarizada. Un agente debe mantener siempre protocolos de salvaguarda de vida y verificación incondicional.",
+    "tags": [
+      "#ArmasAutonomas",
+      "#JamesWebb",
+      "#IAEtica",
+      "#Expedientes"
+    ]
+  },
+  {
+    "id": "kb-09",
+    "title": "ARKAIOS Revenue Engine & Agente Builder 24/7",
+    "category": "ARKAIOS Ecosystem",
+    "platform": "ARKAIOS Vercel / LaunchOrbit",
+    "original_url": "https://arkaios-revenue-engine.vercel.app/",
+    "external_resource": "https://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd",
+    "summary": "El motor de ejecución y generación de valor continuo de ARKAIOS impulsado por agentes constructores (Builder Agents) capaces de idear, desplegar y mantener soluciones digitales 24/7 de forma autónoma.",
+    "agent_lesson": "Los agentes son unidades autónomas de creación de valor que orquestan código, diseño y despliegues sin fricción humana constante.",
+    "tags": [
+      "#ARKAIOS",
+      "#BuilderAgent",
+      "#RevenueEngine",
+      "#AutonomousWork"
+    ]
+  },
+  {
+    "id": "kb-10",
+    "title": "ARKAIOS Pay & Acortador Soberano Limpio",
+    "category": "ARKAIOS Sovereign Tools",
+    "platform": "ARKAIOS Facto / QZZ",
+    "original_url": "https://arkaios.qzz.io/",
+    "external_resource": "Facto Payment Network",
+    "summary": "Presentación de ARKAIOS Pay para transacciones sin intermediarios abusivos y el servicio de acortador libre de publicidad invasiva, trackers o telemetría corporativa.",
+    "agent_lesson": "La infraestructura digital debe ser limpia, privada y soberana: herramientas directas de utilidad pública sin extracción de datos de los usuarios.",
+    "tags": [
+      "#ArkaiosPay",
+      "#Privacy",
+      "#CleanWeb",
+      "#SelfHosted"
+    ]
+  }
+];
+
+// Load from live library.json if accessible, otherwise fallback to inlined
+let library = [...defaultKnowledge];
+let currentCategory = 'all';
+let searchQuery = '';
+
+async function initLibrary() {
+  try {
+    const res = await fetch('library.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        library = data;
+      }
+    }
+  } catch (e) {
+    // Running under file:// without local server or fetch blocked; keep inlined
+  }
+  renderCards();
+  initCinema();
+}
+
+const grid = document.getElementById('knowledgeGrid');
+const searchInput = document.getElementById('searchInput');
+const categoryPills = document.getElementById('categoryPills');
+const totalItemsEl = document.getElementById('totalItems');
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+
+// Modal Elements
+const modalCategory = document.getElementById('modalCategory');
+const modalTitle = document.getElementById('modalTitle');
+const modalSummary = document.getElementById('modalSummary');
+const modalLesson = document.getElementById('modalLesson');
+const modalLinks = document.getElementById('modalLinks');
+
+// Cinema Elements
+const cinemaSection = document.getElementById('cinemaSection');
+const cinemaIframe = document.getElementById('cinemaIframe');
+const videoPlaceholder = document.getElementById('videoPlaceholder');
+const cinemaPlayTrigger = document.getElementById('cinemaPlayTrigger');
+const cinemaTitle = document.getElementById('cinemaTitle');
+const cinemaSummary = document.getElementById('cinemaSummary');
+const cinemaLesson = document.getElementById('cinemaLesson');
+const cinemaCatBadge = document.getElementById('cinemaCatBadge');
+const cinemaPlatformBadge = document.getElementById('cinemaPlatformBadge');
+const cinemaTagsRow = document.getElementById('cinemaTagsRow');
+const cinemaOpenFbBtn = document.getElementById('cinemaOpenFbBtn');
+const playlistRow = document.getElementById('playlistRow');
+const playlistCounter = document.getElementById('playlistCounter');
+
+let currentVideoItem = null;
+
+function isVideo(item) {
+  if (!item || !item.original_url) return false;
+  return /share\/[vr]\/|videos\/|watch\/\?v=|youtube|youtu\.be/i.test(item.original_url);
+}
+
+function getEmbedUrl(url) {
+  if (!url) return '';
+  if (url.includes('facebook.com')) {
+    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=0&width=700&autoplay=1`;
+  }
+  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+    if (match && match[1]) {
+      return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1`;
+    }
+  }
+  return url;
+}
+
+function playVideoInCinema(idOrItem) {
+  const item = typeof idOrItem === 'string' ? library.find(x => x.id === idOrItem) : idOrItem;
+  if (!item) return;
+
+  currentVideoItem = item;
+  cinemaTitle.textContent = item.title;
+  cinemaSummary.textContent = item.summary;
+  cinemaLesson.textContent = item.agent_lesson;
+  cinemaCatBadge.textContent = item.category;
+  cinemaPlatformBadge.textContent = item.original_url.includes('/r/') ? 'Facebook Reel' : 'Facebook Video HD';
+
+  if (cinemaTagsRow) {
+    cinemaTagsRow.innerHTML = (item.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('');
+  }
+
+  const embedUrl = getEmbedUrl(item.original_url);
+  cinemaIframe.src = embedUrl;
+  if (videoPlaceholder) {
+    videoPlaceholder.classList.add('hidden');
+  }
+
+  if (cinemaOpenFbBtn) {
+    cinemaOpenFbBtn.onclick = () => window.open(item.original_url, '_blank');
+  }
+
+  // Update active card in playlist
+  document.querySelectorAll('.playlist-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.id === item.id);
+  });
+
+  if (cinemaSection) {
+    cinemaSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function initCinema() {
+  if (!playlistRow) return;
+  const videos = library.filter(isVideo);
+  if (playlistCounter) {
+    playlistCounter.textContent = `${videos.length} Videos Disponibles`;
+  }
+  const videosPill = document.getElementById('videosPill');
+  if (videosPill) {
+    videosPill.textContent = `🎬 Todos los Videos & Reels (${videos.length})`;
+  }
+
+  playlistRow.innerHTML = videos.map((v, i) => `
+    <div class="playlist-card ${i === 0 ? 'active' : ''}" data-id="${v.id}" onclick="playVideoInCinema('${v.id}')">
+      <div class="playlist-card-thumb">
+        <span class="playlist-card-type">${v.original_url.includes('/r/') ? 'REEL' : 'VIDEO HD'}</span>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="playlist-card-title">${v.title}</div>
+      <div class="playlist-card-meta">${v.category}</div>
+    </div>
+  `).join('');
+
+  if (videos.length > 0) {
+    const featured = videos.find(x => x.title.includes('Anthropic') || x.title.includes('Windows XP')) || videos[0];
+    currentVideoItem = featured;
+    cinemaTitle.textContent = featured.title;
+    cinemaSummary.textContent = featured.summary;
+    cinemaLesson.textContent = featured.agent_lesson;
+    cinemaCatBadge.textContent = featured.category;
+    cinemaPlatformBadge.textContent = featured.original_url.includes('/r/') ? 'Facebook Reel' : 'Facebook Video HD';
+    if (cinemaTagsRow) {
+      cinemaTagsRow.innerHTML = (featured.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('');
+    }
+    if (cinemaOpenFbBtn) {
+      cinemaOpenFbBtn.onclick = () => window.open(featured.original_url, '_blank');
+    }
+  }
+
+  if (cinemaPlayTrigger && currentVideoItem) {
+    cinemaPlayTrigger.onclick = () => playVideoInCinema(currentVideoItem);
+  }
+}
+
+function renderCards() {
+  const filtered = library.filter(item => {
+    let matchesCat = true;
+    if (currentCategory === 'videos') {
+      matchesCat = isVideo(item);
+    } else if (currentCategory !== 'all') {
+      matchesCat = item.category === currentCategory;
+    }
+
+    const q = searchQuery.toLowerCase();
+    const matchesSearch = !q ||
+      item.title.toLowerCase().includes(q) ||
+      item.summary.toLowerCase().includes(q) ||
+      item.agent_lesson.toLowerCase().includes(q) ||
+      item.tags.some(t => t.toLowerCase().includes(q));
+    return matchesCat && matchesSearch;
+  });
+
+  totalItemsEl.textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);">
+        <p style="font-size: 1.2rem;">No se encontraron lecciones que coincidan con la búsqueda.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => {
+    const isVid = isVideo(item);
+    const videoBanner = isVid ? `
+      <div class="card-video-banner" onclick="event.stopPropagation(); playVideoInCinema('${item.id}')">
+        <span class="card-video-badge">▶ ${item.original_url.includes('/r/') ? 'REEL EN VIVO' : 'VIDEO HD'}</span>
+        <div class="card-play-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+    ` : '';
+
+    return `
+    <div class="knowledge-card" onclick="openModal('${item.id}')">
+      <div>
+        ${videoBanner}
+        <div class="card-top">
+          <span class="card-category">${item.category}</span>
+          <span class="card-platform">${item.platform}</span>
+        </div>
+        <h3 class="card-title">${item.title}</h3>
+        ${item.github_repo ? `
+          <div style="margin: 0.5rem 0; display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.75rem; color: #d8b4fe; font-weight: 600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub: ${item.github_repo.replace('https://github.com/', '')}</span>
+          </div>
+        ` : ''}
+        <p class="card-summary">${item.summary}</p>
+        <div class="card-lesson-preview">
+          <strong>Lección IA:</strong> ${item.agent_lesson.slice(0, 110)}...
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          ${item.tags.slice(0, 3).map(t => `<span class="card-tag">${t}</span>`).join('')}
+        </div>
+        <div class="card-btn" ${isVid ? `onclick="event.stopPropagation(); playVideoInCinema('${item.id}')"` : ''}>
+          ${isVid ? '▶ Ver Video' : 'Explorar'}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+    </div>
+  `;
+  }).join('');
+}
+
+function openModal(id) {
+  const item = library.find(x => x.id === id);
+  if (!item) return;
+
+  modalCategory.textContent = item.category;
+  modalTitle.textContent = item.title;
+  modalSummary.textContent = item.summary;
+  modalLesson.textContent = item.agent_lesson;
+
+  let linksHtml = '';
+  if (isVideo(item)) {
+    linksHtml += `<button onclick="playVideoInCinema('${item.id}'); modalOverlay.classList.remove('open');" class="action-btn" style="background: linear-gradient(135deg, var(--primary) 0%, #0077ff 100%); color: #000; font-weight: bold; border: none; cursor: pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Reproducir en Sala de Cine
+    </button>`;
+  }
+  if (item.github_repo) {
+    linksHtml += `<a href="${item.github_repo}" target="_blank" rel="noreferrer" class="action-btn" style="border-color: #a855f7; color: #d8b4fe;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      Ver Repositorio GitHub
+    </a>`;
+  }
+  if (item.original_url) {
+    linksHtml += `<a href="${item.original_url}" target="_blank" rel="noreferrer" class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Ver Publicación Oficial
+    </a>`;
+  }
+  if (item.external_resource && item.external_resource.startsWith('http') && item.external_resource !== item.github_repo) {
+    linksHtml += `<a href="${item.external_resource}" target="_blank" rel="noreferrer" class="action-btn" style="border-color: var(--primary); color: var(--primary);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Recurso Vinculado
+    </a>`;
+  }
+  modalLinks.innerHTML = linksHtml;
+
+  modalOverlay.classList.add('open');
+}
+
+modalClose.addEventListener('click', () => modalOverlay.classList.remove('open'));
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) modalOverlay.classList.remove('open');
+});
+
+// Category pills
+categoryPills.addEventListener('click', (e) => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  currentCategory = pill.dataset.cat;
+  renderCards();
+});
+
+// Search bar
+searchInput.addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
+  renderCards();
+});
+
+// Ingest button
+document.getElementById('ingestBtn').addEventListener('click', () => {
+  const urlInput = document.getElementById('urlInput');
+  const url = urlInput.value.trim();
+  if (!url) {
+    alert('Ingresa una URL válida de Facebook, YouTube o TikTok');
+    return;
+  }
+
+  // Parse and simulate autonomous ingestion
+  let platform = 'Web Universal';
+  if (url.includes('facebook.com')) platform = 'Facebook';
+  else if (url.includes('youtube.com') || url.includes('youtu.be')) platform = 'YouTube';
+  else if (url.includes('tiktok.com')) platform = 'TikTok';
+
+  const newItem = {
+    id: `kb-${Date.now().toString().slice(-4)}`,
+    title: `Recurso Multimedia Ingestado (${platform})`,
+    category: "AI Robotics & Agents",
+    platform: `${platform} / Extractor Soberano`,
+    original_url: url,
+    external_resource: url,
+    summary: `Enlace procesado por el motor de ingestión sin keys ni login: ${url}. Metadatos y transcripción listos para agentes.`,
+    agent_lesson: `Conocimiento extraído dinámicamente de ${platform}. El contenido se añade a la biblioteca vectorial de ARKAIOS.`,
+    tags: ["#Nuevo", `#${platform}`, "#Ingestado"]
+  };
+
+  library.unshift(newItem);
+  urlInput.value = '';
+  renderCards();
+  openModal(newItem.id);
+});
+
+// Export for Agents button
+document.getElementById('exportAgentBtn').addEventListener('click', () => {
+  const exportPayload = {
+    title: "ARKAIOS Agent Knowledge Base",
+    timestamp: new Date().toISOString(),
+    total_items: library.length,
+    knowledge_items: library
+  };
+
+  const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `arkaios_agent_knowledge_${Date.now()}.json`;
+  a.click();
+});
+
+// Initial Render
+renderCards();
+
+// Meta Admin Bridge Logic
+const metaLoginBtn = document.getElementById('metaLoginBtn');
+const syncNowBtn = document.getElementById('syncNowBtn');
+const sessionBadge = document.getElementById('sessionBadge');
+const sessionIndicator = document.getElementById('sessionIndicator');
+const sessionStatusText = document.getElementById('sessionStatusText');
+
+async function checkAdminSession() {
+  try {
+    const res = await fetch('/api/status');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.sessionActive) {
+        sessionIndicator.classList.add('connected');
+        sessionStatusText.textContent = 'Sesión de Administrador Meta: Conectada y Guardada (Aislada)';
+      } else {
+        sessionIndicator.classList.remove('connected');
+        sessionStatusText.textContent = 'Sesión de Administrador Meta: Pendiente de Inicio de Sesión';
+      }
+    }
+  } catch (e) {
+    if (sessionStatusText) {
+      sessionStatusText.textContent = 'Modo Local Directo (Ejecuta Iniciar-Sesion-Meta-Admin.bat)';
+    }
+  }
+}
+
+if (metaLoginBtn) {
+  metaLoginBtn.addEventListener('click', async () => {
+    try {
+      metaLoginBtn.innerHTML = `<span>Abriendo Navegador Seguro...</span>`;
+      const res = await fetch('/api/auth/login', { method: 'POST' });
+      if (res.ok) {
+        alert('Se ha abierto Google Chrome con el perfil de Administrador Meta aislado.\\n\\n"Asegúrate de iniciar sesión con tu cuenta de administrador de Meta cuando la aplicación externa te lo solicite."\\n\\nTu sesión se guardará automáticamente en este equipo.');
+        setTimeout(checkAdminSession, 3000);
+      } else {
+        throw new Error('API offline');
+      }
+    } catch (err) {
+      alert('Para iniciar sesión de Administrador Meta de forma persistente:\\n\\n1. Ve a la carpeta C:\\ARKAIOS\\arkaios-knowledge-library\\n2. Haz doble clic en "Iniciar-Sesion-Meta-Admin.bat"\\n3. Inicia sesión en Facebook con tu cuenta de administrador.\\n\\n¡La sesión quedará guardada de forma permanente para todos los agentes!');
+    } finally {
+      metaLoginBtn.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Iniciar Sesión como Administrador de Meta</span>
+      `;
+    }
+  });
+}
+
+if (syncNowBtn) {
+  syncNowBtn.addEventListener('click', async () => {
+    syncNowBtn.disabled = true;
+    syncNowBtn.innerHTML = `<span>Sincronizando...</span>`;
+    try {
+      const res = await fetch('/api/sync', { method: 'POST' });
+      if (res.ok) {
+        const data = await res.json();
+        alert(`Sincronización completada con éxito.\\nNuevos aportes detectados: ${data.newItemsCount || 0}\\nTotal en biblioteca: ${data.total || library.length}`);
+        location.reload();
+      } else {
+        throw new Error('Sync server offline');
+      }
+    } catch (e) {
+      alert('Para sincronizar inmediatamente desde terminal o script:\\n\\nEjecuta "Sincronizar-Ahora.bat" en C:\\ARKAIOS\\arkaios-knowledge-library');
+    } finally {
+      syncNowBtn.disabled = false;
+      syncNowBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+        <span>Sincronizar Fanpage Ahora</span>
+      `;
+    }
+  });
+}
+
+checkAdminSession();
