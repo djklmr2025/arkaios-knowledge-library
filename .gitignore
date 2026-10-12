@@ -7,3 +7,5 @@ target_dom.html
 .env*
 .DS_Store
 Thumbs.db
+
+.vercel
