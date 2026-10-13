@@ -88,26 +88,40 @@ export async function syncFromMetaGraph() {
       const attach = post.attachments?.data?.[0];
       const attachTitle = attach?.title || '';
       const attachUrl = attach?.url || '';
+      const attachType = attach?.type || '';
+      const thumbnail = attach?.media?.image?.src || null;
+      const isVideo = attachType.includes('video') || (attachUrl && attachUrl.includes('/reel/'));
 
       const lines = msg.split('\n').map(l => l.trim()).filter(Boolean);
-      const title = attachTitle || lines[0] || `Publicación ARKAIOS ${post.id.slice(-6)}`;
+      let title = attachTitle || lines[0];
+      if (!title && post.story) {
+        title = `Video / Reel ARKAIOS (${new Date(post.created_time).toLocaleDateString()})`;
+      }
+      if (!title) {
+        title = `Publicación Oficial ARKAIOS ${post.id.slice(-6)}`;
+      }
+
       const repo = extractGithubRepo(msg, attachUrl);
       const category = detectCategory(msg + ' ' + title);
+      const canonical = attachUrl || post.permalink_url || `https://www.facebook.com/${post.id}`;
 
       const newItem = {
         id: `meta-${post.id}`,
         title: title.slice(0, 120),
         category: category,
-        platform: 'Facebook (Graph API Official)',
-        original_url: post.permalink_url || `https://www.facebook.com/${post.id}`,
-        canonical_url: post.permalink_url || `https://www.facebook.com/${post.id}`,
+        platform: isVideo ? 'Facebook (Reel / Video Official)' : 'Facebook (Graph API Official)',
+        original_url: canonical,
+        canonical_url: canonical,
+        thumbnail: thumbnail,
         github_repo: repo,
         website: attachUrl.includes('github') ? null : (attachUrl || null),
-        technologies: repo ? ['Open Source', 'GitHub'] : [],
-        skills_unlocked: repo ? [`Herramienta Open Source vinculada: ${repo}`] : [],
-        summary: msg.slice(0, 400) || 'Publicación oficial sincronizada desde Meta Graph API.',
-        agent_lesson: `Lección asimilada desde la página oficial ARKAIOS: ${msg.slice(0, 250)}...`,
-        tags: ['meta-graph-api', 'arkaios-official']
+        technologies: repo ? ['Open Source', 'GitHub'] : (isVideo ? ['Multimedia', 'Reel'] : []),
+        skills_unlocked: repo ? [`Herramienta Open Source vinculada: ${repo}`] : (isVideo ? ['Transmisión Multimedia Soberana'] : []),
+        summary: msg.slice(0, 400) || post.story || 'Contenido oficial sincronizado directamente desde Meta Graph API.',
+        agent_lesson: isVideo 
+          ? `Registro audiovisual oficial verificado de la fanpage ARKAIOS (${canonical}). Analizable para visión por computadora y transcripción.`
+          : `Lección oficial asimilada desde la página ARKAIOS: ${(msg || post.story || '').slice(0, 250)}...`,
+        tags: ['meta-graph-api', 'arkaios-official', isVideo ? 'video' : 'post']
       };
 
       // Si no existe, agregar

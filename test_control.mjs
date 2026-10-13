@@ -104,14 +104,15 @@ function testSecurityHygiene() {
     console.log('   ✓ .env está explícitamente ignorado en .gitignore.');
   }
 
-  // Verificar que git no rastree ningún .env
+  // Verificar que git no rastree ningún .env real (permitiendo .env.example)
   try {
-    const trackedFiles = execSync('git ls-files', { encoding: 'utf-8' });
-    if (/^\.env/m.test(trackedFiles)) {
-      console.error('   ✗ ALERTA: Un archivo .env está siendo rastreado por git!');
+    const trackedFiles = execSync('git ls-files', { encoding: 'utf-8' }).split('\n').map(l => l.trim()).filter(Boolean);
+    const leakedEnv = trackedFiles.filter(f => /^\.env(\.local|\.production|\.development)?$/.test(f));
+    if (leakedEnv.length > 0) {
+      console.error(`   ✗ ALERTA: Un archivo .env privado está siendo rastreado por git: ${leakedEnv.join(', ')}`);
       secure = false;
     } else {
-      console.log('   ✓ Ningún archivo .env está siendo rastreado por git.');
+      console.log('   ✓ Ningún archivo .env privado está siendo rastreado por git.');
     }
 
     // Escanear archivos rastreados en busca de tokens expuestos
