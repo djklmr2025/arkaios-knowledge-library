@@ -10,3 +10,4 @@ target_dom.html
 Thumbs.db
 
 .vercel
+.env
