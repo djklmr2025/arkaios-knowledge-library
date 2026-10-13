@@ -6,6 +6,11 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "mcp": "node server.mjs",
+    "curate": "node curate.mjs",
+    "test": "node test_control.mjs",
+    "meta:test": "node meta_token_manager.mjs",
+    "meta:sync": "node meta_collector.mjs",
     "explore": "node agent_navigator.js explore",
     "inspect": "node agent_navigator.js inspect",
     "learn": "node agent_navigator.js learn"

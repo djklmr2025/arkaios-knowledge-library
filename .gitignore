@@ -5,6 +5,7 @@ node_modules/
 latest_post.html
 target_dom.html
 .env*
+!.env.example
 .DS_Store
 Thumbs.db
 
