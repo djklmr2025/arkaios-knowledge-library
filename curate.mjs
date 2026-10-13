@@ -61,15 +61,31 @@ export function curateLibrary() {
       return;
     }
 
-    // 3. Normalizar URL y deduplicar
+    // 3. Normalizar URL y deduplicar por URL o ID de video/reel
     const canonical = (item.canonical_url || item.original_url || '').toLowerCase().trim();
+    const videoIdMatch = canonical.match(/(?:reel|videos)\/([0-9]+)/i);
+    const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
     if (canonical && seenUrls.has(canonical)) {
       issues.push(`URL canónica duplicada omitida: "${canonical}" (ID: ${cleanId})`);
+      return;
+    }
+    if (videoId && seenUrls.has(`video-id-${videoId}`)) {
+      issues.push(`ID de Video/Reel duplicado omitido: "${videoId}" (ID: ${cleanId})`);
+      return;
+    }
+
+    // 4. Deduplicar por tema principal idéntico (manteniendo el que tenga repositorio o más detalle)
+    const normTitle = (item.title || '').toLowerCase().replace(/[^a-z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (normTitle.length > 10 && seenUrls.has(`title-${normTitle}`)) {
+      issues.push(`Contenido duplicado por título omitido: "${item.title}" (ID: ${cleanId})`);
       return;
     }
 
     seenIds.add(cleanId);
     if (canonical) seenUrls.add(canonical);
+    if (videoId) seenUrls.add(`video-id-${videoId}`);
+    if (normTitle.length > 10) seenUrls.add(`title-${normTitle}`);
 
     // 4. Normalizar arrays
     const cleanItem = {

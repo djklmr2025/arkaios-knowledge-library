@@ -66,17 +66,30 @@ export async function syncFromMetaGraph() {
   console.log(`[+] Conectando a Meta Graph API para la página ID: ${pageId}...`);
 
   try {
-    const url = `https://graph.facebook.com/v23.0/${pageId}/posts?fields=id,message,created_time,permalink_url,attachments{url,title,type,media}&limit=50&access_token=${pageToken}`;
-    const res = await fetch(url);
-    const data = await res.json();
+    let nextUrl = `https://graph.facebook.com/v23.0/${pageId}/posts?fields=id,message,created_time,permalink_url,attachments{url,title,type,media,target}&limit=50&access_token=${pageToken}`;
+    let allPosts = [];
+    let pageCount = 0;
 
-    if (data.error) {
-      console.error('❌ Error de Graph API:', data.error.message);
-      return { success: false, error: data.error };
+    while (nextUrl && allPosts.length < 300) {
+      pageCount++;
+      const res = await fetch(nextUrl);
+      const data = await res.json();
+
+      if (data.error) {
+        console.error('❌ Error de Graph API:', data.error.message);
+        break;
+      }
+
+      const currentBatch = data.data || [];
+      allPosts = allPosts.concat(currentBatch);
+      console.log(`[+] Página #${pageCount}: recibidas ${currentBatch.length} publicaciones (total acumulado: ${allPosts.length})`);
+
+      nextUrl = data.paging?.next || null;
+      if (!currentBatch.length) break;
     }
 
-    const posts = data.data || [];
-    console.log(`[+] Recibidas ${posts.length} publicaciones desde Graph API.`);
+    const posts = allPosts;
+    console.log(`[+] Total final de publicaciones extraídas desde Graph API: ${posts.length}.`);
 
     const library = fs.existsSync(LIBRARY_PATH) ? JSON.parse(fs.readFileSync(LIBRARY_PATH, 'utf-8')) : [];
 
@@ -89,16 +102,17 @@ export async function syncFromMetaGraph() {
       const attachTitle = attach?.title || '';
       const attachUrl = attach?.url || '';
       const attachType = attach?.type || '';
+      const targetId = attach?.target?.id || '';
       const thumbnail = attach?.media?.image?.src || null;
       const isVideo = attachType.includes('video') || (attachUrl && attachUrl.includes('/reel/'));
 
       const lines = msg.split('\n').map(l => l.trim()).filter(Boolean);
       let title = attachTitle || lines[0];
-      if (!title && post.story) {
-        title = `Video / Reel ARKAIOS (${new Date(post.created_time).toLocaleDateString()})`;
+      if (!title && isVideo) {
+        title = `ARKAIOS Reel #${targetId || post.id.split('_')[1] || post.id.slice(-6)}`;
       }
       if (!title) {
-        title = `Publicación Oficial ARKAIOS ${post.id.slice(-6)}`;
+        title = `Publicación Oficial ARKAIOS #${post.id.split('_')[1] || post.id.slice(-6)}`;
       }
 
       const repo = extractGithubRepo(msg, attachUrl);
