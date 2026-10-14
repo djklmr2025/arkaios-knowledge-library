@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 const PAGE_URL = 'https://www.facebook.com/arkaiosIA';
 const LIBRARY_FILE = path.join(__dirname, 'library.json');
@@ -20,6 +20,12 @@ function log(msg) {
 }
 
 function fetchPageHtml(url) {
+  const parsed = new URL(url);
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+    throw new Error('Solo se permiten protocolos HTTP/HTTPS.');
+  }
+  const safeUrl = parsed.href;
+
   const sessionDir = path.join(__dirname, '.meta_admin_session');
   const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 
@@ -27,8 +33,13 @@ function fetchPageHtml(url) {
   if (fs.existsSync(sessionDir) && fs.existsSync(path.join(sessionDir, 'Default')) && fs.existsSync(chromePath)) {
     try {
       log(`[AUTH] Usando sesión de Administrador Meta persistente (.meta_admin_session)...`);
-      const cmd = `"${chromePath}" --headless=new --dump-dom --user-data-dir="${sessionDir}" "${url}"`;
-      const out = execSync(cmd, { maxBuffer: 30 * 1024 * 1024 }).toString('utf-8');
+      const args = [
+        '--headless=new',
+        '--dump-dom',
+        `--user-data-dir=${sessionDir}`,
+        safeUrl
+      ];
+      const out = execFileSync(chromePath, args, { maxBuffer: 30 * 1024 * 1024, encoding: 'utf-8' });
       if (out && out.length > 5000) return out;
     } catch (e) {
       log(`[AUTH-WARN] Volcado headless (${e.message}), recurriendo a crawler abierto...`);
@@ -36,8 +47,10 @@ function fetchPageHtml(url) {
   }
 
   const userAgent = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
-  const cmd = `curl.exe -s -L -A "${userAgent}" "${url}"`;
-  return execSync(cmd, { maxBuffer: 25 * 1024 * 1024 }).toString('utf-8');
+  return execFileSync('curl.exe', ['-s', '-L', '-A', userAgent, safeUrl], {
+    maxBuffer: 25 * 1024 * 1024,
+    encoding: 'utf-8'
+  });
 }
 
 function sync() {

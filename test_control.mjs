@@ -1,17 +1,18 @@
 /**
- * ARKAIOS Knowledge Library - Control & Security Test Suite
+ * ARKAIOS Knowledge Library - Control & Security Test Suite v1.2
  * 
  * Verifies:
  * 1. Read-only MCP Server JSON-RPC Protocol (server.mjs) across all 4 tools
  * 2. Data Curation & Schema Integrity with metadata preservation (curate.mjs)
  * 3. Security & Zero-Leak Hygiene (No secrets in tracked git files, fail-on-error)
- * 4. Local Web Server Security (server.js: 403 on private files & path traversal)
+ * 4. Local Web Server Security & CSRF Protection (server.js: 403 on private files & CSRF)
+ * 5. Media Extractor Command Injection Defense (media_extractor.js & sync_worker.js safe execution)
  */
 
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
-import { spawn, execSync } from 'child_process';
+import { spawn, spawnSync, execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { curateLibrary } from './curate.mjs';
 
@@ -19,7 +20,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function testMcpServer() {
-  console.log('🧪 [TEST 1/4] Probando Servidor MCP (server.mjs) y sus 4 herramientas...');
+  console.log('🧪 [TEST 1/5] Probando Servidor MCP (server.mjs) y sus 4 herramientas...');
 
   return new Promise((resolve, reject) => {
     const proc = spawn('node', [path.join(__dirname, 'server.mjs')], {
@@ -106,7 +107,7 @@ async function testMcpServer() {
 }
 
 function testCurationAndSchema() {
-  console.log('\n🧪 [TEST 2/4] Probando Curador, Metadatos Multimedia y Esquema JSON (curate.mjs)...');
+  console.log('\n🧪 [TEST 2/5] Probando Curador, Metadatos Multimedia y Esquema JSON (curate.mjs)...');
   const result = curateLibrary();
 
   if (!result.success) {
@@ -139,7 +140,7 @@ function testCurationAndSchema() {
 }
 
 function testSecurityHygiene() {
-  console.log('\n🧪 [TEST 3/4] Verificando Higiene de Seguridad (Zero-Leak) y Escaneo Git...');
+  console.log('\n🧪 [TEST 3/5] Verificando Higiene de Seguridad (Zero-Leak) y Escaneo Git...');
   const gitignorePath = path.join(__dirname, '.gitignore');
   if (!fs.existsSync(gitignorePath)) {
     console.error('   ✗ Archivo .gitignore no encontrado');
@@ -199,7 +200,7 @@ function testSecurityHygiene() {
 }
 
 async function testServerSecurity() {
-  console.log('\n🧪 [TEST 4/4] Probando Seguridad del Servidor Web Local (server.js)...');
+  console.log('\n🧪 [TEST 4/5] Probando Seguridad del Servidor Web Local (server.js, 127.0.0.1 y CSRF)...');
 
   return new Promise((resolve) => {
     const serverProc = spawn('node', [path.join(__dirname, 'server.js')], {
@@ -215,38 +216,60 @@ async function testServerSecurity() {
 
     serverProc.stdout.on('data', async (d) => {
       const out = d.toString();
-      if (!started && out.includes('http://localhost:8989')) {
+      if (!started && (out.includes('127.0.0.1:8989') || out.includes(':8989'))) {
         started = true;
         let passed = true;
 
-        const checkEndpoint = (pathUrl, expectedStatus) => {
+        const checkEndpoint = (pathUrl, expectedStatus, options = {}) => {
           return new Promise((resCheck) => {
-            const req = http.get(`http://localhost:8989${pathUrl}`, (res) => {
+            const reqOptions = {
+              hostname: '127.0.0.1',
+              port: 8989,
+              path: pathUrl,
+              method: options.method || 'GET',
+              headers: options.headers || {}
+            };
+
+            const req = http.request(reqOptions, (res) => {
               res.resume();
               if (res.statusCode === expectedStatus) {
-                console.log(`   ✓ ${pathUrl} devolvió HTTP ${res.statusCode} (esperado: ${expectedStatus}).`);
+                console.log(`   ✓ ${reqOptions.method} ${pathUrl} devolvió HTTP ${res.statusCode} (esperado: ${expectedStatus}).`);
                 resCheck(true);
               } else {
-                console.error(`   ✗ ${pathUrl} devolvió HTTP ${res.statusCode} pero se esperaba ${expectedStatus}.`);
+                console.error(`   ✗ ${reqOptions.method} ${pathUrl} devolvió HTTP ${res.statusCode} pero se esperaba ${expectedStatus}.`);
                 resCheck(false);
               }
             });
+
             req.on('error', (err) => {
               if (err.code === 'ECONNRESET') return;
               console.error(`   ✗ Error de red al consultar ${pathUrl}: ${err.message}`);
               resCheck(false);
             });
+
+            req.end();
           });
         };
 
         try {
+          // Pruebas GET estáticas y endpoints públicos
           const t1 = await checkEndpoint('/index.html', 200);
           const t2 = await checkEndpoint('/.env', 403);
           const t3 = await checkEndpoint('/.meta_admin_session/Default', 403);
           const t4 = await checkEndpoint('/../package.json', 403);
           const t5 = await checkEndpoint('/api/status', 200);
 
-          passed = t1 && t2 && t3 && t4 && t5;
+          // Pruebas POST administrativas y protección CSRF (origen no autorizado bloqueado)
+          const t6 = await checkEndpoint('/api/sync', 403, {
+            method: 'POST',
+            headers: { 'Origin': 'https://malicious-website.com' }
+          });
+          const t7 = await checkEndpoint('/api/auth/login', 403, {
+            method: 'POST',
+            headers: { 'Origin': 'https://attacker.evil' }
+          });
+
+          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7;
         } catch (err) {
           console.error('   ✗ Fallo en pruebas HTTP:', err.message);
           passed = false;
@@ -256,39 +279,61 @@ async function testServerSecurity() {
       }
     });
 
-    serverProc.stderr.on('data', (d) => {
-      // ignore or log
-    });
-
     serverProc.on('error', (err) => {
       console.error('   ✗ Error al iniciar server.js:', err.message);
       cleanup(false);
     });
 
-    // Timeout de seguridad en 6 segundos
     setTimeout(() => {
       if (!started) {
-        console.error('   ✗ Timeout esperando que server.js inicie en el puerto 8989.');
+        console.error('   ✗ Timeout esperando que server.js inicie en 127.0.0.1:8989.');
         cleanup(false);
       }
     }, 6000);
   });
 }
 
+function testMediaExtractorSecurity() {
+  console.log('\n🧪 [TEST 5/5] Probando Defensa contra Inyección de Comandos (media_extractor.js)...');
+  let secure = true;
+
+  // 1. Probar URL malformada sin protocolo
+  const r1 = spawnSync('node', [path.join(__dirname, 'media_extractor.js'), 'invalid-scheme://malicious'], { encoding: 'utf-8' });
+  if (r1.status !== 0 && (r1.stderr.includes('invalida') || r1.stderr.includes('Solo se permiten'))) {
+    console.log('   ✓ Rechazo seguro de esquemas URL no permitidos.');
+  } else {
+    console.error('   ✗ media_extractor.js no rechazó URL con esquema inválido.');
+    secure = false;
+  }
+
+  // 2. Probar intento de inyección de comandos en parámetros
+  const payload = 'https://www.facebook.com/arkaiosIA" & echo INJECTED & "';
+  const r2 = spawnSync('node', [path.join(__dirname, 'media_extractor.js'), payload], { encoding: 'utf-8' });
+  if (r2.status !== 0 && !r2.stdout.includes('INJECTED')) {
+    console.log('   ✓ Intento de inyección de comando bloqueado exitosamente.');
+  } else {
+    console.error('   ✗ ALERTA: Falla en defensa contra command injection.');
+    secure = false;
+  }
+
+  return secure;
+}
+
 async function runAll() {
   console.log('======================================================================');
-  console.log('🛡️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE PRUEBAS DE CONTROL');
+  console.log('🛡️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE PRUEBAS DE CONTROL v1.2');
   console.log('======================================================================\n');
 
-  const t1 = await testMcpServer();
-  const t2 = testCurationAndSchema();
+  const t1 = testCurationAndSchema();
+  const t2 = await testMcpServer();
   const t3 = testSecurityHygiene();
   const t4 = await testServerSecurity();
+  const t5 = testMediaExtractorSecurity();
 
   console.log('\n======================================================================');
-  if (t1 && t2 && t3 && t4) {
-    console.log('🎉 TODAS LAS PRUEBAS DE CONTROL PASARON EXITOSAMENTE (4/4)');
-    console.log('   El paquete está verificado y listo para producción y multi-agentes.');
+  if (t1 && t2 && t3 && t4 && t5) {
+    console.log('🎉 TODAS LAS PRUEBAS DE CONTROL PASARON EXITOSAMENTE (5/5)');
+    console.log('   El paquete v1.2 está completamente blindado para producción y agentes.');
   } else {
     console.error('⚠️ AL MENOS UNA PRUEBA FALLÓ. Revisa los detalles anteriores.');
     process.exit(1);

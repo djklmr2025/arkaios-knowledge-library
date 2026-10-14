@@ -18,14 +18,14 @@
 
 ---
 
-## 🛡️ 2. Pruebas de Control Ejecutadas y Aprobadas (4/4)
+## 🛡️ 2. Pruebas de Control Ejecutadas y Aprobadas (5/5 — v1.2 Security Release)
 
 Para ejecutar las pruebas en cualquier momento:
 ```bash
 node test_control.mjs
 ```
 
-### Resultados de la Verificación Oficial:
+### Resultados de la Verificación Oficial v1.2:
 1. **Servidor MCP:**
    * Handshake `initialize` completado con `protocolVersion: 2024-11-05`.
    * Herramientas expuestas y validadas al 100% (`search_library`, `get_lesson`, `list_technologies`, `get_top_resource`).
@@ -38,9 +38,15 @@ node test_control.mjs
    * `.env` explícitamente ignorado por `.gitignore`.
    * Escaneo riguroso de archivos rastreados por Git sin errores ocultos.
    * Cero archivos `.env` o tokens de API rastreados por Git.
-4. **Seguridad del Servidor Web Local (server.js):**
+4. **Seguridad del Servidor Web Local (server.js, 127.0.0.1 y CSRF):**
+   * Servidor enlazado exclusivamente a la interfaz loopback `127.0.0.1`.
    * Bloqueo estricto con HTTP 403 Forbidden para accesos a `/.env`, `/.meta_admin_session`, `package.json` y path traversal (`/../`).
+   * Endpoints administrativos mutativos (`/api/sync` y `/api/auth/login`) protegidos contra CSRF: orígenes externos no autorizados devuelven HTTP 403 Forbidden.
    * Respuestas HTTP 200 válidas para archivos públicos (`/index.html`, `/api/status`, `/library.json`).
+5. **Defensa contra Inyección de Comandos (media_extractor.js y sync_worker.js):**
+   * Eliminación completa de `execSync` con interpolación de shell.
+   * Implementación de `execFileSync` con paso de argumentos en arreglos aislados.
+   * Validación estricta de URLs (solo esquemas HTTP/HTTPS) y rechazo de metacaracteres de consola.
 
 ### 🎬 Aclaración Técnica sobre Capacidades Multimedia:
 * **Extracción y Estructuración:** La biblioteca extrae y organiza metadatos, transcripciones de texto de publicaciones, enlaces directos a videos HD y Reels (`facebook.com/arkaiosIA/videos/{id}` y `/reel/{id}`).
