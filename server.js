@@ -65,6 +65,20 @@ function isValidOrigin(req) {
   }
 }
 
+function parseCookies(req) {
+  const list = {};
+  const cookieHeader = req.headers.cookie;
+  if (!cookieHeader) return list;
+  cookieHeader.split(';').forEach(cookie => {
+    let [name, ...rest] = cookie.split('=');
+    name = name?.trim();
+    if (!name) return;
+    const value = rest.join('=').trim();
+    list[name] = decodeURIComponent(value);
+  });
+  return list;
+}
+
 function checkAdminAuth(req, res) {
   // 1. Debe provenir exclusivamente de loopback local
   if (!isLocalClient(req)) {
@@ -81,16 +95,19 @@ function checkAdminAuth(req, res) {
   }
 
   // 3. Autenticación con Token Secreto Administrativo (tiempo constante contra timing attacks)
-  const tokenHeader = req.headers['x-arkaios-admin-token'] || 
-                      (req.headers.authorization && req.headers.authorization.replace(/^Bearer\s+/i, '').trim());
+  // Soporta cabecera X-Arkaios-Admin-Token, cabecera Authorization Bearer o Cookie HttpOnly de sesión
+  const cookies = parseCookies(req);
+  const tokenCandidate = req.headers['x-arkaios-admin-token'] || 
+                         (req.headers.authorization && req.headers.authorization.replace(/^Bearer\s+/i, '').trim()) ||
+                         cookies['arkaios_admin_session'];
 
-  if (!tokenHeader) {
+  if (!tokenCandidate) {
     res.writeHead(401, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'No autorizado: se requiere cabecera con token administrativo (X-Arkaios-Admin-Token o Bearer).' }));
+    res.end(JSON.stringify({ error: 'No autorizado: se requiere token administrativo mediante cabecera o sesión local.' }));
     return false;
   }
 
-  const providedBuf = Buffer.from(String(tokenHeader));
+  const providedBuf = Buffer.from(String(tokenCandidate));
   const expectedBuf = Buffer.from(String(ADMIN_TOKEN));
   const isMatch = providedBuf.length === expectedBuf.length && crypto.timingSafeEqual(providedBuf, expectedBuf);
 
@@ -107,6 +124,22 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
   const pathname = url.pathname;
 
+  // Manejo de autenticación por URL segura al abrir el navegador (?token=...)
+  // Establece una cookie HttpOnly con SameSite=Strict y redirige limpiando el query param
+  const queryToken = url.searchParams.get('token');
+  if (queryToken && (pathname === '/' || pathname === '/index.html')) {
+    const qBuf = Buffer.from(String(queryToken));
+    const eBuf = Buffer.from(String(ADMIN_TOKEN));
+    if (qBuf.length === eBuf.length && crypto.timingSafeEqual(qBuf, eBuf)) {
+      res.writeHead(302, {
+        'Set-Cookie': `arkaios_admin_session=${ADMIN_TOKEN}; HttpOnly; SameSite=Strict; Path=/; Max-Age=86400`,
+        'Location': '/'
+      });
+      res.end();
+      return;
+    }
+  }
+
   // CORS headers: abierto para lectura pública, restringido para mutaciones
   if (req.method === 'GET') {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -115,6 +148,7 @@ const server = http.createServer((req, res) => {
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Arkaios-Admin-Token, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -122,18 +156,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // API Endpoints
-  if (pathname === '/api/auth/token' && req.method === 'GET') {
-    if (!isLocalClient(req) || !isValidOrigin(req)) {
-      res.writeHead(403, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Acceso denegado: entrega de token restringida a localhost legítimo.' }));
-      return;
-    }
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ token: ADMIN_TOKEN }));
-    return;
-  }
-
+  // API Endpoints - Nota de Seguridad: NO existe ningún endpoint GET que exponga o entregue el token secreto.
   if (pathname === '/api/status' && req.method === 'GET') {
     const libPath = path.join(__dirname, 'library.json');
     let totalItems = 0;
