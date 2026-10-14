@@ -30,14 +30,52 @@ function hasActiveSession() {
   return fs.existsSync(defaultDir);
 }
 
+function isLocalClient(req) {
+  const ip = req.socket.remoteAddress || '';
+  return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+}
+
+function checkAdminAuth(req, res) {
+  // 1. Debe provenir de la interfaz loopback local
+  if (!isLocalClient(req)) {
+    res.writeHead(403, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Acceso denegado: solo peticiones desde localhost (127.0.0.1) están autorizadas.' }));
+    return false;
+  }
+
+  // 2. Protección contra CSRF: si se incluye origen o referer, debe ser de localhost
+  const origin = req.headers.origin || req.headers.referer || '';
+  if (origin) {
+    try {
+      const parsedOrigin = new URL(origin);
+      const isAllowedHost = parsedOrigin.hostname === 'localhost' || parsedOrigin.hostname === '127.0.0.1';
+      if (!isAllowedHost || (parsedOrigin.port && parsedOrigin.port !== String(PORT))) {
+        res.writeHead(403, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Acceso denegado por protección CSRF: origen no autorizado.' }));
+        return false;
+      }
+    } catch (e) {
+      res.writeHead(403, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Acceso denegado: cabecera de origen inválida.' }));
+      return false;
+    }
+  }
+
+  return true;
+}
+
 const server = http.createServer((req, res) => {
-  const url = new URL(req.url, `http://localhost:${PORT}`);
+  const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
   const pathname = url.pathname;
 
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS headers: abierto para lectura pública, restringido para mutaciones
+  if (req.method === 'GET') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Arkaios-Client');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -67,6 +105,8 @@ const server = http.createServer((req, res) => {
   }
 
   if (pathname === '/api/auth/login' && req.method === 'POST') {
+    if (!checkAdminAuth(req, res)) return;
+
     try {
       const args = [
         `--user-data-dir=${SESSION_DIR}`,
@@ -94,6 +134,8 @@ const server = http.createServer((req, res) => {
   }
 
   if (pathname === '/api/sync' && req.method === 'POST') {
+    if (!checkAdminAuth(req, res)) return;
+
     try {
       const result = sync();
       res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -151,7 +193,7 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`[ARKAIOS SERVER] Servidor activo en http://localhost:${PORT}`);
+server.listen(PORT, '127.0.0.1', () => {
+  console.log(`[ARKAIOS SERVER] Servidor activo exclusivamente en http://127.0.0.1:${PORT}`);
   console.log(`[ARKAIOS SERVER] Perfil de sesion Meta: ${SESSION_DIR}`);
 });

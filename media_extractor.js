@@ -8,13 +8,41 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
-const targetUrl = process.argv[2];
+function validateUrl(rawUrl) {
+  if (typeof rawUrl !== 'string' || !rawUrl.trim()) {
+    throw new Error('URL requerida.');
+  }
+  // Rechazar caracteres peligrosos de inyeccion o control
+  if (/["'`;&|<>^\r\n]/.test(rawUrl)) {
+    throw new Error('URL contiene caracteres no permitidos o sospechosos.');
+  }
 
-if (!targetUrl) {
+  try {
+    const parsed = new URL(rawUrl);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      throw new Error('Solo se permiten protocolos HTTP y HTTPS.');
+    }
+    return parsed.href;
+  } catch (err) {
+    throw new Error(`URL invalida: ${err.message}`);
+  }
+}
+
+const rawTarget = process.argv[2];
+
+if (!rawTarget) {
   console.log('Uso: node media_extractor.js <URL>');
   console.log('Ejemplo: node media_extractor.js "https://www.facebook.com/share/v/19C2HiwhRs/"');
+  process.exit(1);
+}
+
+let targetUrl;
+try {
+  targetUrl = validateUrl(rawTarget);
+} catch (vErr) {
+  console.error(`[ARKAIOS ERROR] ${vErr.message}`);
   process.exit(1);
 }
 
@@ -23,9 +51,11 @@ console.log(`[ARKAIOS] Extrayendo conocimiento de: ${targetUrl}...`);
 function fetchUrl(url, userAgent = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)') {
   return new Promise((resolve, reject) => {
     try {
-      // Use curl CLI directly since it is universally installed and handles SSL/redirects natively
-      const cmd = `curl.exe -s -L -A "${userAgent}" "${url}"`;
-      const output = execSync(cmd, { maxBuffer: 20 * 1024 * 1024 }).toString('utf-8');
+      const safeUrl = validateUrl(url);
+      const output = execFileSync('curl.exe', ['-s', '-L', '-A', userAgent, safeUrl], {
+        maxBuffer: 20 * 1024 * 1024,
+        encoding: 'utf-8'
+      });
       resolve(output);
     } catch (e) {
       reject(e);
@@ -103,6 +133,7 @@ async function extract() {
 
   } catch (err) {
     console.error('Error durante extracción:', err.message);
+    process.exit(1);
   }
 }
 
