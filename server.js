@@ -82,6 +82,7 @@ function parseCookies(req) {
 // Almacén de sesiones efímeras independientes en memoria del servidor
 // La cookie solo guarda un ID de sesión efímero, NUNCA el token maestro
 const activeSessions = new Map();
+const loginAttemptsPerClient = new Map();
 const SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 horas de vigencia
 
 function createSession() {
@@ -172,9 +173,14 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Rate limit para intentos fallidos de autenticación (máx 5 fallos por minuto)
-  let failedLoginAttempts = 0;
-  let lastAttemptWindow = Date.now();
+  // Rate limit por cliente/IP para intentos fallidos de autenticación (máx 5 fallos por minuto por cliente)
+  const clientIp = req.socket.remoteAddress || '127.0.0.1';
+  let clientAttempt = loginAttemptsPerClient.get(clientIp);
+  const now = Date.now();
+  if (!clientAttempt || (now - clientAttempt.lastWindow > 60000)) {
+    clientAttempt = { count: 0, lastWindow: now };
+    loginAttemptsPerClient.set(clientIp, clientAttempt);
+  }
 
   // Endpoint de creación de sesión independiente (Login de sesión local)
   if (pathname === '/api/auth/session' && req.method === 'POST') {
@@ -184,30 +190,28 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    const now = Date.now();
-    if (now - lastAttemptWindow > 60000) {
-      failedLoginAttempts = 0;
-      lastAttemptWindow = now;
-    }
-    if (failedLoginAttempts >= 5) {
+    if (clientAttempt.count >= 5) {
       res.writeHead(429, { 'Content-Type': 'application/json', 'Retry-After': '60' });
       res.end(JSON.stringify({ error: 'Demasiados intentos fallidos. Inténtalo de nuevo en un minuto.' }));
       return;
     }
 
     let body = '';
-    const MAX_BODY_SIZE = 4096; // 4 KB máximo
+    let receivedBytes = 0;
+    const MAX_BODY_BYTES = 4096; // 4096 bytes reales exactos
     let aborted = false;
 
     req.on('data', chunk => {
       if (aborted) return;
-      body += chunk;
-      if (body.length > MAX_BODY_SIZE) {
+      receivedBytes += chunk.length;
+      if (receivedBytes > MAX_BODY_BYTES) {
         aborted = true;
         res.writeHead(413, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Payload demasiado grande (máximo 4 KB).' }));
+        res.end(JSON.stringify({ error: 'Payload demasiado grande (máximo 4096 bytes).' }));
         req.destroy();
+        return;
       }
+      body += chunk;
     });
 
     req.on('end', () => {
@@ -221,7 +225,7 @@ const server = http.createServer((req, res) => {
       }
 
       if (!providedToken) {
-        failedLoginAttempts++;
+        clientAttempt.count++;
         res.writeHead(401, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Token administrativo requerido.' }));
         return;
@@ -232,14 +236,14 @@ const server = http.createServer((req, res) => {
       const isMatch = pBuf.length === eBuf.length && crypto.timingSafeEqual(pBuf, eBuf);
 
       if (!isMatch) {
-        failedLoginAttempts++;
+        clientAttempt.count++;
         res.writeHead(401, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Token administrativo inválido.' }));
         return;
       }
 
-      // Éxito: resetear contador y generar sesión efímera independiente
-      failedLoginAttempts = 0;
+      // Éxito: resetear contador para este cliente y generar sesión efímera independiente
+      clientAttempt.count = 0;
       const newSessionId = createSession();
       res.writeHead(200, {
         'Content-Type': 'application/json',
