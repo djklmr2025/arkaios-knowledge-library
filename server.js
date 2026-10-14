@@ -105,9 +105,33 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Static File Serving
+  // Static File Serving - Seguridad: Bloquear directory traversal y archivos ocultos/privados/código
+  let rawUrl = '';
+  try { rawUrl = decodeURIComponent(req.url || ''); } catch (e) { rawUrl = req.url || ''; }
+  const normalizedPath = path.normalize(pathname).replace(/\\/g, '/');
+
+  if (
+    rawUrl.includes('..') ||
+    normalizedPath.includes('..') ||
+    /(?:^|\/)\./.test(normalizedPath) ||
+    /^\/(?:\.env|\.git|\.meta_admin_session)/i.test(normalizedPath) ||
+    /\.(bat|cmd|log|mjs|env|sh|lock)$/i.test(normalizedPath) ||
+    /^\/(package\.json|package-lock\.json|sync_history\.log)/i.test(normalizedPath)
+  ) {
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('403 Forbidden: Acceso denegado a archivos de configuracion o del sistema.');
+    return;
+  }
+
   let filePath = path.join(PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname);
-  if (!fs.existsSync(filePath)) {
+  const resolvedPath = path.resolve(filePath);
+  if (!resolvedPath.startsWith(path.resolve(PUBLIC_DIR))) {
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('403 Forbidden: Path traversal detectado.');
+    return;
+  }
+
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('404 Not Found');
     return;
