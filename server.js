@@ -6,13 +6,31 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { spawn } = require('child_process');
 const { sync } = require('./sync_worker');
 
 const PORT = 8989;
 const PUBLIC_DIR = __dirname;
 const SESSION_DIR = path.join(__dirname, '.meta_admin_session');
+const TOKEN_FILE = path.join(__dirname, '.admin_token');
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+
+// Carga o generación de token administrativo secreto (nunca hardcodeado en GitHub)
+let ADMIN_TOKEN = process.env.ARKAIOS_ADMIN_TOKEN;
+if (!ADMIN_TOKEN) {
+  if (fs.existsSync(TOKEN_FILE)) {
+    try {
+      ADMIN_TOKEN = fs.readFileSync(TOKEN_FILE, 'utf-8').trim();
+    } catch (e) {}
+  }
+  if (!ADMIN_TOKEN || ADMIN_TOKEN.length < 16) {
+    ADMIN_TOKEN = crypto.randomBytes(32).toString('hex');
+    try {
+      fs.writeFileSync(TOKEN_FILE, ADMIN_TOKEN, { mode: 0o600, encoding: 'utf-8' });
+    } catch (e) {}
+  }
+}
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -35,38 +53,51 @@ function isLocalClient(req) {
   return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
 }
 
+function isValidOrigin(req) {
+  const origin = req.headers.origin || req.headers.referer || '';
+  if (!origin) return true; // Petición local directa o CLI sin Origin
+  try {
+    const parsedOrigin = new URL(origin);
+    const isAllowedHost = parsedOrigin.hostname === 'localhost' || parsedOrigin.hostname === '127.0.0.1';
+    return isAllowedHost && (!parsedOrigin.port || parsedOrigin.port === String(PORT));
+  } catch (e) {
+    return false;
+  }
+}
+
 function checkAdminAuth(req, res) {
-  // 1. Debe provenir de la interfaz loopback local
+  // 1. Debe provenir exclusivamente de loopback local
   if (!isLocalClient(req)) {
     res.writeHead(403, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ error: 'Acceso denegado: solo peticiones desde localhost (127.0.0.1) están autorizadas.' }));
     return false;
   }
 
-  // 2. Requiere cabecera de autorización administrativa local
-  const clientAuth = req.headers['x-arkaios-client'];
-  if (clientAuth !== 'local-admin') {
-    res.writeHead(401, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'No autorizado: se requiere cabecera administrativa X-Arkaios-Client: local-admin.' }));
+  // 2. Protección contra CSRF en peticiones con Origin o Referer
+  if (!isValidOrigin(req)) {
+    res.writeHead(403, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Acceso denegado por protección CSRF: origen no autorizado.' }));
     return false;
   }
 
-  // 3. Protección contra CSRF: si se incluye origen o referer, debe ser de localhost
-  const origin = req.headers.origin || req.headers.referer || '';
-  if (origin) {
-    try {
-      const parsedOrigin = new URL(origin);
-      const isAllowedHost = parsedOrigin.hostname === 'localhost' || parsedOrigin.hostname === '127.0.0.1';
-      if (!isAllowedHost || (parsedOrigin.port && parsedOrigin.port !== String(PORT))) {
-        res.writeHead(403, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Acceso denegado por protección CSRF: origen no autorizado.' }));
-        return false;
-      }
-    } catch (e) {
-      res.writeHead(403, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Acceso denegado: cabecera de origen inválida.' }));
-      return false;
-    }
+  // 3. Autenticación con Token Secreto Administrativo (tiempo constante contra timing attacks)
+  const tokenHeader = req.headers['x-arkaios-admin-token'] || 
+                      (req.headers.authorization && req.headers.authorization.replace(/^Bearer\s+/i, '').trim());
+
+  if (!tokenHeader) {
+    res.writeHead(401, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'No autorizado: se requiere cabecera con token administrativo (X-Arkaios-Admin-Token o Bearer).' }));
+    return false;
+  }
+
+  const providedBuf = Buffer.from(String(tokenHeader));
+  const expectedBuf = Buffer.from(String(ADMIN_TOKEN));
+  const isMatch = providedBuf.length === expectedBuf.length && crypto.timingSafeEqual(providedBuf, expectedBuf);
+
+  if (!isMatch) {
+    res.writeHead(401, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'No autorizado: el token administrativo proporcionado es inválido.' }));
+    return false;
   }
 
   return true;
@@ -83,7 +114,7 @@ const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Arkaios-Client');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Arkaios-Admin-Token, Authorization');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -92,6 +123,17 @@ const server = http.createServer((req, res) => {
   }
 
   // API Endpoints
+  if (pathname === '/api/auth/token' && req.method === 'GET') {
+    if (!isLocalClient(req) || !isValidOrigin(req)) {
+      res.writeHead(403, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Acceso denegado: entrega de token restringida a localhost legítimo.' }));
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ token: ADMIN_TOKEN }));
+    return;
+  }
+
   if (pathname === '/api/status' && req.method === 'GET') {
     const libPath = path.join(__dirname, 'library.json');
     let totalItems = 0;

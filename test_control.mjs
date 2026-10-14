@@ -161,12 +161,12 @@ function testSecurityHygiene() {
     const rawTracked = execSync('git ls-files', { encoding: 'utf-8' });
     const trackedFiles = rawTracked.split('\n').map(l => l.trim()).filter(Boolean);
 
-    const leakedEnv = trackedFiles.filter(f => /^\.env(\.local|\.production|\.development)?$/.test(f));
+    const leakedEnv = trackedFiles.filter(f => /^\.env(\.local|\.production|\.development)?$/.test(f) || /^\.admin_token/.test(f));
     if (leakedEnv.length > 0) {
-      console.error(`   ✗ ALERTA: Un archivo .env privado está siendo rastreado por git: ${leakedEnv.join(', ')}`);
+      console.error(`   ✗ ALERTA: Un archivo privado (.env o .admin_token) está siendo rastreado por git: ${leakedEnv.join(', ')}`);
       secure = false;
     } else {
-      console.log('   ✓ Ningún archivo .env privado está siendo rastreado por git.');
+      console.log('   ✓ Ningún archivo .env ni .admin_token privado está siendo rastreado por git.');
     }
 
     // Escanear archivos rastreados en busca de tokens expuestos
@@ -251,36 +251,94 @@ async function testServerSecurity() {
           });
         };
 
+        const fetchJson = (pathUrl, options = {}) => {
+          return new Promise((resFetch) => {
+            const reqOptions = {
+              hostname: '127.0.0.1',
+              port: 8989,
+              path: pathUrl,
+              method: options.method || 'GET',
+              headers: options.headers || {}
+            };
+            let body = '';
+            const req = http.request(reqOptions, (res) => {
+              res.on('data', chunk => { body += chunk; });
+              res.on('end', () => {
+                try {
+                  resFetch({ status: res.statusCode, data: JSON.parse(body) });
+                } catch (e) {
+                  resFetch({ status: res.statusCode, raw: body });
+                }
+              });
+            });
+            req.on('error', () => resFetch({ status: 500 }));
+            req.end();
+          });
+        };
+
         try {
           // 1. Pruebas GET estáticas y endpoints públicos autorizados
           const t1 = await checkEndpoint('/index.html', 200);
           const t2 = await checkEndpoint('/library.json', 200);
           const t3 = await checkEndpoint('/api/status', 200);
 
-          // 2. Lista blanca estricta: cualquier archivo privado o fuera de lista devuelve 404
-          const t4 = await checkEndpoint('/.env', 404);
-          const t5 = await checkEndpoint('/.meta_admin_session/Default', 404);
-          const t6 = await checkEndpoint('/package.json', 404);
-          const t7 = await checkEndpoint('/../package.json', 404);
+          // 2. Obtención segura del token administrativo para peticiones locales legítimas
+          const tokenRes = await fetchJson('/api/auth/token');
+          const adminToken = tokenRes.data?.token;
+          const t4 = tokenRes.status === 200 && typeof adminToken === 'string' && adminToken.length >= 32;
+          if (t4) {
+            console.log('   ✓ GET /api/auth/token entregó token administrativo dinámico de 32+ bytes.');
+          } else {
+            console.error('   ✗ Fallo al obtener token administrativo válido en /api/auth/token');
+          }
 
-          // 3. Pruebas POST administrativas: rechaza sin cabecera X-Arkaios-Client (401)
-          const t8 = await checkEndpoint('/api/sync', 401, {
+          // 3. Intento de robo de token vía CSRF desde origen externo malicioso -> HTTP 403
+          const t5 = await checkEndpoint('/api/auth/token', 403, {
+            headers: { 'Origin': 'https://malicious-website.com' }
+          });
+
+          // 4. Lista blanca estricta: cualquier archivo privado o fuera de lista devuelve 404
+          const t6 = await checkEndpoint('/.env', 404);
+          const t7 = await checkEndpoint('/.admin_token', 404);
+          const t8 = await checkEndpoint('/.meta_admin_session/Default', 404);
+          const t9 = await checkEndpoint('/package.json', 404);
+          const t10 = await checkEndpoint('/../package.json', 404);
+
+          // 5. Autenticación administrativa: rechazo sin token -> HTTP 401
+          const t11 = await checkEndpoint('/api/sync', 401, {
             method: 'POST'
           });
-          const t9 = await checkEndpoint('/api/auth/login', 401, {
-            method: 'POST'
+
+          // 6. Rechazo de la cabecera fija antigua (local-admin ya no es suficiente) -> HTTP 401
+          const t12 = await checkEndpoint('/api/sync', 401, {
+            method: 'POST',
+            headers: { 'X-Arkaios-Client': 'local-admin' }
           });
 
-          // 4. Protección CSRF: rechaza peticiones con origen externo malicioso incluso con cabecera (403)
-          const t10 = await checkEndpoint('/api/sync', 403, {
+          // 7. Rechazo de token falsificado o incorrecto -> HTTP 401
+          const t13 = await checkEndpoint('/api/sync', 401, {
+            method: 'POST',
+            headers: { 'X-Arkaios-Admin-Token': 'token_falsificado_invalido_1234567890abcdef' }
+          });
+
+          // 8. Protección CSRF: rechaza peticiones con token válido pero provenientes de origen externo -> HTTP 403
+          const t14 = await checkEndpoint('/api/sync', 403, {
             method: 'POST',
             headers: {
               'Origin': 'https://malicious-website.com',
-              'X-Arkaios-Client': 'local-admin'
+              'X-Arkaios-Admin-Token': adminToken
             }
           });
 
-          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10;
+          // 9. Operación administrativa autorizada con token válido local (sin Origin externo) -> HTTP 200
+          const t15 = await checkEndpoint('/api/auth/login', 200, {
+            method: 'POST',
+            headers: {
+              'X-Arkaios-Admin-Token': adminToken
+            }
+          });
+
+          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10 && t11 && t12 && t13 && t14 && t15;
         } catch (err) {
           console.error('   ✗ Fallo en pruebas HTTP:', err.message);
           passed = false;
