@@ -282,63 +282,76 @@ async function testServerSecurity() {
           const t2 = await checkEndpoint('/library.json', 200);
           const t3 = await checkEndpoint('/api/status', 200);
 
-          // 2. Obtención segura del token administrativo para peticiones locales legítimas
-          const tokenRes = await fetchJson('/api/auth/token');
-          const adminToken = tokenRes.data?.token;
-          const t4 = tokenRes.status === 200 && typeof adminToken === 'string' && adminToken.length >= 32;
+          // 2. Comprobar que /api/auth/token está completamente eliminado y no regala el secreto (devuelve 404)
+          const t4 = await checkEndpoint('/api/auth/token', 404);
           if (t4) {
-            console.log('   ✓ GET /api/auth/token entregó token administrativo dinámico de 32+ bytes.');
-          } else {
-            console.error('   ✗ Fallo al obtener token administrativo válido en /api/auth/token');
+            console.log('   ✓ /api/auth/token eliminado correctamente (HTTP 404): ningún proceso local puede solicitar el secreto por API.');
           }
 
-          // 3. Intento de robo de token vía CSRF desde origen externo malicioso -> HTTP 403
-          const t5 = await checkEndpoint('/api/auth/token', 403, {
-            headers: { 'Origin': 'https://malicious-website.com' }
-          });
+          // 3. Cargar el token administrativo secreto directamente del archivo protegido o entorno (como proceso autorizado)
+          const tokenFile = path.join(__dirname, '.admin_token');
+          let validAdminToken = process.env.ARKAIOS_ADMIN_TOKEN;
+          if (!validAdminToken && fs.existsSync(tokenFile)) {
+            validAdminToken = fs.readFileSync(tokenFile, 'utf-8').trim();
+          }
+
+          const hasValidSecret = typeof validAdminToken === 'string' && validAdminToken.length >= 32;
+          if (hasValidSecret) {
+            console.log('   ✓ Token maestro resguardado localmente en archivo protegido con 32+ bytes.');
+          } else {
+            console.error('   ✗ No se pudo localizar el token maestro en .admin_token');
+          }
 
           // 4. Lista blanca estricta: cualquier archivo privado o fuera de lista devuelve 404
-          const t6 = await checkEndpoint('/.env', 404);
-          const t7 = await checkEndpoint('/.admin_token', 404);
-          const t8 = await checkEndpoint('/.meta_admin_session/Default', 404);
-          const t9 = await checkEndpoint('/package.json', 404);
-          const t10 = await checkEndpoint('/../package.json', 404);
+          const t5 = await checkEndpoint('/.env', 404);
+          const t6 = await checkEndpoint('/.admin_token', 404);
+          const t7 = await checkEndpoint('/.meta_admin_session/Default', 404);
+          const t8 = await checkEndpoint('/package.json', 404);
+          const t9 = await checkEndpoint('/../package.json', 404);
 
           // 5. Autenticación administrativa: rechazo sin token -> HTTP 401
-          const t11 = await checkEndpoint('/api/sync', 401, {
+          const t10 = await checkEndpoint('/api/sync', 401, {
             method: 'POST'
           });
 
           // 6. Rechazo de la cabecera fija antigua (local-admin ya no es suficiente) -> HTTP 401
-          const t12 = await checkEndpoint('/api/sync', 401, {
+          const t11 = await checkEndpoint('/api/sync', 401, {
             method: 'POST',
             headers: { 'X-Arkaios-Client': 'local-admin' }
           });
 
           // 7. Rechazo de token falsificado o incorrecto -> HTTP 401
-          const t13 = await checkEndpoint('/api/sync', 401, {
+          const t12 = await checkEndpoint('/api/sync', 401, {
             method: 'POST',
             headers: { 'X-Arkaios-Admin-Token': 'token_falsificado_invalido_1234567890abcdef' }
           });
 
           // 8. Protección CSRF: rechaza peticiones con token válido pero provenientes de origen externo -> HTTP 403
-          const t14 = await checkEndpoint('/api/sync', 403, {
+          const t13 = await checkEndpoint('/api/sync', 403, {
             method: 'POST',
             headers: {
               'Origin': 'https://malicious-website.com',
-              'X-Arkaios-Admin-Token': adminToken
+              'X-Arkaios-Admin-Token': validAdminToken
             }
           });
 
-          // 9. Operación administrativa autorizada con token válido local (sin Origin externo) -> HTTP 200
+          // 9. Operación administrativa autorizada con token secreto vía cabecera -> HTTP 200
+          const t14 = await checkEndpoint('/api/auth/login', 200, {
+            method: 'POST',
+            headers: {
+              'X-Arkaios-Admin-Token': validAdminToken
+            }
+          });
+
+          // 10. Operación administrativa autorizada con sesión Cookie HttpOnly -> HTTP 200
           const t15 = await checkEndpoint('/api/auth/login', 200, {
             method: 'POST',
             headers: {
-              'X-Arkaios-Admin-Token': adminToken
+              'Cookie': `arkaios_admin_session=${validAdminToken}`
             }
           });
 
-          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10 && t11 && t12 && t13 && t14 && t15;
+          passed = t1 && t2 && t3 && t4 && hasValidSecret && t5 && t6 && t7 && t8 && t9 && t10 && t11 && t12 && t13 && t14 && t15;
         } catch (err) {
           console.error('   ✗ Fallo en pruebas HTTP:', err.message);
           passed = false;
