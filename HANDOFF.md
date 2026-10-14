@@ -18,25 +18,33 @@
 
 ---
 
-## 🛡️ 2. Pruebas de Control Ejecutadas y Aprobadas
+## 🛡️ 2. Pruebas de Control Ejecutadas y Aprobadas (4/4)
 
 Para ejecutar las pruebas en cualquier momento:
 ```bash
 node test_control.mjs
 ```
 
-### Resultados de la Verificación:
+### Resultados de la Verificación Oficial:
 1. **Servidor MCP:**
    * Handshake `initialize` completado con `protocolVersion: 2024-11-05`.
-   * Herramientas expuestas y validadas (`search_library`, `get_lesson`, `list_technologies`, `get_top_resource`).
+   * Herramientas expuestas y validadas al 100% (`search_library`, `get_lesson`, `list_technologies`, `get_top_resource`).
    * Invocación de `get_top_resource` devuelve exitosamente ArtCraft con repositorio `github.com/storytold`.
-2. **Curador de Datos:**
-   * Esquema JSON validado.
-   * Duplicados y URLs genéricas eliminadas.
-   * 33 registros íntegros con repositorio, lección para agentes y tecnologías.
-3. **Higiene de Seguridad (Zero-Leak):**
+2. **Curador de Datos y Preservación Multimedia:**
+   * Esquema JSON validado con **311 registros íntegros**.
+   * Preservación de campos multimedia y trazabilidad (`external_resource`, `synced_at`, `thumbnail`, `video_id`).
+   * Duplicados por URL canónica o ID filtrados.
+3. **Higiene de Seguridad (Zero-Leak & Fail-Safe):**
    * `.env` explícitamente ignorado por `.gitignore`.
+   * Escaneo riguroso de archivos rastreados por Git sin errores ocultos.
    * Cero archivos `.env` o tokens de API rastreados por Git.
+4. **Seguridad del Servidor Web Local (server.js):**
+   * Bloqueo estricto con HTTP 403 Forbidden para accesos a `/.env`, `/.meta_admin_session`, `package.json` y path traversal (`/../`).
+   * Respuestas HTTP 200 válidas para archivos públicos (`/index.html`, `/api/status`, `/library.json`).
+
+### 🎬 Aclaración Técnica sobre Capacidades Multimedia:
+* **Extracción y Estructuración:** La biblioteca extrae y organiza metadatos, transcripciones de texto de publicaciones, enlaces directos a videos HD y Reels (`facebook.com/arkaiosIA/videos/{id}` y `/reel/{id}`).
+* **Procesamiento de Audio y Visión:** La transcripción continua de voz a texto y el análisis fotograma a fotograma en tiempo real se delegan a las herramientas multimodales del runtime (ej. Whisper o Vision API de Gemini/Claude), utilizando las URLs canónicas y metadatos preservados en `library.json`.
 
 ---
 

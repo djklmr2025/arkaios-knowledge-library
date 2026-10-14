@@ -87,7 +87,7 @@ export function curateLibrary() {
     if (videoId) seenUrls.add(`video-id-${videoId}`);
     if (normTitle.length > 10) seenUrls.add(`title-${normTitle}`);
 
-    // 4. Normalizar arrays
+    // 4. Normalizar arrays y campos preservando metadatos multimedia
     const cleanItem = {
       id: cleanId,
       title: item.title.trim(),
@@ -101,7 +101,14 @@ export function curateLibrary() {
       skills_unlocked: Array.isArray(item.skills_unlocked) ? item.skills_unlocked.map(s => s.trim()).filter(Boolean) : [],
       summary: item.summary.trim(),
       agent_lesson: item.agent_lesson.trim(),
-      tags: Array.isArray(item.tags) ? item.tags.map(t => t.trim()).filter(Boolean) : []
+      tags: Array.isArray(item.tags) ? item.tags.map(t => t.trim()).filter(Boolean) : [],
+      // Preservar metadatos multimedia y trazabilidad de sincronización
+      ...(item.external_resource ? { external_resource: item.external_resource.trim() } : {}),
+      ...(item.thumbnail ? { thumbnail: item.thumbnail.trim() } : {}),
+      ...(item.video_id ? { video_id: item.video_id.toString().trim() } : {}),
+      ...(item.media_type ? { media_type: item.media_type.trim() } : {}),
+      ...(item.synced_at ? { synced_at: item.synced_at } : {}),
+      ...(item.created_time ? { created_time: item.created_time } : {})
     };
 
     validItems.push(cleanItem);

