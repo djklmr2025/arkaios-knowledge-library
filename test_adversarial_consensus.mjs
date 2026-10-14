@@ -2,12 +2,12 @@
  * ARKAIOS Knowledge Library - Suite de Pruebas Adversariales de Consenso Multi-Agente (Soberano)
  * 
  * Valida los vectores de ataque y requisitos de gobernanza:
- * 1. Falsificación de identidades (Identity Spoofing)
+ * 1. Falsificación de identidades y Bloqueo de Tokens Inventados (Defecto 1 de ChatGPT resuelto)
  * 2. Auto-aprobación con credenciales válidas (Anti-Self-Approval)
- * 3. Quórum escalonado (2 para autenticadas, 3 para externas no autenticadas)
+ * 3. Quórum escalonado (2 para autenticadas en registro, 3 para externas no autenticadas)
  * 4. Duplicación de votos del mismo auditor (Duplicate Vote Prevention)
  * 5. Consenso soberano con preservación inmutable de ArtCraft #1
- * 6. Integridad transaccional WAL y Rollback seguro ante fallos
+ * 6. Quórum reforzado (3/3) para propuestas no autenticadas
  */
 
 import fs from 'fs';
@@ -21,7 +21,8 @@ import {
   _getTestingCredentials,
   AUTHENTICATED_QUORUM,
   UNAUTHENTICATED_QUORUM,
-  AUTHORIZED_COMMITTEE_MEMBERS
+  AUTHORIZED_COMMITTEE_MEMBERS,
+  AUTHORIZED_CONTRIBUTORS
 } from './consensus_engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,18 +46,23 @@ console.log('⚔️  ARKAIOS - SUITE ADVERSARIAL DE CONSENSO MULTI-AGENTE Y GOBE
 console.log('======================================================================\n');
 
 try {
-  const committeeTokens = _getTestingCredentials();
+  const credentials = _getTestingCredentials();
+  const committeeTokens = credentials.committee;
+  const contributorTokens = credentials.contributors;
+
   const curatorToken = committeeTokens['ARKAIOS-Curator'];
   const claudeToken = committeeTokens['Claude-Auditor'];
   const geminiToken = committeeTokens['Gemini-Evaluator'];
   const cursorToken = committeeTokens['Cursor-Inspector'];
 
-  assert(curatorToken && claudeToken && geminiToken && cursorToken, 'Tokens del comité inicializados correctamente.');
+  const geminiContributorToken = contributorTokens['Gemini-Lab-Omni'];
 
-  // TEST 1: Falsificación de identidades y Quórum Escalonado
-  console.log('🧪 [TEST 1/6] Prueba de Ataque: Falsificación de identidades y Quórum Escalonado...');
+  assert(curatorToken && claudeToken && geminiToken && cursorToken && geminiContributorToken, 'Tokens del comité y contribuidores inicializados correctamente.');
+
+  // TEST 1: Falsificación de identidades y Bloqueo de Tokens Inventados (Defecto 1)
+  console.log('🧪 [TEST 1/6] Prueba de Ataque: Falsificación de identidades y Tokens Inventados...');
   
-  // 1a. Proponente falso reclamando ser ARKAIOS-Curator sin token
+  // 1a. Proponente falso reclamando ser ARKAIOS-Curator con token falso
   const spoofProposal = submitProposal({
     title: 'Ataque de Suplantación de Proponente',
     summary: 'Intento de un agente anónimo de proponer como comité.',
@@ -66,23 +72,23 @@ try {
 
   assert(spoofProposal.success === false, 'Debe rechazar proponente que reclame membresía de comité con token falso.');
   assert(spoofProposal.error.includes('Falsificación de identidad detectada'), 'Mensaje de error debe indicar falsificación.');
-  console.log('   ✓ Intento de suplantación de proponente bloqueado exitosamente.');
+  console.log('   ✓ Intento de suplantación de miembro de comité bloqueado exitosamente.');
 
-  // 1b. Registrar propuesta externa no autenticada (exige Quórum = 3)
-  const unauthProposal = submitProposal({
-    title: 'Propuesta Externa Sin Identidad Autenticada',
-    summary: 'Contribución de un agente externo anónimo.',
-    agent_lesson: 'Demostrar que propuestas anónimas exigen 3 votos independientes.',
-    source_url: 'https://github.com/community/unauthenticated-agent'
-  }, 'Anonymous-Community-Agent');
+  // 1b. Ataque Defecto 1 de ChatGPT: Agente inventa token de 32+ caracteres para forzar quórum reducido
+  const inventedToken = crypto.randomBytes(32).toString('hex');
+  const fakeTokenAttack = submitProposal({
+    title: 'Ataque de Token Inventado de 32 Caracteres',
+    summary: 'Intento de evadir quórum inventando un token arbitrario.',
+    agent_lesson: 'El motor debe impedir que tokens no registrados obtengan quórum reducido.',
+    source_url: 'https://github.com/fake/invented-token'
+  }, 'Unregistered-Hacker-Agent', inventedToken);
 
-  assert(unauthProposal.success === true, 'Propuesta anónima se acepta en cuarentena.');
-  assert(unauthProposal.identity_type === 'UNAUTHENTICATED_EXTERNAL', 'Debe marcarse como UNAUTHENTICATED_EXTERNAL.');
-  assert(unauthProposal.quorum_required === 3, 'Debe requerir Quórum = 3.');
-  console.log('   ✓ Propuesta externa anónima catalogada como UNAUTHENTICATED_EXTERNAL (Quórum = 3 obligatorio).');
+  assert(fakeTokenAttack.success === true, 'La propuesta entra a cuarentena.');
+  assert(fakeTokenAttack.identity_type === 'UNAUTHENTICATED_EXTERNAL', 'Token inventado NO debe conferir AUTHENTICATED_CONTRIBUTOR.');
+  assert(fakeTokenAttack.quorum_required === 3, 'Token inventado NO debe reducir quórum (exige Quórum = 3).');
+  console.log('   ✓ Defecto 1 cerrado: token inventado de 32 caracteres NO obtiene quórum reducido (exige Quórum = 3).');
 
-  // 1c. Registrar propuesta de contribuidor autenticado (exige Quórum = 2)
-  const contributorSecret = crypto.randomBytes(32).toString('hex');
+  // 1c. Contribuidor registrado legítimo con token verificado (Gemini-Lab-Omni)
   const legitimateProposal = submitProposal({
     title: 'Arquitectura P2P para Swarms de Agentes Descentralizados',
     summary: 'Patrón para coordinación resiliente entre agentes mediante DHT y WebSockets seguros.',
@@ -90,13 +96,13 @@ try {
     source_url: 'https://github.com/arkaios/p2p-agent-swarm',
     technologies: ['Rust', 'Libp2p', 'WebSockets'],
     category: 'P2P & Decentralization'
-  }, 'Verified-Agent-01', contributorSecret);
+  }, 'Gemini-Lab-Omni', geminiContributorToken);
 
-  assert(legitimateProposal.success === true, 'Propuesta con token válido debe registrarse.');
-  assert(legitimateProposal.identity_type === 'AUTHENTICATED_CONTRIBUTOR', 'Debe marcarse como AUTHENTICATED_CONTRIBUTOR.');
-  assert(legitimateProposal.quorum_required === 2, 'Debe requerir Quórum = 2.');
+  assert(legitimateProposal.success === true, 'Propuesta de contribuidor registrado debe aceptarse.');
+  assert(legitimateProposal.identity_type === 'AUTHENTICATED_CONTRIBUTOR', 'Debe ser clasificada como AUTHENTICATED_CONTRIBUTOR.');
+  assert(legitimateProposal.quorum_required === 2, 'Contribuidor registrado verificado obtiene Quórum = 2.');
   const propId = legitimateProposal.proposal_id;
-  console.log('   ✓ Propuesta autenticada catalogada como AUTHENTICATED_CONTRIBUTOR (Quórum = 2).');
+  console.log('   ✓ Contribuidor registrado verificado en registro oficial obtiene AUTHENTICATED_CONTRIBUTOR (Quórum = 2).');
 
   // 1d. Auditor falso intentando auditar sin token o con token inválido
   const spoofAudit = auditProposal(propId, 'ARKAIOS-Curator', 'fake-token-456', 'APPROVE', 'Aprobado con credencial falsa');
@@ -172,21 +178,21 @@ try {
   console.log(`   ✓ Inmutabilidad preservada: ArtCraft permanece intacto en índice 0.`);
   console.log(`   ✓ Envoltorio pasivo verificado: PASSIVE_DATA_ONLY (no ejecutable).`);
 
-  // TEST 6: Resiliencia ante fallos transaccionales y Quórum reforzado (3/3 para no autenticadas)
+  // TEST 6: Quórum Reforzado (3/3) para propuestas no autenticadas
   console.log('\n🧪 [TEST 6/6] Prueba de Quórum Reforzado para propuestas no autenticadas (3 votos)...');
   
-  const unauthPropId = unauthProposal.proposal_id;
+  const fakePropId = fakeTokenAttack.proposal_id;
   // Voto 1
-  auditProposal(unauthPropId, 'ARKAIOS-Curator', curatorToken, 'APPROVE');
+  auditProposal(fakePropId, 'ARKAIOS-Curator', curatorToken, 'APPROVE');
   // Voto 2
-  const unauthVote2 = auditProposal(unauthPropId, 'Claude-Auditor', claudeToken, 'APPROVE');
+  const unauthVote2 = auditProposal(fakePropId, 'Claude-Auditor', claudeToken, 'APPROVE');
   assert(unauthVote2.status === 'VOTING_IN_PROGRESS', 'Con 2 votos una propuesta no autenticada NO se promueve.');
   assert(unauthVote2.current_approvals === 2, 'Contabiliza 2 aprobaciones.');
   assert(unauthVote2.required_quorum === 3, 'Exige 3 aprobaciones.');
-  console.log('   ✓ 2 votos insuficientes para propuesta no autenticada (permanece en cuarentena).');
+  console.log('   ✓ 2 votos insuficientes para propuesta con token inventado (permanece en cuarentena).');
 
   // Voto 3
-  const unauthVote3 = auditProposal(unauthPropId, 'Cursor-Inspector', cursorToken, 'APPROVE');
+  const unauthVote3 = auditProposal(fakePropId, 'Cursor-Inspector', cursorToken, 'APPROVE');
   assert(unauthVote3.success === true && unauthVote3.status === 'APPROVED', 'Al 3er voto independiente se aprueba.');
   console.log('   ✓ Al 3er voto independiente del comité se alcanza quórum reforzado para propuestas externas.');
 

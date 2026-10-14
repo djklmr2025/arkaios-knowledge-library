@@ -31,12 +31,12 @@ async function runCollectiveMemoryTests() {
   let passedAll = true;
 
   try {
-    const committeeTokens = _getTestingCredentials();
-    const curatorToken = committeeTokens['ARKAIOS-Curator'];
-    const claudeToken = committeeTokens['Claude-Auditor'];
-    const geminiToken = committeeTokens['Gemini-Evaluator'];
+    const credentials = _getTestingCredentials();
+    const curatorToken = credentials.committee['ARKAIOS-Curator'];
+    const claudeToken = credentials.committee['Claude-Auditor'];
+    const geminiToken = credentials.committee['Gemini-Evaluator'];
 
-    const contributorSecret = crypto.randomBytes(32).toString('hex');
+    const contributorSecret = credentials.contributors['Gemini-Lab-Omni'];
 
     // 🧪 TEST 1: Envío a Cuarentena sin afectar library.json (Autenticado)
     console.log('🧪 [TEST 1/5] Probando propuesta de lección y aislamiento en cuarentena...');
