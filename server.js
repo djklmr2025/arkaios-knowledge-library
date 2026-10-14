@@ -172,17 +172,46 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Rate limit para intentos fallidos de autenticación (máx 5 fallos por minuto)
+  let failedLoginAttempts = 0;
+  let lastAttemptWindow = Date.now();
+
   // Endpoint de creación de sesión independiente (Login de sesión local)
   if (pathname === '/api/auth/session' && req.method === 'POST') {
     if (!isLocalClient(req) || !isValidOrigin(req)) {
       res.writeHead(403, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Acceso denegado.' }));
+      res.end(JSON.stringify({ error: 'Acceso denegado: origen no autorizado.' }));
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastAttemptWindow > 60000) {
+      failedLoginAttempts = 0;
+      lastAttemptWindow = now;
+    }
+    if (failedLoginAttempts >= 5) {
+      res.writeHead(429, { 'Content-Type': 'application/json', 'Retry-After': '60' });
+      res.end(JSON.stringify({ error: 'Demasiados intentos fallidos. Inténtalo de nuevo en un minuto.' }));
       return;
     }
 
     let body = '';
-    req.on('data', chunk => { body += chunk; });
+    const MAX_BODY_SIZE = 4096; // 4 KB máximo
+    let aborted = false;
+
+    req.on('data', chunk => {
+      if (aborted) return;
+      body += chunk;
+      if (body.length > MAX_BODY_SIZE) {
+        aborted = true;
+        res.writeHead(413, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Payload demasiado grande (máximo 4 KB).' }));
+        req.destroy();
+      }
+    });
+
     req.on('end', () => {
+      if (aborted) return;
       let providedToken = req.headers['x-arkaios-admin-token'];
       if (!providedToken && body) {
         try {
@@ -192,6 +221,7 @@ const server = http.createServer((req, res) => {
       }
 
       if (!providedToken) {
+        failedLoginAttempts++;
         res.writeHead(401, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Token administrativo requerido.' }));
         return;
@@ -202,11 +232,14 @@ const server = http.createServer((req, res) => {
       const isMatch = pBuf.length === eBuf.length && crypto.timingSafeEqual(pBuf, eBuf);
 
       if (!isMatch) {
+        failedLoginAttempts++;
         res.writeHead(401, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Token administrativo inválido.' }));
         return;
       }
 
+      // Éxito: resetear contador y generar sesión efímera independiente
+      failedLoginAttempts = 0;
       const newSessionId = createSession();
       res.writeHead(200, {
         'Content-Type': 'application/json',
@@ -217,8 +250,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Endpoint de revocación de sesión (Logout)
+  // Endpoint de revocación de sesión (Logout con validación de origen y local)
   if (pathname === '/api/auth/logout' && req.method === 'POST') {
+    if (!isLocalClient(req) || !isValidOrigin(req)) {
+      res.writeHead(403, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Acceso denegado: origen no autorizado.' }));
+      return;
+    }
     const cookies = parseCookies(req);
     revokeSession(cookies['arkaios_session_id']);
     res.writeHead(200, {
