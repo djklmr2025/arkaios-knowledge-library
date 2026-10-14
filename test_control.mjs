@@ -264,14 +264,14 @@ async function testServerSecurity() {
             const req = http.request(reqOptions, (res) => {
               res.on('data', chunk => { body += chunk; });
               res.on('end', () => {
+                let parsed = null;
                 try {
-                  resFetch({ status: res.statusCode, data: JSON.parse(body) });
-                } catch (e) {
-                  resFetch({ status: res.statusCode, raw: body });
-                }
+                  parsed = JSON.parse(body);
+                } catch (e) {}
+                resFetch({ status: res.statusCode, data: parsed, raw: body, headers: res.headers });
               });
             });
-            req.on('error', () => resFetch({ status: 500 }));
+            req.on('error', () => resFetch({ status: 500, headers: {} }));
             req.end();
           });
         };
@@ -282,7 +282,7 @@ async function testServerSecurity() {
           const t2 = await checkEndpoint('/library.json', 200);
           const t3 = await checkEndpoint('/api/status', 200);
 
-          // 2. Comprobar que /api/auth/token está completamente eliminado y no regala el secreto (devuelve 404)
+          // 2. Comprobar que /api/auth/token está eliminado y no expone el secreto (devuelve 404)
           const t4 = await checkEndpoint('/api/auth/token', 404);
           if (t4) {
             console.log('   ✓ /api/auth/token eliminado correctamente (HTTP 404): ningún proceso local puede solicitar el secreto por API.');
@@ -343,15 +343,51 @@ async function testServerSecurity() {
             }
           });
 
-          // 10. Operación administrativa autorizada con sesión Cookie HttpOnly -> HTTP 200
+          // 10. Probar inicio de sesión mediante POST /api/auth/session para generar Session ID independiente
+          const sessionLoginRes = await fetchJson('/api/auth/session', {
+            method: 'POST',
+            headers: { 'X-Arkaios-Admin-Token': validAdminToken }
+          });
+
+          const setCookieHeader = sessionLoginRes.headers?.['set-cookie']?.[0] || '';
+          const matchSession = setCookieHeader.match(/arkaios_session_id=([a-f0-9]{64})/);
+          const createdSessionId = matchSession ? matchSession[1] : null;
+
+          let tSessionOk = false;
+          if (sessionLoginRes.status === 200 && createdSessionId && createdSessionId !== validAdminToken) {
+            console.log('   ✓ POST /api/auth/session generó Session ID aleatorio independiente (no expone el token maestro).');
+            tSessionOk = true;
+          } else {
+            console.error('   ✗ Fallo al generar Session ID independiente en /api/auth/session');
+          }
+
+          // 11. Operación administrativa autorizada usando el Session ID efímero en cookie -> HTTP 200
           const t15 = await checkEndpoint('/api/auth/login', 200, {
             method: 'POST',
             headers: {
-              'Cookie': `arkaios_admin_session=${validAdminToken}`
+              'Cookie': `arkaios_session_id=${createdSessionId}`
             }
           });
 
-          passed = t1 && t2 && t3 && t4 && hasValidSecret && t5 && t6 && t7 && t8 && t9 && t10 && t11 && t12 && t13 && t14 && t15;
+          // 12. Probar revocación de sesión mediante POST /api/auth/logout -> HTTP 200
+          const logoutRes = await fetchJson('/api/auth/logout', {
+            method: 'POST',
+            headers: { 'Cookie': `arkaios_session_id=${createdSessionId}` }
+          });
+          const tLogoutOk = logoutRes.status === 200;
+          if (tLogoutOk) {
+            console.log('   ✓ POST /api/auth/logout revocó la sesión efímera exitosamente.');
+          }
+
+          // 13. Verificar que la sesión revocada ya no puede ejecutar operaciones -> HTTP 401
+          const tRevokedBlocked = await checkEndpoint('/api/auth/login', 401, {
+            method: 'POST',
+            headers: {
+              'Cookie': `arkaios_session_id=${createdSessionId}`
+            }
+          });
+
+          passed = t1 && t2 && t3 && t4 && hasValidSecret && t5 && t6 && t7 && t8 && t9 && t10 && t11 && t12 && t13 && t14 && tSessionOk && t15 && tLogoutOk && tRevokedBlocked;
         } catch (err) {
           console.error('   ✗ Fallo en pruebas HTTP:', err.message);
           passed = false;

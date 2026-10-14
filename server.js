@@ -79,6 +79,38 @@ function parseCookies(req) {
   return list;
 }
 
+// Almacén de sesiones efímeras independientes en memoria del servidor
+// La cookie solo guarda un ID de sesión efímero, NUNCA el token maestro
+const activeSessions = new Map();
+const SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 horas de vigencia
+
+function createSession() {
+  const sessionId = crypto.randomBytes(32).toString('hex');
+  const now = Date.now();
+  activeSessions.set(sessionId, {
+    createdAt: now,
+    expiresAt: now + SESSION_TTL_MS
+  });
+  return sessionId;
+}
+
+function isValidSession(sessionId) {
+  if (!sessionId || typeof sessionId !== 'string') return false;
+  const session = activeSessions.get(sessionId);
+  if (!session) return false;
+  if (Date.now() > session.expiresAt) {
+    activeSessions.delete(sessionId);
+    return false;
+  }
+  return true;
+}
+
+function revokeSession(sessionId) {
+  if (sessionId) {
+    activeSessions.delete(sessionId);
+  }
+}
+
 function checkAdminAuth(req, res) {
   // 1. Debe provenir exclusivamente de loopback local
   if (!isLocalClient(req)) {
@@ -94,51 +126,35 @@ function checkAdminAuth(req, res) {
     return false;
   }
 
-  // 3. Autenticación con Token Secreto Administrativo (tiempo constante contra timing attacks)
-  // Soporta cabecera X-Arkaios-Admin-Token, cabecera Authorization Bearer o Cookie HttpOnly de sesión
+  // 3. Autenticación:
+  // Vía A: Sesión efímera válida en Cookie HttpOnly (arkaios_session_id)
   const cookies = parseCookies(req);
-  const tokenCandidate = req.headers['x-arkaios-admin-token'] || 
-                         (req.headers.authorization && req.headers.authorization.replace(/^Bearer\s+/i, '').trim()) ||
-                         cookies['arkaios_admin_session'];
-
-  if (!tokenCandidate) {
-    res.writeHead(401, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'No autorizado: se requiere token administrativo mediante cabecera o sesión local.' }));
-    return false;
+  const sessionId = cookies['arkaios_session_id'];
+  if (isValidSession(sessionId)) {
+    return true;
   }
 
-  const providedBuf = Buffer.from(String(tokenCandidate));
-  const expectedBuf = Buffer.from(String(ADMIN_TOKEN));
-  const isMatch = providedBuf.length === expectedBuf.length && crypto.timingSafeEqual(providedBuf, expectedBuf);
+  // Vía B: Token maestro en cabecera directa para scripts y agentes locales autorizados
+  const tokenHeader = req.headers['x-arkaios-admin-token'] || 
+                      (req.headers.authorization && req.headers.authorization.replace(/^Bearer\s+/i, '').trim());
 
-  if (!isMatch) {
-    res.writeHead(401, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'No autorizado: el token administrativo proporcionado es inválido.' }));
-    return false;
+  if (tokenHeader) {
+    const providedBuf = Buffer.from(String(tokenHeader));
+    const expectedBuf = Buffer.from(String(ADMIN_TOKEN));
+    const isMatch = providedBuf.length === expectedBuf.length && crypto.timingSafeEqual(providedBuf, expectedBuf);
+    if (isMatch) {
+      return true;
+    }
   }
 
-  return true;
+  res.writeHead(401, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'No autorizado: se requiere sesión activa o token administrativo válido.' }));
+  return false;
 }
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
   const pathname = url.pathname;
-
-  // Manejo de autenticación por URL segura al abrir el navegador (?token=...)
-  // Establece una cookie HttpOnly con SameSite=Strict y redirige limpiando el query param
-  const queryToken = url.searchParams.get('token');
-  if (queryToken && (pathname === '/' || pathname === '/index.html')) {
-    const qBuf = Buffer.from(String(queryToken));
-    const eBuf = Buffer.from(String(ADMIN_TOKEN));
-    if (qBuf.length === eBuf.length && crypto.timingSafeEqual(qBuf, eBuf)) {
-      res.writeHead(302, {
-        'Set-Cookie': `arkaios_admin_session=${ADMIN_TOKEN}; HttpOnly; SameSite=Strict; Path=/; Max-Age=86400`,
-        'Location': '/'
-      });
-      res.end();
-      return;
-    }
-  }
 
   // CORS headers: abierto para lectura pública, restringido para mutaciones
   if (req.method === 'GET') {
@@ -156,7 +172,64 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // API Endpoints - Nota de Seguridad: NO existe ningún endpoint GET que exponga o entregue el token secreto.
+  // Endpoint de creación de sesión independiente (Login de sesión local)
+  if (pathname === '/api/auth/session' && req.method === 'POST') {
+    if (!isLocalClient(req) || !isValidOrigin(req)) {
+      res.writeHead(403, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Acceso denegado.' }));
+      return;
+    }
+
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      let providedToken = req.headers['x-arkaios-admin-token'];
+      if (!providedToken && body) {
+        try {
+          const parsed = JSON.parse(body);
+          providedToken = parsed.token;
+        } catch (e) {}
+      }
+
+      if (!providedToken) {
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Token administrativo requerido.' }));
+        return;
+      }
+
+      const pBuf = Buffer.from(String(providedToken));
+      const eBuf = Buffer.from(String(ADMIN_TOKEN));
+      const isMatch = pBuf.length === eBuf.length && crypto.timingSafeEqual(pBuf, eBuf);
+
+      if (!isMatch) {
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Token administrativo inválido.' }));
+        return;
+      }
+
+      const newSessionId = createSession();
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Set-Cookie': `arkaios_session_id=${newSessionId}; HttpOnly; SameSite=Strict; Path=/; Max-Age=86400`
+      });
+      res.end(JSON.stringify({ success: true, message: 'Sesión administrativa efímera creada con éxito.' }));
+    });
+    return;
+  }
+
+  // Endpoint de revocación de sesión (Logout)
+  if (pathname === '/api/auth/logout' && req.method === 'POST') {
+    const cookies = parseCookies(req);
+    revokeSession(cookies['arkaios_session_id']);
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+      'Set-Cookie': 'arkaios_session_id=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'
+    });
+    res.end(JSON.stringify({ success: true, message: 'Sesión cerrada y revocada.' }));
+    return;
+  }
+
+  // API Endpoints - Nota de Seguridad: NO existe ningún endpoint GET que exponga o entregue secretos.
   if (pathname === '/api/status' && req.method === 'GET') {
     const libPath = path.join(__dirname, 'library.json');
     let totalItems = 0;

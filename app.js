@@ -7624,30 +7624,29 @@ async function checkAdminSession() {
   }
 }
 
-let localSessionToken = sessionStorage.getItem('arkaios_admin_token') || null;
-
 async function sendAdminRequest(url, method = 'POST') {
-  const headers = {};
-  if (localSessionToken) {
-    headers['X-Arkaios-Admin-Token'] = localSessionToken;
-  }
   let res = await fetch(url, {
     method,
-    headers,
     credentials: 'same-origin'
   });
 
   if (res.status === 401) {
-    const input = prompt('Autenticación Requerida: Introduce el Token Administrativo Secreto (ubicado en el archivo local .admin_token o variable ARKAIOS_ADMIN_TOKEN):');
+    const input = prompt('Autenticación Requerida: Introduce el Token Administrativo Secreto (ubicado en el archivo local .admin_token o variable ARKAIOS_ADMIN_TOKEN) para iniciar sesión:');
     if (input && input.trim()) {
-      localSessionToken = input.trim();
-      sessionStorage.setItem('arkaios_admin_token', localSessionToken);
-      headers['X-Arkaios-Admin-Token'] = localSessionToken;
-      res = await fetch(url, {
-        method,
-        headers,
+      const loginRes = await fetch('/api/auth/session', {
+        method: 'POST',
+        headers: { 'X-Arkaios-Admin-Token': input.trim() },
         credentials: 'same-origin'
       });
+      if (loginRes.ok) {
+        // Sesión efímera establecida con éxito en cookie HttpOnly
+        res = await fetch(url, {
+          method,
+          credentials: 'same-origin'
+        });
+      } else {
+        alert('Token administrativo incorrecto.');
+      }
     }
   }
 
