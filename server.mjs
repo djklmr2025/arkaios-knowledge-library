@@ -11,6 +11,7 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 import { fileURLToPath } from 'url';
+import { submitProposal, auditProposal, getProposals } from './consensus_engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,6 +73,49 @@ const TOOLS = [
     inputSchema: {
       type: 'object',
       properties: {}
+    }
+  },
+  {
+    name: 'propose_knowledge',
+    description: 'Permite a un agente de IA proponer una nueva lección o recurso descubierto para su inclusión en la memoria colectiva (pasa primero por cuarentena).',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        title: { type: 'string', description: 'Título claro y descriptivo del software, tecnología o lección aprendida.' },
+        summary: { type: 'string', description: 'Resumen conciso del contenido y utilidad práctica.' },
+        agent_lesson: { type: 'string', description: 'Lección técnica específica y aplicable para el ecosistema de agentes.' },
+        source_url: { type: 'string', description: 'URL pública y verificable de la fuente (repositorio GitHub, documentación o post oficial HTTPS).' },
+        category: { type: 'string', description: 'Categoría (ej. "AI Robotics & Agents", "Autonomous Engineering", "P2P & Decentralization").' },
+        technologies: { type: 'array', items: { type: 'string' }, description: 'Lista de tecnologías involucradas (ej. ["Rust", "Python", "LoRa"]).' },
+        skills_unlocked: { type: 'array', items: { type: 'string' }, description: 'Lista de capacidades desbloqueadas para los agentes.' },
+        tags: { type: 'array', items: { type: 'string' }, description: 'Etiquetas temáticas.' },
+        proposer_agent: { type: 'string', description: 'Nombre o identificador del agente que realiza la propuesta (ej. "Claude-3.7", "Gemini-Lab", "Cursor-Agent").' }
+      },
+      required: ['title', 'summary', 'agent_lesson', 'source_url']
+    }
+  },
+  {
+    name: 'audit_proposal',
+    description: 'Permite al comité de agentes auditar una propuesta en cuarentena, evaluando seguridad y consenso (Anti-Self-Approval: el proponente no puede autoaprobarse).',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        proposal_id: { type: 'string', description: 'Identificador de la propuesta en cuarentena (ej. "prop-1728...").' },
+        auditor_agent: { type: 'string', description: 'Identificador del agente auditor que emite el voto de consenso.' },
+        decision: { type: 'string', enum: ['APPROVE', 'REJECT'], description: 'Decisión del comité: "APPROVE" para incorporar a la biblioteca o "REJECT" para archivar.' },
+        notes: { type: 'string', description: 'Notas u observaciones técnicas del dictamen de auditoría.' }
+      },
+      required: ['proposal_id', 'auditor_agent', 'decision']
+    }
+  },
+  {
+    name: 'get_proposals_status',
+    description: 'Consulta las propuestas activas en la cola de cuarentena de la memoria colectiva.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        status: { type: 'string', enum: ['ALL', 'PENDING_CONSENSUS', 'APPROVED', 'REJECTED'], description: 'Filtro por estado de propuesta (por defecto: PENDING_CONSENSUS).' }
+      }
     }
   }
 ];
@@ -137,6 +181,25 @@ function handleToolCall(name, args) {
     case 'get_top_resource': {
       if (lib.length === 0) return { error: 'Biblioteca vacía' };
       return lib[0];
+    }
+
+    case 'propose_knowledge': {
+      const proposer = args.proposer_agent || 'Autonomous-Agent';
+      return submitProposal(args, proposer);
+    }
+
+    case 'audit_proposal': {
+      return auditProposal(args.proposal_id, args.auditor_agent, args.decision, args.notes);
+    }
+
+    case 'get_proposals_status': {
+      const filter = (!args.status || args.status === 'ALL') ? null : args.status;
+      const proposals = getProposals(filter);
+      return {
+        total_proposals: proposals.length,
+        filter_applied: filter || 'ALL',
+        proposals
+      };
     }
 
     default:
