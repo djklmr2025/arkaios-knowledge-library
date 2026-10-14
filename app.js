@@ -7624,22 +7624,37 @@ async function checkAdminSession() {
   }
 }
 
+let cachedAdminToken = null;
+async function getAdminToken() {
+  if (cachedAdminToken) return cachedAdminToken;
+  try {
+    const res = await fetch('/api/auth/token');
+    if (res.ok) {
+      const data = await res.json();
+      cachedAdminToken = data.token;
+      return cachedAdminToken;
+    }
+  } catch (e) {}
+  return null;
+}
+
 if (metaLoginBtn) {
   metaLoginBtn.addEventListener('click', async () => {
     try {
       metaLoginBtn.innerHTML = `<span>Abriendo Navegador Seguro...</span>`;
+      const token = await getAdminToken();
       const res = await fetch('/api/auth/login', {
         method: 'POST',
-        headers: { 'X-Arkaios-Client': 'local-admin' }
+        headers: token ? { 'X-Arkaios-Admin-Token': token } : {}
       });
       if (res.ok) {
-        alert('Se ha abierto Google Chrome con el perfil de Administrador Meta aislado.\\n\\n"Asegúrate de iniciar sesión con tu cuenta de administrador de Meta cuando la aplicación externa te lo solicite."\\n\\nTu sesión se guardará automáticamente en este equipo.');
+        alert('Se ha abierto Google Chrome con el perfil de Administrador Meta aislado.\n\n"Asegúrate de iniciar sesión con tu cuenta de administrador de Meta cuando la aplicación externa te lo solicite."\n\nTu sesión se guardará automáticamente en este equipo.');
         setTimeout(checkAdminSession, 3000);
       } else {
         throw new Error('API offline');
       }
     } catch (err) {
-      alert('Para iniciar sesión de Administrador Meta de forma persistente:\\n\\n1. Ve a la carpeta C:\\ARKAIOS\\arkaios-knowledge-library\\n2. Haz doble clic en "Iniciar-Sesion-Meta-Admin.bat"\\n3. Inicia sesión en Facebook con tu cuenta de administrador.\\n\\n¡La sesión quedará guardada de forma permanente para todos los agentes!');
+      alert('Para iniciar sesión de Administrador Meta de forma persistente:\n\n1. Ve a la carpeta C:\\ARKAIOS\\arkaios-knowledge-library\n2. Haz doble clic en "Iniciar-Sesion-Meta-Admin.bat"\n3. Inicia sesión en Facebook con tu cuenta de administrador.\n\n¡La sesión quedará guardada de forma permanente para todos los agentes!');
     } finally {
       metaLoginBtn.innerHTML = `
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -7656,19 +7671,20 @@ if (syncNowBtn) {
     syncNowBtn.disabled = true;
     syncNowBtn.innerHTML = `<span>Sincronizando...</span>`;
     try {
+      const token = await getAdminToken();
       const res = await fetch('/api/sync', {
         method: 'POST',
-        headers: { 'X-Arkaios-Client': 'local-admin' }
+        headers: token ? { 'X-Arkaios-Admin-Token': token } : {}
       });
       if (res.ok) {
         const data = await res.json();
-        alert(`Sincronización completada con éxito.\\nNuevos aportes detectados: ${data.newItemsCount || 0}\\nTotal en biblioteca: ${data.total || library.length}`);
+        alert(`Sincronización completada con éxito.\nNuevos aportes detectados: ${data.newItemsCount || 0}\nTotal en biblioteca: ${data.total || library.length}`);
         location.reload();
       } else {
         throw new Error('Sync server offline');
       }
     } catch (e) {
-      alert('Para sincronizar inmediatamente desde terminal o script:\\n\\nEjecuta "Sincronizar-Ahora.bat" en C:\\ARKAIOS\\arkaios-knowledge-library');
+      alert('Para sincronizar inmediatamente desde terminal o script:\n\nEjecuta "Sincronizar-Ahora.bat" en C:\\ARKAIOS\\arkaios-knowledge-library');
     } finally {
       syncNowBtn.disabled = false;
       syncNowBtn.innerHTML = `
