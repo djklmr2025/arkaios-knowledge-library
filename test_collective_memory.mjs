@@ -4,13 +4,14 @@
 
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import {
   submitProposal,
   auditProposal,
   getProposals,
-  getOrCreateCommitteeTokens,
-  REQUIRED_QUORUM
+  _getTestingCredentials,
+  AUTHENTICATED_QUORUM
 } from './consensus_engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,12 +31,14 @@ async function runCollectiveMemoryTests() {
   let passedAll = true;
 
   try {
-    const committeeTokens = getOrCreateCommitteeTokens();
+    const committeeTokens = _getTestingCredentials();
     const curatorToken = committeeTokens['ARKAIOS-Curator'];
     const claudeToken = committeeTokens['Claude-Auditor'];
     const geminiToken = committeeTokens['Gemini-Evaluator'];
 
-    // 🧪 TEST 1: Envío a Cuarentena sin afectar library.json
+    const contributorSecret = crypto.randomBytes(32).toString('hex');
+
+    // 🧪 TEST 1: Envío a Cuarentena sin afectar library.json (Autenticado)
     console.log('🧪 [TEST 1/5] Probando propuesta de lección y aislamiento en cuarentena...');
     const prop1 = submitProposal({
       title: 'Tauri v2: Desktop & Mobile Apps en Rust para Agentes de IA',
@@ -45,7 +48,7 @@ async function runCollectiveMemoryTests() {
       category: 'Autonomous Software Engineering',
       technologies: ['Rust', 'Tauri v2', 'Desktop', 'Mobile'],
       skills_unlocked: ['Compilación Multiplataforma en Rust', 'Distribución Ligera']
-    }, 'Gemini-Lab-Omni');
+    }, 'Gemini-Lab-Omni', contributorSecret);
 
     const libAfterSubmit = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
     if (prop1.success && prop1.proposal_id && libAfterSubmit.length === originalLib.length) {
@@ -89,7 +92,7 @@ async function runCollectiveMemoryTests() {
       passedAll = false;
     }
 
-    // 🧪 TEST 4: Consenso Multi-Auditor (Quórum >= 2) y Promoción Atómica
+    // 🧪 TEST 4: Consenso Multi-Auditor (Quórum >= 2) y Promoción Atómica WAL
     console.log('\n🧪 [TEST 4/5] Probando consenso de quórum multi-auditor (2 aprobaciones independientes)...');
     
     // Voto 1: Claude-Auditor

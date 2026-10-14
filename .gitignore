@@ -15,3 +15,4 @@ Thumbs.db
 .agent_committee_tokens*
 *.tmp
 *.bak
+.transaction_journal.json*

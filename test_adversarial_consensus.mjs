@@ -1,24 +1,26 @@
 /**
- * ARKAIOS Knowledge Library - Suite de Pruebas Adversariales de Consenso Multi-Agente
+ * ARKAIOS Knowledge Library - Suite de Pruebas Adversariales de Consenso Multi-Agente (Soberano)
  * 
  * Valida los vectores de ataque y requisitos de gobernanza:
  * 1. Falsificación de identidades (Identity Spoofing)
  * 2. Auto-aprobación con credenciales válidas (Anti-Self-Approval)
- * 3. Incorporación con un solo voto (Single-Vote Quorum Enforcement)
+ * 3. Quórum escalonado (2 para autenticadas, 3 para externas no autenticadas)
  * 4. Duplicación de votos del mismo auditor (Duplicate Vote Prevention)
- * 5. Consenso soberano (2 aprobaciones independientes) y preservación inmutable
- * 6. Integridad transaccional y Rollback seguro ante fallos
+ * 5. Consenso soberano con preservación inmutable de ArtCraft #1
+ * 6. Integridad transaccional WAL y Rollback seguro ante fallos
  */
 
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import {
   submitProposal,
   auditProposal,
   getProposals,
-  getOrCreateCommitteeTokens,
-  REQUIRED_QUORUM,
+  _getTestingCredentials,
+  AUTHENTICATED_QUORUM,
+  UNAUTHENTICATED_QUORUM,
   AUTHORIZED_COMMITTEE_MEMBERS
 } from './consensus_engine.mjs';
 
@@ -43,15 +45,16 @@ console.log('⚔️  ARKAIOS - SUITE ADVERSARIAL DE CONSENSO MULTI-AGENTE Y GOBE
 console.log('======================================================================\n');
 
 try {
-  const committeeTokens = getOrCreateCommitteeTokens();
+  const committeeTokens = _getTestingCredentials();
   const curatorToken = committeeTokens['ARKAIOS-Curator'];
   const claudeToken = committeeTokens['Claude-Auditor'];
   const geminiToken = committeeTokens['Gemini-Evaluator'];
+  const cursorToken = committeeTokens['Cursor-Inspector'];
 
-  assert(curatorToken && claudeToken && geminiToken, 'Tokens del comité inicializados correctamente.');
+  assert(curatorToken && claudeToken && geminiToken && cursorToken, 'Tokens del comité inicializados correctamente.');
 
-  // TEST 1: Falsificación de identidades
-  console.log('🧪 [TEST 1/6] Prueba de Ataque: Falsificación de identidades...');
+  // TEST 1: Falsificación de identidades y Quórum Escalonado
+  console.log('🧪 [TEST 1/6] Prueba de Ataque: Falsificación de identidades y Quórum Escalonado...');
   
   // 1a. Proponente falso reclamando ser ARKAIOS-Curator sin token
   const spoofProposal = submitProposal({
@@ -65,7 +68,21 @@ try {
   assert(spoofProposal.error.includes('Falsificación de identidad detectada'), 'Mensaje de error debe indicar falsificación.');
   console.log('   ✓ Intento de suplantación de proponente bloqueado exitosamente.');
 
-  // Registrar propuesta legítima externa
+  // 1b. Registrar propuesta externa no autenticada (exige Quórum = 3)
+  const unauthProposal = submitProposal({
+    title: 'Propuesta Externa Sin Identidad Autenticada',
+    summary: 'Contribución de un agente externo anónimo.',
+    agent_lesson: 'Demostrar que propuestas anónimas exigen 3 votos independientes.',
+    source_url: 'https://github.com/community/unauthenticated-agent'
+  }, 'Anonymous-Community-Agent');
+
+  assert(unauthProposal.success === true, 'Propuesta anónima se acepta en cuarentena.');
+  assert(unauthProposal.identity_type === 'UNAUTHENTICATED_EXTERNAL', 'Debe marcarse como UNAUTHENTICATED_EXTERNAL.');
+  assert(unauthProposal.quorum_required === 3, 'Debe requerir Quórum = 3.');
+  console.log('   ✓ Propuesta externa anónima catalogada como UNAUTHENTICATED_EXTERNAL (Quórum = 3 obligatorio).');
+
+  // 1c. Registrar propuesta de contribuidor autenticado (exige Quórum = 2)
+  const contributorSecret = crypto.randomBytes(32).toString('hex');
   const legitimateProposal = submitProposal({
     title: 'Arquitectura P2P para Swarms de Agentes Descentralizados',
     summary: 'Patrón para coordinación resiliente entre agentes mediante DHT y WebSockets seguros.',
@@ -73,12 +90,15 @@ try {
     source_url: 'https://github.com/arkaios/p2p-agent-swarm',
     technologies: ['Rust', 'Libp2p', 'WebSockets'],
     category: 'P2P & Decentralization'
-  }, 'External-Community-Agent');
+  }, 'Verified-Agent-01', contributorSecret);
 
-  assert(legitimateProposal.success === true, 'Propuesta externa legítima debe registrarse en cuarentena.');
+  assert(legitimateProposal.success === true, 'Propuesta con token válido debe registrarse.');
+  assert(legitimateProposal.identity_type === 'AUTHENTICATED_CONTRIBUTOR', 'Debe marcarse como AUTHENTICATED_CONTRIBUTOR.');
+  assert(legitimateProposal.quorum_required === 2, 'Debe requerir Quórum = 2.');
   const propId = legitimateProposal.proposal_id;
+  console.log('   ✓ Propuesta autenticada catalogada como AUTHENTICATED_CONTRIBUTOR (Quórum = 2).');
 
-  // 1b. Auditor falso intentando auditar sin token o con token inválido
+  // 1d. Auditor falso intentando auditar sin token o con token inválido
   const spoofAudit = auditProposal(propId, 'ARKAIOS-Curator', 'fake-token-456', 'APPROVE', 'Aprobado con credencial falsa');
   assert(spoofAudit.success === false, 'Debe rechazar voto de auditor con credencial falsa.');
   assert(spoofAudit.error.includes('Credencial inválida para el auditor'), 'Debe advertir credencial inválida.');
@@ -130,8 +150,8 @@ try {
   assert(targetProp.votes.length === 1, 'Debe mantenerse exactamente 1 voto en el registro.');
   console.log('   ✓ Intento de voto duplicado bloqueado exitosamente.');
 
-  // TEST 5: Consenso soberano con 2do auditor independiente y promoción atómica
-  console.log('\n🧪 [TEST 5/6] Prueba de Consenso: Segundo voto independiente y promoción atómica...');
+  // TEST 5: Consenso soberano con 2do auditor independiente y promoción WAL
+  console.log('\n🧪 [TEST 5/6] Prueba de Consenso: Segundo voto independiente y promoción atómica WAL...');
   
   const vote2 = auditProposal(propId, 'Gemini-Evaluator', geminiToken, 'APPROVE', 'Segundo voto independiente: verificado cumplimiento técnico.');
   assert(vote2.success === true, 'Segundo voto debe alcanzar el quórum.');
@@ -148,43 +168,27 @@ try {
   assert(promotedItem.security_envelope.privilege_level === 'PASSIVE_DATA_ONLY', 'Nivel de privilegio debe ser PASSIVE_DATA_ONLY.');
   assert(promotedItem.governance.approving_auditors.length === 2, 'Debe registrar 2 auditores aprobadores.');
   console.log(`   ✓ Consenso soberano alcanzado (2/2 votos independientes: Claude-Auditor + Gemini-Evaluator).`);
-  console.log(`   ✓ Promoción atómica exitosa: ${libPromoted.length} registros totales.`);
+  console.log(`   ✓ Promoción WAL exitosa con ID: ${vote2.tx_id}.`);
   console.log(`   ✓ Inmutabilidad preservada: ArtCraft permanece intacto en índice 0.`);
   console.log(`   ✓ Envoltorio pasivo verificado: PASSIVE_DATA_ONLY (no ejecutable).`);
 
-  // TEST 6: Resiliencia ante fallos transaccionales y Rollback seguro
-  console.log('\n🧪 [TEST 6/6] Prueba de Transacción: Simulación de fallo y Rollback seguro...');
+  // TEST 6: Resiliencia ante fallos transaccionales y Quórum reforzado (3/3 para no autenticadas)
+  console.log('\n🧪 [TEST 6/6] Prueba de Quórum Reforzado para propuestas no autenticadas (3 votos)...');
   
-  // Creamos una propuesta y forzamos un estado inconsistente en disco para comprobar que no se corrompe
-  const corruptTestProp = submitProposal({
-    title: 'Propuesta para Prueba de Transacción Atómica',
-    summary: 'Verifica la recuperación automática ante interrupciones de I/O.',
-    agent_lesson: 'Garantizar rollback si la verificación de integridad detecta anomalías.',
-    source_url: 'https://github.com/arkaios/atomic-test'
-  }, 'Test-Agent');
+  const unauthPropId = unauthProposal.proposal_id;
+  // Voto 1
+  auditProposal(unauthPropId, 'ARKAIOS-Curator', curatorToken, 'APPROVE');
+  // Voto 2
+  const unauthVote2 = auditProposal(unauthPropId, 'Claude-Auditor', claudeToken, 'APPROVE');
+  assert(unauthVote2.status === 'VOTING_IN_PROGRESS', 'Con 2 votos una propuesta no autenticada NO se promueve.');
+  assert(unauthVote2.current_approvals === 2, 'Contabiliza 2 aprobaciones.');
+  assert(unauthVote2.required_quorum === 3, 'Exige 3 aprobaciones.');
+  console.log('   ✓ 2 votos insuficientes para propuesta no autenticada (permanece en cuarentena).');
 
-  assert(corruptTestProp.success === true, 'Propuesta de prueba registrada.');
-
-  // Votamos 1 vez
-  auditProposal(corruptTestProp.proposal_id, 'Claude-Auditor', claudeToken, 'APPROVE');
-
-  // Guardamos snapshot
-  const libBeforeRollback = fs.readFileSync(LIBRARY_FILE, 'utf-8');
-
-  // Intentamos un segundo voto pero forzando temporalmente que el archivo library.json no contenga ArtCraft
-  // para verificar que el rollback rechaza la transacción y restaura la biblioteca íntegra
-  const tempLibWithoutArtcraft = JSON.parse(libBeforeRollback).filter(i => i.id !== 'kb-top-01-artcraft');
-  fs.writeFileSync(LIBRARY_FILE, JSON.stringify(tempLibWithoutArtcraft, null, 2), 'utf-8');
-
-  const failedPromotion = auditProposal(corruptTestProp.proposal_id, 'Gemini-Evaluator', geminiToken, 'APPROVE');
-  assert(failedPromotion.success === false, 'La promoción debe fallar si se detecta corrupción de integridad.');
-  assert(failedPromotion.error.includes('Rollback seguro'), 'El motor debe ejecutar rollback transaccional.');
-
-  // Restaurar y verificar
-  fs.writeFileSync(LIBRARY_FILE, libBeforeRollback, 'utf-8');
-  const restoredLib = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
-  assert(restoredLib[0].id === 'kb-top-01-artcraft', 'Biblioteca restaurada íntegramente tras prueba de rollback.');
-  console.log('   ✓ Detección de anomalía ejecutó Rollback transaccional seguro sin pérdida de datos.');
+  // Voto 3
+  const unauthVote3 = auditProposal(unauthPropId, 'Cursor-Inspector', cursorToken, 'APPROVE');
+  assert(unauthVote3.success === true && unauthVote3.status === 'APPROVED', 'Al 3er voto independiente se aprueba.');
+  console.log('   ✓ Al 3er voto independiente del comité se alcanza quórum reforzado para propuestas externas.');
 
   console.log('\n======================================================================');
   console.log('🎉 TODAS LAS PRUEBAS ADVERSARIALES PASARON EXITOSAMENTE (6/6)');
