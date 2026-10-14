@@ -1,11 +1,17 @@
 /**
- * ARKAIOS Knowledge Library - Test Suite para la Fase 4 (Memoria Colectiva y Consenso Multi-Agente)
+ * ARKAIOS Knowledge Library - Test Suite para la Fase 4 (Memoria Colectiva y Consenso Multi-Agente Blindado)
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { submitProposal, auditProposal, getProposals } from './consensus_engine.mjs';
+import {
+  submitProposal,
+  auditProposal,
+  getProposals,
+  getOrCreateCommitteeTokens,
+  REQUIRED_QUORUM
+} from './consensus_engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +20,7 @@ const PROPOSALS_FILE = path.join(__dirname, 'proposals.json');
 
 async function runCollectiveMemoryTests() {
   console.log('======================================================================');
-  console.log('🏛️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE CONSENSO MULTI-AGENTE (FASE 4)');
+  console.log('🏛️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE CONSENSO MULTI-AGENTE BLINDADA');
   console.log('======================================================================\n');
 
   // Backup inicial de library.json y proposals.json
@@ -24,6 +30,11 @@ async function runCollectiveMemoryTests() {
   let passedAll = true;
 
   try {
+    const committeeTokens = getOrCreateCommitteeTokens();
+    const curatorToken = committeeTokens['ARKAIOS-Curator'];
+    const claudeToken = committeeTokens['Claude-Auditor'];
+    const geminiToken = committeeTokens['Gemini-Evaluator'];
+
     // 🧪 TEST 1: Envío a Cuarentena sin afectar library.json
     console.log('🧪 [TEST 1/5] Probando propuesta de lección y aislamiento en cuarentena...');
     const prop1 = submitProposal({
@@ -45,9 +56,16 @@ async function runCollectiveMemoryTests() {
       passedAll = false;
     }
 
-    // 🧪 TEST 2: Regla de No-Autoaprobación (Anti-Self-Approval)
-    console.log('\n🧪 [TEST 2/5] Probando bloqueo estricto de auto-aprobación...');
-    const selfAudit = auditProposal(prop1.proposal_id, 'Gemini-Lab-Omni', 'APPROVE', 'Auto-aprobación no permitida');
+    // 🧪 TEST 2: Regla de No-Autoaprobación (Anti-Self-Approval) y Autenticación
+    console.log('\n🧪 [TEST 2/5] Probando bloqueo estricto de auto-aprobación y validación de identidad...');
+    const selfProp = submitProposal({
+      title: 'Protocolo de Memoria Compartida para Agentes ARKAIOS',
+      summary: 'Mecanismo de sincronización de embeddings para memoria local.',
+      agent_lesson: 'Usar archivos mmap para compartir memoria entre procesos de agentes.',
+      source_url: 'https://github.com/arkaios/shared-memory'
+    }, 'ARKAIOS-Curator', curatorToken);
+
+    const selfAudit = auditProposal(selfProp.proposal_id, 'ARKAIOS-Curator', curatorToken, 'APPROVE', 'Auto-aprobación');
     if (!selfAudit.success && selfAudit.error.includes('Anti-Self-Approval')) {
       console.log('   ✓ Bloqueo exitoso: el agente proponente no puede auto-aprobarse.');
     } else {
@@ -71,22 +89,34 @@ async function runCollectiveMemoryTests() {
       passedAll = false;
     }
 
-    // 🧪 TEST 4: Consenso Multi-Agente y Promoción Atómica a la Biblioteca
-    console.log('\n🧪 [TEST 4/5] Probando consenso de comité multi-agente y promoción atómica...');
-    const committeeAudit = auditProposal(prop1.proposal_id, 'ARKAIOS-Curator-Agent', 'APPROVE', 'Validado por comité: fuente verificada y código Rust comprobado.');
-    const libAfterPromotion = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
+    // 🧪 TEST 4: Consenso Multi-Auditor (Quórum >= 2) y Promoción Atómica
+    console.log('\n🧪 [TEST 4/5] Probando consenso de quórum multi-auditor (2 aprobaciones independientes)...');
+    
+    // Voto 1: Claude-Auditor
+    const vote1 = auditProposal(prop1.proposal_id, 'Claude-Auditor', claudeToken, 'APPROVE', 'Primer dictamen: código verificado.');
+    const libAfterVote1 = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
+    if (vote1.success && vote1.status === 'VOTING_IN_PROGRESS' && libAfterVote1.length === originalLib.length) {
+      console.log('   ✓ Primer voto registrado (1/2). Biblioteca permanece intacta en cuarentena.');
+    } else {
+      console.error('   ✗ Fallo: un solo voto alteró la biblioteca prematuramente.');
+      passedAll = false;
+    }
 
-    if (committeeAudit.success && committeeAudit.status === 'APPROVED' && libAfterPromotion.length === originalLib.length + 1) {
-      console.log(`   ✓ Consenso alcanzado: Propuesta promovida con ID ${committeeAudit.promoted_kb_id}.`);
-      console.log(`   ✓ Nuevo total en biblioteca: ${libAfterPromotion.length} registros.`);
-      if (libAfterPromotion[0].id === 'kb-top-01-artcraft') {
+    // Voto 2: Gemini-Evaluator
+    const vote2 = auditProposal(prop1.proposal_id, 'Gemini-Evaluator', geminiToken, 'APPROVE', 'Segundo dictamen: aprobado unánime.');
+    const libAfterVote2 = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
+
+    if (vote2.success && vote2.status === 'APPROVED' && libAfterVote2.length === originalLib.length + 1) {
+      console.log(`   ✓ Quórum alcanzado (2/2): Propuesta promovida con ID ${vote2.promoted_kb_id}.`);
+      console.log(`   ✓ Nuevo total en biblioteca: ${libAfterVote2.length} registros.`);
+      if (libAfterVote2[0].id === 'kb-top-01-artcraft') {
         console.log('   ✓ Inmutabilidad verificada: Registro #1 ArtCraft permanece en el índice 0.');
       } else {
         console.error('   ✗ Error: ArtCraft fue desplazado del índice 0.');
         passedAll = false;
       }
     } else {
-      console.error('   ✗ Fallo en la promoción por consenso:', committeeAudit.error);
+      console.error('   ✗ Fallo en la promoción por quórum:', vote2.error);
       passedAll = false;
     }
 
@@ -97,9 +127,9 @@ async function runCollectiveMemoryTests() {
       summary: 'Paquete de prueba sin documentación ni soporte.',
       agent_lesson: 'Prueba de lección a ser rechazada.',
       source_url: 'https://github.com/test-org/unverified-repo'
-    }, 'Cursor-Agent');
+    }, 'Community-Agent');
 
-    const rejectAudit = auditProposal(prop2.proposal_id, 'ARKAIOS-Security-Officer', 'REJECT', 'Rechazado: proyecto sin tracción ni documentación técnica suficiente.');
+    const rejectAudit = auditProposal(prop2.proposal_id, 'ARKAIOS-Curator', curatorToken, 'REJECT', 'Rechazado: proyecto sin tracción ni documentación técnica suficiente.');
     const proposalsAfter = getProposals('REJECTED');
     const rejectedEntry = proposalsAfter.find(p => p.proposal_id === prop2.proposal_id);
 
@@ -114,7 +144,7 @@ async function runCollectiveMemoryTests() {
     console.log('\n======================================================================');
     if (passedAll) {
       console.log('🎉 TODAS LAS PRUEBAS DE LA FASE 4 PASARON EXITOSAMENTE (5/5)');
-      console.log('   La Memoria Colectiva Soberana con Consenso Multi-Agente está 100% operativa.');
+      console.log('   La Memoria Colectiva Soberana con Consenso Multi-Agente Blindado está 100% operativa.');
     } else {
       console.error('❌ ALGUNAS PRUEBAS DE LA FASE 4 FALLARON.');
     }

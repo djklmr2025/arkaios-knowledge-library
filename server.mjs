@@ -89,23 +89,25 @@ const TOOLS = [
         technologies: { type: 'array', items: { type: 'string' }, description: 'Lista de tecnologías involucradas (ej. ["Rust", "Python", "LoRa"]).' },
         skills_unlocked: { type: 'array', items: { type: 'string' }, description: 'Lista de capacidades desbloqueadas para los agentes.' },
         tags: { type: 'array', items: { type: 'string' }, description: 'Etiquetas temáticas.' },
-        proposer_agent: { type: 'string', description: 'Nombre o identificador del agente que realiza la propuesta (ej. "Claude-3.7", "Gemini-Lab", "Cursor-Agent").' }
+        proposer_agent: { type: 'string', description: 'Nombre o identificador del agente que realiza la propuesta (ej. "Claude-3.7", "Gemini-Lab", "Cursor-Agent").' },
+        proposer_token: { type: 'string', description: 'Token de agente (obligatorio solo si el proponente reclama ser un miembro del comité).' }
       },
       required: ['title', 'summary', 'agent_lesson', 'source_url']
     }
   },
   {
     name: 'audit_proposal',
-    description: 'Permite al comité de agentes auditar una propuesta en cuarentena, evaluando seguridad y consenso (Anti-Self-Approval: el proponente no puede autoaprobarse).',
+    description: 'Permite a un miembro autenticado del comité de agentes emitir su voto de auditoría (Quórum requerido: 2 aprobaciones independientes de auditores distintos; Anti-Self-Approval estricto).',
     inputSchema: {
       type: 'object',
       properties: {
         proposal_id: { type: 'string', description: 'Identificador de la propuesta en cuarentena (ej. "prop-1728...").' },
-        auditor_agent: { type: 'string', description: 'Identificador del agente auditor que emite el voto de consenso.' },
-        decision: { type: 'string', enum: ['APPROVE', 'REJECT'], description: 'Decisión del comité: "APPROVE" para incorporar a la biblioteca o "REJECT" para archivar.' },
+        auditor_agent: { type: 'string', description: 'Identificador del miembro del comité (ARKAIOS-Curator, Claude-Auditor, Gemini-Evaluator, Cursor-Inspector).' },
+        auditor_token: { type: 'string', description: 'Token criptográfico privado del auditor para certificar su identidad real y evitar suplantación.' },
+        decision: { type: 'string', enum: ['APPROVE', 'REJECT'], description: 'Decisión: "APPROVE" para registrar voto favorable o "REJECT" para rechazar y archivar.' },
         notes: { type: 'string', description: 'Notas u observaciones técnicas del dictamen de auditoría.' }
       },
-      required: ['proposal_id', 'auditor_agent', 'decision']
+      required: ['proposal_id', 'auditor_agent', 'auditor_token', 'decision']
     }
   },
   {
@@ -114,7 +116,7 @@ const TOOLS = [
     inputSchema: {
       type: 'object',
       properties: {
-        status: { type: 'string', enum: ['ALL', 'PENDING_CONSENSUS', 'APPROVED', 'REJECTED'], description: 'Filtro por estado de propuesta (por defecto: PENDING_CONSENSUS).' }
+        status: { type: 'string', enum: ['ALL', 'PENDING_CONSENSUS', 'VOTING_IN_PROGRESS', 'APPROVED', 'REJECTED'], description: 'Filtro por estado de propuesta (por defecto: ALL).' }
       }
     }
   }
@@ -185,11 +187,11 @@ function handleToolCall(name, args) {
 
     case 'propose_knowledge': {
       const proposer = args.proposer_agent || 'Autonomous-Agent';
-      return submitProposal(args, proposer);
+      return submitProposal(args, proposer, args.proposer_token || null);
     }
 
     case 'audit_proposal': {
-      return auditProposal(args.proposal_id, args.auditor_agent, args.decision, args.notes);
+      return auditProposal(args.proposal_id, args.auditor_agent, args.auditor_token, args.decision, args.notes);
     }
 
     case 'get_proposals_status': {

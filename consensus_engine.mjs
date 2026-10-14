@@ -1,19 +1,20 @@
 /**
- * ARKAIOS Knowledge Library - Autonomous Multi-Agent Consensus & Quarantine Engine (Phase 4)
+ * ARKAIOS Knowledge Library - Autonomous Multi-Agent Consensus & Quarantine Engine (Phase 4 Hardened)
  * 
- * Implements sovereign multi-agent governance:
- * 1. Quarantine submission: proposals go to proposals.json, NEVER directly to library.json.
- * 2. 4 Strict consensus criteria:
- *    - Schema & Data Integrity
- *    - Zero-Injection (anti-prompt & anti-command injection)
- *    - No Self-Approval (proposer !== auditor)
- *    - Verifiable HTTPS Source
- * 3. Immutable preservation of library baseline (kb-top-01-artcraft remains #1).
+ * Implementa gobernanza soberana multi-agente blindada:
+ * 1. Identidad autenticada de agentes: el comité tiene tokens criptográficos verificados con timingSafeEqual.
+ * 2. Cuarentena obligatoria: proposals.json almacena todas las propuestas; NUNCA tocan library.json de forma directa.
+ * 3. Consenso multi-auditor con quórum (REQUIRED_QUORUM = 2): se requieren al menos dos votos independientes de auditores autorizados.
+ * 4. Prohibición estricta de autoaprobación y duplicación de votos.
+ * 5. Transacción atómica de dos fases con copias de respaldo (.bak), renombrado atómico (.tmp -> final) y rollback ante fallos.
+ * 6. Preservación inmutable y estricta: ArtCraft en índice 0 y cero pérdida de registros existentes.
+ * 7. Envoltorio de datos pasivos: lecciones marcadas como información no ejecutable (PASSIVE_DATA_ONLY).
  */
 
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import https from 'https';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,6 +22,83 @@ const __dirname = path.dirname(__filename);
 
 const LIBRARY_FILE = path.join(__dirname, 'library.json');
 const PROPOSALS_FILE = path.join(__dirname, 'proposals.json');
+const COMMITTEE_FILE = path.join(__dirname, '.agent_committee_tokens');
+
+export const REQUIRED_QUORUM = 2;
+
+export const AUTHORIZED_COMMITTEE_MEMBERS = [
+  'ARKAIOS-Curator',
+  'Claude-Auditor',
+  'Gemini-Evaluator',
+  'Cursor-Inspector'
+];
+
+/**
+ * Inicializa y administra el almacén de tokens privados del comité de agentes
+ */
+export function getOrCreateCommitteeTokens() {
+  if (fs.existsSync(COMMITTEE_FILE)) {
+    try {
+      return JSON.parse(fs.readFileSync(COMMITTEE_FILE, 'utf-8'));
+    } catch (e) {
+      // Si está corrupto, se regenera
+    }
+  }
+
+  const tokens = {};
+  for (const member of AUTHORIZED_COMMITTEE_MEMBERS) {
+    tokens[member] = crypto.randomBytes(32).toString('hex');
+  }
+
+  fs.writeFileSync(COMMITTEE_FILE, JSON.stringify(tokens, null, 2), { mode: 0o600 });
+  return tokens;
+}
+
+/**
+ * Verifica la identidad de un auditor contra los tokens autorizados del comité
+ */
+export function authenticateAuditor(auditorAgent, auditorToken) {
+  if (!auditorAgent || typeof auditorAgent !== 'string') {
+    return { authenticated: false, reason: 'Identificador de auditor no suministrado.' };
+  }
+
+  const normalizedAuditor = AUTHORIZED_COMMITTEE_MEMBERS.find(
+    m => m.toLowerCase() === auditorAgent.trim().toLowerCase()
+  );
+
+  if (!normalizedAuditor) {
+    return {
+      authenticated: false,
+      reason: `El agente "${auditorAgent}" no forma parte del comité de auditoría autorizado.`
+    };
+  }
+
+  if (!auditorToken || typeof auditorToken !== 'string') {
+    return {
+      authenticated: false,
+      reason: `Token de autenticación obligatorio para el auditor ${normalizedAuditor}.`
+    };
+  }
+
+  const committeeTokens = getOrCreateCommitteeTokens();
+  const expectedToken = committeeTokens[normalizedAuditor];
+
+  if (!expectedToken) {
+    return { authenticated: false, reason: 'Credencial de comité no configurada para este auditor.' };
+  }
+
+  const providedBuf = Buffer.from(auditorToken.trim());
+  const expectedBuf = Buffer.from(expectedToken.trim());
+
+  if (providedBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(providedBuf, expectedBuf)) {
+    return {
+      authenticated: false,
+      reason: `Credencial inválida para el auditor ${normalizedAuditor}. Falsificación de identidad rechazada.`
+    };
+  }
+
+  return { authenticated: true, memberName: normalizedAuditor };
+}
 
 function loadJson(filePath, fallback = []) {
   if (!fs.existsSync(filePath)) return fallback;
@@ -31,8 +109,13 @@ function loadJson(filePath, fallback = []) {
   }
 }
 
-function saveJson(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+/**
+ * Escritura atómica a disco usando archivo temporal y renombrado atómico
+ */
+export function atomicSaveJson(filePath, data) {
+  const tmpPath = `${filePath}.tmp.${Date.now()}.${crypto.randomBytes(4).toString('hex')}`;
+  fs.writeFileSync(tmpPath, JSON.stringify(data, null, 2), 'utf-8');
+  fs.renameSync(tmpPath, filePath);
 }
 
 /**
@@ -87,11 +170,28 @@ export function validateSourceUrl(urlStr) {
 /**
  * Registra una propuesta en la cola de cuarentena
  */
-export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
+export function submitProposal(input, proposerAgent = 'Autonomous-Agent', proposerToken = null) {
   const proposals = loadJson(PROPOSALS_FILE, []);
   const library = loadJson(LIBRARY_FILE, []);
 
-  // 1. Validar campos obligatorios
+  // 1. Validar identidad si el proponente pretende hacerse pasar por un miembro del comité
+  const isClaimingCommittee = AUTHORIZED_COMMITTEE_MEMBERS.some(
+    m => m.toLowerCase() === String(proposerAgent).trim().toLowerCase()
+  );
+
+  let verifiedProposer = String(proposerAgent).trim() || 'Anonymous-Agent';
+  if (isClaimingCommittee) {
+    const auth = authenticateAuditor(proposerAgent, proposerToken);
+    if (!auth.authenticated) {
+      return {
+        success: false,
+        error: `Falsificación de identidad detectada: ${auth.reason}`
+      };
+    }
+    verifiedProposer = auth.memberName;
+  }
+
+  // 2. Validar campos obligatorios
   if (!input.title || !input.summary || !input.agent_lesson || !input.source_url) {
     return {
       success: false,
@@ -99,7 +199,7 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
     };
   }
 
-  // 2. Sanitizar textos
+  // 3. Sanitizar textos
   const titleCheck = validateAndSanitizeText(input.title);
   if (!titleCheck.valid) return { success: false, error: `Título inválido: ${titleCheck.reason}` };
 
@@ -112,7 +212,7 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
   const urlCheck = validateSourceUrl(input.source_url);
   if (!urlCheck.valid) return { success: false, error: `Fuente inválida: ${urlCheck.reason}` };
 
-  // 3. Verificación de no-duplicados contra la biblioteca existente
+  // 4. Verificación de no-duplicados contra la biblioteca existente
   const isDuplicateLib = library.some(item => 
     (item.original_url && item.original_url.toLowerCase() === urlCheck.cleanUrl.toLowerCase()) ||
     (item.title && item.title.toLowerCase() === titleCheck.clean.toLowerCase())
@@ -121,9 +221,9 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
     return { success: false, error: 'La lección ya existe en la biblioteca de ARKAIOS (duplicado detectado).' };
   }
 
-  // 4. Verificación contra propuestas pendientes
+  // 5. Verificación contra propuestas pendientes o en votación
   const isDuplicatePending = proposals.some(p => 
-    p.status === 'PENDING_CONSENSUS' &&
+    (p.status === 'PENDING_CONSENSUS' || p.status === 'VOTING_IN_PROGRESS') &&
     (p.data?.source_url?.toLowerCase() === urlCheck.cleanUrl.toLowerCase() ||
      p.data?.title?.toLowerCase() === titleCheck.clean.toLowerCase())
   );
@@ -131,15 +231,16 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
     return { success: false, error: 'Ya existe una propuesta idéntica en cuarentena pendiente de consenso.' };
   }
 
-  // 5. Crear registro de propuesta en cuarentena
+  // 6. Crear registro de propuesta en cuarentena
   const proposalId = `prop-${Date.now()}-${crypto.randomBytes(3).toString('hex')}`;
   const now = new Date().toISOString();
 
   const newProposal = {
     proposal_id: proposalId,
     status: 'PENDING_CONSENSUS',
-    proposer_agent: String(proposerAgent).trim() || 'Unknown-Agent',
+    proposer_agent: verifiedProposer,
     submitted_at: now,
+    votes: [], // Registro de votos del comité
     data: {
       title: titleCheck.clean,
       category: (input.category || 'Collective Intelligence').trim(),
@@ -154,14 +255,14 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
       {
         timestamp: now,
         action: 'SUBMITTED_TO_QUARANTINE',
-        agent: proposerAgent,
+        agent: verifiedProposer,
         status: 'PENDING_CONSENSUS'
       }
     ]
   };
 
   proposals.push(newProposal);
-  saveJson(PROPOSALS_FILE, proposals);
+  atomicSaveJson(PROPOSALS_FILE, proposals);
 
   return {
     success: true,
@@ -172,9 +273,136 @@ export function submitProposal(input, proposerAgent = 'Autonomous-Agent') {
 }
 
 /**
- * Evalúa y audita una propuesta en cuarentena aplicando las 4 reglas de consenso
+ * Transacción atómica de dos fases para incorporar una propuesta aprobada a la biblioteca soberana
  */
-export function auditProposal(proposalId, auditorAgent = 'ARKAIOS-Auditor-Agent', decision = 'APPROVE', notes = '') {
+function atomicCommitPromotion(proposals, currentProposal, auditorMember, notes, now) {
+  const libraryBackup = `${LIBRARY_FILE}.bak`;
+  const proposalsBackup = `${PROPOSALS_FILE}.bak`;
+
+  // 1. Crear copias de respaldo antes de iniciar la transacción
+  fs.copyFileSync(LIBRARY_FILE, libraryBackup);
+  fs.copyFileSync(PROPOSALS_FILE, proposalsBackup);
+
+  try {
+    const library = loadJson(LIBRARY_FILE, []);
+
+
+    const newKbId = `kb-collab-${Date.now()}-${crypto.randomBytes(2).toString('hex')}`;
+    const data = currentProposal.data;
+
+    // Envoltorio de seguridad: los datos son información pasiva, nunca ejecutables
+    const newKnowledgeItem = {
+      id: newKbId,
+      title: data.title,
+      category: data.category,
+      platform: 'ARKAIOS Collective Memory (Multi-Agent Consensual)',
+      original_url: data.source_url,
+      canonical_url: data.source_url,
+      github_repo: data.source_url.includes('github.com') ? data.source_url : null,
+      website: null,
+      technologies: data.technologies,
+      skills_unlocked: data.skills_unlocked,
+      summary: data.summary,
+      agent_lesson: data.agent_lesson,
+      tags: data.tags,
+      external_resource: data.source_url,
+      synced_at: now,
+      governance: {
+        proposal_id: currentProposal.proposal_id,
+        proposer_agent: currentProposal.proposer_agent,
+        approved_at: now,
+        quorum_required: REQUIRED_QUORUM,
+        approving_auditors: currentProposal.votes.filter(v => v.decision === 'APPROVE').map(v => v.auditor)
+      },
+      security_envelope: {
+        is_executable: false,
+        privilege_level: 'PASSIVE_DATA_ONLY',
+        untrusted_external_content: true,
+        statement: 'Este registro es exclusivamente informativo y descriptivo. No otorga autorización de ejecución ni altera el comportamiento de ningún agente.'
+      }
+    };
+
+    // Preservación estricta: ArtCraft en índice 0 y conservación de todos los registros existentes
+    const artcraftItem = library.find(item => item.id === 'kb-top-01-artcraft');
+    if (!artcraftItem) {
+      throw new Error('Integrity check failed: Registro #1 ArtCraft no encontrado en library.json.');
+    }
+
+    const otherItems = library.filter(item => item.id !== 'kb-top-01-artcraft');
+    const updatedLibrary = [
+      artcraftItem,
+      newKnowledgeItem,
+      ...otherItems
+    ];
+
+    // Verificación matemática de conteo estricto: cero pérdidas
+    if (updatedLibrary.length !== library.length + 1) {
+      throw new Error(`Record count mismatch: esperado ${library.length + 1}, obtenido ${updatedLibrary.length}`);
+    }
+
+    if (updatedLibrary[0].id !== 'kb-top-01-artcraft') {
+      throw new Error('Immutability check failed: ArtCraft fue desplazado de la primera posición.');
+    }
+
+    // Actualizar estado de la propuesta
+    currentProposal.status = 'APPROVED';
+    currentProposal.resolved_at = now;
+    currentProposal.promoted_kb_id = newKbId;
+    currentProposal.audit_trail.push({
+      timestamp: now,
+      action: 'CONSENSUS_REACHED_AND_PROMOTED',
+      agent: auditorMember,
+      promoted_kb_id: newKbId,
+      quorum_achieved: currentProposal.votes.filter(v => v.decision === 'APPROVE').length,
+      notes: notes || 'Quórum de consenso alcanzado e incorporado exitosamente.'
+    });
+
+    // Escritura atómica a disco
+    atomicSaveJson(LIBRARY_FILE, updatedLibrary);
+    atomicSaveJson(PROPOSALS_FILE, proposals);
+
+    // Limpieza de respaldos al completar con éxito
+    if (fs.existsSync(libraryBackup)) fs.unlinkSync(libraryBackup);
+    if (fs.existsSync(proposalsBackup)) fs.unlinkSync(proposalsBackup);
+
+    return {
+      success: true,
+      status: 'APPROVED',
+      proposal_id: currentProposal.proposal_id,
+      promoted_kb_id: newKbId,
+      total_library_items: updatedLibrary.length,
+      message: `Consenso alcanzado (${REQUIRED_QUORUM}/${REQUIRED_QUORUM}). Lección incorporada exitosamente con ID ${newKbId}.`
+    };
+  } catch (error) {
+    // Rollback transaccional: restaurar desde copia de seguridad
+    if (fs.existsSync(libraryBackup)) {
+      fs.copyFileSync(libraryBackup, LIBRARY_FILE);
+      fs.unlinkSync(libraryBackup);
+    }
+    if (fs.existsSync(proposalsBackup)) {
+      fs.copyFileSync(proposalsBackup, PROPOSALS_FILE);
+      fs.unlinkSync(proposalsBackup);
+    }
+
+    return {
+      success: false,
+      error: `Transacción abortada y revertida (Rollback seguro): ${error.message}`
+    };
+  }
+}
+
+/**
+ * Evalúa y audita una propuesta en cuarentena aplicando las reglas de consenso multi-auditor
+ */
+export function auditProposal(proposalId, auditorAgent, auditorToken, decision = 'APPROVE', notes = '') {
+  // 1. Autenticación criptográfica de la identidad del auditor
+  const auth = authenticateAuditor(auditorAgent, auditorToken);
+  if (!auth.authenticated) {
+    return { success: false, error: auth.reason };
+  }
+  const auditorMember = auth.memberName;
+
+  // 2. Cargar propuesta
   const proposals = loadJson(PROPOSALS_FILE, []);
   const proposal = proposals.find(p => p.proposal_id === proposalId);
 
@@ -182,37 +410,52 @@ export function auditProposal(proposalId, auditorAgent = 'ARKAIOS-Auditor-Agent'
     return { success: false, error: `Propuesta ${proposalId} no encontrada en cuarentena.` };
   }
 
-  if (proposal.status !== 'PENDING_CONSENSUS') {
-    return { success: false, error: `La propuesta ya fue resuelta previamente con estado: ${proposal.status}.` };
+  if (proposal.status === 'APPROVED' || proposal.status === 'REJECTED') {
+    return { success: false, error: `La propuesta ya fue resuelta previamente con estado final: ${proposal.status}.` };
   }
 
   const now = new Date().toISOString();
-  const auditor = String(auditorAgent).trim() || 'ARKAIOS-Auditor-Agent';
 
-  // Regla 1 de Gobernanza: Prohibición estricta de autoaprobación
-  if (auditor.toLowerCase() === proposal.proposer_agent.toLowerCase()) {
+  // 3. Regla de Gobernanza 1: Prohibición estricta de autoaprobación (Anti-Self-Approval)
+  if (auditorMember.toLowerCase() === proposal.proposer_agent.toLowerCase()) {
     return {
       success: false,
-      error: 'Violación de regla de consenso: El agente proponente no puede auditar ni aprobar su propia propuesta (Anti-Self-Approval).'
+      error: 'Violación de regla de consenso: El agente proponente no puede auditar ni votar su propia propuesta (Anti-Self-Approval).'
     };
   }
 
-  // Si la decisión es rechazar
+  // 4. Regla de Gobernanza 2: Prevención de doble voto del mismo auditor
+  if (!Array.isArray(proposal.votes)) proposal.votes = [];
+  const alreadyVoted = proposal.votes.some(v => v.auditor.toLowerCase() === auditorMember.toLowerCase());
+  if (alreadyVoted) {
+    return {
+      success: false,
+      error: `Violación de regla de consenso: El auditor ${auditorMember} ya emitió su voto previamente para esta propuesta.`
+    };
+  }
+
+  // 5. Si la decisión es rechazar (Veto de auditoría o motivo fundado)
   if (decision === 'REJECT') {
     proposal.status = 'REJECTED';
     proposal.resolved_at = now;
-    proposal.rejection_reason = notes || 'Rechazada por comité de auditoría multi-agente.';
+    proposal.rejection_reason = notes || 'Rechazada por voto del comité de auditoría.';
+    proposal.votes.push({
+      auditor: auditorMember,
+      decision: 'REJECT',
+      notes: proposal.rejection_reason,
+      voted_at: now
+    });
     proposal.audit_trail.push({
       timestamp: now,
       action: 'REJECTED',
-      agent: auditor,
+      agent: auditorMember,
       notes: proposal.rejection_reason
     });
-    saveJson(PROPOSALS_FILE, proposals);
+    atomicSaveJson(PROPOSALS_FILE, proposals);
     return { success: true, status: 'REJECTED', proposal_id: proposalId, message: 'Propuesta rechazada y archivada.' };
   }
 
-  // Evaluación de los 4 criterios estrictos de consenso para aprobación
+  // 6. Evaluación de criterios técnicos y de seguridad antes de admitir el voto
   const data = proposal.data;
   const titleCheck = validateAndSanitizeText(data.title);
   const summaryCheck = validateAndSanitizeText(data.summary);
@@ -226,74 +469,49 @@ export function auditProposal(proposalId, auditorAgent = 'ARKAIOS-Auditor-Agent'
     proposal.audit_trail.push({
       timestamp: now,
       action: 'REJECTED_SECURITY_FAILURE',
-      agent: auditor,
+      agent: auditorMember,
       notes: proposal.rejection_reason
     });
-    saveJson(PROPOSALS_FILE, proposals);
+    atomicSaveJson(PROPOSALS_FILE, proposals);
     return { success: false, status: 'REJECTED', error: proposal.rejection_reason };
   }
 
-  // Consenso Aprobado: Incorporar atómicamente a la biblioteca soberana
-  const library = loadJson(LIBRARY_FILE, []);
-  const newKbId = `kb-collab-${Date.now()}-${crypto.randomBytes(2).toString('hex')}`;
+  // 7. Registrar voto de aprobación
+  proposal.votes.push({
+    auditor: auditorMember,
+    decision: 'APPROVE',
+    notes: notes || 'Aprobado técnicamente tras verificación de fuentes y esquema.',
+    voted_at: now
+  });
 
-  const newKnowledgeItem = {
-    id: newKbId,
-    title: data.title,
-    category: data.category,
-    platform: 'ARKAIOS Collective Memory (Multi-Agent Consensual)',
-    original_url: data.source_url,
-    canonical_url: data.source_url,
-    github_repo: data.source_url.includes('github.com') ? data.source_url : null,
-    website: null,
-    technologies: data.technologies,
-    skills_unlocked: data.skills_unlocked,
-    summary: data.summary,
-    agent_lesson: data.agent_lesson,
-    tags: data.tags,
-    external_resource: data.source_url,
-    synced_at: now,
-    governance: {
-      proposal_id: proposalId,
-      proposer_agent: proposal.proposer_agent,
-      audited_by: auditor,
-      approved_at: now
-    }
-  };
-
-  // Preservación inmutable del recurso #1 ArtCraft en el índice 0
-  const artcraftItem = library.find(item => item.id === 'kb-top-01-artcraft');
-  const otherItems = library.filter(item => item.id !== 'kb-top-01-artcraft');
-
-  const updatedLibrary = [
-    artcraftItem || library[0],
-    newKnowledgeItem,
-    ...otherItems.filter(item => item !== library[0])
-  ].filter(Boolean);
-
-  saveJson(LIBRARY_FILE, updatedLibrary);
-
-  // Actualizar registro en cuarentena
-  proposal.status = 'APPROVED';
-  proposal.resolved_at = now;
-  proposal.promoted_kb_id = newKbId;
   proposal.audit_trail.push({
     timestamp: now,
-    action: 'APPROVED_AND_PROMOTED',
-    agent: auditor,
-    promoted_kb_id: newKbId,
-    notes: notes || 'Aprobada unánimemente por consenso multi-agente.'
+    action: 'VOTE_RECORDED',
+    agent: auditorMember,
+    decision: 'APPROVE',
+    notes: notes || 'Voto de aprobación registrado en comité.'
   });
-  saveJson(PROPOSALS_FILE, proposals);
 
-  return {
-    success: true,
-    status: 'APPROVED',
-    proposal_id: proposalId,
-    promoted_kb_id: newKbId,
-    total_library_items: updatedLibrary.length,
-    message: `Lección incorporada exitosamente a la biblioteca soberana con ID ${newKbId}.`
-  };
+  const approvalVotes = proposal.votes.filter(v => v.decision === 'APPROVE');
+
+  // 8. Verificar Quórum (Consenso Verdadero >= REQUIRED_QUORUM)
+  if (approvalVotes.length < REQUIRED_QUORUM) {
+    proposal.status = 'VOTING_IN_PROGRESS';
+    atomicSaveJson(PROPOSALS_FILE, proposals);
+
+    return {
+      success: true,
+      status: 'VOTING_IN_PROGRESS',
+      proposal_id: proposalId,
+      current_approvals: approvalVotes.length,
+      required_quorum: REQUIRED_QUORUM,
+      approving_auditors: approvalVotes.map(v => v.auditor),
+      message: `Voto registrado (${approvalVotes.length}/${REQUIRED_QUORUM}). La propuesta permanece en cuarentena esperando el segundo voto independiente.`
+    };
+  }
+
+  // 9. Quórum alcanzado: Iniciar transacción atómica de incorporación
+  return atomicCommitPromotion(proposals, proposal, auditorMember, notes, now);
 }
 
 /**
@@ -301,6 +519,6 @@ export function auditProposal(proposalId, auditorAgent = 'ARKAIOS-Auditor-Agent'
  */
 export function getProposals(statusFilter = null) {
   const proposals = loadJson(PROPOSALS_FILE, []);
-  if (!statusFilter) return proposals;
+  if (!statusFilter || statusFilter === 'ALL') return proposals;
   return proposals.filter(p => p.status === statusFilter);
 }

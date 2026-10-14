@@ -12,3 +12,6 @@ Thumbs.db
 .vercel
 .env
 .admin_token*
+.agent_committee_tokens*
+*.tmp
+*.bak
