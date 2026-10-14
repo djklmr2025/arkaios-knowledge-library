@@ -19,12 +19,22 @@ function log(msg) {
   fs.appendFileSync(LOG_FILE, line + '\n', 'utf-8');
 }
 
-function fetchPageHtml(url) {
-  const parsed = new URL(url);
+function validateUrl(rawUrl) {
+  if (typeof rawUrl !== 'string' || !rawUrl.trim()) {
+    throw new Error('URL requerida.');
+  }
+  if (/["'`;&|<>^\r\n]/.test(rawUrl)) {
+    throw new Error('URL contiene caracteres no permitidos o sospechosos.');
+  }
+  const parsed = new URL(rawUrl);
   if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
     throw new Error('Solo se permiten protocolos HTTP/HTTPS.');
   }
-  const safeUrl = parsed.href;
+  return parsed.href;
+}
+
+function fetchPageHtml(url) {
+  const safeUrl = validateUrl(url);
 
   const sessionDir = path.join(__dirname, '.meta_admin_session');
   const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';

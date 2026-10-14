@@ -43,7 +43,15 @@ function checkAdminAuth(req, res) {
     return false;
   }
 
-  // 2. Protección contra CSRF: si se incluye origen o referer, debe ser de localhost
+  // 2. Requiere cabecera de autorización administrativa local
+  const clientAuth = req.headers['x-arkaios-client'];
+  if (clientAuth !== 'local-admin') {
+    res.writeHead(401, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'No autorizado: se requiere cabecera administrativa X-Arkaios-Client: local-admin.' }));
+    return false;
+  }
+
+  // 3. Protección contra CSRF: si se incluye origen o referer, debe ser de localhost
   const origin = req.headers.origin || req.headers.referer || '';
   if (origin) {
     try {
@@ -147,37 +155,26 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Static File Serving - Seguridad: Bloquear directory traversal y archivos ocultos/privados/código
-  let rawUrl = '';
-  try { rawUrl = decodeURIComponent(req.url || ''); } catch (e) { rawUrl = req.url || ''; }
-  const normalizedPath = path.normalize(pathname).replace(/\\/g, '/');
+  // Static File Serving - Lista blanca estricta de recursos públicos autorizados
+  const ALLOWED_STATIC = {
+    '/': 'index.html',
+    '/index.html': 'index.html',
+    '/styles.css': 'styles.css',
+    '/app.js': 'app.js',
+    '/library.json': 'library.json',
+    '/favicon.ico': 'favicon.ico',
+    '/SKILL.md': 'SKILL.md',
+    '/AGENTS.md': 'AGENTS.md'
+  };
 
-  if (
-    rawUrl.includes('..') ||
-    normalizedPath.includes('..') ||
-    /(?:^|\/)\./.test(normalizedPath) ||
-    /^\/(?:\.env|\.git|\.meta_admin_session)/i.test(normalizedPath) ||
-    /\.(bat|cmd|log|mjs|env|sh|lock)$/i.test(normalizedPath) ||
-    /^\/(package\.json|package-lock\.json|sync_history\.log)/i.test(normalizedPath)
-  ) {
-    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('403 Forbidden: Acceso denegado a archivos de configuracion o del sistema.');
-    return;
-  }
-
-  let filePath = path.join(PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname);
-  const resolvedPath = path.resolve(filePath);
-  if (!resolvedPath.startsWith(path.resolve(PUBLIC_DIR))) {
-    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('403 Forbidden: Path traversal detectado.');
-    return;
-  }
-
-  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+  const targetFile = ALLOWED_STATIC[pathname];
+  if (!targetFile) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('404 Not Found');
+    res.end('404 Not Found: Recurso no disponible o no autorizado.');
     return;
   }
+
+  const filePath = path.join(PUBLIC_DIR, targetFile);
 
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';

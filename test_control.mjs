@@ -252,24 +252,35 @@ async function testServerSecurity() {
         };
 
         try {
-          // Pruebas GET estáticas y endpoints públicos
+          // 1. Pruebas GET estáticas y endpoints públicos autorizados
           const t1 = await checkEndpoint('/index.html', 200);
-          const t2 = await checkEndpoint('/.env', 403);
-          const t3 = await checkEndpoint('/.meta_admin_session/Default', 403);
-          const t4 = await checkEndpoint('/../package.json', 403);
-          const t5 = await checkEndpoint('/api/status', 200);
+          const t2 = await checkEndpoint('/library.json', 200);
+          const t3 = await checkEndpoint('/api/status', 200);
 
-          // Pruebas POST administrativas y protección CSRF (origen no autorizado bloqueado)
-          const t6 = await checkEndpoint('/api/sync', 403, {
-            method: 'POST',
-            headers: { 'Origin': 'https://malicious-website.com' }
+          // 2. Lista blanca estricta: cualquier archivo privado o fuera de lista devuelve 404
+          const t4 = await checkEndpoint('/.env', 404);
+          const t5 = await checkEndpoint('/.meta_admin_session/Default', 404);
+          const t6 = await checkEndpoint('/package.json', 404);
+          const t7 = await checkEndpoint('/../package.json', 404);
+
+          // 3. Pruebas POST administrativas: rechaza sin cabecera X-Arkaios-Client (401)
+          const t8 = await checkEndpoint('/api/sync', 401, {
+            method: 'POST'
           });
-          const t7 = await checkEndpoint('/api/auth/login', 403, {
-            method: 'POST',
-            headers: { 'Origin': 'https://attacker.evil' }
+          const t9 = await checkEndpoint('/api/auth/login', 401, {
+            method: 'POST'
           });
 
-          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7;
+          // 4. Protección CSRF: rechaza peticiones con origen externo malicioso incluso con cabecera (403)
+          const t10 = await checkEndpoint('/api/sync', 403, {
+            method: 'POST',
+            headers: {
+              'Origin': 'https://malicious-website.com',
+              'X-Arkaios-Client': 'local-admin'
+            }
+          });
+
+          passed = t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10;
         } catch (err) {
           console.error('   ✗ Fallo en pruebas HTTP:', err.message);
           passed = false;

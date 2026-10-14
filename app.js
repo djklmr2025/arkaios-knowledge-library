@@ -7628,7 +7628,10 @@ if (metaLoginBtn) {
   metaLoginBtn.addEventListener('click', async () => {
     try {
       metaLoginBtn.innerHTML = `<span>Abriendo Navegador Seguro...</span>`;
-      const res = await fetch('/api/auth/login', { method: 'POST' });
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'X-Arkaios-Client': 'local-admin' }
+      });
       if (res.ok) {
         alert('Se ha abierto Google Chrome con el perfil de Administrador Meta aislado.\\n\\n"Asegúrate de iniciar sesión con tu cuenta de administrador de Meta cuando la aplicación externa te lo solicite."\\n\\nTu sesión se guardará automáticamente en este equipo.');
         setTimeout(checkAdminSession, 3000);
@@ -7653,7 +7656,10 @@ if (syncNowBtn) {
     syncNowBtn.disabled = true;
     syncNowBtn.innerHTML = `<span>Sincronizando...</span>`;
     try {
-      const res = await fetch('/api/sync', { method: 'POST' });
+      const res = await fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'X-Arkaios-Client': 'local-admin' }
+      });
       if (res.ok) {
         const data = await res.json();
         alert(`Sincronización completada con éxito.\\nNuevos aportes detectados: ${data.newItemsCount || 0}\\nTotal en biblioteca: ${data.total || library.length}`);
