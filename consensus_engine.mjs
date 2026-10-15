@@ -1,22 +1,27 @@
 /**
- * ARKAIOS Knowledge Library - Autonomous Multi-Agent Consensus & Quarantine Engine (Phase 4 Sovereign - Hardened WAL)
+ * ARKAIOS Knowledge Library - Autonomous Multi-Agent Consensus & Quarantine Engine (Phase 4 Sovereign - Hardened WAL v2)
  * 
  * Implementa gobernanza y resiliencia multi-agente de nivel institucional:
- * 1. Write-Ahead Transaction Journal (WAL): Registro transaccional en .transaction_journal.json
- *    con fases PREPARED, LIBRARY_COMMITTED, ALL_COMMITTED y COMPLETED.
- * 2. Recuperación Idempotente y Cierre de Split-Brain (Crash-Recovery):
- *    - Si ambos archivos ya contienen el estado objetivo antes de la caída: CONFIRMA hacia adelante (forward-complete),
- *      evitando revertir aprobaciones ya escritas con éxito.
- *    - Si solo un archivo o ninguno fue escrito: ejecuta ROLLBACK seguro restaurando el snapshot previo.
+ * 1. Write-Ahead Transaction Journal (WAL) con Hashes Criptográficos SHA-256:
+ *    - Registra pre_library_hash, pre_proposals_hash, target_library_hash y target_proposals_hash.
+ *    - Fases: WAL_PREPARED, WAL_LIBRARY_COMMITTED, WAL_ALL_COMMITTED y COMPLETED.
+ * 2. Recuperación Criptográficamente Verificada (Crash-Recovery):
+ *    - Comprobación SHA-256 completa de biblioteca y propuestas.
+ *    - Si ambos archivos coinciden 100% con los hashes objetivo: CONFIRMA hacia adelante (Forward-Complete),
+ *      evitando revertir aprobaciones ya escritas íntegramente en disco.
+ *    - Si no coinciden (split-brain o modificación ajena a la transacción): ejecuta ROLLBACK seguro restaurando el snapshot previo.
  *    - Ante corrupción insalvable del diario: activa BLOQUEO DE SEGURIDAD (fail-safe lock) impidiendo escrituras.
- * 3. Identidad de Proponentes Autenticada y Quórum Escalonado:
+ * 3. Atomicidad Pura sin Degradación:
+ *    - atomicSaveJson() utiliza estrictamente fs.renameSync con reintentos para bloqueos transitorios.
+ *    - CERO degradación a copia no atómica (copyFileSync eliminada completamente).
+ * 4. Identidad de Proponentes Autenticada y Quórum Escalonado:
  *    - Proponentes Autenticados (Comité o Contribuidores registrados en .authorized_contributors con token verificado):
  *      Quórum estándar de 2 votos independientes.
  *    - Proponentes Externos no autenticados o con tokens no registrados: Marcados estrictamente como
  *      UNAUTHENTICATED_EXTERNAL con Quórum forzoso de 3 votos independientes.
- * 4. Aislamiento de Secretos: Los tokens del comité y contribuidores se mantienen en almacenes privados.
- * 5. Transacciones Atómicas: Preservación matemática de ArtCraft #1 y cero pérdida de registros.
- * 6. Envoltorio de Seguridad: Datos marcados explícitamente como PASSIVE_DATA_ONLY (no ejecutables).
+ * 5. Aislamiento de Secretos: Los tokens del comité y contribuidores se mantienen en almacenes privados.
+ * 6. Preservación Inmutable: ArtCraft #1 en índice 0 y cero pérdida de registros existentes.
+ * 7. Envoltorio de Seguridad: Datos marcados explícitamente como PASSIVE_DATA_ONLY (no ejecutables).
  */
 
 import fs from 'fs';
@@ -56,6 +61,13 @@ let engineLockReason = null;
 
 export function getEngineLockStatus() {
   return { locked: isEngineLocked, reason: engineLockReason };
+}
+
+/**
+ * Calcula el hash criptográfico SHA-256 canónico de una estructura de datos
+ */
+export function computeCanonicalHash(data) {
+  return crypto.createHash('sha256').update(JSON.stringify(data)).digest('hex');
 }
 
 /**
@@ -206,7 +218,8 @@ function loadJson(filePath, fallback = []) {
 }
 
 /**
- * Escritura atómica a disco usando archivo temporal, flush a disco (fsync) y renombrado
+ * Escritura atómica pura a disco usando archivo temporal, flush a disco (fsync) y renombrado.
+ * NUNCA se degrada a copyFileSync; si el renombrado falla tras reintentos, falla de forma segura.
  */
 export function atomicSaveJson(filePath, data) {
   const tmpPath = `${filePath}.tmp.${Date.now()}.${crypto.randomBytes(4).toString('hex')}`;
@@ -215,53 +228,36 @@ export function atomicSaveJson(filePath, data) {
   fs.fsyncSync(fd);
   fs.closeSync(fd);
 
-  // En Windows, renameSync puede sufrir EPERM temporal si el destino es indexado o leído por otro hilo
-  for (let attempt = 0; attempt < 5; attempt++) {
+  // En Windows, renameSync puede sufrir EPERM temporal si el destino es indexado por el SO
+  let renameError = null;
+  for (let attempt = 0; attempt < 8; attempt++) {
     try {
       fs.renameSync(tmpPath, filePath);
       return;
     } catch (err) {
-      if ((err.code === 'EPERM' || err.code === 'EBUSY') && attempt < 4) {
+      renameError = err;
+      if (err.code === 'EPERM' || err.code === 'EBUSY') {
         const start = Date.now();
-        while (Date.now() - start < 25) {} // pausa breve de 25ms
+        while (Date.now() - start < 30) {} // pausa breve de 30ms antes de reintentar
       } else {
-        try {
-          fs.copyFileSync(tmpPath, filePath);
-          if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
-          return;
-        } catch (copyErr) {
-          throw err;
-        }
+        break;
       }
     }
   }
+
+  // Si tras los reintentos el renombrado atómico no es posible, fallar de forma segura sin degradación no atómica
+  if (fs.existsSync(tmpPath)) {
+    try { fs.unlinkSync(tmpPath); } catch (e) {}
+  }
+  throw new Error(`Atomic replacement failed on ${filePath}: ${renameError?.message || 'EPERM'}`);
 }
 
 /**
- * Comprueba si la biblioteca en disco contiene el nuevo elemento objetivo
- */
-function libraryContainsTarget(currentLib, targetLib, proposalId) {
-  if (!Array.isArray(currentLib) || !Array.isArray(targetLib)) return false;
-  if (currentLib.length !== targetLib.length) return false;
-  // Buscar elemento que coincida con la propuesta
-  return currentLib.some(item => item?.governance?.proposal_id === proposalId);
-}
-
-/**
- * Comprueba si las propuestas en disco contienen la propuesta marcada como APPROVED
- */
-function proposalsContainTarget(currentProps, proposalId) {
-  if (!Array.isArray(currentProps)) return false;
-  const prop = currentProps.find(p => p.proposal_id === proposalId);
-  return !!(prop && prop.status === 'APPROVED');
-}
-
-/**
- * RECUPERACIÓN AUTOMÁTICA ANTE FALLOS (Idempotent Crash Recovery Engine)
+ * RECUPERACIÓN AUTOMÁTICA ANTE FALLOS (Cryptographically Verified Crash Recovery Engine)
  * Inspecciona el diario de transacciones (.transaction_journal.json) y aplica
- * la decisión matemática correcta:
- * - Si ambos archivos ya reflejan la transacción: CONFIRMA (Forward-complete).
- * - Si hubo fallo a medio camino (split-write): ROLLBACK al snapshot previo.
+ * la decisión matemática mediante hashes SHA-256 completos:
+ * - Si ambos archivos coinciden 100% con los hashes objetivo: CONFIRMA (Forward-complete).
+ * - Si no coinciden con el objetivo (split-write o modificación ajena): ROLLBACK al snapshot previo.
  * - Si el diario está insalvablemente corrupto: ACTIVA BLOQUEO DE SEGURIDAD.
  */
 export function recoverPendingTransactions() {
@@ -275,8 +271,6 @@ export function recoverPendingTransactions() {
     try {
       journal = JSON.parse(journalRaw);
     } catch (parseErr) {
-      // Bloqueo de seguridad: el diario está corrupto y no puede parsearse.
-      // Entrar en modo seguro para impedir daño a la biblioteca.
       isEngineLocked = true;
       engineLockReason = 'Corrupción irrecuperable en .transaction_journal.json. Servidor en modo seguro de solo lectura.';
       console.error(`[WAL CRITICAL] ${engineLockReason}`);
@@ -289,18 +283,21 @@ export function recoverPendingTransactions() {
       return { recovered: false, locked: true, error: engineLockReason };
     }
 
-    console.warn(`[WAL RECOVERY] Transacción pendiente detectada: ${journal.tx_id} en fase "${journal.state}". Evaluando estado en disco...`);
+    console.warn(`[WAL RECOVERY] Transacción pendiente detectada: ${journal.tx_id} en fase "${journal.state}". Evaluando hashes SHA-256 en disco...`);
 
     const diskLibrary = loadJson(LIBRARY_FILE, []);
     const diskProposals = loadJson(PROPOSALS_FILE, []);
 
-    const libMatchesTarget = libraryContainsTarget(diskLibrary, journal.target_library, journal.proposal_id);
-    const propsMatchTarget = proposalsContainTarget(diskProposals, journal.proposal_id);
+    const diskLibHash = computeCanonicalHash(diskLibrary);
+    const diskPropsHash = computeCanonicalHash(diskProposals);
 
-    // CASO 1: AMBOS archivos ya fueron escritos con éxito antes de la caída
-    // (Incluso si el estado del diario decía WAL_LIBRARY_COMMITTED o WAL_ALL_COMMITTED)
-    if (libMatchesTarget && propsMatchTarget) {
-      console.warn(`[WAL RECOVERY] Ambos archivos (library.json y proposals.json) ya contienen la transacción ${journal.tx_id} completada. Confirmando hacia adelante (Forward-Complete).`);
+    // Comparación criptográfica íntegra contra los hashes objetivo registrados en el diario
+    const libMatchesTarget = (diskLibHash === journal.target_library_hash);
+    const propsMatchesTarget = (diskPropsHash === journal.target_proposals_hash);
+
+    // CASO 1: AMBOS archivos coinciden exactamente al 100% con los hashes objetivo
+    if (libMatchesTarget && propsMatchesTarget) {
+      console.warn(`[WAL RECOVERY] Hashes SHA-256 de library.json y proposals.json coinciden 100% con target. Transacción ${journal.tx_id} confirmada hacia adelante (Forward-Complete).`);
       fs.unlinkSync(JOURNAL_FILE);
       return {
         recovered: true,
@@ -311,9 +308,9 @@ export function recoverPendingTransactions() {
       };
     }
 
-    // CASO 2: La transacción quedó a medio camino (split-brain o fallo parcial)
+    // CASO 2: La transacción quedó a medio camino o hubo modificación ajena (split-brain)
     // Se restaura el snapshot previo limpio
-    console.warn(`[WAL RECOVERY] Inconsistencia detectada (lib_ok: ${libMatchesTarget}, props_ok: ${propsMatchTarget}). Ejecutando Rollback seguro al estado previo...`);
+    console.warn(`[WAL RECOVERY] Inconsistencia detectada por hash SHA-256 (lib_ok: ${libMatchesTarget}, props_ok: ${propsMatchesTarget}). Ejecutando Rollback seguro al snapshot previo...`);
 
     if (journal.pre_library_snapshot && Array.isArray(journal.pre_library_snapshot)) {
       atomicSaveJson(LIBRARY_FILE, journal.pre_library_snapshot);
@@ -628,12 +625,16 @@ function atomicCommitPromotion(proposals, currentProposal, auditorMember, notes,
     p.proposal_id === currentProposal.proposal_id ? currentProposal : p
   );
 
-  // 4. FASE WAL 1: Grabar snapshot previo y objetivo en el diario de transacciones (fsync)
+  // 4. FASE WAL 1: Grabar snapshot previo y objetivo junto con hashes SHA-256 en el diario (fsync)
   const journalEntry = {
     tx_id: txId,
     state: 'WAL_PREPARED',
     proposal_id: currentProposal.proposal_id,
     created_at: now,
+    pre_library_hash: computeCanonicalHash(currentLibrary),
+    pre_proposals_hash: computeCanonicalHash(currentProposals),
+    target_library_hash: computeCanonicalHash(targetLibrary),
+    target_proposals_hash: computeCanonicalHash(targetProposals),
     pre_library_snapshot: currentLibrary,
     pre_proposals_snapshot: currentProposals,
     target_library: targetLibrary,
