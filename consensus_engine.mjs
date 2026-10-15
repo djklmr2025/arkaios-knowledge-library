@@ -64,7 +64,18 @@ export function getEngineLockStatus() {
 }
 
 /**
- * Calcula el hash criptográfico SHA-256 canónico de una estructura de datos
+ * Calcula el hash criptográfico SHA-256 de una estructura de datos.
+ * 
+ * ALCANCE Y ESPECIFICACIÓN DE CANONICALIZACIÓN:
+ * Esta función utiliza JSON.stringify(data). En el entorno de ejecución de Node.js (V8),
+ * JSON.stringify() preserva de forma determinista el orden de inserción de las propiedades
+ * de los objetos en memoria dentro del ciclo de vida del motor.
+ * 
+ * NOTA TÉCNICA FORMAL:
+ * No implementa una canonicalización JSON agnóstica de claves (RFC 8785 / JCS).
+ * Su alcance y garantía criptográfica aplican estrictamente a estructuras generadas y serializadas
+ * por este mismo motor de consenso en un entorno controlado, donde el orden de los campos
+ * de snapshots y registros es consistente e inmutable entre fases de escritura y recuperación.
  */
 export function computeCanonicalHash(data) {
   return crypto.createHash('sha256').update(JSON.stringify(data)).digest('hex');
@@ -309,15 +320,38 @@ export function recoverPendingTransactions() {
     }
 
     // CASO 2: La transacción quedó a medio camino o hubo modificación ajena (split-brain)
-    // Se restaura el snapshot previo limpio
-    console.warn(`[WAL RECOVERY] Inconsistencia detectada por hash SHA-256 (lib_ok: ${libMatchesTarget}, props_ok: ${propsMatchesTarget}). Ejecutando Rollback seguro al snapshot previo...`);
+    // Se valida la integridad criptográfica de los snapshots previos ANTES de restaurarlos.
+    console.warn(`[WAL RECOVERY] Inconsistencia detectada por hash SHA-256 (lib_ok: ${libMatchesTarget}, props_ok: ${propsMatchesTarget}). Verificando integridad de snapshots previos antes de Rollback...`);
 
-    if (journal.pre_library_snapshot && Array.isArray(journal.pre_library_snapshot)) {
-      atomicSaveJson(LIBRARY_FILE, journal.pre_library_snapshot);
+    // 1. Validar presencia y formato de snapshots y hashes previos en el diario
+    const hasPreLibSnapshot = Array.isArray(journal.pre_library_snapshot);
+    const hasPrePropsSnapshot = Array.isArray(journal.pre_proposals_snapshot);
+    const hasPreLibHash = typeof journal.pre_library_hash === 'string' && journal.pre_library_hash.length === 64;
+    const hasPrePropsHash = typeof journal.pre_proposals_hash === 'string' && journal.pre_proposals_hash.length === 64;
+
+    if (!hasPreLibSnapshot || !hasPrePropsSnapshot || !hasPreLibHash || !hasPrePropsHash) {
+      isEngineLocked = true;
+      engineLockReason = 'Snapshots previos o hashes SHA-256 ausentes o inválidos en el diario WAL. Rollback abortado por seguridad.';
+      console.error(`[WAL LOCK] ${engineLockReason}`);
+      // Conservar el diario en disco intacto para análisis forense / auditoría (NO eliminar con unlink)
+      return { recovered: false, locked: true, error: engineLockReason };
     }
-    if (journal.pre_proposals_snapshot && Array.isArray(journal.pre_proposals_snapshot)) {
-      atomicSaveJson(PROPOSALS_FILE, journal.pre_proposals_snapshot);
+
+    // 2. Verificar que los snapshots coincidan exactamente con sus hashes registrados
+    const calculatedPreLibHash = computeCanonicalHash(journal.pre_library_snapshot);
+    const calculatedPrePropsHash = computeCanonicalHash(journal.pre_proposals_snapshot);
+
+    if (calculatedPreLibHash !== journal.pre_library_hash || calculatedPrePropsHash !== journal.pre_proposals_hash) {
+      isEngineLocked = true;
+      engineLockReason = 'Discrepancia criptográfica en snapshot previo del diario WAL: los datos previos fueron alterados o no coinciden con su hash SHA-256. Rollback abortado y motor bloqueado por seguridad.';
+      console.error(`[WAL CRITICAL] ${engineLockReason}`);
+      // Conservar el diario en disco intacto para análisis forense / auditoría (NO eliminar con unlink)
+      return { recovered: false, locked: true, error: engineLockReason };
     }
+
+    // 3. Con integridad criptográfica 100% certificada, aplicar rollback seguro a disco
+    atomicSaveJson(LIBRARY_FILE, journal.pre_library_snapshot);
+    atomicSaveJson(PROPOSALS_FILE, journal.pre_proposals_snapshot);
 
     fs.unlinkSync(JOURNAL_FILE);
     console.warn(`[WAL RECOVERY] Rollback completado con éxito para ${journal.tx_id}. Estado consistente restaurado.`);

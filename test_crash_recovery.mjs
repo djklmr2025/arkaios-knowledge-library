@@ -25,6 +25,11 @@
  * 
  * ESCENARIO 5 (Atomicidad Pura sin Degradación):
  * - Se comprueba que atomicSaveJson() nunca realiza copyFileSync() no atómico ante fallos de rename.
+ * 
+ * ESCENARIO 6 (Diario JSON Válido con Snapshot Previo Alterado / Integridad de Rollback):
+ * - El diario es JSON válido pero pre_library_snapshot fue alterado y no coincide con pre_library_hash.
+ * - Resultado exigido: El motor aborta el rollback, bloquea escrituras con Fail-Safe Lock y
+ *   conserva el diario intacto para investigación forense.
  */
 
 import fs from 'fs';
@@ -47,7 +52,7 @@ function assert(condition, message) {
 }
 
 console.log('======================================================================');
-console.log('💥 ARKAIOS - CERTIFICACIÓN WAL ACID: 5 ESCENARIOS AVANZADOS DE CAÍDA');
+console.log('💥 ARKAIOS - CERTIFICACIÓN WAL ACID: 6 ESCENARIOS AVANZADOS DE CAÍDA');
 console.log('======================================================================\n');
 
 // 1. Guardar el estado limpio inicial
@@ -249,15 +254,79 @@ try {
     assert(err.message.includes('Atomic replacement failed'), 'El error debe indicar fallo atómico sin degradación.');
   }
   assert(threwExpected, 'atomicSaveJson debe fallar de forma segura si no puede renombrar atómicamente.');
-  console.log('   ✓ Atomicidad pura confirmada: cero degradación a copia en caliente no atómica.');
+  console.log('   ✓ Atomicidad pura confirmada: cero degradación a copia en caliente no atómica.\n');
+
+  // ============================================================================
+  // ESCENARIO 6: Diario JSON Válido con Snapshot Previo Alterado (Auditoría Final ChatGPT)
+  // ============================================================================
+  console.log('🧪 [ESCENARIO 6] Simulación de Diario JSON válido pero con Snapshot Previo alterado...');
+
+  // Creamos un diario WAL sintácticamente válido (JSON válido) que simula un fallo a medio camino,
+  // pero donde pre_library_snapshot en el diario NO coincide con su pre_library_hash registrado.
+  const corruptedSnapshot = JSON.parse(JSON.stringify(initialLib));
+  corruptedSnapshot[0].title = 'TITULO_CORRUPTO_EN_SNAPSHOT_PREVIO';
+
+  const validJsonTamperedSnapshotJournal = {
+    tx_id: 'tx-snapshot-tampered-006',
+    state: 'WAL_LIBRARY_COMMITTED',
+    proposal_id: 'prop-tampered-snap-006',
+    created_at: new Date().toISOString(),
+    pre_library_hash: computeCanonicalHash(initialLib), // Hash del estado legítimo previo
+    pre_proposals_hash: computeCanonicalHash(JSON.parse(initialProposalsRaw)),
+    target_library_hash: '0000000000000000000000000000000000000000000000000000000000000000',
+    target_proposals_hash: '0000000000000000000000000000000000000000000000000000000000000000',
+    pre_library_snapshot: corruptedSnapshot, // Snapshot alterado que no coincide con pre_library_hash!
+    pre_proposals_snapshot: JSON.parse(initialProposalsRaw),
+    target_library: [],
+    target_proposals: []
+  };
+
+  fs.writeFileSync(JOURNAL_FILE, JSON.stringify(validJsonTamperedSnapshotJournal, null, 2), 'utf-8');
+
+  // Ejecutamos el motor en subproceso para observar la recuperación
+  const child6 = spawnSync('node', ['-e', `
+    import('./consensus_engine.mjs').then(m => {
+      const lock = m.getEngineLockStatus();
+      if (!lock.locked) {
+        console.error('El motor debió bloquearse por discrepancia en hash de snapshot previo.');
+        process.exit(1);
+      }
+      if (!lock.reason.includes('Discrepancia criptográfica en snapshot previo')) {
+        console.error('El motivo del bloqueo debe citar la discrepancia criptográfica de snapshot previo: ' + lock.reason);
+        process.exit(2);
+      }
+      const testSubmit = m.submitProposal({
+        title: 'Prueba Bloqueada Tras Fallo de Snapshot',
+        summary: 'Debe ser bloqueada por fail-safe lock',
+        agent_lesson: 'Fallo seguro',
+        source_url: 'https://github.com/locked/snapshot-test'
+      });
+      if (testSubmit.success) {
+        console.error('No se deben permitir escrituras cuando el motor está en lock de seguridad.');
+        process.exit(3);
+      }
+      process.exit(0);
+    });
+  `], { cwd: __dirname, encoding: 'utf-8' });
+
+  assert(child6.status === 0, `El motor debe activar fail-safe lock ante snapshot alterado. Error: ${child6.stderr}`);
+  assert(fs.existsSync(JOURNAL_FILE), 'El archivo de diario debe conservarse intacto para investigación forense.');
+
+  // Además verificamos que la biblioteca en disco NO fue sobrescrita con el snapshot corrupto
+  const currentLibOnDisk = JSON.parse(fs.readFileSync(LIBRARY_FILE, 'utf-8'));
+  assert(currentLibOnDisk[0].title !== 'TITULO_CORRUPTO_EN_SNAPSHOT_PREVIO', 'La biblioteca no debe haber sido restaurada con datos cuya integridad no haya sido comprobada.');
+
+  console.log('   ✓ Discrepancia en snapshot previo detectada: Rollback corrupto prevenido.');
+  console.log('   ✓ Fail-Safe Lock activado y diario conservado intacto para auditoría forense.');
 
   console.log('\n======================================================================');
-  console.log('🎉 TODOS LOS 5 ESCENARIOS AVANZADOS DE CAÍDA PASARON CON ÉXITO');
+  console.log('🎉 TODOS LOS 6 ESCENARIOS AVANZADOS DE CAÍDA PASARON CON ÉXITO');
   console.log('   - Split-Brain Rollback: Certificado.');
   console.log('   - Forward-Complete SHA-256: Certificado.');
   console.log('   - Detección de modificación ajena (Hash Mismatch): Certificado.');
-  console.log('   - Fail-Safe Lock ante corrupción: Certificado.');
+  console.log('   - Fail-Safe Lock ante corrupción de diario: Certificado.');
   console.log('   - Atomicidad pura sin fallback degradado: Certificado.');
+  console.log('   - Integridad de Snapshot previo y bloqueo forense: Certificado.');
   console.log('======================================================================\n');
 
 } finally {
