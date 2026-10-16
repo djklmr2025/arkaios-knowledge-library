@@ -31,32 +31,38 @@ async function testRealFanpageIngestion() {
   const ephemeralSecret = crypto.randomBytes(32).toString('hex');
   console.log('[CONFIG] Secreto criptográfico efímero generado en memoria para prueba Fail-Closed (sin tocar .env).');
 
-  // 1. Datos reales de la publicación humana del Fanpage ARKAIOS
-  // ID de Página Real: 776644758860856 (Fanpage Oficial facebook.com/arkaiosIA)
-  const realPostData = {
-    object: 'page',
-    entry: [
-      {
-        id: '776644758860856',
-        time: 1792128000,
-        changes: [
-          {
-            field: 'feed',
-            value: {
-              item: 'post',
-              verb: 'add',
-              post_id: '776644758860856_pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul',
-              message: 'ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source https://github.com/storytold',
-              link: 'https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul'
-            }
-          }
-        ]
-      }
-    ]
-  };
+  const originalLibraryContent = fs.readFileSync(path.join(__dirname, 'library.json'), 'utf-8');
+  const eventsPath = path.join(__dirname, 'events.json');
+  const originalEventsContent = fs.existsSync(eventsPath) ? fs.readFileSync(eventsPath, 'utf-8') : null;
+  const testNonce = Date.now();
 
-  const rawPayload = JSON.stringify(realPostData);
-  const signature = 'sha256=' + crypto.createHmac('sha256', ephemeralSecret).update(rawPayload).digest('hex');
+  try {
+    // 1. Datos reales de la publicación humana del Fanpage ARKAIOS
+    // ID de Página Real: 776644758860856 (Fanpage Oficial facebook.com/arkaiosIA)
+    const realPostData = {
+      object: 'page',
+      entry: [
+        {
+          id: '776644758860856',
+          time: Math.floor(Date.now() / 1000),
+          changes: [
+            {
+              field: 'feed',
+              value: {
+                item: 'post',
+                verb: 'add',
+                post_id: '776644758860856_pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul',
+                message: `ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source https://github.com/storytold [Cert-Sync ${testNonce}]`,
+                link: 'https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul'
+              }
+            }
+          ]
+        }
+      ]
+    };
+
+    const rawPayload = JSON.stringify(realPostData);
+    const signature = 'sha256=' + crypto.createHmac('sha256', ephemeralSecret).update(rawPayload).digest('hex');
 
   // 2. Levantar agente receptor de alertas push
   let alertReceivedByAgent = null;
@@ -121,10 +127,16 @@ async function testRealFanpageIngestion() {
     throw new Error('El registro no fue localizado en la biblioteca.');
   }
 
-  console.log('\n======================================================================');
-  console.log('🎉 RECORRIDO COMPLETO DEMOSTRADO CON DATOS REALES DE LA FANPAGE:');
-  console.log('   Publicación humana ➔ Firma HMAC ➔ Ingesta persistente ➔ Evento ➔ Alerta Agente.');
-  console.log('======================================================================\n');
+    console.log('\n======================================================================');
+    console.log('🎉 RECORRIDO COMPLETO DEMOSTRADO CON DATOS REALES DE LA FANPAGE:');
+    console.log('   Publicación humana ➔ Firma HMAC ➔ Ingesta persistente ➔ Evento ➔ Alerta Agente.');
+    console.log('======================================================================\n');
+  } finally {
+    fs.writeFileSync(path.join(__dirname, 'library.json'), originalLibraryContent, 'utf-8');
+    if (originalEventsContent !== null) {
+      fs.writeFileSync(eventsPath, originalEventsContent, 'utf-8');
+    }
+  }
 }
 
 testRealFanpageIngestion().catch(err => {

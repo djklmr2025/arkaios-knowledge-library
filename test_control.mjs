@@ -438,25 +438,34 @@ function testMediaExtractorSecurity() {
 }
 
 async function runAll() {
-  console.log('======================================================================');
-  console.log('🛡️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE PRUEBAS DE CONTROL v1.2');
-  console.log('======================================================================\n');
+  const libFile = path.join(__dirname, 'library.json');
+  const backupLib = fs.existsSync(libFile) ? fs.readFileSync(libFile, 'utf-8') : null;
 
-  const t1 = testCurationAndSchema();
-  const t2 = await testMcpServer();
-  const t3 = testSecurityHygiene();
-  const t4 = await testServerSecurity();
-  const t5 = testMediaExtractorSecurity();
+  try {
+    console.log('======================================================================');
+    console.log('🛡️  ARKAIOS KNOWLEDGE LIBRARY — SUITE DE PRUEBAS DE CONTROL v1.2');
+    console.log('======================================================================\n');
 
-  console.log('\n======================================================================');
-  if (t1 && t2 && t3 && t4 && t5) {
-    console.log('🎉 TODAS LAS PRUEBAS DE CONTROL PASARON EXITOSAMENTE (5/5)');
-    console.log('   El paquete v1.2 está completamente blindado para producción y agentes.');
-  } else {
-    console.error('⚠️ AL MENOS UNA PRUEBA FALLÓ. Revisa los detalles anteriores.');
-    process.exit(1);
+    const t1 = testCurationAndSchema();
+    const t2 = await testMcpServer();
+    const t3 = testSecurityHygiene();
+    const t4 = await testServerSecurity();
+    const t5 = testMediaExtractorSecurity();
+
+    console.log('\n======================================================================');
+    if (t1 && t2 && t3 && t4 && t5) {
+      console.log('🎉 TODAS LAS PRUEBAS DE CONTROL PASARON EXITOSAMENTE (5/5)');
+      console.log('   El paquete v1.2 está completamente blindado para producción y agentes.');
+    } else {
+      console.error('⚠️ AL MENOS UNA PRUEBA FALLÓ. Revisa los detalles anteriores.');
+      process.exit(1);
+    }
+    console.log('======================================================================');
+  } finally {
+    if (backupLib !== null) {
+      fs.writeFileSync(libFile, backupLib, 'utf-8');
+    }
   }
-  console.log('======================================================================');
 }
 
 runAll();

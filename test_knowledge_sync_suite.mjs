@@ -26,17 +26,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function runTests() {
-  console.log('======================================================================');
-  console.log('🧪 SUITE DE CERTIFICACIÓN OPERATIVA — ARKAIOS KNOWLEDGE LIBRARY v1.3');
-  console.log('======================================================================\n');
+  const libFile = path.join(__dirname, 'library.json');
+  const eventsFile = path.join(__dirname, 'events.json');
+  const originalLibrary = fs.existsSync(libFile) ? fs.readFileSync(libFile, 'utf-8') : null;
+  const originalEvents = fs.existsSync(eventsFile) ? fs.readFileSync(eventsFile, 'utf-8') : null;
 
-  let passed = 0;
-  let total = 8;
+  try {
+    console.log('======================================================================');
+    console.log('🧪 SUITE DE CERTIFICACIÓN OPERATIVA — ARKAIOS KNOWLEDGE LIBRARY v1.3');
+    console.log('======================================================================\n');
+
+    let passed = 0;
+    let total = 8;
 
   // -------------------------------------------------------------------------
-  // TEST 1: Webhook Handshake (GET /api/webhook)
+  // TEST 1: Webhook Handshake (GET /api/webhook) & Fail-Closed Security
   // -------------------------------------------------------------------------
-  console.log('🧪 [TEST 1/8] Probando Meta Webhook Handshake (GET /api/webhook)...');
+  console.log('🧪 [TEST 1/8] Probando Meta Webhook Handshake (GET /api/webhook) & Fail-Closed...');
   {
     let statusCode = 0;
     let responseBody = '';
@@ -46,31 +52,69 @@ async function runTests() {
       end: (content) => { responseBody = content; }
     };
 
-    // Caso 1: Solicitud válida con verify_token correcto
+    // Caso 1: Fail-Closed cuando META_VERIFY_TOKEN no está configurado en el servidor
+    // Debe rechazar incondicionalmente con HTTP 403 (cero tokens por defecto en código)
+    const testChallenge = 'challenge_arkaios_' + crypto.randomBytes(8).toString('hex');
+    const unconfiguredParams = new URLSearchParams({
+      'hub.mode': 'subscribe',
+      'hub.verify_token': 'cualquier_token',
+      'hub.challenge': testChallenge
+    });
+
+    // Guardar variables de entorno previas
+    const prevEnvMeta = process.env.META_VERIFY_TOKEN;
+    const prevEnvArk = process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN;
+    delete process.env.META_VERIFY_TOKEN;
+    delete process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN;
+
+    const isRejectedFailClosed = handleWebhookVerification(unconfiguredParams, mockRes, null);
+    if (isRejectedFailClosed || statusCode !== 403) {
+      throw new Error(`Violación Fail-Closed: Handshake aceptado o no retornó 403 sin token configurado. Status: ${statusCode}`);
+    }
+    console.log('   ✓ Fail-Closed estricto: Handshake rechazado (HTTP 403) cuando no hay META_VERIFY_TOKEN configurado.');
+
+    // Caso 2: Solicitud válida con verify_token efímero aleatorio configurado dinámicamente
+    const ephemeralVerifyToken = crypto.randomBytes(32).toString('hex');
     const validParams = new URLSearchParams({
       'hub.mode': 'subscribe',
-      'hub.verify_token': 'arkaios_knowledge_webhook_secure_2026',
-      'hub.challenge': 'challenge_token_arkaios_9988'
+      'hub.verify_token': ephemeralVerifyToken,
+      'hub.challenge': testChallenge
     });
 
-    const isVerified = handleWebhookVerification(validParams, mockRes);
-    if (!isVerified || statusCode !== 200 || responseBody !== 'challenge_token_arkaios_9988') {
-      throw new Error(`Fallo en handshake válido. Status: ${statusCode}, Body: ${responseBody}`);
+    const isVerified = handleWebhookVerification(validParams, mockRes, ephemeralVerifyToken);
+    if (!isVerified || statusCode !== 200 || responseBody !== testChallenge) {
+      throw new Error(`Fallo en handshake válido con token aleatorio. Status: ${statusCode}, Body: ${responseBody}`);
     }
-    console.log('   ✓ Handshake exitoso con token válido (HTTP 200 y desafío retornado).');
+    console.log('   ✓ Handshake exitoso con token aleatorio seguro (HTTP 200 y desafío retornado).');
 
-    // Caso 2: Solicitud con token incorrecto (debe rechazar 403)
+    // Caso 3: Solicitud con token incorrecto (debe rechazar 403 con timingSafeEqual)
     const invalidParams = new URLSearchParams({
       'hub.mode': 'subscribe',
-      'hub.verify_token': 'token_falso_no_autorizado',
-      'hub.challenge': 'challenge_token_fake'
+      'hub.verify_token': 'token_falso_no_autorizado_invalido',
+      'hub.challenge': 'challenge_fake'
     });
 
-    const isRejected = handleWebhookVerification(invalidParams, mockRes);
-    if (isRejected || statusCode !== 403) {
-      throw new Error(`Handshake inválido no fue rechazado. Status: ${statusCode}`);
+    const isRejectedInvalid = handleWebhookVerification(invalidParams, mockRes, ephemeralVerifyToken);
+    if (isRejectedInvalid || statusCode !== 403) {
+      throw new Error(`Handshake con token inválido no fue rechazado con 403. Status: ${statusCode}`);
     }
-    console.log('   ✓ Intento de suscripción no autorizada rechazado categóricamente (HTTP 403).');
+    console.log('   ✓ Intento de suscripción con credencial no autorizada rechazado categóricamente (HTTP 403).');
+
+    // Caso 4: Solicitud con hub.mode no válido
+    const invalidModeParams = new URLSearchParams({
+      'hub.mode': 'unsubscribe',
+      'hub.verify_token': ephemeralVerifyToken,
+      'hub.challenge': testChallenge
+    });
+    const isRejectedMode = handleWebhookVerification(invalidModeParams, mockRes, ephemeralVerifyToken);
+    if (isRejectedMode || statusCode !== 403) {
+      throw new Error(`Handshake con modo no autorizado no fue rechazado con 403. Status: ${statusCode}`);
+    }
+    console.log('   ✓ Modo no autorizado rechazado categóricamente (HTTP 403).');
+
+    // Restaurar env si existía
+    if (prevEnvMeta) process.env.META_VERIFY_TOKEN = prevEnvMeta;
+    if (prevEnvArk) process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN = prevEnvArk;
 
     passed++;
   }
@@ -360,28 +404,92 @@ async function runTests() {
       if (!err403Caught) throw new Error('commitToGitHub no propagó error 403 de GitHub.');
       console.log('   ✓ Error HTTP 403 de GitHub API capturado y propagado categóricamente.');
 
-      // 3. Manejo y Recuperación de Conflicto de Concurrencia (HTTP 409 Conflict)
-      // Simula intento 1 con 409 Conflict, intento 2 con 200 OK exitoso tras reintento
-      let attempts = 0;
-      global.fetch = async (url, opts) => {
-        attempts++;
-        if (opts?.method === 'PUT' && attempts === 2) {
-          // Intento 1 de PUT: 409 Conflict
-          return new Response('Conflict', { status: 409 });
-        }
-        if (opts?.method === 'PUT') {
-          // Intento 2 de PUT: Éxito tras reintento
-          return new Response(JSON.stringify({ commit: { sha: 'sha123' } }), { status: 200 });
-        }
-        // Consulta de SHA
-        return new Response(JSON.stringify({ sha: `sha_attempt_${attempts}` }), { status: 200 });
+      // 3. Prueba Real de Dos Escrituras Concurrentes Simultáneas (Race Condition & HTTP 409 Conflict)
+      // Simula dos procesos (Proceso A y Proceso B) enviando dos publicaciones distintas concurrentemente.
+      // Ambos inician leyendo el mismo SHA remoto. Uno gana y avanza el SHA.
+      // El otro recibe HTTP 409 Conflict, reintenta descargando el contenido remoto actualizado,
+      // ejecuta mergeJsonData() (3-way merge), preserva la invariante de ArtCraft en índice 0,
+      // y envía el commit combinado.
+      let remoteFileState = {
+        sha: 'sha-base-000',
+        content: [
+          { id: 'kb-top-01-artcraft', title: 'ArtCraft Invariante Original' }
+        ]
       };
 
-      const resolvedConflict = await commitToGitHub({ GITHUB_TOKEN: 'valid_mock', GITHUB_REPO: 'repo/test', GITHUB_BRANCH: 'main' }, 'library.json', '{}', 'test', 3);
-      if (!resolvedConflict || attempts < 3) {
-        throw new Error('commitToGitHub no ejecutó el reintento ante conflicto 409.');
+      global.fetch = async (url, opts) => {
+        // GET del archivo y SHA
+        if (!opts || !opts.method || opts.method === 'GET') {
+          return new Response(JSON.stringify({
+            sha: remoteFileState.sha,
+            content: Buffer.from(JSON.stringify(remoteFileState.content, null, 2), 'utf-8').toString('base64')
+          }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        }
+
+        // PUT para actualizar archivo
+        if (opts.method === 'PUT') {
+          const payload = JSON.parse(opts.body);
+          // Si el SHA enviado no coincide con el SHA actual del servidor remoto -> HTTP 409 Conflict
+          if (payload.sha !== remoteFileState.sha) {
+            return new Response(JSON.stringify({ message: 'Conflict: SHA mismatch', status: '409' }), { status: 409 });
+          }
+
+          // Aceptado: decodificar nuevo contenido y actualizar SHA en el servidor
+          const decoded = JSON.parse(Buffer.from(payload.content, 'base64').toString('utf-8'));
+          remoteFileState = {
+            sha: `sha-updated-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+            content: decoded
+          };
+
+          return new Response(JSON.stringify({
+            commit: { sha: remoteFileState.sha }
+          }), { status: 200 });
+        }
+
+        return new Response('Not Found', { status: 404 });
+      };
+
+      // Proceso A prepara su versión local: ArtCraft + Post Alpha
+      const localVersionA = [
+        { id: 'kb-top-01-artcraft', title: 'ArtCraft Invariante Original' },
+        { id: 'kb-post-alpha-concurrency', title: 'Noticia Concurrente Alpha', content_hash: 'hashA' }
+      ];
+
+      // Proceso B prepara su versión local: ArtCraft + Post Beta
+      const localVersionB = [
+        { id: 'kb-top-01-artcraft', title: 'ArtCraft Invariante Original' },
+        { id: 'kb-post-beta-concurrency', title: 'Noticia Concurrente Beta', content_hash: 'hashB' }
+      ];
+
+      const configMock = {
+        GITHUB_TOKEN: 'valid_mock_token',
+        GITHUB_REPO: 'djklmr2025/arkaios-knowledge-library',
+        GITHUB_BRANCH: 'main'
+      };
+
+      // Ejecutar dos escrituras simultáneas compitiendo en paralelo
+      const [resultA, resultB] = await Promise.all([
+        commitToGitHub(configMock, 'library.json', JSON.stringify(localVersionA, null, 2), 'feat: post Alpha concurrente', 3),
+        commitToGitHub(configMock, 'library.json', JSON.stringify(localVersionB, null, 2), 'feat: post Beta concurrente', 3)
+      ]);
+
+      if (!resultA || !resultB) {
+        throw new Error('Una de las escrituras concurrentes falló.');
       }
-      console.log('   ✓ Conflicto de concurrencia HTTP 409 detectado y resuelto exitosamente mediante reintento con backoff.');
+
+      // Comprobar que en el estado remoto final AMBAS publicaciones sobrevivieron y ArtCraft sigue en índice 0
+      const finalRemoteItems = remoteFileState.content;
+      const hasAlpha = finalRemoteItems.some(i => i.id === 'kb-post-alpha-concurrency');
+      const hasBeta = finalRemoteItems.some(i => i.id === 'kb-post-beta-concurrency');
+      const artCraftAtIndex0 = finalRemoteItems[0].id === 'kb-top-01-artcraft';
+
+      if (!hasAlpha || !hasBeta || !artCraftAtIndex0) {
+        throw new Error(`Pérdida de datos en concurrencia detectada! Alpha: ${hasAlpha}, Beta: ${hasBeta}, ArtCraft en 0: ${artCraftAtIndex0}`);
+      }
+
+      console.log('   ✓ PRUEBA DE CONCURRENCIA CERTIFICADA: Dos escrituras simultáneas ejecutadas bajo carga (HTTP 409 resuelto vía 3-way merge).');
+      console.log('   ✓ Cero pérdidas de datos comprobado: Ambas publicaciones concurrentes (Alpha y Beta) sobrevivieron íntegras.');
+      console.log('   ✓ Invariante de Índice 0 preservada bajo concurrencia (ArtCraft intacto en posición inicial).');
 
       // 4. Error HTTP 500 de GitHub API -> Debe lanzar excepción
       global.fetch = async () => new Response('Internal Server Error', { status: 500 });
@@ -420,11 +528,13 @@ async function runTests() {
       const prevVercel = process.env.VERCEL;
       process.env.VERCEL = '1';
       let serverlessMissingTokenCaught = false;
+      const backupLib = fs.readFileSync(path.join(__dirname, 'library.json'), 'utf-8');
       try {
         await persistLibraryData([]);
       } catch (err) {
         if (err.message.includes('GITHUB_TOKEN')) serverlessMissingTokenCaught = true;
       } finally {
+        fs.writeFileSync(path.join(__dirname, 'library.json'), backupLib, 'utf-8');
         if (prevVercel !== undefined) process.env.VERCEL = prevVercel;
         else delete process.env.VERCEL;
       }
@@ -439,10 +549,14 @@ async function runTests() {
     }
   }
 
-  console.log('\n======================================================================');
-  console.log(`🎉 TODAS LAS PRUEBAS DE LA MISIÓN PASARON EXITOSAMENTE (${passed}/${total})`);
-  console.log('   ARKAIOS Knowledge Library está 100% blindada para producción y agentes.');
-  console.log('======================================================================\n');
+    console.log('\n======================================================================');
+    console.log(`🎉 TODAS LAS PRUEBAS DE LA MISIÓN PASARON EXITOSAMENTE (${passed}/${total})`);
+    console.log('   ARKAIOS Knowledge Library está 100% blindada para producción y agentes.');
+    console.log('======================================================================\n');
+  } finally {
+    if (originalLibrary !== null) fs.writeFileSync(libFile, originalLibrary, 'utf-8');
+    if (originalEvents !== null) fs.writeFileSync(eventsFile, originalEvents, 'utf-8');
+  }
 }
 
 runTests().catch(err => {
