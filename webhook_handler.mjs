@@ -62,19 +62,21 @@ export function handleWebhookVerification(query, res) {
 }
 
 /**
- * Valida la firma criptográfica HMAC SHA-256 de Meta.
+ * Valida la firma criptográfica HMAC SHA-256 de Meta de forma estricta (Fail-Closed).
+ * Si falta el secret, falta la cabecera o no coincide exactamente el HMAC, RECHAZA categóricamente.
  */
 export function verifyMetaSignature(rawBody, signatureHeader, appSecret) {
-  if (!appSecret) {
-    // Si no se configuró secret, permitir en desarrollo local avisando en log
-    return true;
+  if (!appSecret || typeof appSecret !== 'string' || !appSecret.trim()) {
+    console.warn('[WEBHOOK-SECURITY] Fail-Closed: appSecret ausente o vacío.');
+    return false;
   }
-  if (!signatureHeader || !signatureHeader.startsWith('sha256=')) {
+  if (!signatureHeader || typeof signatureHeader !== 'string' || !signatureHeader.startsWith('sha256=')) {
+    console.warn('[WEBHOOK-SECURITY] Fail-Closed: signatureHeader ausente o malformada.');
     return false;
   }
 
-  const expectedSig = signatureHeader.slice(7);
-  const hmac = crypto.createHmac('sha256', appSecret).update(rawBody).digest('hex');
+  const expectedSig = signatureHeader.slice(7).trim();
+  const hmac = crypto.createHmac('sha256', appSecret.trim()).update(rawBody).digest('hex');
 
   const hmacBuf = Buffer.from(hmac, 'utf-8');
   const sigBuf = Buffer.from(expectedSig, 'utf-8');
@@ -90,12 +92,25 @@ export async function processWebhookPayload(rawBody, signatureHeader) {
   const env = loadEnv();
   const appSecret = env.META_APP_SECRET;
 
-  if (appSecret && !verifyMetaSignature(rawBody, signatureHeader, appSecret)) {
+  // Política Fail-Closed obligatoria: Si no hay secreto configurado, rechazar inmediatamente
+  if (!appSecret || !appSecret.trim()) {
+    const errorMsg = 'Acceso denegado: META_APP_SECRET no configurado en el servidor (Fail-Closed estricto).';
+    console.error(`[WEBHOOK-SECURITY] ❌ ${errorMsg}`);
     eventBus.emit('knowledge.sync.failed', {
-      reason: 'Firma HMAC SHA-256 no válida en webhook de Meta.',
+      reason: errorMsg,
       source: 'meta_webhook'
     }, 'meta_webhook');
-    return { success: false, status: 403, error: 'Firma inválida' };
+    return { success: false, status: 403, error: errorMsg };
+  }
+
+  if (!verifyMetaSignature(rawBody, signatureHeader, appSecret)) {
+    const errorMsg = 'Acceso denegado: Firma HMAC SHA-256 inválida o ausente en webhook de Meta.';
+    console.error(`[WEBHOOK-SECURITY] ❌ ${errorMsg}`);
+    eventBus.emit('knowledge.sync.failed', {
+      reason: errorMsg,
+      source: 'meta_webhook'
+    }, 'meta_webhook');
+    return { success: false, status: 403, error: errorMsg };
   }
 
   let data;

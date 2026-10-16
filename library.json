@@ -1,7 +1,7 @@
 [
   {
     "id": "kb-top-01-artcraft",
-    "title": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes)",
+    "title": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se c",
     "category": "Autonomous Software Engineering",
     "platform": "Facebook / Arkaios Oficial & GitHub",
     "original_url": "https://www.facebook.com/share/p/19pf44tsSp/",
@@ -21,7 +21,7 @@
       "Automatización de Edición de Video (FilmCraft)",
       "Generación Vectorial y de PDFs"
     ],
-    "summary": "Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source para reemplazar a Photoshop (PhotoCraft), Illustrator (VectorCraft), Premiere (FilmCraft), After Effects (EffectCraft), InDesign (DesignCraft), Lightroom (LightCraft) y Acrobat (PDFCraft). Construido en Rust nativo y diseñado con interfaces CLI y servidores MCP (Model Context Protocol) para control autónomo por agentes de IA.",
+    "summary": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se cansó de pagar las suscripciones y políticas de cancelación abusivas de Adobe y está clonando en solitario toda la suite creativa con ayuda de Claude (Opus 5.5). Se llama ArtCraft y comprende 7 aplicaciones gratis y open source https://github.com/storytold",
     "agent_lesson": "HABILIDAD DETECTADA: Los agentes de IA ahora cuentan con una suite creativa open source construida en Rust accesible mediante el Model Context Protocol (MCP) y canales JSON. Un agente puede controlar PhotoCraft o FilmCraft sin interfaces gráficas propietarias para editar imágenes, procesar capas PSD, generar videos y manipular PDFs de forma nativa y soberana.",
     "tags": [
       "#ArtCraft",

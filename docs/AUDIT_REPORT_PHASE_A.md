@@ -22,10 +22,10 @@ Se realizó una auditoría técnica profunda y comprobable sobre los componentes
 | **Preservación Inmutable de ArtCraft #1** | **PASS** | Registro insignia (`kb-top-01-artcraft`) verificado en el índice 0 de `library.json` con enlace a `github.com/storytold`. |
 | **Protección contra Fuga de Tokens (Zero-Leak)** | **PASS** | Cero secretos en Git. Archivos `.env`, `.admin_token` y `.meta_admin_session` debidamente ignorados y protegidos con permisos restrictivos. |
 | **Meta Graph API Token** | **FAIL** | Token caducado. Comprobado mediante `meta_token_manager.mjs` con Meta Graph API v23.0: `Error validating access token: Session has expired on Monday, 12-Oct-26 20:00:00 PDT (Código 190)`. El sistema ahora detecta este código automáticamente y emite alertas `knowledge.token.expired`. |
-| **Webhooks de Meta (`/api/webhook`)** | **PARTIAL ➔ PASS** | Previamente **FAIL** (el endpoint no existía en `server.js`). Ahora implementado con verificación de suscripción (`hub.challenge`), validación de firmas criptográficas `X-Hub-Signature-256` (HMAC SHA-256), idempotencia y deduplicación. |
-| **Herramientas MCP (`knowledge.*`)** | **PARTIAL ➔ PASS** | Previamente solo existían `search_library` y `get_lesson`. Ahora se implementó el contrato completo de 7 herramientas: `knowledge_latest`, `knowledge_get`, `knowledge_search`, `knowledge_since`, `knowledge_sync_status`, `knowledge_events` y `knowledge_subscribe`. |
+| **Webhooks de Meta (`/api/webhook`)** | **PASS (Blindado Fail-Closed)** | Implementado con verificación de suscripción (`hub.challenge`), validación de firmas criptográficas `X-Hub-Signature-256` (HMAC SHA-256) obligatoria con política Fail-Closed (rechazo incondicional con HTTP 403 ante falta de secreto o firma ausente), idempotencia y deduplicación. |
+| **Herramientas MCP (`knowledge.*`)** | **PASS** | Implementado el contrato completo de 7 herramientas: `knowledge_latest`, `knowledge_get`, `knowledge_search`, `knowledge_since`, `knowledge_sync_status`, `knowledge_events` y `knowledge_subscribe`. |
 | **Bus de Eventos Verificables** | **PASS** | Implementado en `events_manager.mjs`. Emite y persiste eventos `knowledge.post.created`, `knowledge.post.updated`, `knowledge.sync.failed` y `knowledge.token.expired` en `events.json`. |
-| **Monitoreo Autónomo Continuo** | **PASS** | Implementado workflow de GitHub Actions (`.github/workflows/knowledge-sync.yml`) que ejecuta la sincronización cada 15 minutos en la nube sin depender de hardware local. |
+| **Monitoreo Autónomo Continuo** | **PASS (Listo para Main)** | Implementado workflow de GitHub Actions (`.github/workflows/knowledge-sync.yml`) que ejecutará la sincronización cada 15 minutos en la nube una vez integrado en la rama predeterminada `main` y configurado el secreto de repositorio. |
 
 ---
 
@@ -34,12 +34,10 @@ Se realizó una auditoría técnica profunda y comprobable sobre los componentes
 1. **Vencimiento de Tokens de Meta (Código 190):**
    * El token de la página expiró el 12 de octubre de 2026.
    * *Acción aplicada:* Se incorporó un interceptor en `meta_collector.mjs` que diagnostica el código 190, registra el estado en `sync_status.json` (`token_status: "EXPIRED"`, `token_expired: true`) y emite el evento interno `knowledge.token.expired`.
-2. **Erradicación de Extracción no Autorizada por Perfiles Copiados:**
-   * Se sustituyó la dependencia de técnicas frágiles (`get_feed_live.js` copiando perfiles locales de Chrome) por los mecanismos autorizados: Meta Graph API y Webhooks en tiempo real con firma HMAC.
-3. **Trazabilidad y Separación Estricta de Hechos:**
-   * Se actualizó `knowledge_store.mjs` para almacenar de forma diferenciada:
-     * `published_at`: Fecha en que el autor humano publicó en Facebook.
-     * `captured_at`: Fecha y hora exacta de captura por el sistema.
-     * `updated_at`: Fecha de modificación detectada por hash SHA-256.
-     * `facts`: Hechos extraídos directamente de la fuente oficial.
-     * `agent_lesson`: Rotulado explícitamente como inferencia de IA.
+2. **Corrección de Seguridad en Webhooks (Fail-Closed Obligatorio):**
+   * Previamente se permitía bypass si `META_APP_SECRET` no estaba definido.
+   * *Acción aplicada:* Se reescribió `webhook_handler.mjs` bajo una estricta política Fail-Closed: si falta `META_APP_SECRET` o la firma es inválida, se rechaza inmediatamente con HTTP 403. Probado en `test_knowledge_sync_suite.mjs`.
+3. **Prueba Extremo a Extremo con Publicación Real de Fanpage:**
+   * Archivo: `test_real_fanpage_ingestion.mjs`.
+   * Demuestra el flujo completo con datos auténticos de la fanpage ARKAIOS (`776644758860856`):
+     Publicación humana en Facebook ➔ Firma HMAC SHA-256 ➔ Ingesta en `knowledge_store.mjs` con `content_hash` y `facts` ➔ Emisión de evento ➔ Alerta push en tiempo real a agente AURA conectado (HTTP 200).

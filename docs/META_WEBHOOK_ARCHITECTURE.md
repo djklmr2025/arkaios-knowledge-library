@@ -17,13 +17,17 @@ El servidor valida los parámetros mediante `handleWebhookVerification` en [`web
 
 ## 2. Recepción Segura de Eventos (POST `/api/webhook`)
 
-### A. Validación de Firma Criptográfica (`X-Hub-Signature-256`)
+### A. Validación de Firma Criptográfica Obligatoria (`X-Hub-Signature-256`) — Política Fail-Closed
 Toda solicitud `POST` enviada por Meta incluye la cabecera `X-Hub-Signature-256: sha256={hash}`.
 El servidor calcula el HMAC SHA-256 del cuerpo bruto (`rawBody`) utilizando `META_APP_SECRET`:
 
 $$\text{HMAC} = \text{crypto.createHmac}('sha256', \text{appSecret}).\text{update}(rawBody).\text{digest}('hex')$$
 
-La comparación se realiza con `crypto.timingSafeEqual` para prevenir ataques de temporización. Si la firma es inválida, se rechaza inmediatamente con HTTP 403.
+La comparación se realiza con `crypto.timingSafeEqual` para prevenir ataques de temporización.
+
+> [!CAUTION]
+> **Política de Seguridad Fail-Closed Estricta:**
+> Si `META_APP_SECRET` no está configurado en el servidor, si la cabecera `X-Hub-Signature-256` está ausente o malformada, o si el hash no coincide exactamente, la solicitud es **RECHAZADA INCONDICIONALMENTE con HTTP 403**. Nunca se aceptan eventos sin firma verificada ni en producción ni en desarrollo.
 
 ### B. Idempotencia y Deduplicación
 Para evitar procesar publicaciones duplicadas ante reintentos de Meta:

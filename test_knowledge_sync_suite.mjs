@@ -86,13 +86,18 @@ async function runTests() {
 
     const isAuthentic = verifyMetaSignature(rawPayload, validHeader, secret);
     const isForged = verifyMetaSignature(rawPayload, forgedHeader, secret);
+    const isMissingSecret = verifyMetaSignature(rawPayload, validHeader, null);
+    const isEmptySecret = verifyMetaSignature(rawPayload, validHeader, '');
+    const isMissingHeader = verifyMetaSignature(rawPayload, null, secret);
+    const isMalformedHeader = verifyMetaSignature(rawPayload, 'invalid_header_prefix', secret);
 
-    if (isAuthentic && !isForged) {
+    if (isAuthentic && !isForged && !isMissingSecret && !isEmptySecret && !isMissingHeader && !isMalformedHeader) {
       console.log('   ✓ Firma criptográfica auténtica validada correctamente con timing-safe compare.');
       console.log('   ✓ Firma falsificada rechazada categóricamente.');
+      console.log('   ✓ Política Fail-Closed verificada: rechaza categóricamente ante falta de secreto o cabecera ausente/malformada.');
       passed++;
     } else {
-      throw new Error('Fallo en la validación de firma HMAC SHA-256');
+      throw new Error('Fallo en la validación Fail-Closed de firma HMAC SHA-256');
     }
   }
 
