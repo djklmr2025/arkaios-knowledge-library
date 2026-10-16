@@ -40,19 +40,33 @@ const MAX_DELIVERIES_CACHE = 5000;
 /**
  * Maneja la verificación de suscripción de Webhook (GET).
  */
-export function handleWebhookVerification(query, res) {
+export function handleWebhookVerification(query, res, overrideVerifyToken = null) {
   const env = loadEnv();
-  const verifyToken = process.env.META_VERIFY_TOKEN || process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || env.META_VERIFY_TOKEN || env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || 'arkaios_knowledge_webhook_secure_2026';
+  const verifyToken = overrideVerifyToken || process.env.META_VERIFY_TOKEN || process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || env.META_VERIFY_TOKEN || env.ARKAIOS_WEBHOOK_VERIFY_TOKEN;
+
+  // Fail-Closed estricto: Si no hay META_VERIFY_TOKEN configurado en el entorno, rechazar incondicionalmente
+  if (!verifyToken || typeof verifyToken !== 'string' || !verifyToken.trim()) {
+    console.warn('[WEBHOOK-SECURITY] Fail-Closed: META_VERIFY_TOKEN no configurado en variables de entorno. Handshake rechazado.');
+    res.writeHead(403, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Configuración incompleta: META_VERIFY_TOKEN no configurado en el servidor.' }));
+    return false;
+  }
 
   const mode = query.get('hub.mode');
   const token = query.get('hub.verify_token');
   const challenge = query.get('hub.challenge');
 
-  if (mode === 'subscribe' && token === verifyToken) {
-    console.log('[WEBHOOK] Suscripción de Meta verificada exitosamente.');
-    res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end(challenge);
-    return true;
+  // Comparación en tiempo constante para mitigar ataques de canal lateral (timing attacks)
+  if (mode === 'subscribe' && typeof token === 'string') {
+    const tokenBuf = Buffer.from(token, 'utf-8');
+    const verifyBuf = Buffer.from(verifyToken.trim(), 'utf-8');
+
+    if (tokenBuf.length === verifyBuf.length && crypto.timingSafeEqual(tokenBuf, verifyBuf)) {
+      console.log('[WEBHOOK] Suscripción de Meta verificada exitosamente.');
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end(challenge);
+      return true;
+    }
   }
 
   console.warn('[WEBHOOK] Fallo en verificación de suscripción: token o modo no válido.');
