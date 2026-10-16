@@ -532,6 +532,9 @@ async function runTests() {
       // 7. En entorno Serverless sin GITHUB_TOKEN -> persistLibraryData DEBE fallar y lanzar excepción
       const prevVercel = process.env.VERCEL;
       process.env.VERCEL = '1';
+      const envPath = path.join(__dirname, '.env');
+      const envBak = path.join(__dirname, '.env.testbak');
+      if (fs.existsSync(envPath)) fs.renameSync(envPath, envBak);
       let serverlessMissingTokenCaught = false;
       const backupLib = fs.readFileSync(path.join(__dirname, 'library.json'), 'utf-8');
       try {
@@ -539,6 +542,7 @@ async function runTests() {
       } catch (err) {
         if (err.message.includes('GITHUB_TOKEN')) serverlessMissingTokenCaught = true;
       } finally {
+        if (fs.existsSync(envBak)) fs.renameSync(envBak, envPath);
         fs.writeFileSync(path.join(__dirname, 'library.json'), backupLib, 'utf-8');
         if (prevVercel !== undefined) process.env.VERCEL = prevVercel;
         else delete process.env.VERCEL;

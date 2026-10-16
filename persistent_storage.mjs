@@ -138,8 +138,8 @@ export async function persistLibraryData(items) {
     }
   }
 
-  // 2. Persistencia en GitHub REST API cuando se ejecuta en Serverless o hay token configurado
-  const requiresRemote = config.IS_SERVERLESS || Boolean(config.GITHUB_TOKEN);
+  // 2. Persistencia en GitHub REST API cuando se ejecuta en Serverless
+  const requiresRemote = config.IS_SERVERLESS;
   if (requiresRemote) {
     if (!config.GITHUB_TOKEN) {
       throw new Error('Almacenamiento Serverless requiere GITHUB_TOKEN configurado para persistir en repositorio.');
@@ -201,7 +201,7 @@ export async function persistEventsData(events) {
   }
 
   // 2. GitHub REST API en entorno Serverless
-  const requiresRemote = config.IS_SERVERLESS || Boolean(config.GITHUB_TOKEN);
+  const requiresRemote = config.IS_SERVERLESS;
   if (requiresRemote) {
     if (!config.GITHUB_TOKEN) {
       throw new Error('Almacenamiento Serverless requiere GITHUB_TOKEN configurado para persistir eventos.');
