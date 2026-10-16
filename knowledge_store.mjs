@@ -48,12 +48,6 @@ import { persistLibraryData } from './persistent_storage.mjs';
  * Guarda la biblioteca respetando el índice 0 con persistencia atómica y remota garantizada.
  */
 export function saveLibrary(items) {
-  try {
-    const tmpPath = `${LIBRARY_FILE}.tmp.${Date.now()}`;
-    fs.writeFileSync(tmpPath, JSON.stringify(items, null, 2), 'utf-8');
-    fs.renameSync(tmpPath, LIBRARY_FILE);
-  } catch (e) {}
-
   return persistLibraryData(items);
 }
 
@@ -67,8 +61,8 @@ export async function saveLibraryAsync(items) {
  * @param {string} source Origen ('meta_graph_api' | 'meta_webhook' | 'manual_sync')
  * @returns {object} Resultado de la operación: { status: 'CREATED' | 'UPDATED' | 'UNCHANGED', item, event }
  */
-export function ingestMetaPost(rawPost, source = 'meta_graph_api') {
-  const library = loadLibrary();
+export function ingestMetaPost(rawPost, source = 'meta_graph_api', options = { autoSave: true }) {
+  const library = options.library || loadLibrary();
   const nowIso = new Date().toISOString();
 
   const metaId = rawPost.id || rawPost.post_id;
@@ -166,7 +160,9 @@ export function ingestMetaPost(rawPost, source = 'meta_graph_api') {
     if (githubRepo && !existing.github_repo) existing.github_repo = githubRepo;
     if (thumbnail && !existing.thumbnail) existing.thumbnail = thumbnail;
 
-    saveLibrary(library);
+    if (options.autoSave !== false) {
+      saveLibrary(library);
+    }
 
     const event = eventBus.emit('knowledge.post.updated', {
       item_id: existing.id,
@@ -215,7 +211,9 @@ export function ingestMetaPost(rawPost, source = 'meta_graph_api') {
     library.push(newItem);
   }
 
-  saveLibrary(library);
+  if (options.autoSave !== false) {
+    saveLibrary(library);
+  }
 
   const event = eventBus.emit('knowledge.post.created', {
     item_id: newItem.id,
@@ -234,6 +232,24 @@ export function ingestMetaPost(rawPost, source = 'meta_graph_api') {
 
 function postSnippet(title, id) {
   return title ? `Publicación: ${title}` : `Contenido oficial de la fanpage ARKAIOS (#${id}).`;
+}
+
+/**
+ * Ingesta una tanda completa de publicaciones en memoria, persistiendo una sola vez al final.
+ */
+export function ingestMetaPostsBatch(rawPosts, source = 'meta_graph_api') {
+  const library = loadLibrary();
+  let created = 0;
+  let updated = 0;
+
+  for (const rawPost of rawPosts) {
+    const outcome = ingestMetaPost(rawPost, source, { library, autoSave: false });
+    if (outcome.status === 'CREATED') created++;
+    if (outcome.status === 'UPDATED') updated++;
+  }
+
+  saveLibrary(library);
+  return { created, updated, total: library.length };
 }
 
 /**

@@ -10,7 +10,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { ingestMetaPost, loadLibrary } from './knowledge_store.mjs';
+import { ingestMetaPost, ingestMetaPostsBatch, loadLibrary } from './knowledge_store.mjs';
 import { eventBus } from './events_manager.mjs';
 import { curateLibrary } from './curate.mjs';
 
@@ -119,14 +119,7 @@ export async function syncFromMetaGraph() {
 
     console.log(`[+] Total final de publicaciones extraídas desde Graph API: ${allPosts.length}.`);
 
-    let newCount = 0;
-    let updatedCount = 0;
-
-    allPosts.forEach(post => {
-      const outcome = ingestMetaPost(post, 'meta_graph_api');
-      if (outcome.status === 'CREATED') newCount++;
-      if (outcome.status === 'UPDATED') updatedCount++;
-    });
+    const { created: newCount, updated: updatedCount } = ingestMetaPostsBatch(allPosts, 'meta_graph_api');
 
     console.log(`[+] Elementos nuevos añadidos: ${newCount} | Actualizados: ${updatedCount}`);
 
