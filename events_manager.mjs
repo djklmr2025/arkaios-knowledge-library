@@ -42,8 +42,9 @@ function saveJson(filepath, data) {
   } catch (e) {}
 
   if (filepath.endsWith('events.json')) {
-    persistEventsData(data).catch(() => {});
+    return persistEventsData(data);
   }
+  return Promise.resolve(true);
 }
 
 export class EventBus {

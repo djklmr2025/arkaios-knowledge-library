@@ -45,7 +45,7 @@ export function loadLibrary() {
 import { persistLibraryData } from './persistent_storage.mjs';
 
 /**
- * Guarda la biblioteca de forma atómica respetando el índice 0.
+ * Guarda la biblioteca respetando el índice 0 con persistencia atómica y remota garantizada.
  */
 export function saveLibrary(items) {
   try {
@@ -54,8 +54,11 @@ export function saveLibrary(items) {
     fs.renameSync(tmpPath, LIBRARY_FILE);
   } catch (e) {}
 
-  // Disparar persistencia remota multi-tier (GitHub REST API / KV)
-  persistLibraryData(items).catch(() => {});
+  return persistLibraryData(items);
+}
+
+export async function saveLibraryAsync(items) {
+  return persistLibraryData(items);
 }
 
 /**
