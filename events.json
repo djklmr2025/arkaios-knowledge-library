@@ -9468,5 +9468,20 @@
       "captured_at": "2026-10-16T19:44:57.443Z",
       "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_1792179897411"
     }
+  },
+  {
+    "id": "evt-1792179897671-88df56bc",
+    "type": "knowledge.post.updated",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T19:44:57.671Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_1792179897411",
+      "meta_post_id": "test_meta_post_1792179897411",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suit",
+      "content_hash": "90a45c0af8529ce7dae1f1046f0daff6c89bfd73ef1f472a07329dd95e6b520e",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "updated_at": "2026-10-16T19:44:57.651Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_1792179897411"
+    }
   }
 ]
