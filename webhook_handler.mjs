@@ -87,10 +87,11 @@ export function verifyMetaSignature(rawBody, signatureHeader, appSecret) {
 
 /**
  * Procesa el payload entrante de Webhooks de Meta (POST).
+ * Admite overrideSecret opcional en memoria para testing seguro sin modificar .env.
  */
-export async function processWebhookPayload(rawBody, signatureHeader) {
+export async function processWebhookPayload(rawBody, signatureHeader, overrideSecret = null) {
   const env = loadEnv();
-  const appSecret = env.META_APP_SECRET;
+  const appSecret = overrideSecret || process.env.META_APP_SECRET || env.META_APP_SECRET;
 
   // Política Fail-Closed obligatoria: Si no hay secreto configurado, rechazar inmediatamente
   if (!appSecret || !appSecret.trim()) {

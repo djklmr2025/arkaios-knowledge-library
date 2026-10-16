@@ -201,5 +201,75 @@
       "item_id": "test-push-item",
       "title": "Alerta push para agente conectado"
     }
+  },
+  {
+    "id": "evt-1792153722567-68e4184f",
+    "type": "knowledge.post.updated",
+    "source": "meta_webhook",
+    "timestamp": "2026-10-16T12:28:42.567Z",
+    "payload": {
+      "item_id": "kb-top-01-artcraft",
+      "meta_post_id": "776644758860856_pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul",
+      "title": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se c",
+      "content_hash": "03632515317a438e950268a48f0b5ceb852d86f033eee696dde3e0cd05e5d6af",
+      "updated_at": "2026-10-16T12:28:42.554Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul"
+    }
+  },
+  {
+    "id": "evt-1792153797857-84e7796b",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T12:29:57.857Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite",
+      "category": "Autonomous Software Engineering",
+      "content_type": "post",
+      "content_hash": "bdfb9d0e6b8c814091a1d06ca287b189d80c8402fcc5c3d37e4ae9885633e70c",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "captured_at": "2026-10-16T12:29:57.795Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792153797988-3f5e5753",
+    "type": "knowledge.post.updated",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T12:29:57.988Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suit",
+      "content_hash": "2af256bb1f892517ac65b2f5bb9abbf5dca3f137b7536de3260876bfb2df2f46",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "updated_at": "2026-10-16T12:29:57.957Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792153798151-f7d9380a",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T12:29:58.151Z",
+    "payload": {
+      "item_id": "test-push-item",
+      "title": "Alerta push para agente conectado"
+    }
+  },
+  {
+    "id": "evt-1792153801978-bb05a444",
+    "type": "knowledge.post.updated",
+    "source": "meta_webhook",
+    "timestamp": "2026-10-16T12:30:01.978Z",
+    "payload": {
+      "item_id": "kb-top-01-artcraft",
+      "meta_post_id": "776644758860856_pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul",
+      "title": "ArtCraft: La Suite Adobe Clonada en Rust con Claude (7 Apps Open Source + MCP para Agentes). Un programador de Rust se c",
+      "content_hash": "03632515317a438e950268a48f0b5ceb852d86f033eee696dde3e0cd05e5d6af",
+      "updated_at": "2026-10-16T12:30:01.966Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/pfbid0xHc6syHSZDhmuuNbuNMtL645Bqk7DV7igJqmC2sdz7EVe5aEtiTLtGog8wT7graul"
+    }
   }
 ]

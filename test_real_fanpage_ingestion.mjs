@@ -27,16 +27,9 @@ async function testRealFanpageIngestion() {
   console.log('📢 PRUEBA DE PRINCIPIO A FIN: PUBLICACIÓN REAL DE FANPAGE ARKAIOS');
   console.log('======================================================================\n');
 
-  // Asegurar que META_APP_SECRET exista para la validación estricta Fail-Closed
-  let envContent = fs.existsSync(ENV_PATH) ? fs.readFileSync(ENV_PATH, 'utf-8') : '';
-  const appSecretMatch = envContent.match(/^META_APP_SECRET=(.*)$/m);
-  let appSecret = appSecretMatch ? appSecretMatch[1].trim() : null;
-
-  if (!appSecret) {
-    appSecret = 'arkaios_app_secret_sovereign_security_2026';
-    fs.appendFileSync(ENV_PATH, `\nMETA_APP_SECRET=${appSecret}\n`, 'utf-8');
-    console.log('[CONFIG] META_APP_SECRET configurado para la prueba Fail-Closed.');
-  }
+  // Secreto criptográfico efímero generado estrictamente en memoria (cero modificaciones a .env)
+  const ephemeralSecret = crypto.randomBytes(32).toString('hex');
+  console.log('[CONFIG] Secreto criptográfico efímero generado en memoria para prueba Fail-Closed (sin tocar .env).');
 
   // 1. Datos reales de la publicación humana del Fanpage ARKAIOS
   // ID de Página Real: 776644758860856 (Fanpage Oficial facebook.com/arkaiosIA)
@@ -63,7 +56,7 @@ async function testRealFanpageIngestion() {
   };
 
   const rawPayload = JSON.stringify(realPostData);
-  const signature = 'sha256=' + crypto.createHmac('sha256', appSecret).update(rawPayload).digest('hex');
+  const signature = 'sha256=' + crypto.createHmac('sha256', ephemeralSecret).update(rawPayload).digest('hex');
 
   // 2. Levantar agente receptor de alertas push
   let alertReceivedByAgent = null;
@@ -86,7 +79,7 @@ async function testRealFanpageIngestion() {
 
   // 3. Procesar a través del Webhook con validación estricta HMAC SHA-256
   console.log('[WEBHOOK] Enviando payload auténtico de la Fanpage ARKAIOS firmado criptográficamente...');
-  const webhookResult = await processWebhookPayload(rawPayload, signature);
+  const webhookResult = await processWebhookPayload(rawPayload, signature, ephemeralSecret);
 
   if (!webhookResult.success) {
     throw new Error(`El Webhook rechazó el payload: ${webhookResult.error}`);
