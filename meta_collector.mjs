@@ -17,7 +17,10 @@ import { curateLibrary } from './curate.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ENV_PATH = path.join(__dirname, '.env');
-const SYNC_STATUS_FILE = path.join(__dirname, 'sync_status.json');
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const SYNC_STATUS_FILE = isServerless 
+  ? path.join('/tmp', 'sync_status.json') 
+  : path.join(__dirname, 'sync_status.json');
 
 function loadEnv() {
   if (!fs.existsSync(ENV_PATH)) return {};
@@ -35,16 +38,20 @@ function loadEnv() {
 }
 
 function updateSyncStatus(status) {
-  const current = fs.existsSync(SYNC_STATUS_FILE) 
-    ? JSON.parse(fs.readFileSync(SYNC_STATUS_FILE, 'utf-8')) 
-    : {};
-  const updated = {
-    ...current,
-    ...status,
-    timestamp: new Date().toISOString()
-  };
-  fs.writeFileSync(SYNC_STATUS_FILE, JSON.stringify(updated, null, 2), 'utf-8');
-  return updated;
+  try {
+    const current = fs.existsSync(SYNC_STATUS_FILE) 
+      ? JSON.parse(fs.readFileSync(SYNC_STATUS_FILE, 'utf-8')) 
+      : {};
+    const updated = {
+      ...current,
+      ...status,
+      timestamp: new Date().toISOString()
+    };
+    fs.writeFileSync(SYNC_STATUS_FILE, JSON.stringify(updated, null, 2), 'utf-8');
+    return updated;
+  } catch (e) {
+    return { ...status, timestamp: new Date().toISOString() };
+  }
 }
 
 export async function syncFromMetaGraph() {
@@ -123,10 +130,12 @@ export async function syncFromMetaGraph() {
 
     console.log(`[+] Elementos nuevos añadidos: ${newCount} | Actualizados: ${updatedCount}`);
 
-    try {
-      curateLibrary();
-    } catch (e) {
-      console.warn('[CURATE] Aviso en curación:', e.message);
+    if (!isServerless) {
+      try {
+        curateLibrary();
+      } catch (e) {
+        console.warn('[CURATE] Aviso en curación:', e.message);
+      }
     }
 
     const totalLib = loadLibrary().length;
