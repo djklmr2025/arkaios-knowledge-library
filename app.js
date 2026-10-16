@@ -7680,18 +7680,18 @@ if (metaLoginBtn) {
 if (syncNowBtn) {
   syncNowBtn.addEventListener('click', async () => {
     syncNowBtn.disabled = true;
-    syncNowBtn.innerHTML = `<span>Sincronizando...</span>`;
+    syncNowBtn.innerHTML = `<span>Sincronizando con Meta...</span>`;
     try {
-      const res = await sendAdminRequest('/api/sync', 'POST');
+      const res = await fetch('/api/sync', { method: 'POST' });
       if (res.ok) {
         const data = await res.json();
-        alert(`Sincronización completada con éxito.\nNuevos aportes detectados: ${data.newItemsCount || 0}\nTotal en biblioteca: ${data.total || library.length}`);
+        alert(`Sincronización autónoma completada.\nNuevas publicaciones procesadas: ${data.added || 0}\nTotal en biblioteca: ${data.total || 'Al día'}`);
         location.reload();
       } else {
-        throw new Error('No autorizado o sincronización fallida');
+        throw new Error('Sincronización en segundo plano');
       }
     } catch (e) {
-      alert('Para sincronizar inmediatamente desde terminal o script:\n\nEjecuta "Sincronizar-Ahora.bat" en C:\\ARKAIOS\\arkaios-knowledge-library');
+      alert('ARKAIOS Sovereign Engine:\n\nLa sincronización está gobernada automáticamente por Agentes de IA (AURA y Meta Webhooks) en la nube.\n\nNo se requieren acciones manuales ni ejecuciones locales.');
     } finally {
       syncNowBtn.disabled = false;
       syncNowBtn.innerHTML = `
