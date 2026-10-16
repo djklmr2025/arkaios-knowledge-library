@@ -32,6 +32,8 @@ async function testRealFanpageIngestion() {
   console.log('[CONFIG] Secreto criptográfico efímero generado en memoria para prueba Fail-Closed (sin tocar .env).');
 
   const originalLibraryContent = fs.readFileSync(path.join(__dirname, 'library.json'), 'utf-8');
+  const eventsPath = path.join(__dirname, 'events.json');
+  const originalEventsContent = fs.existsSync(eventsPath) ? fs.readFileSync(eventsPath, 'utf-8') : null;
   const testNonce = Date.now();
 
   try {
@@ -131,6 +133,9 @@ async function testRealFanpageIngestion() {
     console.log('======================================================================\n');
   } finally {
     fs.writeFileSync(path.join(__dirname, 'library.json'), originalLibraryContent, 'utf-8');
+    if (originalEventsContent !== null) {
+      fs.writeFileSync(eventsPath, originalEventsContent, 'utf-8');
+    }
   }
 }
 

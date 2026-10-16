@@ -26,12 +26,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function runTests() {
-  console.log('======================================================================');
-  console.log('🧪 SUITE DE CERTIFICACIÓN OPERATIVA — ARKAIOS KNOWLEDGE LIBRARY v1.3');
-  console.log('======================================================================\n');
+  const libFile = path.join(__dirname, 'library.json');
+  const eventsFile = path.join(__dirname, 'events.json');
+  const originalLibrary = fs.existsSync(libFile) ? fs.readFileSync(libFile, 'utf-8') : null;
+  const originalEvents = fs.existsSync(eventsFile) ? fs.readFileSync(eventsFile, 'utf-8') : null;
 
-  let passed = 0;
-  let total = 8;
+  try {
+    console.log('======================================================================');
+    console.log('🧪 SUITE DE CERTIFICACIÓN OPERATIVA — ARKAIOS KNOWLEDGE LIBRARY v1.3');
+    console.log('======================================================================\n');
+
+    let passed = 0;
+    let total = 8;
 
   // -------------------------------------------------------------------------
   // TEST 1: Webhook Handshake (GET /api/webhook) & Fail-Closed Security
@@ -543,10 +549,14 @@ async function runTests() {
     }
   }
 
-  console.log('\n======================================================================');
-  console.log(`🎉 TODAS LAS PRUEBAS DE LA MISIÓN PASARON EXITOSAMENTE (${passed}/${total})`);
-  console.log('   ARKAIOS Knowledge Library está 100% blindada para producción y agentes.');
-  console.log('======================================================================\n');
+    console.log('\n======================================================================');
+    console.log(`🎉 TODAS LAS PRUEBAS DE LA MISIÓN PASARON EXITOSAMENTE (${passed}/${total})`);
+    console.log('   ARKAIOS Knowledge Library está 100% blindada para producción y agentes.');
+    console.log('======================================================================\n');
+  } finally {
+    if (originalLibrary !== null) fs.writeFileSync(libFile, originalLibrary, 'utf-8');
+    if (originalEvents !== null) fs.writeFileSync(eventsFile, originalEvents, 'utf-8');
+  }
 }
 
 runTests().catch(err => {
