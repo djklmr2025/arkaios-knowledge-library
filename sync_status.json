@@ -1,8 +1,11 @@
 {
-  "token_status": "EXPIRED",
-  "token_expired": true,
-  "last_error": "Error validating access token: Session has expired on Monday, 12-Oct-26 20:00:00 PDT. The current time is Friday, 16-Oct-26 06:07:27 PDT.",
+  "token_status": "ACTIVE",
+  "token_expired": false,
+  "last_error": null,
   "error_code": 190,
-  "success": false,
-  "timestamp": "2026-10-16T13:07:27.650Z"
+  "success": true,
+  "timestamp": "2026-10-16T18:47:51.114Z",
+  "total_items": 177,
+  "added_count": 188,
+  "updated_count": 112
 }
