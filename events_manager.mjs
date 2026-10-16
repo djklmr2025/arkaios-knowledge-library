@@ -38,7 +38,12 @@ function saveJson(filepath, data) {
   try {
     const tmp = `${filepath}.tmp.${Date.now()}`;
     fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf-8');
-    fs.renameSync(tmp, filepath);
+    try {
+      fs.renameSync(tmp, filepath);
+    } catch {
+      fs.copyFileSync(tmp, filepath);
+      try { fs.unlinkSync(tmp); } catch {}
+    }
   } catch (e) {}
 
   if (filepath.endsWith('events.json')) {

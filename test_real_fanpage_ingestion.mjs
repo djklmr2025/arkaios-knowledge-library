@@ -93,7 +93,10 @@ async function testRealFanpageIngestion() {
   console.log(`✅ Webhook procesado exitosamente (HTTP 200). Entregas procesadas: ${webhookResult.processed}`);
 
   // Dar tiempo para la entrega de notificación HTTP asíncrona
-  await new Promise(r => setTimeout(r, 200));
+  for (let i = 0; i < 30; i++) {
+    if (alertReceivedByAgent) break;
+    await new Promise(r => setTimeout(r, 50));
+  }
   mockAgent.close();
 
   // 4. Verificar alerta en el agente

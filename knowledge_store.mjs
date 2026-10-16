@@ -51,7 +51,12 @@ export function saveLibrary(items) {
   try {
     const tmpPath = `${LIBRARY_FILE}.tmp.${Date.now()}`;
     fs.writeFileSync(tmpPath, JSON.stringify(items, null, 2), 'utf-8');
-    fs.renameSync(tmpPath, LIBRARY_FILE);
+    try {
+      fs.renameSync(tmpPath, LIBRARY_FILE);
+    } catch {
+      fs.copyFileSync(tmpPath, LIBRARY_FILE);
+      try { fs.unlinkSync(tmpPath); } catch {}
+    }
   } catch (e) {}
 
   return persistLibraryData(items);

@@ -125,7 +125,12 @@ export async function persistLibraryData(items) {
   try {
     const tmp = `${LOCAL_LIBRARY_FILE}.tmp.${Date.now()}`;
     fs.writeFileSync(tmp, jsonContent, 'utf-8');
-    fs.renameSync(tmp, LOCAL_LIBRARY_FILE);
+    try {
+      fs.renameSync(tmp, LOCAL_LIBRARY_FILE);
+    } catch (renameErr) {
+      fs.copyFileSync(tmp, LOCAL_LIBRARY_FILE);
+      try { fs.unlinkSync(tmp); } catch {}
+    }
     localWritten = true;
   } catch (err) {
     if (!config.IS_SERVERLESS) {
@@ -183,7 +188,12 @@ export async function persistEventsData(events) {
   try {
     const tmp = `${LOCAL_EVENTS_FILE}.tmp.${Date.now()}`;
     fs.writeFileSync(tmp, jsonContent, 'utf-8');
-    fs.renameSync(tmp, LOCAL_EVENTS_FILE);
+    try {
+      fs.renameSync(tmp, LOCAL_EVENTS_FILE);
+    } catch (renameErr) {
+      fs.copyFileSync(tmp, LOCAL_EVENTS_FILE);
+      try { fs.unlinkSync(tmp); } catch {}
+    }
   } catch (err) {
     if (!config.IS_SERVERLESS) {
       throw new Error(`Fallo en almacenamiento local de events.json: ${err.message}`);

@@ -235,7 +235,10 @@ async function runTests() {
       title: 'Alerta push para agente conectado'
     }, 'test_suite');
 
-    await new Promise(r => setTimeout(r, 150));
+    for (let i = 0; i < 30; i++) {
+      if (receivedNotification) break;
+      await new Promise(r => setTimeout(r, 50));
+    }
     mockAgentServer.close();
 
     if (receivedNotification && receivedNotification.id === testEvt.id) {
