@@ -4022,7 +4022,7 @@
     "meta_post_id": "test_meta_post_1792179897411",
     "platform": "Facebook (Graph API Official)",
     "author": "ARKAIOS Official Fanpage",
-    "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite",
+    "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suit",
     "category": "Autonomous Software Engineering",
     "content_type": "post",
     "original_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_1792179897411",
@@ -4037,7 +4037,7 @@
     "skills_unlocked": [
       "Herramienta Open Source vinculada: https://github.com/arkaios/test-suite"
     ],
-    "summary": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite",
+    "summary": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suite",
     "facts": {
       "source_platform": "Facebook Fanpage (arkaiosIA)",
       "page_id": "776644758860856",
@@ -4047,14 +4047,14 @@
       "external_links": [
         "https://github.com/arkaios/test-suite"
       ],
-      "raw_message_snippet": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite"
+      "raw_message_snippet": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suite"
     },
     "agent_lesson": "[INFERENCIA DE AGENTE] Contenido asimilado de la publicación oficial ARKAIOS: Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite... Extrae tecnologías e integra a la base cognitiva.",
-    "content_hash": "b88eb8ed39797677d1391d56cacda5182f689924652e7a8b8ec20e9770bc81ae",
+    "content_hash": "90a45c0af8529ce7dae1f1046f0daff6c89bfd73ef1f472a07329dd95e6b520e",
     "verification_status": "VERIFIED_OFFICIAL_META",
     "published_at": "2026-10-15T21:54:00.000Z",
     "captured_at": "2026-10-16T19:44:57.443Z",
-    "updated_at": "2026-10-16T19:44:57.443Z",
+    "updated_at": "2026-10-16T19:44:57.651Z",
     "tags": [
       "meta-official",
       "arkaios-knowledge",
