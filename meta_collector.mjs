@@ -53,11 +53,11 @@ export async function syncFromMetaGraph() {
   console.log('======================================================================\n');
 
   const env = loadEnv();
-  const pageToken = env.FACEBOOK_PAGE_TOKEN;
-  const pageId = env.FACEBOOK_PAGE_ID || '776644758860856';
+  const pageToken = process.env.FACEBOOK_PAGE_TOKEN || env.FACEBOOK_PAGE_TOKEN;
+  const pageId = process.env.FACEBOOK_PAGE_ID || env.FACEBOOK_PAGE_ID || '776644758860856';
 
   if (!pageToken || !pageId) {
-    const errorMsg = 'Falta FACEBOOK_PAGE_TOKEN o FACEBOOK_PAGE_ID en .env.';
+    const errorMsg = 'Falta FACEBOOK_PAGE_TOKEN o FACEBOOK_PAGE_ID (configure en variables de entorno de GitHub Actions o en archivo .env local).';
     console.error(`❌ ${errorMsg}`);
     updateSyncStatus({
       token_status: 'MISSING',

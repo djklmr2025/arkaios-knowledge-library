@@ -42,7 +42,7 @@ const MAX_DELIVERIES_CACHE = 5000;
  */
 export function handleWebhookVerification(query, res) {
   const env = loadEnv();
-  const verifyToken = env.META_VERIFY_TOKEN || env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || 'arkaios_knowledge_webhook_secure_2026';
+  const verifyToken = process.env.META_VERIFY_TOKEN || process.env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || env.META_VERIFY_TOKEN || env.ARKAIOS_WEBHOOK_VERIFY_TOKEN || 'arkaios_knowledge_webhook_secure_2026';
 
   const mode = query.get('hub.mode');
   const token = query.get('hub.verify_token');
