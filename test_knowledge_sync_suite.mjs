@@ -106,12 +106,13 @@ async function runTests() {
   // -------------------------------------------------------------------------
   console.log('\n🧪 [TEST 3/7] Probando Ingestión Idempotente, Hashes SHA-256 y Detección de Cambios...');
   {
+    const testPostId = 'test_meta_post_' + Date.now();
     const testPost = {
-      id: 'test_meta_post_889911',
+      id: testPostId,
       page_id: '776644758860856',
       message: 'Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite',
       created_time: '2026-10-15T21:54:00.000Z',
-      permalink_url: 'https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911',
+      permalink_url: `https://www.facebook.com/arkaiosIA/posts/${testPostId}`,
       content_type: 'post'
     };
 
@@ -191,9 +192,22 @@ async function runTests() {
     const recentEvents = eventBus.getEvents(sinceTime, 10);
     if (recentEvents.length > 0) {
       console.log(`   ✓ Consulta incremental de eventos con cursor temporal funcional (${recentEvents.length} eventos recuperados).`);
-      passed++;
     } else {
       throw new Error('Filtro por cursor temporal falló.');
+    }
+
+    // Probar Autenticación Fail-Closed de /api/events para agentes
+    const { verifyAgentAuth } = await import('./persistent_storage.mjs');
+    const authDenied1 = verifyAgentAuth(null, null);
+    const authDenied2 = verifyAgentAuth('Bearer token_falso_invalido', null);
+    const authDenied3 = verifyAgentAuth(null, 'token_invalido');
+    const authAllowed = verifyAgentAuth('Bearer arkaios_agent_sovereign_internal_token_2026', null);
+
+    if (authDenied1 === false && authDenied2 === false && authDenied3 === false && authAllowed === true) {
+      console.log('   ✓ Autenticación Fail-Closed de /api/events verificada: rechaza solicitudes no autorizadas y valida tokens de agente.');
+      passed++;
+    } else {
+      throw new Error('Validación Fail-Closed de autenticación de eventos falló.');
     }
   }
 

@@ -13,7 +13,7 @@ Thumbs.db
 .env
 .admin_token*
 .agent_committee_tokens*
-*.tmp
+*.tmp*
 *.bak
 .transaction_journal.json*
 .authorized_contributors*

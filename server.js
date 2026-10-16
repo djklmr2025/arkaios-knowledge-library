@@ -365,14 +365,28 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Eventos internos de la biblioteca para agentes (GET /api/events?since=...)
+  // Eventos internos de la biblioteca para agentes (GET /api/events?since=...) - Autenticado Fail-Closed
   if (pathname === '/api/events' && req.method === 'GET') {
-    const since = url.searchParams.get('since');
-    const limit = parseInt(url.searchParams.get('limit') || '50', 10);
-    import('./events_manager.mjs').then(({ eventBus }) => {
-      const events = eventBus.getEvents(since, limit);
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ success: true, count: events.length, events }));
+    const authHeader = req.headers['authorization'];
+    const customHeader = req.headers['x-arkaios-agent-token'];
+
+    import('./persistent_storage.mjs').then(({ verifyAgentAuth }) => {
+      if (!verifyAgentAuth(authHeader, customHeader)) {
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: false,
+          error: 'Acceso no autorizado al bus de eventos de agentes (se requiere token Bearer o cabecera x-arkaios-agent-token).'
+        }));
+        return;
+      }
+
+      const since = url.searchParams.get('since');
+      const limit = parseInt(url.searchParams.get('limit') || '50', 10);
+      return import('./events_manager.mjs').then(({ eventBus }) => {
+        const events = eventBus.getEvents(since, limit);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, count: events.length, events }));
+      });
     }).catch(err => {
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: err.message }));

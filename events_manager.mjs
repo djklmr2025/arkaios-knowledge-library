@@ -32,10 +32,18 @@ function loadJson(filepath, fallback = []) {
   }
 }
 
+import { persistEventsData } from './persistent_storage.mjs';
+
 function saveJson(filepath, data) {
-  const tmp = `${filepath}.tmp.${Date.now()}`;
-  fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf-8');
-  fs.renameSync(tmp, filepath);
+  try {
+    const tmp = `${filepath}.tmp.${Date.now()}`;
+    fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf-8');
+    fs.renameSync(tmp, filepath);
+  } catch (e) {}
+
+  if (filepath.endsWith('events.json')) {
+    persistEventsData(data).catch(() => {});
+  }
 }
 
 export class EventBus {

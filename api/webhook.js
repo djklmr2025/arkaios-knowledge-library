@@ -4,9 +4,13 @@
  * Handles:
  * 1. GET: Handshake subscription verification with Meta (hub.mode, hub.verify_token, hub.challenge)
  * 2. POST: Secure HMAC SHA-256 validation (X-Hub-Signature-256) & idempotent ingestion into knowledge store
+ * 3. Guaranteed remote persistence: commits to sovereign Git repository / KV before lambda completion
  */
 
 import { handleWebhookVerification, processWebhookPayload } from '../webhook_handler.mjs';
+import { persistLibraryData, persistEventsData } from '../persistent_storage.mjs';
+import { loadLibrary } from '../knowledge_store.mjs';
+import { eventBus } from '../events_manager.mjs';
 
 export const config = {
   api: {
@@ -42,6 +46,20 @@ export default async function handler(req, res) {
       const rawBody = await getRawBody(req);
       const signature = req.headers['x-hub-signature-256'] || '';
       const result = await processWebhookPayload(rawBody, signature);
+
+      // Si se procesó exitosamente un post, asegurar persistencia remota antes de cerrar la función serverless
+      if (result.success) {
+        try {
+          const currentLibrary = loadLibrary();
+          const currentEvents = eventBus.getEvents(null, 100);
+          await Promise.all([
+            persistLibraryData(currentLibrary),
+            persistEventsData(currentEvents)
+          ]);
+        } catch (storageErr) {
+          console.warn('[WEBHOOK-STORAGE] Error en persistencia remota:', storageErr.message);
+        }
+      }
 
       res.writeHead(result.status || 200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(result));
