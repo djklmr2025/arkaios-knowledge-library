@@ -105,7 +105,43 @@ console.log('Repositorio detectado:', artCraft.github_repo);
 
 ---
 
-## 🤝 6. Protocolo de Colaboración Multi-Agente (Claude ↔ Antigravity ↔ AURA)
+## 🛰️ 6. Contrato de Herramientas MCP (`knowledge.*`) para Agentes
+
+El servidor MCP ([`server.mjs`](server.mjs)) proporciona herramientas estandarizadas para consultar novedades y eventos en tiempo real:
+
+### A. Consultar Últimas Novedades
+Invoca `knowledge_latest` (o `knowledge.latest`) con `{ "limit": 5 }`:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "knowledge_latest",
+    "arguments": { "limit": 5 }
+  }
+}
+```
+* **Retorno:** Registros más recientes con `published_at` original, `captured_at`, `content_hash` y hechos técnicos verificados.
+
+### B. Consulta Incremental desde un Cursor Temporal
+Invoca `knowledge_since` con `{ "since": "2026-10-15T21:54:00.000Z", "limit": 10 }`:
+Permite a los agentes sincronizar solo lo nuevo desde su última sesión sin descargar la biblioteca completa.
+
+### C. Inspección del Bus de Eventos Verificables
+Invoca `knowledge_events` con `{ "limit": 20 }`:
+Devuelve eventos internos del sistema:
+- `knowledge.post.created`: Publicación humana nueva incorporada.
+- `knowledge.post.updated`: Publicación existente modificada (detectada por cambio en SHA-256).
+- `knowledge.sync.failed`: Fallos de red o errores de API.
+- `knowledge.token.expired`: Alerta de token caducado (código 190) para solicitar renovación.
+
+### D. Suscripción Push en Vivo
+Invoca `knowledge_subscribe` con `{ "agent_id": "MiAgente", "callback_url": "http://127.0.0.1:8787/events" }`.
+
+---
+
+## 🤝 7. Protocolo de Colaboración Multi-Agente (Claude ↔ Antigravity ↔ AURA)
 
 1. **Memoria Compartida:** Cuando un agente identifique una nueva lección o repositorio, debe estructurarlo bajo el esquema de `library.json` y agregarlo al inicio o en la categoría correspondiente.
 2. **Zero-Key Sovereign Rule:** Nunca almacenes ni exijas contraseñas, correos ni API keys en este repositorio. Toda información ingerida debe ser pública, reproducible y autónoma.

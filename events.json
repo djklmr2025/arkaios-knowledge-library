@@ -1,0 +1,107 @@
+[
+  {
+    "id": "evt-1792128036985-4e9729aa",
+    "type": "knowledge.token.expired",
+    "source": "meta_graph_api",
+    "timestamp": "2026-10-16T05:20:36.986Z",
+    "payload": {
+      "error_code": 190,
+      "message": "Error validating access token: Session has expired on Monday, 12-Oct-26 20:00:00 PDT. The current time is Thursday, 15-Oct-26 22:20:37 PDT.",
+      "detected_at": "2026-10-16T05:20:36.985Z"
+    }
+  },
+  {
+    "id": "evt-1792128036995-36c3774f",
+    "type": "knowledge.sync.failed",
+    "source": "meta_graph_api",
+    "timestamp": "2026-10-16T05:20:36.995Z",
+    "payload": {
+      "error_code": 190,
+      "reason": "Error validating access token: Session has expired on Monday, 12-Oct-26 20:00:00 PDT. The current time is Thursday, 15-Oct-26 22:20:37 PDT."
+    }
+  },
+  {
+    "id": "evt-1792128134147-a882bf1a",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:22:14.147Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite",
+      "category": "Autonomous Software Engineering",
+      "content_type": "post",
+      "content_hash": "bdfb9d0e6b8c814091a1d06ca287b189d80c8402fcc5c3d37e4ae9885633e70c",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "captured_at": "2026-10-16T05:22:14.098Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792128134200-9c6a15b7",
+    "type": "knowledge.post.updated",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:22:14.200Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suit",
+      "content_hash": "2af256bb1f892517ac65b2f5bb9abbf5dca3f137b7536de3260876bfb2df2f46",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "updated_at": "2026-10-16T05:22:14.165Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792128134339-b16b5b6c",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:22:14.339Z",
+    "payload": {
+      "item_id": "test-push-item",
+      "title": "Alerta push para agente conectado"
+    }
+  },
+  {
+    "id": "evt-1792128278660-8eac3128",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:24:38.660Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP https://github.com/arkaios/test-suite",
+      "category": "Autonomous Software Engineering",
+      "content_type": "post",
+      "content_hash": "bdfb9d0e6b8c814091a1d06ca287b189d80c8402fcc5c3d37e4ae9885633e70c",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "captured_at": "2026-10-16T05:24:38.615Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792128278728-d3400908",
+    "type": "knowledge.post.updated",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:24:38.728Z",
+    "payload": {
+      "item_id": "meta-test_meta_post_889911",
+      "meta_post_id": "test_meta_post_889911",
+      "title": "Lanzamiento oficial de Suite de Agentes Autónomos con Rust y MCP v2.0 (ACTUALIZADO) https://github.com/arkaios/test-suit",
+      "content_hash": "2af256bb1f892517ac65b2f5bb9abbf5dca3f137b7536de3260876bfb2df2f46",
+      "published_at": "2026-10-15T21:54:00.000Z",
+      "updated_at": "2026-10-16T05:24:38.713Z",
+      "canonical_url": "https://www.facebook.com/arkaiosIA/posts/test_meta_post_889911"
+    }
+  },
+  {
+    "id": "evt-1792128278847-432e712c",
+    "type": "knowledge.post.created",
+    "source": "test_suite",
+    "timestamp": "2026-10-16T05:24:38.847Z",
+    "payload": {
+      "item_id": "test-push-item",
+      "title": "Alerta push para agente conectado"
+    }
+  }
+]
