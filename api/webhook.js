@@ -47,21 +47,35 @@ export default async function handler(req, res) {
       const signature = req.headers['x-hub-signature-256'] || '';
       const result = await processWebhookPayload(rawBody, signature);
 
-      // Si se procesó exitosamente un post, asegurar persistencia remota antes de cerrar la función serverless
-      if (result.success) {
-        try {
-          const currentLibrary = loadLibrary();
-          const currentEvents = eventBus.getEvents(null, 100);
-          await Promise.all([
-            persistLibraryData(currentLibrary),
-            persistEventsData(currentEvents)
-          ]);
-        } catch (storageErr) {
-          console.warn('[WEBHOOK-STORAGE] Error en persistencia remota:', storageErr.message);
-        }
+      // Si el webhook rechazó la firma o falló la validación HMAC, responder con el error (ej. 403)
+      if (!result.success) {
+        res.writeHead(result.status || 403, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(result));
+        return;
       }
 
-      res.writeHead(result.status || 200, { 'Content-Type': 'application/json' });
+      // Si se procesó exitosamente un post, asegurar persistencia remota (GitHub REST API / KV)
+      // Si la persistencia remota falla, PROPAGAR el error (HTTP 502) - NUNCA responder HTTP 200 con falso positivo
+      try {
+        const currentLibrary = loadLibrary();
+        const currentEvents = eventBus.getEvents(null, 100);
+        await Promise.all([
+          persistLibraryData(currentLibrary),
+          persistEventsData(currentEvents)
+        ]);
+      } catch (storageErr) {
+        console.error('[WEBHOOK-STORAGE] ❌ Fallo crítico en persistencia remota:', storageErr.message);
+        res.writeHead(502, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: false,
+          status: 502,
+          error: `Fallo de persistencia en almacenamiento permanente: ${storageErr.message}`
+        }));
+        return;
+      }
+
+      // Solo responder HTTP 200 cuando la persistencia remota ha sido garantizada
+      res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(result));
       return;
     } catch (err) {
