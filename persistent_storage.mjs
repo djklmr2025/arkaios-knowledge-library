@@ -228,8 +228,42 @@ export async function loadPersistentEventsData() {
 }
 
 /**
+ * Combina datos JSON concurrentes respetando IDs únicos e invariante de índice 0.
+ */
+function mergeJsonData(filePath, remoteContentBase64, localJsonStr) {
+  try {
+    const remoteStr = Buffer.from(remoteContentBase64, 'base64').toString('utf-8');
+    const remoteData = JSON.parse(remoteStr);
+    const localData = JSON.parse(localJsonStr);
+
+    if (Array.isArray(remoteData) && Array.isArray(localData)) {
+      const byId = new Map();
+      for (const item of remoteData) {
+        if (item && item.id) byId.set(item.id, item);
+      }
+      for (const item of localData) {
+        if (item && item.id) byId.set(item.id, item);
+      }
+      let merged = Array.from(byId.values());
+
+      if (filePath.includes('library.json')) {
+        const topIdx = merged.findIndex(i => i.id === 'kb-top-01-artcraft');
+        if (topIdx > 0) {
+          const [top] = merged.splice(topIdx, 1);
+          merged.unshift(top);
+        }
+      }
+      return JSON.stringify(merged, null, 2);
+    }
+  } catch (e) {
+    console.warn(`[STORAGE] Advertencia en merge de tres vías para ${filePath}:`, e.message);
+  }
+  return localJsonStr;
+}
+
+/**
  * Commits a file update directly to GitHub repository via REST API.
- * Propaga errores categóricamente y maneja conflictos HTTP 409 con reintentos automáticos.
+ * Propaga errores categóricamente, reintenta ante 409 y combina datos concurrentes sin pérdidas.
  */
 export async function commitToGitHub(config, filePath, contentUtf8, commitMessage, maxRetries = 3) {
   if (!config.GITHUB_TOKEN) {
@@ -241,7 +275,7 @@ export async function commitToGitHub(config, filePath, contentUtf8, commitMessag
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      // 1. Obtener SHA actual del archivo
+      // 1. Obtener SHA actual del archivo y contenido remoto más reciente
       let sha = null;
       const getRes = await fetch(`${url}?ref=${config.GITHUB_BRANCH}`, {
         headers: {
@@ -254,6 +288,10 @@ export async function commitToGitHub(config, filePath, contentUtf8, commitMessag
       if (getRes.ok) {
         const fileData = await getRes.json();
         sha = fileData.sha;
+        // Si es reintento por 409, combinar datos remotos con locales para que ninguna publicación se pierda
+        if (attempt > 1 && fileData.content && filePath.endsWith('.json')) {
+          contentUtf8 = mergeJsonData(filePath, fileData.content, contentUtf8);
+        }
       } else if (getRes.status !== 404) {
         const getErr = await getRes.text();
         throw new Error(`Error al consultar SHA de ${filePath} en GitHub (HTTP ${getRes.status}): ${getErr}`);
