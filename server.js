@@ -335,6 +335,77 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Meta Webhook - Verificación de suscripción (GET)
+  if (pathname === '/api/webhook' && req.method === 'GET') {
+    import('./webhook_handler.mjs').then(({ handleWebhookVerification }) => {
+      handleWebhookVerification(url.searchParams, res);
+    }).catch(err => {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+    });
+    return;
+  }
+
+  // Meta Webhook - Recepción de eventos en tiempo real (POST)
+  if (pathname === '/api/webhook' && req.method === 'POST') {
+    let rawBody = '';
+    req.on('data', chunk => { rawBody += chunk; });
+    req.on('end', () => {
+      const signature = req.headers['x-hub-signature-256'] || '';
+      import('./webhook_handler.mjs').then(({ processWebhookPayload }) => {
+        return processWebhookPayload(rawBody, signature);
+      }).then(result => {
+        res.writeHead(result.status || 200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(result));
+      }).catch(err => {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      });
+    });
+    return;
+  }
+
+  // Eventos internos de la biblioteca para agentes (GET /api/events?since=...)
+  if (pathname === '/api/events' && req.method === 'GET') {
+    const since = url.searchParams.get('since');
+    const limit = parseInt(url.searchParams.get('limit') || '50', 10);
+    import('./events_manager.mjs').then(({ eventBus }) => {
+      const events = eventBus.getEvents(since, limit);
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: true, count: events.length, events }));
+    }).catch(err => {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+    });
+    return;
+  }
+
+  // Estado detallado de sincronización y token Meta (GET /api/sync_status)
+  if (pathname === '/api/sync_status' && req.method === 'GET') {
+    const libPath = path.join(__dirname, 'library.json');
+    const statusFile = path.join(__dirname, 'sync_status.json');
+    let totalItems = 0;
+    if (fs.existsSync(libPath)) {
+      try { totalItems = JSON.parse(fs.readFileSync(libPath, 'utf-8')).length; } catch (e) {}
+    }
+    let lastSyncData = {};
+    if (fs.existsSync(statusFile)) {
+      try { lastSyncData = JSON.parse(fs.readFileSync(statusFile, 'utf-8')); } catch (e) {}
+    }
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      success: true,
+      total_items: totalItems,
+      page_url: 'https://www.facebook.com/arkaiosIA',
+      last_sync: lastSyncData.timestamp || null,
+      token_status: lastSyncData.token_status || 'UNKNOWN',
+      token_expired: lastSyncData.token_expired || false,
+      last_error: lastSyncData.last_error || null
+    }));
+    return;
+  }
+
   // Static File Serving - Lista blanca estricta de recursos públicos autorizados
   const ALLOWED_STATIC = {
     '/': 'index.html',

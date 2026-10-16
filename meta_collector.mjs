@@ -2,19 +2,22 @@
  * ARKAIOS Knowledge Library - Meta Graph API Official Collector
  * 
  * Fetches authenticated posts and media directly from Facebook Graph API v23.0.
- * Ingests them into library.json as structured cognitive lessons.
- * Reads credentials strictly from local .env (never committed).
+ * Ingests them via knowledge_store.mjs ensuring date traceability,
+ * cryptographic content hashes (SHA-256), and event dispatching.
+ * Strictly reads credentials from local .env (never committed).
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { ingestMetaPost, loadLibrary } from './knowledge_store.mjs';
+import { eventBus } from './events_manager.mjs';
 import { curateLibrary } from './curate.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ENV_PATH = path.join(__dirname, '.env');
-const LIBRARY_PATH = path.join(__dirname, 'library.json');
+const SYNC_STATUS_FILE = path.join(__dirname, 'sync_status.json');
 
 function loadEnv() {
   if (!fs.existsSync(ENV_PATH)) return {};
@@ -31,21 +34,17 @@ function loadEnv() {
   return env;
 }
 
-function detectCategory(text) {
-  const lower = (text || '').toLowerCase();
-  if (/rust|c\+\+|reverse|kernel|driver|compil/i.test(lower)) return 'Autonomous Software Engineering';
-  if (/mcp|model context protocol|agente|multi-agent/i.test(lower)) return 'Multi-Agent Intelligence & MCP';
-  if (/android|artemis|mobile|apk|adb/i.test(lower)) return 'Robotics & Hardware Control';
-  if (/meshtastic|lora|radio|mesh|off-grid/i.test(lower)) return 'Resilient Hardware & Networks';
-  if (/hugging|torrent|magnet|p2p|pesos/i.test(lower)) return 'Decentralized AI Infrastructure';
-  if (/xp|windows|industrial|plc|scada/i.test(lower)) return 'Critical Infrastructure & Legacy Resilience';
-  if (/democracia|suiza|gobernanza|consenso/i.test(lower)) return 'Decentralized Governance & Consensus';
-  return 'Sovereign Knowledge & Systems';
-}
-
-function extractGithubRepo(text, attachUrl) {
-  const match = (text + ' ' + (attachUrl || '')).match(/https?:\/\/github\.com\/[a-zA-Z0-9_\-\.\/]+/i);
-  return match ? match[0] : null;
+function updateSyncStatus(status) {
+  const current = fs.existsSync(SYNC_STATUS_FILE) 
+    ? JSON.parse(fs.readFileSync(SYNC_STATUS_FILE, 'utf-8')) 
+    : {};
+  const updated = {
+    ...current,
+    ...status,
+    timestamp: new Date().toISOString()
+  };
+  fs.writeFileSync(SYNC_STATUS_FILE, JSON.stringify(updated, null, 2), 'utf-8');
+  return updated;
 }
 
 export async function syncFromMetaGraph() {
@@ -55,11 +54,18 @@ export async function syncFromMetaGraph() {
 
   const env = loadEnv();
   const pageToken = env.FACEBOOK_PAGE_TOKEN;
-  const pageId = env.FACEBOOK_PAGE_ID;
+  const pageId = env.FACEBOOK_PAGE_ID || '776644758860856';
 
   if (!pageToken || !pageId) {
-    console.error('❌ Falta FACEBOOK_PAGE_TOKEN o FACEBOOK_PAGE_ID en .env.');
-    console.log('Ejecuta primero: node meta_token_manager.mjs para canjear y guardar tus tokens.');
+    const errorMsg = 'Falta FACEBOOK_PAGE_TOKEN o FACEBOOK_PAGE_ID en .env.';
+    console.error(`❌ ${errorMsg}`);
+    updateSyncStatus({
+      token_status: 'MISSING',
+      token_expired: false,
+      last_error: errorMsg,
+      success: false
+    });
+    eventBus.emit('knowledge.sync.failed', { reason: errorMsg }, 'meta_graph_api');
     return { success: false, error: 'Missing tokens' };
   }
 
@@ -76,8 +82,31 @@ export async function syncFromMetaGraph() {
       const data = await res.json();
 
       if (data.error) {
-        console.error('❌ Error de Graph API:', data.error.message);
-        break;
+        const isExpired = data.error.code === 190;
+        console.error(`❌ Error de Graph API [Código ${data.error.code}]:`, data.error.message);
+
+        updateSyncStatus({
+          token_status: isExpired ? 'EXPIRED' : 'ERROR',
+          token_expired: isExpired,
+          last_error: data.error.message,
+          error_code: data.error.code,
+          success: false
+        });
+
+        if (isExpired) {
+          eventBus.emit('knowledge.token.expired', {
+            error_code: 190,
+            message: data.error.message,
+            detected_at: new Date().toISOString()
+          }, 'meta_graph_api');
+        }
+
+        eventBus.emit('knowledge.sync.failed', {
+          error_code: data.error.code,
+          reason: data.error.message
+        }, 'meta_graph_api');
+
+        return { success: false, error: data.error.message, is_expired: isExpired };
       }
 
       const currentBatch = data.data || [];
@@ -88,73 +117,48 @@ export async function syncFromMetaGraph() {
       if (!currentBatch.length) break;
     }
 
-    const posts = allPosts;
-    console.log(`[+] Total final de publicaciones extraídas desde Graph API: ${posts.length}.`);
-
-    const library = fs.existsSync(LIBRARY_PATH) ? JSON.parse(fs.readFileSync(LIBRARY_PATH, 'utf-8')) : [];
+    console.log(`[+] Total final de publicaciones extraídas desde Graph API: ${allPosts.length}.`);
 
     let newCount = 0;
-    posts.forEach(post => {
-      const msg = post.message || '';
-      if (!msg && !post.attachments) return;
+    let updatedCount = 0;
 
-      const attach = post.attachments?.data?.[0];
-      const attachTitle = attach?.title || '';
-      const attachUrl = attach?.url || '';
-      const attachType = attach?.type || '';
-      const targetId = attach?.target?.id || '';
-      const thumbnail = attach?.media?.image?.src || null;
-      const isVideo = attachType.includes('video') || (attachUrl && attachUrl.includes('/reel/'));
-
-      const lines = msg.split('\n').map(l => l.trim()).filter(Boolean);
-      let title = attachTitle || lines[0];
-      if (!title && isVideo) {
-        title = `ARKAIOS Reel #${targetId || post.id.split('_')[1] || post.id.slice(-6)}`;
-      }
-      if (!title) {
-        title = `Publicación Oficial ARKAIOS #${post.id.split('_')[1] || post.id.slice(-6)}`;
-      }
-
-      const repo = extractGithubRepo(msg, attachUrl);
-      const category = detectCategory(msg + ' ' + title);
-      const canonical = attachUrl || post.permalink_url || `https://www.facebook.com/${post.id}`;
-
-      const newItem = {
-        id: `meta-${post.id}`,
-        title: title.slice(0, 120),
-        category: category,
-        platform: isVideo ? 'Facebook (Reel / Video Official)' : 'Facebook (Graph API Official)',
-        original_url: canonical,
-        canonical_url: canonical,
-        thumbnail: thumbnail,
-        github_repo: repo,
-        website: attachUrl.includes('github') ? null : (attachUrl || null),
-        technologies: repo ? ['Open Source', 'GitHub'] : (isVideo ? ['Multimedia', 'Reel'] : []),
-        skills_unlocked: repo ? [`Herramienta Open Source vinculada: ${repo}`] : (isVideo ? ['Transmisión Multimedia Soberana'] : []),
-        summary: msg.slice(0, 400) || post.story || 'Contenido oficial sincronizado directamente desde Meta Graph API.',
-        agent_lesson: isVideo 
-          ? `Registro audiovisual oficial verificado de la fanpage ARKAIOS (${canonical}). Analizable para visión por computadora y transcripción.`
-          : `Lección oficial asimilada desde la página ARKAIOS: ${(msg || post.story || '').slice(0, 250)}...`,
-        tags: ['meta-graph-api', 'arkaios-official', isVideo ? 'video' : 'post']
-      };
-
-      // Si no existe, agregar
-      if (!library.some(x => x.id === newItem.id || x.canonical_url === newItem.canonical_url)) {
-        library.push(newItem);
-        newCount++;
-      }
+    allPosts.forEach(post => {
+      const outcome = ingestMetaPost(post, 'meta_graph_api');
+      if (outcome.status === 'CREATED') newCount++;
+      if (outcome.status === 'UPDATED') updatedCount++;
     });
 
-    console.log(`[+] Elementos nuevos añadidos a la base: ${newCount}`);
-    fs.writeFileSync(LIBRARY_PATH, JSON.stringify(library, null, 2), 'utf-8');
+    console.log(`[+] Elementos nuevos añadidos: ${newCount} | Actualizados: ${updatedCount}`);
 
-    // Ejecutar curación y normalización automática
-    curateLibrary();
+    try {
+      curateLibrary();
+    } catch (e) {
+      console.warn('[CURATE] Aviso en curación:', e.message);
+    }
 
-    return { success: true, count: posts.length, added: newCount };
+    const totalLib = loadLibrary().length;
+
+    updateSyncStatus({
+      token_status: 'ACTIVE',
+      token_expired: false,
+      last_error: null,
+      total_items: totalLib,
+      added_count: newCount,
+      updated_count: updatedCount,
+      success: true
+    });
+
+    return { success: true, count: allPosts.length, added: newCount, updated: updatedCount };
 
   } catch (err) {
     console.error('❌ Error de conexión:', err.message);
+    updateSyncStatus({
+      token_status: 'NETWORK_ERROR',
+      token_expired: false,
+      last_error: err.message,
+      success: false
+    });
+    eventBus.emit('knowledge.sync.failed', { reason: err.message }, 'meta_graph_api');
     return { success: false, error: err.message };
   }
 }

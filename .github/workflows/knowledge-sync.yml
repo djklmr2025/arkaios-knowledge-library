@@ -1,0 +1,48 @@
+name: ARKAIOS Knowledge Autonomous Monitor & Sync
+
+on:
+  schedule:
+    # Ejecuta cada 15 minutos de forma autónoma en la nube (sin depender de PC encendida)
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: knowledge-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Execute Autonomous Meta Sync
+        env:
+          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || '776644758860856' }}
+          META_APP_ID: ${{ secrets.META_APP_ID }}
+          META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+        run: |
+          node meta_collector.mjs
+
+      - name: Commit and Push Verified Updates
+        run: |
+          git config --global user.name "ARKAIOS Autonomous Agent"
+          git config --global user.email "agent@arkaios.ai"
+          git add library.json sync_status.json events.json || true
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos detectados en la biblioteca."
+          else
+            git commit -m "chore(sync): actualizar base de conocimiento y eventos desde Meta Graph API [skip ci]"
+            git push
+          fi
