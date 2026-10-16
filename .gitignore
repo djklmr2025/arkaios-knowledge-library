@@ -17,3 +17,4 @@ Thumbs.db
 *.bak
 .transaction_journal.json*
 .authorized_contributors*
+subscriptions.json
